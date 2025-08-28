@@ -3,46 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title><!-- REPLACE_ME: Site Title -->Ultima Defensa Legal</title>
+  <title>Ultima Defensa Legal</title>
   <meta name="description" content="Affordable legal protection for individuals. Quality case referrals for attorneys.">
   <style>
-    :root{
-      --bg:#0b1220;          /* page background */
-      --ink:#0f172a;         /* not used but kept for palette */
-      --muted:#64748b;
-      --white:#ffffff;
-      --att:#0ea5e9;         /* attorneys (blue) */
-      --sub:#22c55e;         /* subscribers (green) */
-      --ring:rgba(255,255,255,.15);
-      --card:#0f172a;
-      --cardInk:#e5e7eb;
-      --shadow:0 10px 25px rgba(0,0,0,.25);
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--white);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.45}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1120px;margin:0 auto;padding:20px}
+    :root{--bg:#0b1220;--white:#ffffff;--att:#0ea5e9;--sub:#22c55e;--ring:rgba(255,255,255,.15);--card:#0f172a;--ink:#e5e7eb;--shadow:0 10px 25px rgba(0,0,0,.25);--radius:18px}
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--white);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.45}
+    a{color:inherit;text-decoration:none}.container{max-width:1120px;margin:0 auto;padding:20px}
     header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
     .logo{font-weight:800;letter-spacing:.3px}
     .pill{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,.06);padding:8px 12px;border-radius:999px;border:1px solid var(--ring);font-size:.85rem}
-
-    /* HERO */
     .hero{padding:64px 0 34px;background:
       radial-gradient(1200px 600px at 80% -50%, rgba(14,165,233,.25), transparent 60%),
       radial-gradient(900px 400px at 10% -40%, rgba(34,197,94,.25), transparent 60%)}
-    .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+    .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
     .h1{font-size:clamp(30px,5vw,46px);line-height:1.1;margin:10px 0 14px}
-    .lead{color:var(--cardInk);opacity:.9;font-size:1.08rem;max-width:46ch}
+    .lead{color:var(--ink);opacity:.9;font-size:1.08rem;max-width:46ch}
     .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
     .btn{padding:14px 18px;border-radius:12px;border:1px solid var(--ring);font-weight:700;box-shadow:var(--shadow);transition:.2s transform,.2s background}
     .btn:hover{transform:translateY(-2px)}
-    .btn-attorney{background:linear-gradient(180deg, rgba(14,165,233,.25), rgba(14,165,233,.12));border-color:rgba(14,165,233,.35)}
-    .btn-client{background:linear-gradient(180deg, rgba(34,197,94,.25), rgba(34,197,94,.12));border-color:rgba(34,197,94,.35)}
+    .btn-att{background:linear-gradient(180deg, rgba(14,165,233,.25), rgba(14,165,233,.12));border-color:rgba(14,165,233,.35)}
+    .btn-sub{background:linear-gradient(180deg, rgba(34,197,94,.25), rgba(34,197,94,.12));border-color:rgba(34,197,94,.35)}
     .hero-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.04));border:1px solid var(--ring);border-radius:var(--radius);padding:18px}
-
-    /* SPLIT CARDS */
-    .grid-split{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:30px 0 10px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:30px 0 10px}
     .card{background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
     .card h3{margin:0 0 8px}
     .tag{display:inline-block;font-size:.78rem;border-radius:999px;padding:6px 10px;border:1px solid var(--ring);opacity:.95;margin-bottom:10px}
@@ -53,56 +35,34 @@
     .list li:before{content:"✓";position:absolute;left:0;top:0;color:#a7f3d0}
     .price{font-size:1.15rem;font-weight:800;margin:10px 0 14px}
     .btn-full{display:block;text-align:center;margin-top:6px}
-
-    /* HOW IT WORKS */
     .how{margin:44px 0 24px}
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .step{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid var(--ring);border-radius:16px;padding:18px}
     .step b{display:block;margin-bottom:6px}
-
     footer{border-top:1px solid var(--ring);margin-top:44px}
-    footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:24px 20px}
+    footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 20px}
     .small{color:#94a3b8;font-size:.9rem}
-
-    /* entry animations */
-    [data-anim]{opacity:0;transform:translateY(10px);animation:rise .6s ease forwards}
-    [data-anim].d1{animation-delay:.1s}
-    [data-anim].d2{animation-delay:.2s}
-    [data-anim].d3{animation-delay:.3s}
-    [data-anim].d4{animation-delay:.4s}
-    @keyframes rise{to{opacity:1;transform:none}}
-
-    /* responsive */
-    @media (max-width:900px){
-      .hero .wrap{grid-template-columns:1fr}
-      .grid-split{grid-template-columns:1fr}
-      .steps{grid-template-columns:1fr}
-    }
+    @media (max-width:900px){.wrap{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <header class="container">
-    <div class="logo"><!-- REPLACE_ME: Brand -->Ultima Defensa Legal</div>
-    <a class="pill" href="#contact"><!-- REPLACE_ME: Micro-CTA -->Hablamos Español</a>
+    <div class="logo">Ultima Defensa Legal</div>
+    <a class="pill" href="es/">Español</a>
   </header>
 
   <section class="hero">
     <div class="container wrap">
       <div>
-        <div class="pill" data-anim>Trusted · Bilingual · Affordable</div>
-        <h1 class="h1 d1" data-anim><!-- REPLACE_ME: Hero Headline -->
-          Affordable Legal Protection. Trusted Local Attorneys.
-        </h1>
-        <p class="lead d2" data-anim><!-- REPLACE_ME: Hero Subheadline -->
-          We connect individuals and families with vetted attorneys—and give attorneys a reliable stream of qualified cases.
-        </p>
-        <div class="cta-row d3" data-anim>
-          <a class="btn btn-client" href="#for-individuals"><!-- REPLACE_ME -->I Need Legal Help</a>
-          <a class="btn btn-attorney" href="#for-attorneys"><!-- REPLACE_ME -->I Am an Attorney</a>
+        <div class="pill">Trusted · Bilingual · Affordable</div>
+        <h1 class="h1">Affordable Legal Protection. Trusted Local Attorneys.</h1>
+        <p class="lead">We connect individuals and families with vetted attorneys—and give attorneys a reliable stream of qualified cases.</p>
+        <div class="cta-row">
+          <a class="btn btn-sub" href="#for-individuals">I Need Legal Help</a>
+          <a class="btn btn-att" href="#for-attorneys">I Am an Attorney</a>
         </div>
       </div>
-      <div class="hero-card d4" data-anim>
-        <!-- REPLACE_ME: Trust bullets -->
+      <div class="hero-card">
         <b>Why choose us?</b>
         <ul class="list">
           <li>Fast connection to nearby attorneys</li>
@@ -114,68 +74,52 @@
   </section>
 
   <main class="container">
-    <!-- CLEAR SPLIT -->
-    <section class="grid-split" aria-label="Choose your path">
-      <!-- ATTORNEYS -->
-      <article id="for-attorneys" class="card" data-anim>
+    <section class="grid">
+      <article id="for-attorneys" class="card">
         <span class="tag att">For Attorneys</span>
-        <h3><!-- REPLACE_ME -->Grow Your Practice</h3>
-        <p><!-- REPLACE_ME -->
-          Join our referral network, receive pre-screened inquiries, and focus on billable work—not marketing.
-        </p>
+        <h3>Grow Your Practice</h3>
+        <p>Join our referral network, receive pre-screened inquiries, and focus on billable work—not marketing.</p>
         <ul class="list">
-          <li><!-- REPLACE_ME -->Qualified case referrals by practice area</li>
-          <li><!-- REPLACE_ME -->ZIP and language matching</li>
-          <li><!-- REPLACE_ME -->Analytics dashboard & call recordings</li>
-          <li><!-- REPLACE_ME -->Cancel anytime</li>
+          <li>Qualified case referrals by practice area</li>
+          <li>ZIP and language matching</li>
+          <li>Analytics dashboard & call recordings</li>
+          <li>Cancel anytime</li>
         </ul>
-        <div class="price"><!-- REPLACE_ME -->From $15/mo</div>
-        <a class="btn btn-attorney btn-full" href="/attorney.html"><!-- REPLACE_ME: Link -->Attorney Membership</a>
+        <div class="price">From $15/mo</div>
+        <a class="btn btn-att btn-full" href="attorney.html">Attorney Membership</a>
       </article>
 
-      <!-- INDIVIDUALS -->
-      <article id="for-individuals" class="card" data-anim class="d1">
+      <article id="for-individuals" class="card">
         <span class="tag sub">For Individuals</span>
-        <h3><!-- REPLACE_ME -->Legal Help Made Simple</h3>
-        <p><!-- REPLACE_ME -->
-          Tell us the type of lawyer you need and your location—we’ll connect you quickly to a nearby attorney.
-        </p>
+        <h3>Legal Help Made Simple</h3>
+        <p>Tell us the type of lawyer you need and your location—we’ll connect you quickly to a nearby attorney.</p>
         <ul class="list">
-          <li><!-- REPLACE_ME -->Flat monthly plan—no surprise fees</li>
-          <li><!-- REPLACE_ME -->Bilingual support for your case</li>
-          <li><!-- REPLACE_ME -->Priority call routing</li>
-          <li><!-- REPLACE_ME -->Easy cancellation</li>
+          <li>Flat monthly plan—no surprise fees</li>
+          <li>Bilingual support for your case</li>
+          <li>Priority call routing</li>
+          <li>Easy cancellation</li>
         </ul>
-        <div class="price"><!-- REPLACE_ME -->Free 30-day trial, then $5/mo</div>
-        <a class="btn btn-client btn-full" href="/subscribe.html"><!-- REPLACE_ME: Link -->Subscriber Membership</a>
+        <div class="price">Free 30-day trial, then $5/mo</div>
+        <a class="btn btn-sub btn-full" href="subscribe.html">Subscriber Membership</a>
       </article>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="how" data-anim class="d2">
-      <h2><!-- REPLACE_ME: Section Title -->How It Works</h2>
+    <section class="how">
+      <h2>How It Works</h2>
       <div class="steps">
-        <div class="step"><b>1. Match</b><!-- REPLACE_ME -->Choose “Attorney” or “Individual” and answer a few quick questions.</div>
-        <div class="step"><b>2. Connect</b><!-- REPLACE_ME -->We route calls and leads instantly to the right place.</div>
-        <div class="step"><b>3. Resolve</b><!-- REPLACE_ME -->Get help fast—or add clients to your practice.</div>
+        <div class="step"><b>1. Match</b> Choose “Attorney” or “Individual” and answer a few quick questions.</div>
+        <div class="step"><b>2. Connect</b> We route calls and leads instantly to the right place.</div>
+        <div class="step"><b>3. Resolve</b> Get help fast—or add clients to your practice.</div>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <div class="small">
-        <!-- REPLACE_ME: Footer text -->
-        © <span id="y"></span> Ultima Defensa Legal · All rights reserved.
-      </div>
-      <div class="small" id="contact"><!-- REPLACE_ME: Contact -->
-        Contact: support@ultimadefensalegal.com
-      </div>
+      <div class="small">© <span id="y"></span> Ultima Defensa Legal · All rights reserved.</div>
+      <div class="small">Contact: support@ultimadefensalegal.com</div>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
