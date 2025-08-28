@@ -3,123 +3,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ultima Defensa Legal</title>
-  <meta name="description" content="Affordable legal protection for individuals. Quality case referrals for attorneys.">
+  <title>Subscriber Membership · Ultima Defensa Legal</title>
+  <meta name="description" content="Subscriber membership: affordable legal help with bilingual support and fast routing.">
   <style>
-    :root{--bg:#0b1220;--white:#ffffff;--att:#0ea5e9;--sub:#22c55e;--ring:rgba(255,255,255,.15);--card:#0f172a;--ink:#e5e7eb;--shadow:0 10px 25px rgba(0,0,0,.25);--radius:18px}
+    :root{--bg:#0b1220;--white:#ffffff;--sub:#22c55e;--ring:rgba(255,255,255,.15);--card:#0f172a;--shadow:0 10px 25px rgba(0,0,0,.25);--radius:18px}
     *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--white);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.45}
     a{color:inherit;text-decoration:none}.container{max-width:1120px;margin:0 auto;padding:20px}
     header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
-    .logo{font-weight:800;letter-spacing:.3px}
-    .pill{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,.06);padding:8px 12px;border-radius:999px;border:1px solid var(--ring);font-size:.85rem}
-    .hero{padding:64px 0 34px;background:
-      radial-gradient(1200px 600px at 80% -50%, rgba(14,165,233,.25), transparent 60%),
-      radial-gradient(900px 400px at 10% -40%, rgba(34,197,94,.25), transparent 60%)}
-    .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
-    .h1{font-size:clamp(30px,5vw,46px);line-height:1.1;margin:10px 0 14px}
-    .lead{color:var(--ink);opacity:.9;font-size:1.08rem;max-width:46ch}
-    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
-    .btn{padding:14px 18px;border-radius:12px;border:1px solid var(--ring);font-weight:700;box-shadow:var(--shadow);transition:.2s transform,.2s background}
-    .btn:hover{transform:translateY(-2px)}
-    .btn-att{background:linear-gradient(180deg, rgba(14,165,233,.25), rgba(14,165,233,.12));border-color:rgba(14,165,233,.35)}
-    .btn-sub{background:linear-gradient(180deg, rgba(34,197,94,.25), rgba(34,197,94,.12));border-color:rgba(34,197,94,.35)}
-    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.04));border:1px solid var(--ring);border-radius:var(--radius);padding:18px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:30px 0 10px}
-    .card{background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
-    .card h3{margin:0 0 8px}
-    .tag{display:inline-block;font-size:.78rem;border-radius:999px;padding:6px 10px;border:1px solid var(--ring);opacity:.95;margin-bottom:10px}
-    .tag.att{border-color:rgba(14,165,233,.45);color:#bae6fd;background:rgba(14,165,233,.12)}
-    .tag.sub{border-color:rgba(34,197,94,.45);color:#bbf7d0;background:rgba(34,197,94,.12)}
-    .list{margin:12px 0 16px;padding:0;list-style:none}
-    .list li{margin:8px 0;padding-left:26px;position:relative;color:#cbd5e1}
-    .list li:before{content:"✓";position:absolute;left:0;top:0;color:#a7f3d0}
-    .price{font-size:1.15rem;font-weight:800;margin:10px 0 14px}
-    .btn-full{display:block;text-align:center;margin-top:6px}
-    .how{margin:44px 0 24px}
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .step{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid var(--ring);border-radius:16px;padding:18px}
-    .step b{display:block;margin-bottom:6px}
-    footer{border-top:1px solid var(--ring);margin-top:44px}
-    footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 20px}
-    .small{color:#94a3b8;font-size:.9rem}
-    @media (max-width:900px){.wrap{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+    .logo{font-weight:800;letter-spacing:.3px}.pill{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,.06);padding:8px 12px;border-radius:999px;border:1px solid var(--ring);font-size:.85rem}
+    .hero{padding:48px 0 12px}.h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:8px 0 10px}.lead{opacity:.9;max-width:60ch}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px}
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .list{list-style:none;margin:0;padding:0}.list li{margin:8px 0;padding-left:26px;position:relative;color:#cbd5e1}.list li:before{content:"✓";position:absolute;left:0;color:#a7f3d0}
+    .price{font-weight:800;margin:8px 0 14px}
+    .btn{display:inline-block;padding:14px 18px;border-radius:12px;border:1px solid var(--ring);font-weight:700;box-shadow:var(--shadow)} .btn-sub{background:linear-gradient(180deg, rgba(34,197,94,.25), rgba(34,197,94,.12));border-color:rgba(34,197,94,.35)}
+    .faq{margin-top:26px}.faq details{background:rgba(255,255,255,.04);border:1px solid var(--ring);border-radius:12px;padding:12px 14px;margin:10px 0}
+    footer{border-top:1px solid var(--ring);margin-top:36px} footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 20px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <header class="container">
-    <div class="logo">Ultima Defensa Legal</div>
-    <a class="pill" href="es/">Español</a>
-  </header>
+<header class="container">
+  <a class="logo" href="index.html">Ultima Defensa Legal</a>
+  <nav><a class="pill" href="es/suscriptor.html">Español</a></nav>
+</header>
 
-  <section class="hero">
-    <div class="container wrap">
-      <div>
-        <div class="pill">Trusted · Bilingual · Affordable</div>
-        <h1 class="h1">Affordable Legal Protection. Trusted Local Attorneys.</h1>
-        <p class="lead">We connect individuals and families with vetted attorneys—and give attorneys a reliable stream of qualified cases.</p>
-        <div class="cta-row">
-          <a class="btn btn-sub" href="#for-individuals">I Need Legal Help</a>
-          <a class="btn btn-att" href="#for-attorneys">I Am an Attorney</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <b>Why choose us?</b>
-        <ul class="list">
-          <li>Fast connection to nearby attorneys</li>
-          <li>Transparent, low monthly membership</li>
-          <li>Bilingual support (English & Spanish)</li>
-        </ul>
-      </div>
+<section class="container hero">
+  <div class="card">
+    <h1 class="h1">Subscriber Membership</h1>
+    <p class="lead">Get <b>affordable, fast access</b> to local attorneys with bilingual support. Tell us what you need; we route your call to the right lawyer.</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h2>What’s included</h2>
+      <ul class="list">
+        <li>Priority call routing to nearby attorneys</li>
+        <li>Bilingual support (English & Spanish)</li>
+        <li>Simple monthly plan—no surprise fees</li>
+        <li>Cancel anytime</li>
+      </ul>
+      <p class="price">$19.99 first month · then $9.99/month</p>
+      <a class="btn btn-sub" href="#join">Start Membership</a>
+      <p style="color:#94a3b8;margin-top:8px;">Questions? Email support@ultimadefensalegal.com</p>
     </div>
-  </section>
-
-  <main class="container">
-    <section class="grid">
-      <article id="for-attorneys" class="card">
-        <span class="tag att">For Attorneys</span>
-        <h3>Grow Your Practice</h3>
-        <p>Join our referral network, receive pre-screened inquiries, and focus on billable work—not marketing.</p>
-        <ul class="list">
-          <li>Qualified case referrals by practice area</li>
-          <li>ZIP and language matching</li>
-          <li>Analytics dashboard & call recordings</li>
-          <li>Cancel anytime</li>
-        </ul>
-        <div class="price">From $15/mo</div>
-        <a class="btn btn-att btn-full" href="attorney.html">Attorney Membership</a>
-      </article>
-
-      <article id="for-individuals" class="card">
-        <span class="tag sub">For Individuals</span>
-        <h3>Legal Help Made Simple</h3>
-        <p>Tell us the type of lawyer you need and your location—we’ll connect you quickly to a nearby attorney.</p>
-        <ul class="list">
-          <li>Flat monthly plan—no surprise fees</li>
-          <li>Bilingual support for your case</li>
-          <li>Priority call routing</li>
-          <li>Easy cancellation</li>
-        </ul>
-        <div class="price">Free 30-day trial, then $5/mo</div>
-        <a class="btn btn-sub btn-full" href="subscribe.html">Subscriber Membership</a>
-      </article>
-    </section>
-
-    <section class="how">
-      <h2>How It Works</h2>
-      <div class="steps">
-        <div class="step"><b>1. Match</b> Choose “Attorney” or “Individual” and answer a few quick questions.</div>
-        <div class="step"><b>2. Connect</b> We route calls and leads instantly to the right place.</div>
-        <div class="step"><b>3. Resolve</b> Get help fast—or add clients to your practice.</div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="small">© <span id="y"></span> Ultima Defensa Legal · All rights reserved.</div>
-      <div class="small">Contact: support@ultimadefensalegal.com</div>
+    <div class="card">
+      <h2 id="join">How it works</h2>
+      <ul class="list">
+        <li>Sign up and enter your city/ZIP</li>
+        <li>Tell us your legal need (e.g., immigration, family, criminal)</li>
+        <li>We connect you with a nearby attorney</li>
+      </ul>
+      <a class="btn btn-sub" href="mailto:join@ultimadefensalegal.com?subject=Subscribe">Join via Email</a>
     </div>
-  </footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  </div>
+
+  <div class="faq">
+    <h2>FAQ</h2>
+    <details><summary>Does the fee include attorney services?</summary><p>No. The fee covers routing, intake, and connection. Attorney fees are separate and discussed directly with the attorney.</p></details>
+    <details><summary>Can I cancel anytime?</summary><p>Yes—month-to-month. Cancel before the next cycle.</p></details>
+    <details><summary>Is support bilingual?</summary><p>Yes—English and Spanish.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div>© <span id="y"></span> Ultima Defensa Legal</div>
+    <div>Contact: support@ultimadefensalegal.com</div>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
