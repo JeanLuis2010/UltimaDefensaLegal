@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>UDL — Subscribe</title>
+<meta name="description" content="Join Ultima Defensa Legal. $19.99 for 90 days, then $9.99/month. Get your member ID and access our toll-free number."/>
+<style>
+:root{--navy:#0d2e4f;--gold:#d4af37;--ink:#222;--bg:#f6f7fb;--muted:#6b7890;--white:#fff;--radius:14px;--shadow:0 8px 20px rgba(13,46,79,.12)}
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+header{background:var(--navy);color:#fff;padding:18px 14px;border-bottom:6px solid var(--gold)}
+h1{margin:.2rem 0 0}
+.container{max-width:1120px;margin:auto;padding:1.25rem}
+.card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:1rem}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.badge{display:inline-block;background:#eef3ff;color:#183b72;padding:4px 10px;border-radius:999px;font-weight:700;font-size:.85rem}
+.price{font-size:1.6rem;font-weight:900}
+.btn{display:inline-block;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:800;box-shadow:var(--shadow);border:2px solid transparent}
+.btn.primary{background:var(--gold);color:#1a2130}
+.btn.gray{background:#eef2f7;color:#111}
+.muted{color:var(--muted)}
+.note{font-size:.92rem;color:#39465e}
+hr{border:none;border-top:1px solid #e5e9f2;margin:1rem 0}
+footer{background:#0a223a;color:#c7d5e8;text-align:center;padding:1rem}
+label{display:block;font-weight:700;margin:.4rem 0 .25rem}
+input{width:100%;padding:.65rem .8rem;border:1px solid #cfd6e4;border-radius:10px;font:inherit}
+.idprev{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#0d2e4f;color:#fff;border-radius:8px;padding:.4rem .6rem;display:inline-block}
+.small{font-size:.9rem}
+.lang{display:flex;gap:8px;margin:.5rem 0 1rem}
+.lang a{color:#e5eeff;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="lang"><a href="subscribe.html">EN</a> · <a href="subscribe_es.html">ES</a></div>
+    <h1>Join Ultima Defensa Legal</h1>
+    <p class="small">Trial membership: <strong>$19.99</strong> for 90 days → then <strong>$9.99/month</strong>. Cancel anytime.</p>
+  </div>
+</header>
+
+<main class="container">
+  <section class="grid">
+    <article class="card">
+      <span class="badge">Trial Plan</span>
+      <h2>$19.99 for 90 days</h2>
+      <p>Get a UDL Member ID, access to our toll-free line, and a <strong>free or low-cost consultation</strong> with a participating attorney.</p>
+      <ul class="small">
+        <li>UDL ID card (digital)</li>
+        <li>Call our 800/888 line, enter ID, choose attorney type/location</li>
+        <li>We forward your call to a UDL attorney</li>
+      </ul>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem">
+        <!-- Replace these with your real hosted checkout links -->
+        <a class="btn primary" href="https://buy.stripe.com/REPLACE_TRIAL_1999" target="_blank" rel="noopener">Pay $19.99 (Stripe)</a>
+        <a class="btn gray" href="https://square.link/u/REPLACE_TRIAL_1999" target="_blank" rel="noopener">Pay $19.99 (Square)</a>
+      </div>
+      <p class="note">After payment you’ll be sent to our confirmation page to get your Member ID.</p>
+    </article>
+
+    <article class="card">
+      <span class="badge">After Trial</span>
+      <h2>$9.99 / month</h2>
+      <p>Keep your ID active, ongoing access to the line, and unlimited referrals while subscribed.</p>
+      <ul class="small">
+        <li>Auto-renew monthly</li>
+        <li>Cancel anytime</li>
+      </ul>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem">
+        <a class="btn primary" href="https://buy.stripe.com/REPLACE_MONTHLY_999" target="_blank" rel="noopener">Start $9.99/mo (Stripe)</a>
+        <a class="btn gray" href="https://square.link/u/REPLACE_MONTHLY_999" target="_blank" rel="noopener">Start $9.99/mo (Square)</a>
+      </div>
+      <p class="note">Use the same email so we can keep your same Member ID.</p>
+    </article>
+  </section>
+
+  <hr>
+
+  <section class="card">
+    <h3>Preview your UDL Member ID format</h3>
+    <p>Your digital card will display something like: <span id="idprev" class="idprev">UDL-2025-000001</span></p>
+    <div class="grid">
+      <div>
+        <label for="nm">Name (to show on card)</label>
+        <input id="nm" placeholder="Your full name" />
+      </div>
+      <div>
+        <label for="em">Email (for receipt & card)</label>
+        <input id="em" placeholder="you@example.com" />
+      </div>
+    </div>
+    <p class="small muted">This preview is optional. Your official card is generated on our confirmation page after payment.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Ultima Defensa Legal</p>
+</footer>
+
+<script>
+// fun preview only
+(function(){
+  const el=document.getElementById('idprev');
+  const pad=n=>String(n).padStart(6,'0');
+  const y=new Date().getFullYear();
+  const r=Math.floor(1+Math.random()*999999);
+  el.textContent=`UDL-${y}-${pad(r)}`;
+})();
+</script>
+</body>
+</html>
