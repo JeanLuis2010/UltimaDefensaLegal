@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ultima Defensa Legal</title>
-  <meta name="description" content="Protección legal asequible para individuos. Referencias de calidad para abogados.">
+  <meta name="description" content="Affordable legal protection for individuals. Quality case referrals for attorneys.">
   <style>
     :root{--bg:#0b1220;--white:#ffffff;--att:#0ea5e9;--sub:#22c55e;--ring:rgba(255,255,255,.15);--card:#0f172a;--ink:#e5e7eb;--shadow:0 10px 25px rgba(0,0,0,.25);--radius:18px}
     *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--white);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.45}
-    a{color:inherit;text-decoration:none}.container{max-width:1120px;margin:0 auto;padding:20px}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:20px}
     header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
-    .logo{font-weight:800;letter-spacing:.3px}.pill{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,.06);padding:8px 12px;border-radius:999px;border:1px solid var(--ring);font-size:.85rem}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
+    .scales{width:28px;height:28px;display:inline-block}
+    .pill{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,.06);padding:8px 12px;border-radius:999px;border:1px solid var(--ring);font-size:.85rem}
     .hero{padding:64px 0 34px;background:
       radial-gradient(1200px 600px at 80% -50%, rgba(14,165,233,.25), transparent 60%),
       radial-gradient(900px 400px at 10% -40%, rgba(34,197,94,.25), transparent 60%)}
@@ -46,27 +49,35 @@
 </head>
 <body>
   <header class="container">
-    <div class="logo">Ultima Defensa Legal</div>
-    <a class="pill" href="../">English</a>
+    <div class="brand" aria-label="Ultima Defensa Legal">
+      <!-- Scales of Justice Icon -->
+      <svg class="scales" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 3v3M6 21h12M12 6l7 4M12 6L5 10" />
+        <path d="M5 10l-2 4a3 3 0 0 0 6 0l-2-4M19 10l-2 4a3 3 0 0 0 6 0l-2-4" />
+        <path d="M12 21V9" />
+      </svg>
+      <span>Ultima Defensa Legal</span>
+    </div>
+    <a class="pill" href="es/">Español</a>
   </header>
 
   <section class="hero">
     <div class="container wrap">
       <div>
-        <div class="pill">Confiable · Bilingüe · Asequible</div>
-        <h1 class="h1">Protección legal asequible. Abogados locales de confianza.</h1>
-        <p class="lead">Conectamos a individuos y familias con abogados verificados, y ofrecemos a los abogados un flujo constante de casos calificados.</p>
+        <div class="pill">Trusted · Bilingual · Affordable</div>
+        <h1 class="h1">Affordable Legal Protection. Trusted Local Attorneys.</h1>
+        <p class="lead">We connect individuals and families with vetted attorneys—and give attorneys a reliable stream of qualified cases.</p>
         <div class="cta-row">
-          <a class="btn btn-sub" href="#para-individuos">Necesito ayuda legal</a>
-          <a class="btn btn-att" href="#para-abogados">Soy abogado</a>
+          <a class="btn btn-sub" href="#for-individuals">I Need Legal Help</a>
+          <a class="btn btn-att" href="#for-attorneys">I Am an Attorney</a>
         </div>
       </div>
       <div class="hero-card">
-        <b>¿Por qué elegirnos?</b>
+        <b>Why choose us?</b>
         <ul class="list">
-          <li>Conexión rápida con abogados cercanos</li>
-          <li>Membresía mensual transparente y baja</li>
-          <li>Soporte bilingüe (Inglés y Español)</li>
+          <li>Fast connection to nearby attorneys</li>
+          <li>Transparent, low monthly membership</li>
+          <li>Bilingual support (English & Spanish)</li>
         </ul>
       </div>
     </div>
@@ -74,49 +85,51 @@
 
   <main class="container">
     <section class="grid">
-      <article id="para-abogados" class="card">
-        <span class="tag att">Para Abogados</span>
-        <h3>Haz crecer tu práctica</h3>
-        <p>Únete a nuestra red de referencias, recibe consultas preseleccionadas y concéntrate en el trabajo facturable, no en marketing.</p>
+      <!-- Attorneys -->
+      <article id="for-attorneys" class="card">
+        <span class="tag att">For Attorneys</span>
+        <h3>Grow Your Practice</h3>
+        <p>Join our referral network, receive pre-screened inquiries, and focus on billable work—not marketing.</p>
         <ul class="list">
-          <li>Casos calificados por área de práctica</li>
-          <li>Coincidencia por código postal e idioma</li>
-          <li>Panel de analíticas y grabaciones de llamadas</li>
-          <li>Cancelación en cualquier momento</li>
+          <li>Qualified case referrals by practice area</li>
+          <li>ZIP and language matching</li>
+          <li>Analytics dashboard & call recordings</li>
+          <li>Cancel anytime</li>
         </ul>
-        <div class="price">Desde $15/mes</div>
-        <a class="btn btn-att btn-full" href="abogado.html">Membresía de Abogado</a>
+        <div class="price">$300 first month · then $425/month</div>
+        <a class="btn btn-att btn-full" href="attorney.html">Attorney Membership</a>
       </article>
 
-      <article id="para-individuos" class="card">
-        <span class="tag sub">Para Individuos</span>
-        <h3>Ayuda legal sencilla</h3>
-        <p>Dinos qué tipo de abogado necesitas y tu ubicación—te conectamos rápidamente con un abogado cercano.</p>
+      <!-- Individuals -->
+      <article id="for-individuals" class="card">
+        <span class="tag sub">For Individuals</span>
+        <h3>Legal Help Made Simple</h3>
+        <p>Tell us the type of lawyer you need and your location—we’ll connect you quickly to a nearby attorney.</p>
         <ul class="list">
-          <li>Plan mensual simple y asequible</li>
-          <li>Soporte bilingüe para tu caso</li>
-          <li>Enrutamiento prioritario de llamadas</li>
-          <li>Cancelación fácil</li>
+          <li>Simple, affordable monthly plan</li>
+          <li>Bilingual support for your case</li>
+          <li>Priority call routing</li>
+          <li>Easy cancellation</li>
         </ul>
-        <div class="price">$19.99 el primer mes · luego $9.99/mes</div>
-        <a class="btn btn-sub btn-full" href="suscriptor.html">Membresía de Suscriptor</a>
+        <div class="price">$19.99 first month · then $9.99/month</div>
+        <a class="btn btn-sub btn-full" href="subscribe.html">Subscriber Membership</a>
       </article>
     </section>
 
     <section class="how">
-      <h2>Cómo Funciona</h2>
+      <h2>How It Works</h2>
       <div class="steps">
-        <div class="step"><b>1. Elige</b> Selecciona “Abogado” o “Individuo” y responde unas preguntas rápidas.</div>
-        <div class="step"><b>2. Conecta</b> Enrutamos llamadas y consultas de inmediato al lugar correcto.</div>
-        <div class="step"><b>3. Resuelve</b> Obtén ayuda rápida—o agrega clientes a tu práctica.</div>
+        <div class="step"><b>1. Match</b> Choose “Attorney” or “Individual” and answer a few quick questions.</div>
+        <div class="step"><b>2. Connect</b> We route calls and leads instantly to the right place.</div>
+        <div class="step"><b>3. Resolve</b> Get help fast—or add clients to your practice.</div>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <div class="small">© <span id="y"></span> Ultima Defensa Legal · Todos los derechos reservados.</div>
-      <div class="small">Contacto: soporte@ultimadefensalegal.com</div>
+      <div class="small">© <span id="y"></span> Ultima Defensa Legal · All rights reserved.</div>
+      <div class="small">Contact: support@ultimadefensalegal.com</div>
     </div>
   </footer>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
