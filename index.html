@@ -8,9 +8,11 @@
   <style>
     :root{--bg:#0b1220;--white:#ffffff;--att:#0ea5e9;--sub:#22c55e;--ring:rgba(255,255,255,.15);--card:#0f172a;--ink:#e5e7eb;--shadow:0 10px 25px rgba(0,0,0,.25);--radius:18px}
     *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--white);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.45}
-    a{color:inherit;text-decoration:none}.container{max-width:1120px;margin:0 auto;padding:20px}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:20px}
     header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
-    .logo{font-weight:800;letter-spacing:.3px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
+    .scales{width:28px;height:28px;display:inline-block}
     .pill{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,.06);padding:8px 12px;border-radius:999px;border:1px solid var(--ring);font-size:.85rem}
     .hero{padding:64px 0 34px;background:
       radial-gradient(1200px 600px at 80% -50%, rgba(14,165,233,.25), transparent 60%),
@@ -47,7 +49,15 @@
 </head>
 <body>
   <header class="container">
-    <div class="logo">Ultima Defensa Legal</div>
+    <div class="brand" aria-label="Ultima Defensa Legal">
+      <!-- Scales of Justice Icon -->
+      <svg class="scales" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 3v3M6 21h12M12 6l7 4M12 6L5 10" />
+        <path d="M5 10l-2 4a3 3 0 0 0 6 0l-2-4M19 10l-2 4a3 3 0 0 0 6 0l-2-4" />
+        <path d="M12 21V9" />
+      </svg>
+      <span>Ultima Defensa Legal</span>
+    </div>
     <a class="pill" href="es/">Español</a>
   </header>
 
@@ -75,6 +85,7 @@
 
   <main class="container">
     <section class="grid">
+      <!-- Attorneys -->
       <article id="for-attorneys" class="card">
         <span class="tag att">For Attorneys</span>
         <h3>Grow Your Practice</h3>
@@ -85,10 +96,11 @@
           <li>Analytics dashboard & call recordings</li>
           <li>Cancel anytime</li>
         </ul>
-        <div class="price">From $15/mo</div>
+        <div class="price">$300 first month · then $425/month</div>
         <a class="btn btn-att btn-full" href="attorney.html">Attorney Membership</a>
       </article>
 
+      <!-- Individuals -->
       <article id="for-individuals" class="card">
         <span class="tag sub">For Individuals</span>
         <h3>Legal Help Made Simple</h3>
