@@ -5,30 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ultima Defensa Legal</title>
   <meta name="description" content="Protección legal asequible para individuos. Referencias de calidad para abogados.">
-  <!-- Optional SEO: declare English alt page -->
-  <link rel="alternate" hreflang="en" href="/" />
   <style>
-    :root{--bg:#0b1220;--ink:#0f172a;--muted:#64748b;--white:#ffffff;--att:#0ea5e9;--sub:#22c55e;--ring:rgba(255,255,255,.15);--card:#0f172a;--cardInk:#e5e7eb;--shadow:0 10px 25px rgba(0,0,0,.25);--radius:18px}
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--white);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.45}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1120px;margin:0 auto;padding:20px}
+    :root{--bg:#0b1220;--white:#ffffff;--att:#0ea5e9;--sub:#22c55e;--ring:rgba(255,255,255,.15);--card:#0f172a;--ink:#e5e7eb;--shadow:0 10px 25px rgba(0,0,0,.25);--radius:18px}
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--white);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.45}
+    a{color:inherit;text-decoration:none}.container{max-width:1120px;margin:0 auto;padding:20px}
     header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
-    .logo{font-weight:800;letter-spacing:.3px}
-    .pill{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,.06);padding:8px 12px;border-radius:999px;border:1px solid var(--ring);font-size:.85rem}
+    .logo{font-weight:800;letter-spacing:.3px}.pill{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,.06);padding:8px 12px;border-radius:999px;border:1px solid var(--ring);font-size:.85rem}
     .hero{padding:64px 0 34px;background:
       radial-gradient(1200px 600px at 80% -50%, rgba(14,165,233,.25), transparent 60%),
       radial-gradient(900px 400px at 10% -40%, rgba(34,197,94,.25), transparent 60%)}
-    .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+    .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
     .h1{font-size:clamp(30px,5vw,46px);line-height:1.1;margin:10px 0 14px}
-    .lead{color:var(--cardInk);opacity:.9;font-size:1.08rem;max-width:46ch}
+    .lead{color:var(--ink);opacity:.9;font-size:1.08rem;max-width:46ch}
     .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
     .btn{padding:14px 18px;border-radius:12px;border:1px solid var(--ring);font-weight:700;box-shadow:var(--shadow);transition:.2s transform,.2s background}
     .btn:hover{transform:translateY(-2px)}
-    .btn-attorney{background:linear-gradient(180deg, rgba(14,165,233,.25), rgba(14,165,233,.12));border-color:rgba(14,165,233,.35)}
-    .btn-client{background:linear-gradient(180deg, rgba(34,197,94,.25), rgba(34,197,94,.12));border-color:rgba(34,197,94,.35)}
+    .btn-att{background:linear-gradient(180deg, rgba(14,165,233,.25), rgba(14,165,233,.12));border-color:rgba(14,165,233,.35)}
+    .btn-sub{background:linear-gradient(180deg, rgba(34,197,94,.25), rgba(34,197,94,.12));border-color:rgba(34,197,94,.35)}
     .hero-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.04));border:1px solid var(--ring);border-radius:var(--radius);padding:18px}
-    .grid-split{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:30px 0 10px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:30px 0 10px}
     .card{background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
     .card h3{margin:0 0 8px}
     .tag{display:inline-block;font-size:.78rem;border-radius:999px;padding:6px 10px;border:1px solid var(--ring);opacity:.95;margin-bottom:10px}
@@ -44,36 +39,29 @@
     .step{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid var(--ring);border-radius:16px;padding:18px}
     .step b{display:block;margin-bottom:6px}
     footer{border-top:1px solid var(--ring);margin-top:44px}
-    footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:24px 20px}
+    footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 20px}
     .small{color:#94a3b8;font-size:.9rem}
-    [data-anim]{opacity:0;transform:translateY(10px);animation:rise .6s ease forwards}
-    [data-anim].d1{animation-delay:.1s}
-    [data-anim].d2{animation-delay:.2s}
-    [data-anim].d3{animation-delay:.3s}
-    [data-anim].d4{animation-delay:.4s}
-    @keyframes rise{to{opacity:1;transform:none}}
-    @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.grid-split{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+    @media (max-width:900px){.wrap{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <header class="container">
     <div class="logo">Ultima Defensa Legal</div>
-    <!-- Language toggle -->
-    <a class="pill" href="/">English</a>
+    <a class="pill" href="../">English</a>
   </header>
 
   <section class="hero">
     <div class="container wrap">
       <div>
-        <div class="pill" data-anim>Confiable · Bilingüe · Asequible</div>
-        <h1 class="h1 d1" data-anim>Protección legal asequible. Abogados locales de confianza.</h1>
-        <p class="lead d2" data-anim>Conectamos a individuos y familias con abogados verificados, y ofrecemos a los abogados un flujo constante de casos calificados.</p>
-        <div class="cta-row d3" data-anim>
-          <a class="btn btn-client" href="#para-individuos">Necesito ayuda legal</a>
-          <a class="btn btn-attorney" href="#para-abogados">Soy abogado</a>
+        <div class="pill">Confiable · Bilingüe · Asequible</div>
+        <h1 class="h1">Protección legal asequible. Abogados locales de confianza.</h1>
+        <p class="lead">Conectamos a individuos y familias con abogados verificados, y ofrecemos a los abogados un flujo constante de casos calificados.</p>
+        <div class="cta-row">
+          <a class="btn btn-sub" href="#para-individuos">Necesito ayuda legal</a>
+          <a class="btn btn-att" href="#para-abogados">Soy abogado</a>
         </div>
       </div>
-      <div class="hero-card d4" data-anim>
+      <div class="hero-card">
         <b>¿Por qué elegirnos?</b>
         <ul class="list">
           <li>Conexión rápida con abogados cercanos</li>
@@ -85,8 +73,8 @@
   </section>
 
   <main class="container">
-    <section class="grid-split" aria-label="Elegir camino">
-      <article id="para-abogados" class="card" data-anim>
+    <section class="grid">
+      <article id="para-abogados" class="card">
         <span class="tag att">Para Abogados</span>
         <h3>Haz crecer tu práctica</h3>
         <p>Únete a nuestra red de referencias, recibe consultas preseleccionadas y concéntrate en el trabajo facturable, no en marketing.</p>
@@ -97,10 +85,10 @@
           <li>Cancelación en cualquier momento</li>
         </ul>
         <div class="price">Desde $15/mes</div>
-        <a class="btn btn-attorney btn-full" href="/es/abogado.html">Membresía de Abogado</a>
+        <a class="btn btn-att btn-full" href="abogado.html">Membresía de Abogado</a>
       </article>
 
-      <article id="para-individuos" class="card" data-anim>
+      <article id="para-individuos" class="card">
         <span class="tag sub">Para Individuos</span>
         <h3>Ayuda legal sencilla</h3>
         <p>Dinos qué tipo de abogado necesitas y tu ubicación—te conectamos rápidamente con un abogado cercano.</p>
@@ -111,16 +99,16 @@
           <li>Cancelación fácil</li>
         </ul>
         <div class="price">Prueba gratuita de 30 días, luego $5/mes</div>
-        <a class="btn btn-client btn-full" href="/es/suscriptor.html">Membresía de Suscriptor</a>
+        <a class="btn btn-sub btn-full" href="suscriptor.html">Membresía de Suscriptor</a>
       </article>
     </section>
 
-    <section class="how" data-anim>
+    <section class="how">
       <h2>Cómo Funciona</h2>
       <div class="steps">
-        <div class="step"><b>1. Elige</b>Selecciona “Abogado” o “Individuo” y responde unas preguntas rápidas.</div>
-        <div class="step"><b>2. Conecta</b>Enrutamos llamadas y consultas de inmediato al lugar correcto.</div>
-        <div class="step"><b>3. Resuelve</b>Obtén ayuda rápida—o agrega clientes a tu práctica.</div>
+        <div class="step"><b>1. Elige</b> Selecciona “Abogado” o “Individuo” y responde unas preguntas rápidas.</div>
+        <div class="step"><b>2. Conecta</b> Enrutamos llamadas y consultas de inmediato al lugar correcto.</div>
+        <div class="step"><b>3. Resuelve</b> Obtén ayuda rápida—o agrega clientes a tu práctica.</div>
       </div>
     </section>
   </main>
@@ -128,10 +116,9 @@
   <footer>
     <div class="container">
       <div class="small">© <span id="y"></span> Ultima Defensa Legal · Todos los derechos reservados.</div>
-      <div class="small" id="contact">Contacto: soporte@ultimadefensalegal.com</div>
+      <div class="small">Contacto: soporte@ultimadefensalegal.com</div>
     </div>
   </footer>
-
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
