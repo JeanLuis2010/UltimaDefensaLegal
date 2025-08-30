@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ultima Defensa Legal — Legal Protection for Families</title>
-  <meta name="description" content="Ultima Defensa Legal ofrece protección legal bilingüe (EN/ES). Planes de 3 meses para individuos y familias, con opción de extensión.">
+  <title>Ultima Defensa Legal — Protección Legal para Familias</title>
+  <meta name="description" content="Ultima Defensa Legal ofrece ayuda legal bilingüe (EN/ES). Planes de 3 meses para individuos y familias, con opción de extensión.">
   <link rel="stylesheet" href="css/style.css" />
   <style>
     :root { --max: 1100px; }
-    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.5; color:#111; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.5; color:#111; }
     header, nav, main, footer { width:100%; }
-    .container { max-width: var(--max); margin: 0 auto; padding: 1rem; }
+    .container { max-width: var(--max); margin:0 auto; padding:1rem; }
     nav { border-bottom:1px solid #eee; background:#fff; position:sticky; top:0; z-index:20; }
     .nav-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
     .nav-links a { text-decoration:none; color:#111; margin:0 .5rem; }
@@ -29,11 +29,13 @@
     .muted { color:#666; font-size:.95rem; }
 
     /* Pricing */
+    .population-block { margin: 1.5rem 0; }
+    .population-title { margin:.25rem 0 1rem; font-size:1.25rem; font-weight:700; }
     .plans { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:1rem; }
     .plan-card { border:1px solid #e5e7eb; border-radius:16px; padding:1rem; background:#fff; }
     .plan-card h3 { margin:.25rem 0 .25rem; }
     .price { font-size:1.6rem; font-weight:700; margin:.5rem 0 .5rem; }
-    .term { display:block; font-size:.95rem; color:#555; margin-bottom: .75rem; }
+    .term { display:block; font-size:.95rem; color:#555; margin-bottom:.75rem; }
     .btn-primary { display:inline-block; padding:.6rem 1rem; border-radius:10px; background:#111; color:#fff; text-decoration:none; }
     .btn-crypto { display:inline-block; padding:.6rem 1rem; border-radius:10px; background:#333; color:#fff; text-decoration:none; margin-left:.5rem; }
 
@@ -59,75 +61,46 @@
     </div>
   </nav>
 
-  <!-- HERO (bilingual via JS) -->
+  <!-- HERO (bilingual via JS; defaults to Spanish on first visit) -->
   <header class="hero">
     <div class="container">
-      <h1 id="hero-headline">Legal protection, in your language.</h1>
+      <h1 id="hero-headline">Protección legal, en tu idioma.</h1>
       <p id="hero-paragraph">
-        Bilingual (EN/ES) legal help for real-life issues. Attorneys in our network commit to at least one free or reduced consultation for active members.
+        Ayuda legal bilingüe (EN/ES) para situaciones reales. Los abogados de nuestra red se comprometen a ofrecer al menos una consulta gratuita o con descuento para miembros activos.
       </p>
       <div class="cta-row">
-        <a class="btn" href="#how-it-works" id="hero-cta-primary">How it works</a>
-        <a class="btn secondary" href="#plans" id="hero-cta-secondary">View plans</a>
+        <a class="btn" href="#how-it-works" id="hero-cta-primary">Cómo funciona</a>
+        <a class="btn secondary" href="#plans" id="hero-cta-secondary">Ver planes</a>
       </div>
     </div>
   </header>
 
   <!-- HOW IT WORKS -->
   <section class="section" id="how-it-works">
-    <h2 id="how-title">How it works</h2>
+    <h2 id="how-title">Cómo funciona</h2>
     <ol class="muted" id="how-steps">
-      <li>Choose a 3-month membership (Individual or Family).</li>
-      <li>Get your member ID by email instantly.</li>
-      <li>Call us, pick your practice area, and we route you to an attorney.</li>
-      <li>Members get at least one free or reduced consultation from participating attorneys.</li>
+      <li>Elige una membresía de 3 meses (Individual o Familiar).</li>
+      <li>Recibe tu ID de miembro por correo al instante.</li>
+      <li>Llámanos, selecciona la especialidad legal y te conectamos con un abogado.</li>
+      <li>Los miembros reciben al menos una consulta gratuita o con descuento de abogados participantes.</li>
     </ol>
   </section>
 
-  <!-- PRICING (3-month terms only) -->
+  <!-- PRICING (populations; Latino active today, others ready but hidden) -->
   <section class="section" id="plans">
-    <h2 id="plans-title">Membership — 3 months</h2>
-    <p class="muted" id="plans-subtitle">No monthly option. After 3 months, you can extend easily.</p>
+    <h2 id="plans-title">Membresía — 3 meses</h2>
+    <p class="muted" id="plans-subtitle">Sin opción mensual. Después de 3 meses puedes extender fácilmente.</p>
 
-    <div class="plans">
-      <!-- INDIVIDUAL 3 MONTHS -->
-      <article class="plan-card" data-plan="INDIVIDUAL_3MO">
-        <h3 data-plan-name>Individual</h3>
-        <div class="price"><span data-plan-price>$0.00</span></div>
-        <small class="term" data-plan-term>/3 months</small>
-        <a data-plan-select href="#" class="btn-primary" data-i18n="labels.pay">Pay</a>
-        <a data-plan-crypto href="#" class="btn-crypto">Pay with Bitcoin</a>
-        <p class="muted" data-i18n="copy.individualNote">Single adult coverage for common legal needs.</p>
-      </article>
-
-      <!-- FAMILY (HUSBAND + WIFE) 3 MONTHS -->
-      <article class="plan-card" data-plan="FAMILY_3MO">
-        <h3 data-plan-name>Family</h3>
-        <div class="price"><span data-plan-price>$0.00</span></div>
-        <small class="term" data-plan-term>/3 months</small>
-        <a data-plan-select href="#" class="btn-primary" data-i18n="labels.pay">Pay</a>
-        <a data-plan-crypto href="#" class="btn-crypto">Pay with Bitcoin</a>
-        <p class="muted" data-i18n="copy.familyNote">Husband and wife coverage.</p>
-      </article>
-
-      <!-- EXTEND 3 MONTHS -->
-      <article class="plan-card" data-plan="EXTEND_3MO">
-        <h3 data-plan-name>Extend 3 months</h3>
-        <div class="price"><span data-plan-price>$0.00</span></div>
-        <small class="term" data-plan-term>/3 months</small>
-        <a data-plan-select href="#" class="btn-primary" data-i18n="labels.pay">Pay</a>
-        <a data-plan-crypto href="#" class="btn-crypto">Pay with Bitcoin</a>
-        <p class="muted" data-i18n="copy.extendNote">Already a member? Extend now—no re-signup.</p>
-      </article>
-    </div>
+    <!-- Populations will be rendered here -->
+    <div id="plans-root"></div>
   </section>
 
   <!-- GUARANTEE / PROMISE -->
   <section class="section" id="guarantee">
-    <h2 id="guarantee-title">Our promise</h2>
+    <h2 id="guarantee-title">Nuestro compromiso</h2>
     <p class="muted" id="guarantee-copy">
-      Participating attorneys agree to at least one free or reduced consultation for active members.
-      We focus on practical help and clear communication—English or Spanish.
+      Los abogados participantes aceptan ofrecer al menos una consulta gratuita o con descuento a miembros activos.
+      Nos enfocamos en ayuda práctica y comunicación clara—en inglés o español.
     </p>
   </section>
 
