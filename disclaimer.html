@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aviso Legal — Ultima Defensa Legal</title>
+  <meta name="description" content="Descargo de responsabilidad general (EN/ES)">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root{--max:900px}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#111;line-height:1.5}
+    .container{max-width:var(--max);margin:0 auto;padding:1rem}
+    header{border-bottom:1px solid #eee;background:#fafafa}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+    .btn{display:inline-block;padding:.55rem .9rem;border-radius:12px;text-decoration:none;cursor:pointer;border:1px solid #111;background:#fff;color:#111}
+    .muted{color:#555}
+    .i18n-en{display:none}
+    html[lang="en"] .i18n-en{display:block}
+    html[lang="en"] .i18n-es{display:none}
+    footer{border-top:1px solid #eee;background:#fafafa;margin-top:2rem;text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container row">
+      <a href="index.html" style="text-decoration:none;color:#111;font-weight:800">Ultima Defensa Legal</a>
+      <div>
+        <button class="btn" onclick="LEGAL.setLang('en')">EN</button>
+        <button class="btn" onclick="LEGAL.setLang('es')">ES</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Spanish -->
+    <article class="i18n-es">
+      <h1>Aviso Legal</h1>
+      <p class="muted">Vigente desde: [fecha]</p>
+
+      <h2>1. No somos un bufete de abogados</h2>
+      <p>Ultima Defensa Legal, Inc. es una <strong>plataforma de membresía y conexión</strong> que vincula a miembros con abogados independientes. No brindamos asesoría legal ni representación, y no establecemos relación abogado-cliente con los miembros.</p>
+
+      <h2>2. Abogados independientes</h2>
+      <p>Los abogados en nuestra red son profesionales independientes y son exclusivamente responsables por los servicios legales que prestan. Los resultados no están garantizados.</p>
+
+      <h2>3. Información y contenido</h2>
+      <p>El contenido del sitio (incluyendo material educativo) es solo para fines informativos y no sustituye el consejo de un abogado.</p>
+
+      <h2>4. Comunicaciones</h2>
+      <p>Al usar el servicio, aceptas nuestra <a href="privacy.html">Política de Privacidad</a> y el consentimiento para emails/SMS/llamadas. Puedes darte de baja en cualquier momento.</p>
+
+      <h2>5. Enlaces de terceros</h2>
+      <p>Podemos enlazar a sitios de terceros. No somos responsables de su contenido o prácticas.</p>
+
+      <h2>6. Limitación de responsabilidad</h2>
+      <p>En la máxima medida permitida por la ley, la Compañía no es responsable por daños indirectos, incidentales o consecuentes derivados del uso del sitio o los servicios.</p>
+
+      <h2>7. Fuerza mayor</h2>
+      <p>No hay responsabilidad por demoras/fallas causadas por eventos fuera de nuestro control razonable. Ver detalles en <a href="terms.html">Términos</a>.</p>
+
+      <h2>8. Ley aplicable</h2>
+      <p>Delaware, EE. UU.</p>
+    </article>
+
+    <!-- English -->
+    <article class="i18n-en">
+      <h1>Disclaimer</h1>
+      <p class="muted">Effective: [date]</p>
+
+      <h2>1. Not a Law Firm</h2>
+      <p>Ultima Defensa Legal, Inc. is a <strong>membership and connection platform</strong> linking members with independent attorneys. We do not provide legal advice or representation, and no attorney-client relationship is formed with the Company.</p>
+
+      <h2>2. Independent Attorneys</h2>
+      <p>Attorneys in our network are independent professionals solely responsible for services provided. No outcomes are guaranteed.</p>
+
+      <h2>3. Information & Content</h2>
+      <p>Site content (including educational material) is for informational purposes only and is not a substitute for advice from an attorney.</p>
+
+      <h2>4. Communications</h2>
+      <p>By using the service, you agree to our <a href="privacy.html">Privacy Policy</a> and consent to emails/SMS/calls. You may opt out at any time.</p>
+
+      <h2>5. Third-Party Links</h2>
+      <p>We may link to third-party sites. We are not responsible for their content or practices.</p>
+
+      <h2>6. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, the Company is not liable for indirect, incidental, or consequential damages arising from use of the site or services.</p>
+
+      <h2>7. Force Majeure</h2>
+      <p>No liability for delays/failures caused by events beyond our reasonable control. See details in the <a href="terms.html">Terms</a>.</p>
+
+      <h2>8. Governing Law</h2>
+      <p>Delaware, USA.</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="muted">© <span id="year"></span> Ultima Defensa Legal</p>
+    </div>
+  </footer>
+
+  <script>
+    const LEGAL = {
+      setLang(l){ localStorage.setItem('udl_lang', l); document.documentElement.setAttribute('lang', l); },
+      init(){ const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+              document.documentElement.setAttribute('lang', localStorage.getItem('udl_lang') || 'es'); }
+    }; document.addEventListener('DOMContentLoaded', LEGAL.init);
+  </script>
+</body>
+</html>
