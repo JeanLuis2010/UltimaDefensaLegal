@@ -7,11 +7,10 @@
   const $  = (s,root=document)=>root.querySelector(s);
   const $$ = (s,root=document)=>Array.from(root.querySelectorAll(s));
 
-  // Default to Spanish for first-time visitors (persist once user chooses)
+  // Default Spanish for first-time visitors; remember choice
   function getLang() {
     const saved = storage.getItem("udl_lang");
-    if (saved) return saved.slice(0,2);
-    return "es"; // <-- default Spanish
+    return (saved ? saved.slice(0,2) : "es");
   }
   function setLang(lang) {
     storage.setItem("udl_lang", lang);
@@ -22,36 +21,131 @@
     try { return new Intl.NumberFormat(locale, { style:"currency", currency }).format(amount); }
     catch { return `${currency} ${amount}`; }
   }
-  // Expose UI controls
-  window.UDL_UI = { setLang };
-
   function setText(sel, dict, lang){
     const el = $(sel); if (!el || !dict) return;
     el.textContent = dict[lang] || dict.en || el.textContent;
   }
+  // Expose UI
+  window.UDL_UI = { setLang };
+
+  function getDeep(dict, keyPath, lang) {
+    // keyPath like "copy.individualNote"
+    const parts = (keyPath || "").split(".");
+    let ref = dict;
+    for (const p of parts) { if (!ref) break; ref = ref[p]; }
+    if (!ref) return null;
+    return (typeof ref === "object") ? (ref[lang] || ref.en || "") : ref;
+  }
+
+  function renderPopulations(lang){
+    const root = $("#plans-root");
+    if (!root) return;
+    root.innerHTML = "";
+
+    const locale = (lang === "es") ? "es-ES" : "en-US";
+
+    // Collect active populations
+    const pops = CFG.populations || {};
+    Object.keys(pops).forEach(key => {
+      const pop = pops[key];
+      if (!pop?.active) return;
+
+      // Population block
+      const block = document.createElement("div");
+      block.className = "population-block";
+
+      // Title (e.g., Comunidad Latina) — only shown if >1 population is active
+      const activeCount = Object.values(pops).filter(p => p.active).length;
+      if (activeCount > 1) {
+        const title = document.createElement("h3");
+        title.className = "population-title";
+        title.textContent = pop.displayName?.[lang] || pop.displayName?.en || "";
+        block.appendChild(title);
+      }
+
+      const plansWrap = document.createElement("div");
+      plansWrap.className = "plans";
+
+      const plans = pop.plans || {};
+      Object.keys(plans).forEach(planId => {
+        const plan = plans[planId];
+
+        const card = document.createElement("article");
+        card.className = "plan-card";
+        card.setAttribute("data-plan", planId);
+
+        const h3 = document.createElement("h3");
+        h3.setAttribute("data-plan-name", "");
+        h3.textContent = plan.name?.[lang] || plan.name?.en || "";
+        card.appendChild(h3);
+
+        const priceDiv = document.createElement("div");
+        priceDiv.className = "price";
+        const priceSpan = document.createElement("span");
+        priceSpan.setAttribute("data-plan-price", "");
+        priceSpan.textContent = formatMoney(plan.price, "USD", locale);
+        priceDiv.appendChild(priceSpan);
+        card.appendChild(priceDiv);
+
+        const term = document.createElement("small");
+        term.className = "term";
+        term.setAttribute("data-plan-term", "");
+        term.textContent = plan.term?.[lang] || plan.term?.en || "";
+        card.appendChild(term);
+
+        const pay = document.createElement("a");
+        pay.className = "btn-primary";
+        pay.setAttribute("data-plan-select", "");
+        pay.href = plan.checkoutLinks?.US || "#";
+        pay.textContent = CFG.labels?.pay?.[lang] || CFG.labels?.pay?.en || "Pay";
+        card.appendChild(pay);
+
+        const btc = document.createElement("a");
+        btc.className = "btn-crypto";
+        btc.setAttribute("data-plan-crypto", "");
+        const cLink = plan.cryptoLinks?.US || "";
+        if (cLink) {
+          btc.href = cLink;
+          btc.textContent = CFG.labels?.payBTC?.[lang] || CFG.labels?.payBTC?.en || "Pay with Bitcoin";
+          card.appendChild(btc);
+        }
+
+        const note = document.createElement("p");
+        note.className = "muted";
+        if (plan.noteKey) {
+          note.textContent = getDeep(CFG.labels, plan.noteKey, lang) || "";
+        }
+        card.appendChild(note);
+
+        plansWrap.appendChild(card);
+      });
+
+      block.appendChild(plansWrap);
+      root.appendChild(block);
+    });
+  }
 
   function render() {
     const lang = getLang();
-    const locale = (lang === "es") ? "es-ES" : "en-US";
-    document.documentElement.setAttribute("lang", lang); // ensure <html lang="...">
+    document.documentElement.setAttribute("lang", lang);
 
     // HERO
-    setText("#hero-headline", CFG.hero?.headline, lang);
-    setText("#hero-paragraph", CFG.hero?.paragraph, lang);
-    setText("#hero-cta-primary", CFG.hero?.ctaPrimary, lang);
+    setText("#hero-headline",   CFG.hero?.headline,      lang);
+    setText("#hero-paragraph",  CFG.hero?.paragraph,     lang);
+    setText("#hero-cta-primary",CFG.hero?.ctaPrimary,    lang);
     setText("#hero-cta-secondary", CFG.hero?.ctaSecondary, lang);
 
     // Section headings / copy
-    setText("#how-title", CFG.labels?.howTitle, lang);
-    setText("#plans-title", CFG.labels?.plans, lang);
-    setText("#plans-subtitle", CFG.labels?.plansSub, lang);
+    setText("#how-title",     CFG.labels?.howTitle,       lang);
+    setText("#plans-title",   CFG.labels?.plans,          lang);
+    setText("#plans-subtitle",CFG.labels?.plansSub,       lang);
     setText("#guarantee-title", CFG.labels?.guaranteeTitle, lang);
-    setText("#guarantee-copy", CFG.labels?.guaranteeCopy, lang);
+    setText("#guarantee-copy",  CFG.labels?.guaranteeCopy,  lang);
 
-    // HOW steps (ordered list)
+    // HOW steps list (use labels.howSteps if present; fallback to static HTML)
     const stepsList = $("#how-steps");
-    if (stepsList) {
-      const steps = CFG.labels?.howSteps?.[lang] || CFG.labels?.howSteps?.en;
+    if (stepsList && CFG.labels?.howSteps) {
+      const steps = CFG.labels.howSteps?.[lang] || CFG.labels.howSteps?.en;
       if (steps && Array.isArray(steps)) {
         stepsList.innerHTML = "";
         steps.forEach(t => {
@@ -62,53 +156,8 @@
       }
     }
 
-    // Plan cards
-    $$("[data-plan]").forEach(card => {
-      const planId = card.getAttribute("data-plan");
-      const plan = CFG.display[planId];
-      if (!plan) return;
-
-      const nameEl  = card.querySelector("[data-plan-name]");
-      const priceEl = card.querySelector("[data-plan-price]");
-      const termEl  = card.querySelector("[data-plan-term]");
-      const payBtn  = card.querySelector("[data-plan-select]");
-      const btcBtn  = card.querySelector("[data-plan-crypto]");
-
-      if (nameEl) nameEl.textContent = plan.name?.[lang] || plan.name?.en || nameEl.textContent;
-      if (priceEl) priceEl.textContent = formatMoney(plan.price, "USD", locale);
-      if (termEl)  termEl.textContent  = plan.term?.[lang] || plan.term?.en || termEl.textContent;
-
-      // Primary payment (Square or preferred processor)
-      const link = (CFG.checkoutLinks?.[planId]?.US) || "#";
-      if (payBtn) {
-        payBtn.setAttribute("href", link);
-        payBtn.textContent = CFG.labels?.pay?.[lang] || CFG.labels?.pay?.en || "Pay";
-      }
-
-      // Optional crypto
-      const cLink = (CFG.cryptoLinks?.[planId]?.US) || "";
-      if (btcBtn) {
-        if (cLink) {
-          btcBtn.style.display = "inline-block";
-          btcBtn.setAttribute("href", cLink);
-          btcBtn.textContent = CFG.labels?.payBTC?.[lang] || CFG.labels?.payBTC?.en || "Pay with Bitcoin";
-        } else {
-          btcBtn.style.display = "none";
-        }
-      }
-
-      // Notes under each card (copy.*)
-      const noteSel = card.querySelector("[data-i18n='copy.individualNote'], [data-i18n='copy.familyNote'], [data-i18n='copy.extendNote']");
-      if (noteSel) {
-        const key = noteSel.getAttribute("data-i18n"); // e.g., copy.individualNote
-        const parts = key.split(".");
-        let ref = CFG.labels;
-        for (const p of parts) ref = ref?.[p];
-        if (typeof ref === "object") {
-          noteSel.textContent = ref[lang] || ref.en || noteSel.textContent;
-        }
-      }
-    });
+    // POPULATIONS + PLANS
+    renderPopulations(lang);
   }
 
   document.addEventListener("DOMContentLoaded", render);
