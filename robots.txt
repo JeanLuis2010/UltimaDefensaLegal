@@ -1,5 +1,3 @@
-# Robots policy for ultimadefensalegal.com
 User-agent: *
 Disallow:
-
 Sitemap: https://ultimadefensalegal.com/sitemap.xml
