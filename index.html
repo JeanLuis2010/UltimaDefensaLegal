@@ -1,135 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ultima Defensa Legal</title>
-  <meta name="description" content="Affordable legal protection for individuals. Quality case referrals for attorneys.">
+  <title>Ultima Defensa Legal — Legal Protection for Families</title>
+  <meta name="description" content="Ultima Defensa Legal ofrece protección legal bilingüe (EN/ES). Planes de 3 meses para individuos y familias, con opción de extensión.">
+  <link rel="stylesheet" href="css/style.css" />
   <style>
-    :root{--bg:#0b1220;--white:#ffffff;--att:#0ea5e9;--sub:#22c55e;--ring:rgba(255,255,255,.15);--card:#0f172a;--ink:#e5e7eb;--shadow:0 10px 25px rgba(0,0,0,.25);--radius:18px}
-    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--white);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.45}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1120px;margin:0 auto;padding:20px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
-    .scales{width:28px;height:28px;display:inline-block}
-    .pill{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,.06);padding:8px 12px;border-radius:999px;border:1px solid var(--ring);font-size:.85rem}
-    .hero{padding:64px 0 34px;background:
-      radial-gradient(1200px 600px at 80% -50%, rgba(14,165,233,.25), transparent 60%),
-      radial-gradient(900px 400px at 10% -40%, rgba(34,197,94,.25), transparent 60%)}
-    .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
-    .h1{font-size:clamp(30px,5vw,46px);line-height:1.1;margin:10px 0 14px}
-    .lead{color:var(--ink);opacity:.9;font-size:1.08rem;max-width:46ch}
-    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
-    .btn{padding:14px 18px;border-radius:12px;border:1px solid var(--ring);font-weight:700;box-shadow:var(--shadow);transition:.2s transform,.2s background}
-    .btn:hover{transform:translateY(-2px)}
-    .btn-att{background:linear-gradient(180deg, rgba(14,165,233,.25), rgba(14,165,233,.12));border-color:rgba(14,165,233,.35)}
-    .btn-sub{background:linear-gradient(180deg, rgba(34,197,94,.25), rgba(34,197,94,.12));border-color:rgba(34,197,94,.35)}
-    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.04));border:1px solid var(--ring);border-radius:var(--radius);padding:18px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:30px 0 10px}
-    .card{background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
-    .card h3{margin:0 0 8px}
-    .tag{display:inline-block;font-size:.78rem;border-radius:999px;padding:6px 10px;border:1px solid var(--ring);opacity:.95;margin-bottom:10px}
-    .tag.att{border-color:rgba(14,165,233,.45);color:#bae6fd;background:rgba(14,165,233,.12)}
-    .tag.sub{border-color:rgba(34,197,94,.45);color:#bbf7d0;background:rgba(34,197,94,.12)}
-    .list{margin:12px 0 16px;padding:0;list-style:none}
-    .list li{margin:8px 0;padding-left:26px;position:relative;color:#cbd5e1}
-    .list li:before{content:"✓";position:absolute;left:0;top:0;color:#a7f3d0}
-    .price{font-size:1.15rem;font-weight:800;margin:10px 0 14px}
-    .btn-full{display:block;text-align:center;margin-top:6px}
-    .how{margin:44px 0 24px}
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .step{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid var(--ring);border-radius:16px;padding:18px}
-    .step b{display:block;margin-bottom:6px}
-    footer{border-top:1px solid var(--ring);margin-top:44px}
-    footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 20px}
-    .small{color:#94a3b8;font-size:.9rem}
-    @media (max-width:900px){.wrap{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+    :root { --max: 1100px; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.5; color:#111; }
+    header, nav, main, footer { width:100%; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 1rem; }
+    nav { border-bottom:1px solid #eee; background:#fff; position:sticky; top:0; z-index:20; }
+    .nav-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .nav-links a { text-decoration:none; color:#111; margin:0 .5rem; }
+    .brand { font-weight:800; letter-spacing:.3px; }
+
+    /* HERO */
+    .hero { background:#fafafa; border-bottom:1px solid #eee; }
+    .hero h1 { font-size: clamp(1.8rem, 2.8vw, 2.6rem); margin:0 0 .5rem; color:#111; font-weight:700; }
+    .hero p { margin:0 0 1rem; max-width: 65ch; color:#333; }
+    .cta-row { display:flex; gap:.5rem; flex-wrap:wrap; }
+    .btn { padding:.6rem 1rem; border-radius:10px; border:1px solid #111; background:#111; color:#fff; text-decoration:none; display:inline-block; }
+    .btn.secondary { background:#fff; color:#111; }
+
+    /* Sections */
+    .section { max-width: var(--max); margin: 2rem auto; padding: 1rem; }
+    .muted { color:#666; font-size:.95rem; }
+
+    /* Pricing */
+    .plans { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:1rem; }
+    .plan-card { border:1px solid #e5e7eb; border-radius:16px; padding:1rem; background:#fff; }
+    .plan-card h3 { margin:.25rem 0 .25rem; }
+    .price { font-size:1.6rem; font-weight:700; margin:.5rem 0 .5rem; }
+    .term { display:block; font-size:.95rem; color:#555; margin-bottom: .75rem; }
+    .btn-primary { display:inline-block; padding:.6rem 1rem; border-radius:10px; background:#111; color:#fff; text-decoration:none; }
+    .btn-crypto { display:inline-block; padding:.6rem 1rem; border-radius:10px; background:#333; color:#fff; text-decoration:none; margin-left:.5rem; }
+
+    footer { border-top:1px solid #eee; background:#fafafa; margin-top:2rem; }
   </style>
 </head>
+
 <body>
-  <header class="container">
-    <div class="brand" aria-label="Ultima Defensa Legal">
-      <svg class="scales" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M12 3v3M6 21h12M12 6l7 4M12 6L5 10" />
-        <path d="M5 10l-2 4a3 3 0 0 0 6 0l-2-4M19 10l-2 4a3 3 0 0 0 6 0l-2-4" />
-        <path d="M12 21V9" />
-      </svg>
-      <span>Ultima Defensa Legal</span>
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-row">
+      <div class="brand">Ultima Defensa Legal</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="members_index.html">Members</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <button type="button" class="btn secondary" style="border-color:#ddd" onclick="UDL_UI?.setLang('en')">EN</button>
+        <button type="button" class="btn secondary" style="border-color:#ddd" onclick="UDL_UI?.setLang('es')">ES</button>
+      </div>
     </div>
-    <!-- point to file-based Spanish page -->
-    <a class="pill" href="/index_es.html">Español</a>
+  </nav>
+
+  <!-- HERO (bilingual via JS) -->
+  <header class="hero">
+    <div class="container">
+      <h1 id="hero-headline">Legal protection, in your language.</h1>
+      <p id="hero-paragraph">
+        Bilingual (EN/ES) legal help for real-life issues. Attorneys in our network commit to at least one free or reduced consultation for active members.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#how-it-works" id="hero-cta-primary">How it works</a>
+        <a class="btn secondary" href="#plans" id="hero-cta-secondary">View plans</a>
+      </div>
+    </div>
   </header>
 
-  <section class="hero">
-    <div class="container wrap">
-      <div>
-        <div class="pill">Trusted · Bilingual · Affordable</div>
-        <h1 class="h1">Affordable Legal Protection. Trusted Local Attorneys.</h1>
-        <p class="lead">We connect individuals and families with vetted attorneys—and give attorneys a reliable stream of qualified cases.</p>
-        <div class="cta-row">
-          <a class="btn btn-sub" href="/#for-individuals">I Need Legal Help</a>
-          <a class="btn btn-att" href="/#for-attorneys">I Am an Attorney</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <b>Why choose us?</b>
-        <ul class="list">
-          <li>Fast connection to nearby attorneys</li>
-          <li>Transparent, low monthly membership</li>
-          <li>Bilingual support (English & Spanish)</li>
-        </ul>
-      </div>
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works">
+    <h2 id="how-title">How it works</h2>
+    <ol class="muted" id="how-steps">
+      <li>Choose a 3-month membership (Individual or Family).</li>
+      <li>Get your member ID by email instantly.</li>
+      <li>Call us, pick your practice area, and we route you to an attorney.</li>
+      <li>Members get at least one free or reduced consultation from participating attorneys.</li>
+    </ol>
+  </section>
+
+  <!-- PRICING (3-month terms only) -->
+  <section class="section" id="plans">
+    <h2 id="plans-title">Membership — 3 months</h2>
+    <p class="muted" id="plans-subtitle">No monthly option. After 3 months, you can extend easily.</p>
+
+    <div class="plans">
+      <!-- INDIVIDUAL 3 MONTHS -->
+      <article class="plan-card" data-plan="INDIVIDUAL_3MO">
+        <h3 data-plan-name>Individual</h3>
+        <div class="price"><span data-plan-price>$0.00</span></div>
+        <small class="term" data-plan-term>/3 months</small>
+        <a data-plan-select href="#" class="btn-primary" data-i18n="labels.pay">Pay</a>
+        <a data-plan-crypto href="#" class="btn-crypto">Pay with Bitcoin</a>
+        <p class="muted" data-i18n="copy.individualNote">Single adult coverage for common legal needs.</p>
+      </article>
+
+      <!-- FAMILY (HUSBAND + WIFE) 3 MONTHS -->
+      <article class="plan-card" data-plan="FAMILY_3MO">
+        <h3 data-plan-name>Family</h3>
+        <div class="price"><span data-plan-price>$0.00</span></div>
+        <small class="term" data-plan-term>/3 months</small>
+        <a data-plan-select href="#" class="btn-primary" data-i18n="labels.pay">Pay</a>
+        <a data-plan-crypto href="#" class="btn-crypto">Pay with Bitcoin</a>
+        <p class="muted" data-i18n="copy.familyNote">Husband and wife coverage.</p>
+      </article>
+
+      <!-- EXTEND 3 MONTHS -->
+      <article class="plan-card" data-plan="EXTEND_3MO">
+        <h3 data-plan-name>Extend 3 months</h3>
+        <div class="price"><span data-plan-price>$0.00</span></div>
+        <small class="term" data-plan-term>/3 months</small>
+        <a data-plan-select href="#" class="btn-primary" data-i18n="labels.pay">Pay</a>
+        <a data-plan-crypto href="#" class="btn-crypto">Pay with Bitcoin</a>
+        <p class="muted" data-i18n="copy.extendNote">Already a member? Extend now—no re-signup.</p>
+      </article>
     </div>
   </section>
 
-  <main class="container">
-    <section class="grid">
-      <article id="for-attorneys" class="card">
-        <span class="tag att">For Attorneys</span>
-        <h3>Grow Your Practice</h3>
-        <p>Join our referral network, receive pre-screened inquiries, and focus on billable work—not marketing.</p>
-        <ul class="list">
-          <li>Qualified case referrals by practice area</li>
-          <li>ZIP and language matching</li>
-          <li>Analytics dashboard & call recordings</li>
-          <li>Cancel anytime</li>
-        </ul>
-        <div class="price">$300 first month · then $425/month</div>
-        <a class="btn btn-att btn-full" href="/attorneys.html">Attorney Membership</a>
-      </article>
+  <!-- GUARANTEE / PROMISE -->
+  <section class="section" id="guarantee">
+    <h2 id="guarantee-title">Our promise</h2>
+    <p class="muted" id="guarantee-copy">
+      Participating attorneys agree to at least one free or reduced consultation for active members.
+      We focus on practical help and clear communication—English or Spanish.
+    </p>
+  </section>
 
-      <article id="for-individuals" class="card">
-        <span class="tag sub">For Individuals</span>
-        <h3>Legal Help Made Simple</h3>
-        <p>Tell us the type of lawyer you need and your location—we’ll connect you quickly to a nearby attorney.</p>
-        <ul class="list">
-          <li>Simple, affordable monthly plan</li>
-          <li>Bilingual support for your case</li>
-          <li>Priority call routing</li>
-          <li>Easy cancellation</li>
-        </ul>
-        <div class="price">$19.99 first month · then $9.99/month</div>
-        <a class="btn btn-sub btn-full" href="/subscribe.html">Subscriber Membership</a>
-      </article>
-    </section>
-
-    <section class="how">
-      <h2>How It Works</h2>
-      <div class="steps">
-        <div class="step"><b>1. Match</b> Choose “Attorney” or “Individual” and answer a few quick questions.</div>
-        <div class="step"><b>2. Connect</b> We route calls and leads instantly to the right place.</div>
-        <div class="step"><b>3. Resolve</b> Get help fast—or add clients to your practice.</div>
-      </div>
-    </section>
-  </main>
-
+  <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div class="small">© <span id="y"></span> Ultima Defensa Legal · All rights reserved.</div>
-      <div class="small">Contact: support@ultimadefensalegal.com</div>
+      <p class="muted">© <span id="year"></span> Ultima Defensa Legal. All rights reserved.</p>
+      <p class="muted"><a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a></p>
     </div>
   </footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <!-- REQUIRED ORDER -->
+  <script src="pricing-config.js"></script>
+  <script src="region-pricing.js"></script>
 </body>
 </html>
