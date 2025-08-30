@@ -7,8 +7,11 @@
   const $  = (s,root=document)=>root.querySelector(s);
   const $$ = (s,root=document)=>Array.from(root.querySelectorAll(s));
 
+  // Default to Spanish for first-time visitors (persist once user chooses)
   function getLang() {
-    return (storage.getItem("udl_lang") || document.documentElement.lang || "en").slice(0,2);
+    const saved = storage.getItem("udl_lang");
+    if (saved) return saved.slice(0,2);
+    return "es"; // <-- default Spanish
   }
   function setLang(lang) {
     storage.setItem("udl_lang", lang);
@@ -30,6 +33,7 @@
   function render() {
     const lang = getLang();
     const locale = (lang === "es") ? "es-ES" : "en-US";
+    document.documentElement.setAttribute("lang", lang); // ensure <html lang="...">
 
     // HERO
     setText("#hero-headline", CFG.hero?.headline, lang);
@@ -70,9 +74,9 @@
       const payBtn  = card.querySelector("[data-plan-select]");
       const btcBtn  = card.querySelector("[data-plan-crypto]");
 
-      if (nameEl) nameEl.textContent = plan.name?.[lang] || plan.name?.[ "en" ] || nameEl.textContent;
+      if (nameEl) nameEl.textContent = plan.name?.[lang] || plan.name?.en || nameEl.textContent;
       if (priceEl) priceEl.textContent = formatMoney(plan.price, "USD", locale);
-      if (termEl)  termEl.textContent  = plan.term?.[lang] || plan.term?.[ "en" ] || termEl.textContent;
+      if (termEl)  termEl.textContent  = plan.term?.[lang] || plan.term?.en || termEl.textContent;
 
       // Primary payment (Square or preferred processor)
       const link = (CFG.checkoutLinks?.[planId]?.US) || "#";
