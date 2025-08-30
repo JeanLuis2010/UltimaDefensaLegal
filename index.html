@@ -3,243 +3,219 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gracias — Ultima Defensa Legal</title>
-  <meta name="description" content="Confirmación de membresía — Ultima Defensa Legal">
+  <title>Ultima Defensa Legal — Protección legal bilingüe</title>
+  <meta name="description" content="Conecta con abogados independientes. Membresías de 3 meses para individuos y familias. Bilingüe EN/ES.">
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    :root { --max: 900px; }
+    :root { --max: 1100px; }
+    * { box-sizing: border-box; }
     body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#111; line-height:1.5; }
-    .container { max-width: var(--max); margin: 0 auto; padding: 1rem; }
-    header, main, footer { width:100%; }
-    header { border-bottom:1px solid #eee; background:#fafafa; }
-    .row { display:flex; align-items:center; justify-content:space-between; gap:.75rem; }
-    .h1 { font-size: clamp(1.6rem, 2.4vw, 2.2rem); margin: .5rem 0; font-weight:800; }
-    .muted { color:#555; }
+    header, nav, main, footer { width:100%; }
+    .container { max-width: var(--max); margin:0 auto; padding:1rem; }
+    nav { border-bottom:1px solid #eee; background:#fff; position:sticky; top:0; z-index:20; }
+    .nav-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .nav-links a { text-decoration:none; color:#111; margin:0 .5rem; }
+    .brand { font-weight:800; letter-spacing:.3px; }
+
+    .hero { background:#fafafa; border-bottom:1px solid #eee; }
+    .hero h1 { font-size: clamp(1.8rem, 2.8vw, 2.6rem); margin:0 0 .5rem; font-weight:800; }
+    .hero p { margin:.3rem 0 1rem; max-width:70ch; color:#333; }
+    .cta-row { display:flex; gap:.6rem; flex-wrap:wrap; }
+    .btn { padding:.65rem 1rem; border-radius:10px; border:1px solid #111; background:#111; color:#fff; text-decoration:none; display:inline-block; }
+    .btn.secondary { background:#fff; color:#111; }
+    .muted { color:#666; }
+    .section { padding: 2rem 1rem; }
+    .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1rem; }
     .card { border:1px solid #e5e7eb; border-radius:16px; padding:1rem; background:#fff; }
-    .grid { display:grid; grid-template-columns: 1fr; gap:1rem; }
-    @media (min-width: 720px){ .grid { grid-template-columns: 1.2fr .8fr; } }
-    .btn { display:inline-block; padding:.7rem 1rem; border-radius:12px; text-decoration:none; cursor:pointer; }
-    .btn-primary { background:#111; color:#fff; border:1px solid #111; }
-    .btn-secondary { background:#fff; color:#111; border:1px solid #111; }
-    .btn-link { background:none; border:none; text-decoration:underline; cursor:pointer; padding:0; }
-    .stack { display:flex; flex-wrap:wrap; gap:.5rem; }
-    dl { display:grid; grid-template-columns: max-content 1fr; gap:.4rem .8rem; margin:0; }
-    dt { color:#666; }
-    dd { margin:0; }
+    .card h3 { margin:.25rem 0 .5rem; }
+    .ol-steps { counter-reset: step; list-style:none; padding:0; }
+    .ol-steps li { counter-increment: step; margin:.6rem 0; padding-left:2.2rem; position:relative; }
+    .ol-steps li::before { content: counter(step); position:absolute; left:0; top:.1rem; width:1.6rem; height:1.6rem; border-radius:999px; background:#111; color:#fff; display:grid; place-items:center; font-size:.85rem; }
+    .plans { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:1rem; }
+    .plan-card { border:1px solid #e5e7eb; border-radius:16px; padding:1rem; background:#fff; }
+    .price { font-size:1.6rem; font-weight:700; margin:.5rem 0 .4rem; }
+    .term { display:block; font-size:.95rem; color:#555; margin-bottom:.75rem; }
     footer { border-top:1px solid #eee; background:#fafafa; margin-top:2rem; }
-    .center { text-align:center; }
+    /* i18n helpers (Spanish default) */
+    .i18n-en{display:none} html[lang="en"] .i18n-en{display:block} html[lang="en"] .i18n-es{display:none}
   </style>
+  <!-- Consent & analytics loader (loads GA only after consent) -->
+  <script src="udl-consent.js" defer></script>
 </head>
+
 <body>
-  <header>
-    <div class="container row">
-      <div class="row" style="gap:.5rem">
-        <a href="index.html" style="text-decoration:none; color:#111; font-weight:800;">Ultima Defensa Legal</a>
+  <!-- NAV -->
+  <nav aria-label="Main">
+    <div class="container nav-row">
+      <div class="brand">Ultima Defensa Legal</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#how">How it works</a>
+        <a href="#value">Why us</a>
+        <a href="#plans">Membership</a>
+        <a href="attorneys.html">Attorneys</a>
+        <a href="contact.html">Contact</a>
       </div>
-      <div class="stack">
-        <button class="btn-secondary" onclick="UDL_UI?.setLang('en')">EN</button>
-        <button class="btn-secondary" onclick="UDL_UI?.setLang('es')">ES</button>
+      <div>
+        <button type="button" class="btn secondary" style="border-color:#ddd" onclick="UDL_UI?.setLang('en')">EN</button>
+        <button type="button" class="btn secondary" style="border-color:#ddd" onclick="UDL_UI?.setLang('es')">ES</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="i18n-es">
+        <h1>Protección legal cuando más la necesitas — bilingüe y accesible.</h1>
+        <p>Te conectamos con abogados independientes en inmigración, familia y penal. Membresías sencillas de 3 meses. Una llamada, ayuda real.</p>
+        <div class="cta-row">
+          <a class="btn" href="#how">Cómo funciona</a>
+          <a class="btn secondary" href="#plans">Ver planes</a>
+          <a class="btn secondary" href="attorneys.html">Soy abogado</a>
+        </div>
+      </div>
+      <div class="i18n-en">
+        <h1>Legal protection when you need it most — bilingual and affordable.</h1>
+        <p>We connect you with independent attorneys in immigration, family, and criminal law. Simple 3-month memberships. One call, real help.</p>
+        <div class="cta-row">
+          <a class="btn" href="#how">How it works</a>
+          <a class="btn secondary" href="#plans">View plans</a>
+          <a class="btn secondary" href="attorneys.html">I’m an attorney</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <h1 class="h1" id="t-title">¡Gracias! Tu membresía está activa.</h1>
-    <p class="muted" id="t-sub">
-      Revisa tu correo con tu ID de miembro y detalles de acceso. Guarda esta página o imprime el recibo.
-    </p>
-
-    <div class="grid" style="margin-top:1rem">
-      <!-- Left: Confirmation details -->
-      <section class="card">
-        <h2 style="margin:.2rem 0 1rem" id="t-summary">Resumen</h2>
-        <dl>
-          <dt id="t-memberid-label">ID de Miembro</dt>
-          <dd id="member-id">–</dd>
-
-          <dt id="t-plan-label">Plan</dt>
-          <dd id="plan-name">–</dd>
-
-          <dt id="t-term-label">Plazo</dt>
-          <dd id="plan-term">/3 meses</dd>
-
-          <dt id="t-order-label">N.º de pedido</dt>
-          <dd id="order-id">–</dd>
-
-          <dt id="t-email-label">Correo</dt>
-          <dd id="email">–</dd>
-        </dl>
-
-        <div class="stack" style="margin-top:1rem">
-          <a id="btn-extend" href="#" class="btn btn-primary">Extender 3 meses</a>
-          <a id="btn-home" href="index.html" class="btn btn-secondary">Inicio</a>
-          <button id="btn-print" class="btn btn-link">Imprimir recibo</button>
-        </div>
-      </section>
-
-      <!-- Right: Next steps -->
-      <aside class="card">
-        <h3 style="margin:.2rem 0 1rem" id="t-next">Próximos pasos</h3>
-        <ol class="muted" id="next-steps">
-          <li>Guarda tu ID de miembro. Lo necesitarás cuando llames.</li>
-          <li>Llámanos y elige el área legal; te conectamos con un abogado.</li>
-          <li>Los abogados participantes ofrecen al menos una consulta gratuita o con descuento para miembros activos.</li>
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="i18n-es">
+        <h2>Cómo funciona</h2>
+        <ol class="ol-steps">
+          <li>Inscríbete: elige Individual o Familiar (3 meses).</li>
+          <li>Recibe tu ID de miembro al instante por correo.</li>
+          <li>Llámanos y te conectamos con un abogado adecuado.</li>
         </ol>
-        <p class="muted" id="t-note" style="margin-top:1rem">
-          Si algo no coincide con tu compra, contáctanos y lo corregimos.
-        </p>
-      </aside>
+      </div>
+      <div class="i18n-en">
+        <h2>How it works</h2>
+        <ol class="ol-steps">
+          <li>Join: pick Individual or Family (3 months).</li>
+          <li>Get your Member ID instantly by email.</li>
+          <li>Call us and we connect you to the right attorney.</li>
+        </ol>
+      </div>
     </div>
+  </section>
 
-    <p class="center muted" style="margin-top:1.5rem" id="t-help">
-      ¿Necesitas ayuda? Escríbenos desde la página de <a href="contact.html">Contacto</a>.
-    </p>
-  </main>
+  <!-- VALUE PROPS -->
+  <section class="section" id="value">
+    <div class="container">
+      <div class="i18n-es">
+        <h2>Por qué elegirnos</h2>
+        <div class="cards">
+          <div class="card"><h3>Bilingüe EN/ES</h3><p>Atención y documentos en tu idioma.</p></div>
+          <div class="card"><h3>Asequible</h3><p>Planes claros de 3 meses; opción para extender.</p></div>
+          <div class="card"><h3>Abogados verificados</h3><p>Compromiso: al menos una consulta gratuita o con descuento.</p></div>
+          <div class="card"><h3>Privado y seguro</h3><p>Protección de datos, 2FA, encriptación y cumplimiento.</p></div>
+        </div>
+      </div>
+      <div class="i18n-en">
+        <h2>Why choose us</h2>
+        <div class="cards">
+          <div class="card"><h3>Bilingual EN/ES</h3><p>Support and documents in your language.</p></div>
+          <div class="card"><h3>Affordable</h3><p>Simple 3-month plans; easy to extend.</p></div>
+          <div class="card"><h3>Verified attorneys</h3><p>Commitment: at least one free or discounted consultation.</p></div>
+          <div class="card"><h3>Private & secure</h3><p>Data protection, 2FA, encryption, and compliance.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- TESTIMONIALS / SCENARIOS (lite placeholders) -->
+  <section class="section" id="stories" style="background:#fafafa; border-top:1px solid #eee; border-bottom:1px solid #eee;">
+    <div class="container">
+      <div class="i18n-es">
+        <h2>Historias reales</h2>
+        <div class="cards">
+          <div class="card"><p>“Cuando detuvieron a mi esposo, llamé con mi ID y me conectaron con un abogado de inmigración en minutos.”</p><p class="muted">— Miembro Familiar</p></div>
+          <div class="card"><p>“Necesitaba orientación sobre custodia. La consulta incluida valió por sí sola la membresía.”</p><p class="muted">— Miembro Individual</p></div>
+        </div>
+      </div>
+      <div class="i18n-en">
+        <h2>Real stories</h2>
+        <div class="cards">
+          <div class="card"><p>“When my husband was detained, I called with my Member ID and was connected to an immigration attorney in minutes.”</p><p class="muted">— Family Member</p></div>
+          <div class="card"><p>“I needed guidance on custody. The included consultation alone paid for the membership.”</p><p class="muted">— Individual Member</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP (pricing rendered by JS; Spanish default) -->
+  <section class="section" id="plans">
+    <div class="container">
+      <div class="i18n-es">
+        <h2>Membresía — 3 meses</h2>
+        <p class="muted">Sin opción mensual. Después puedes extender fácilmente.</p>
+      </div>
+      <div class="i18n-en">
+        <h2>Membership — 3 months</h2>
+        <p class="muted">No monthly plan. After 3 months you can extend easily.</p>
+      </div>
+
+      <!-- Plans mount here (from pricing-config.js + region-pricing.js) -->
+      <div id="plans-root"></div>
+    </div>
+  </section>
+
+  <!-- ATTORNEY CTA -->
+  <section class="section" id="attorney-cta">
+    <div class="container">
+      <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+        <div class="i18n-es">
+          <h3>¿Eres abogado?</h3>
+          <p class="muted" style="margin:0">Amplía tu práctica y ayuda a familias — únete a nuestra red.</p>
+        </div>
+        <div class="i18n-en">
+          <h3>Are you an attorney?</h3>
+          <p class="muted" style="margin:0">Grow your practice and help families—join our network.</p>
+        </div>
+        <a class="btn" href="attorneys.html" id="cta-attorneys">Join</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="container center">
-      <p class="muted">© <span id="year"></span> Ultima Defensa Legal</p>
+    <div class="container">
+      <p class="muted">
+        © <span id="year"></span> Ultima Defensa Legal •
+        <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> •
+        <a href="refunds.html">Refunds</a> • <a href="disclaimer.html">Disclaimer</a> •
+        <a href="cookies.html">Cookies</a> • <a href="security.html">Security</a> •
+        <a href="accessibility.html">Accessibility</a>
+      </p>
     </div>
   </footer>
 
-  <!-- Load site config then page logic -->
+  <!-- CONFIG + PRICING RENDERER -->
   <script src="pricing-config.js"></script>
+  <script src="region-pricing.js"></script>
   <script>
-    (function(){
-      const CFG = window.UDL_CONFIG || {};
-      const storage = window.localStorage;
-
-      // --- Language handling (default Spanish) ---
-      function getLang(){ return storage.getItem("udl_lang") || "es"; }
-      function setLang(lang){ storage.setItem("udl_lang", lang); document.documentElement.setAttribute("lang", lang); render(); }
-      window.UDL_UI = window.UDL_UI || {}; window.UDL_UI.setLang = setLang;
-
-      // --- Text helpers ---
-      const $ = (s)=>document.querySelector(s);
-      function setText(sel, dict){ if(!dict) return; const el=$(sel); if(el) el.textContent = dict[lang] || dict.en || el.textContent; }
-      function getDeep(dict, path){
-        const parts = (path||"").split(".");
-        let ref = dict;
-        for(const p of parts){ if(!ref) return null; ref = ref[p]; }
-        return ref || null;
-      }
-
-      // --- URL params (optional) ---
-      const params = new URLSearchParams(location.search);
-      const provided = {
-        memberId: params.get("memberId"),
-        order:    params.get("order"),
-        plan:     params.get("plan"),     // e.g., INDIVIDUAL_3MO
-        email:    params.get("email")
-      };
-
-      // --- Find active population (first one with active:true) ---
-      function getActivePopulation(){
-        const pops = CFG.populations || {};
-        const key = Object.keys(pops).find(k => pops[k]?.active);
-        return key ? pops[key] : null;
-      }
-
-      // --- Map plan code to display fields from active population ---
-      function getPlanInfo(planCode){
-        const pop = getActivePopulation();
-        if(!pop) return null;
-        const plan = pop.plans?.[planCode];
-        if(!plan) return null;
-        return plan;
-      }
-
-      // --- Build Extend link from active population (EXTEND_3MO) ---
-      function getExtendLink(){
-        const pop = getActivePopulation();
-        const plan = pop?.plans?.EXTEND_3MO;
-        return plan?.checkoutLinks?.US || "#";
-      }
-
-      // --- i18n dictionaries for this page ---
-      const dict = {
-        title:        { en: "Thank you! Your membership is active.", es: "¡Gracias! Tu membresía está activa." },
-        sub:          { en: "Check your email for your Member ID and access details. Save this page or print your receipt.", es: "Revisa tu correo con tu ID de miembro y detalles de acceso. Guarda esta página o imprime el recibo." },
-        summary:      { en: "Summary", es: "Resumen" },
-        memberId:     { en: "Member ID", es: "ID de Miembro" },
-        plan:         { en: "Plan", es: "Plan" },
-        term:         { en: "Term", es: "Plazo" },
-        order:        { en: "Order #", es: "N.º de pedido" },
-        email:        { en: "Email", es: "Correo" },
-        extend:       { en: "Extend 3 months", es: "Extender 3 meses" },
-        home:         { en: "Home", es: "Inicio" },
-        print:        { en: "Print receipt", es: "Imprimir recibo" },
-        next:         { en: "Next steps", es: "Próximos pasos" },
-        steps: {
-          en: [
-            "Save your Member ID. You'll need it when you call.",
-            "Call us, choose your practice area, and we connect you to an attorney.",
-            "Participating attorneys offer at least one free or reduced consultation to active members."
-          ],
-          es: [
-            "Guarda tu ID de miembro. Lo necesitarás cuando llames.",
-            "Llámanos, selecciona la especialidad legal, y te conectamos con un abogado.",
-            "Los abogados participantes ofrecen al menos una consulta gratuita o con descuento a miembros activos."
-          ]
-        },
-        note: { en: "If anything doesn't match your purchase, contact us and we'll fix it.", es: "Si algo no coincide con tu compra, contáctanos y lo corregimos." }
-      };
-
-      let lang = getLang();
-
-      function render(){
-        lang = getLang();
-        document.documentElement.setAttribute("lang", lang);
-
-        // Header texts
-        $("#t-title").textContent = dict.title[lang];
-        $("#t-sub").textContent   = dict.sub[lang];
-
-        // Summary labels
-        $("#t-summary").textContent       = dict.summary[lang];
-        $("#t-memberid-label").textContent= dict.memberId[lang];
-        $("#t-plan-label").textContent    = dict.plan[lang];
-        $("#t-term-label").textContent    = dict.term[lang];
-        $("#t-order-label").textContent   = dict.order[lang];
-        $("#t-email-label").textContent   = dict.email[lang];
-
-        // Details from URL / config
-        $("#member-id").textContent = provided.memberId || "—";
-        $("#order-id").textContent  = provided.order    || "—";
-        $("#email").textContent     = provided.email    || "—";
-
-        // Plan fields
-        const planInfo = getPlanInfo(provided.plan) || getPlanInfo("INDIVIDUAL_3MO");
-        $("#plan-name").textContent = (planInfo?.name?.[lang] || planInfo?.name?.en || provided.plan || "—");
-        $("#plan-term").textContent = (planInfo?.term?.[lang] || planInfo?.term?.en || "/3 meses");
-
-        // Buttons
-        const extLink = getExtendLink();
-        const btnExt  = $("#btn-extend");
-        const btnHome = $("#btn-home");
-        if (btnExt)  btnExt.textContent = dict.extend[lang], btnExt.href = extLink || "#";
-        if (btnHome) btnHome.textContent = dict.home[lang];
-
-        // Next steps
-        $("#t-next").textContent = dict.next[lang];
-        const stepsList = $("#next-steps");
-        if (stepsList) {
-          const items = dict.steps[lang] || dict.steps.en;
-          stepsList.innerHTML = "";
-          items.forEach(s => { const li = document.createElement("li"); li.textContent = s; stepsList.appendChild(li); });
-        }
-        $("#t-note").textContent = dict.note[lang];
-
-        // Footer year
-        const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
-      }
-
-      // Print
-      $("#btn-print").addEventListener("click", () => window.print());
-
-      // Initial render
-      render();
-    })();
+    // Basic i18n init + year
+    document.addEventListener('DOMContentLoaded', () => {
+      const y=document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+      const saved = localStorage.getItem('udl_lang') || 'es';
+      document.documentElement.setAttribute('lang', saved);
+      // Event tracking hooks (fires only if analytics consented)
+      document.body.addEventListener('click', (e) => {
+        const t = e.target;
+        if (t.matches('[data-plan-select]')) UDL_CONSENT.track('select_plan', {plan: t.closest('[data-plan]')?.getAttribute('data-plan')});
+        if (t.id === 'cta-attorneys') UDL_CONSENT.track('click_attorneys_cta', {});
+      });
+    });
   </script>
 </body>
 </html>
