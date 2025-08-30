@@ -1,137 +1,98 @@
-<script>
-// ===== UltimaDefensaLegal.com configuration =====
-// Population-based plans. Today only LATINO is active.
-// No “Region” label anywhere. Buttons say “Pay / Pagar”.
+/* pricing-config.js
+   Ultima Defensa Legal — Region-based membership pricing (EN/ES)
+   Paste this entire file into your repo. No other edits needed.
+*/
 
-window.UDL_CONFIG = {
-  hero: {
-    headline: {
-      en: "Legal protection, in your language.",
-      es: "Protección legal, en tu idioma."
+(function () {
+  // Expose a single global configuration object
+  const CFG = {
+    defaultLang: "es",
+    currency: "USD",     // shown as $ by renderer
+    // Plan catalog (names/terms are bilingual; price is set per-region below)
+    plans: {
+      INDIVIDUAL_3MO: {
+        code: "INDIVIDUAL_3MO",
+        name: { en: "Individual", es: "Individual" },
+        term: { en: "/3 months", es: "/3 meses" },
+        description: {
+          en: "Member access + at least one free or discounted attorney consultation.",
+          es: "Acceso para miembro + al menos una consulta gratuita o con descuento con un abogado."
+        }
+      },
+      FAMILY_3MO: {
+        code: "FAMILY_3MO",
+        name: { en: "Family (2 adults)", es: "Familiar (2 adultos)" },
+        term: { en: "/3 months", es: "/3 meses" },
+        description: {
+          en: "Covers two adults in the same household. Includes the same benefits.",
+          es: "Cubre a dos adultos en el mismo hogar. Incluye los mismos beneficios."
+        }
+      },
+      EXTEND_3MO: {
+        code: "EXTEND_3MO",
+        name: { en: "Extend 3 months", es: "Extender 3 meses" },
+        term: { en: "", es: "" },
+        description: {
+          en: "Add 3 more months to your current membership.",
+          es: "Agrega 3 meses más a tu membresía actual."
+        }
+      }
     },
-    paragraph: {
-      en: "Bilingual (EN/ES) legal help for real-life issues. Attorneys in our network commit to at least one free or reduced consultation for active members.",
-      es: "Ayuda legal bilingüe (EN/ES) para situaciones reales. Los abogados de nuestra red se comprometen a ofrecer al menos una consulta gratuita o con descuento para miembros activos."
-    },
-    ctaPrimary:  { en: "How it works", es: "Cómo funciona" },
-    ctaSecondary:{ en: "View plans",   es: "Ver planes" }
-  },
 
-  labels: {
-    pay:       { en: "Pay",              es: "Pagar" },
-    payBTC:    { en: "Pay with Bitcoin", es: "Pagar con Bitcoin" },
-    plans:     { en: "Membership — 3 months", es: "Membresía — 3 meses" },
-    plansSub:  { en: "No monthly option. After 3 months, you can extend easily.", es: "Sin opción mensual. Después de 3 meses puedes extender fácilmente." },
-    howTitle:  { en: "How it works", es: "Cómo funciona" },
-    guaranteeTitle: { en: "Our promise", es: "Nuestro compromiso" },
-    guaranteeCopy: {
-      en: "Participating attorneys agree to at least one free or reduced consultation for active members. We focus on practical help and clear communication—English or Spanish.",
-      es: "Los abogados participantes aceptan ofrecer al menos una consulta gratuita o con descuento a miembros activos. Nos enfocamos en ayuda práctica y comunicación clara—en inglés o español."
+    /* Pricing by state. Values are in CENTS.
+       Region overrides will fall back to DEFAULT when not specified.
+       You can add more states or new groups any time.
+    */
+    pricingByState: {
+      DEFAULT: { INDIVIDUAL_3MO: 7900, FAMILY_3MO: 12900, EXTEND_3MO: 7900 },
+
+      // Higher-cost states
+      CA:       { INDIVIDUAL_3MO: 9900, FAMILY_3MO: 15900, EXTEND_3MO: 9900 }, // California
+      NY:       { INDIVIDUAL_3MO: 9900, FAMILY_3MO: 15900, EXTEND_3MO: 9900 }, // New York
+
+      // Lower-cost states
+      TX:       { INDIVIDUAL_3MO: 6900, FAMILY_3MO: 10900, EXTEND_3MO: 6900 }, // Texas
+      FL:       { INDIVIDUAL_3MO: 6900, FAMILY_3MO: 10900, EXTEND_3MO: 6900 }  // Florida
     },
-    copy: {
-      individualNote: { en: "Single adult coverage for common legal needs.", es: "Cobertura para un adulto en necesidades legales comunes." },
-      familyNote:     { en: "Husband and wife coverage.", es: "Cobertura para esposo y esposa." },
-      extendNote:     { en: "Already a member? Extend now—no re-signup.", es: "¿Ya eres miembro? Extiende ahora—sin volver a registrarte." }
+
+    /* Checkout links — no processor branding here.
+       Region-pricing will pick the link for the selected plan and append region info.
+       You can swap these URLs to any flow (Stripe, Square, custom, etc.) without changing pages.
+    */
+    checkoutLinks: {
+      DEFAULT: {
+        INDIVIDUAL_3MO: "subscribe.html?plan=INDIVIDUAL_3MO",
+        FAMILY_3MO:     "subscribe.html?plan=FAMILY_3MO",
+        EXTEND_3MO:     "subscribe.html?plan=EXTEND_3MO"
+      }
+    },
+
+    /* Optional: active “population” (for copy/marketing variations later).
+       Kept minimal so it doesn’t affect pricing logic.
+    */
+    populations: {
+      LATINO: {
+        active: true,
+        name: { en: "Latino Community", es: "Comunidad Latina" }
+      }
     }
-  },
+  };
 
-  // ==========================
-  // Populations (expandable)
-  // ==========================
-  populations: {
-    LATINO: {
-      active: true,
-      displayName: { en: "Latino Community", es: "Comunidad Latina" },
-      plans: {
-        INDIVIDUAL_3MO: {
-          name: { en: "Individual", es: "Individual" },
-          term: { en: "/3 months",  es: "/3 meses" },
-          price: 79.00,
-          checkoutLinks: { US: "https://square.link/u/udl-ind-3mo" },
-          cryptoLinks:    { US: "" },
-          noteKey: "copy.individualNote"
-        },
-        FAMILY_3MO: {
-          name: { en: "Family", es: "Familiar" },
-          term: { en: "/3 months", es: "/3 meses" },
-          price: 129.00,
-          checkoutLinks: { US: "https://square.link/u/udl-fam-3mo" },
-          cryptoLinks:    { US: "" },
-          noteKey: "copy.familyNote"
-        },
-        EXTEND_3MO: {
-          name: { en: "Extend 3 months", es: "Extender 3 meses" },
-          term: { en: "/3 months", es: "/3 meses" },
-          price: 69.00,
-          checkoutLinks: { US: "https://square.link/u/udl-extend-3mo" },
-          cryptoLinks:    { US: "" },
-          noteKey: "copy.extendNote"
-        }
-      }
-    },
+  // Helper API used by region-pricing.js (safe even if not used)
+  CFG.getPricesForState = function (stateCode) {
+    const S = (stateCode || "").toUpperCase();
+    return Object.assign({}, CFG.pricingByState.DEFAULT, CFG.pricingByState[S] || {});
+  };
 
-    // Pre-wired populations (set active:true when ready)
-    AFGHAN: {
-      active: false,
-      displayName: { en: "Afghan Community", es: "Comunidad Afgana" },
-      plans: {
-        INDIVIDUAL_3MO: {
-          name:{ en:"Individual", es:"Individual" }, term:{ en:"/3 months", es:"/3 meses" },
-          price: 79.00, checkoutLinks:{ US:"" }, cryptoLinks:{ US:"" }, noteKey:"copy.individualNote"
-        },
-        FAMILY_3MO: {
-          name:{ en:"Family", es:"Familiar" }, term:{ en:"/3 months", es:"/3 meses" },
-          price: 129.00, checkoutLinks:{ US:"" }, cryptoLinks:{ US:"" }, noteKey:"copy.familyNote"
-        },
-        EXTEND_3MO: {
-          name:{ en:"Extend 3 months", es:"Extender 3 meses" }, term:{ en:"/3 months", es:"/3 meses" },
-          price: 69.00, checkoutLinks:{ US:"" }, cryptoLinks:{ US:"" }, noteKey:"copy.extendNote"
-        }
-      }
-    },
+  CFG.getPlan = function (planCode) {
+    return CFG.plans[planCode] || null;
+  };
 
-    HAITIAN: {
-      active: false,
-      displayName: { en: "Haitian Community", es: "Comunidad Haitiana" },
-      plans: {
-        INDIVIDUAL_3MO: {
-          name:{ en:"Individual", es:"Individual" }, term:{ en:"/3 months", es:"/3 meses" },
-          price: 79.00, checkoutLinks:{ US:"" }, cryptoLinks:{ US:"" }, noteKey:"copy.individualNote"
-        },
-        FAMILY_3MO: {
-          name:{ en:"Family", es:"Familiar" }, term:{ en:"/3 months", es:"/3 meses" },
-          price: 129.00, checkoutLinks:{ US:"" }, cryptoLinks:{ US:"" }, noteKey:"copy.familyNote"
-        },
-        EXTEND_3MO: {
-          name:{ en:"Extend 3 months", es:"Extender 3 meses" }, term:{ en:"/3 months", es:"/3 meses" },
-          price: 69.00, checkoutLinks:{ US:"" }, cryptoLinks:{ US:"" }, noteKey:"copy.extendNote"
-        }
-      }
-    },
+  CFG.getCheckoutLink = function (planCode) {
+    const map = CFG.checkoutLinks.DEFAULT || {};
+    return map[planCode] || "#";
+  };
 
-    ASIAN: {
-      active: false,
-      displayName: { en: "Asian Community", es: "Comunidad Asiática" },
-      plans: {
-        INDIVIDUAL_3MO: {
-          name:{ en:"Individual", es:"Individual" }, term:{ en:"/3 months", es:"/3 meses" },
-          price: 79.00, checkoutLinks:{ US:"" }, cryptoLinks:{ US:"" }, noteKey:"copy.individualNote"
-        },
-        FAMILY_3MO: {
-          name:{ en:"Family", es:"Familiar" }, term:{ en:"/3 months", es:"/3 meses" },
-          price: 129.00, checkoutLinks:{ US:"" }, cryptoLinks:{ US:"" }, noteKey:"copy.familyNote"
-        },
-        EXTEND_3MO: {
-          name:{ en:"Extend 3 months", es:"Extender 3 meses" }, term:{ en:"/3 months", es:"/3 meses" },
-          price: 69.00, checkoutLinks:{ US:"" }, cryptoLinks:{ US:"" }, noteKey:"copy.extendNote"
-        }
-      }
-    },
-
-    AFRICAN: {
-      active: false,
-      displayName: { en: "African Community", es: "Comunidad Africana" },
-      plans: {
-        INDIVIDUAL_3MO: {
-          name:{ en:"Individual", es:"Individual" }, term:{ en:"/3 months", es:"/3 meses" },
-          price: 79.00,
+  // Publish
+  window.UDL_CONFIG = CFG;
+})();
