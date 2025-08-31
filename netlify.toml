@@ -1,59 +1,69 @@
+# Netlify configuration — Ultima Defensa Legal
 [build]
   publish = "."
 
-# 301s from legacy Spanish-only pages (removed)
-[[redirects]]; legacy
+# ===== Redirects from old Spanish-only pages =====
+[[redirects]]
   from = "/index_es.html"
-  to = "/index.html"
+  to   = "/index.html"
   status = 301
   force = true
+
 [[redirects]]
   from = "/subscribe_es.html"
-  to = "/subscribe.html"
+  to   = "/subscribe.html"
   status = 301
   force = true
+
 [[redirects]]
   from = "/attorneys_es.html"
-  to = "/attorneys.html"
+  to   = "/attorneys.html"
   status = 301
   force = true
+
 [[redirects]]
   from = "/404.es.html"
-  to = "/404.html"
+  to   = "/404.html"
   status = 301
   force = true
 
-# Pretty links
-[[redirects]]; pretty
+# ===== Pretty URLs =====
+[[redirects]]
   from = "/privacy"
-  to = "/privacy.html"
-  status = 301
-[[redirects]]
-  from = "/terms"
-  to = "/terms.html"
-  status = 301
-[[redirects]]
-  from = "/refunds"
-  to = "/refunds.html"
-  status = 301
-[[redirects]]
-  from = "/disclaimer"
-  to = "/disclaimer.html"
-  status = 301
-[[redirects]]
-  from = "/cookies"
-  to = "/cookies.html"
-  status = 301
-[[redirects]]
-  from = "/security"
-  to = "/security.html"
-  status = 301
-[[redirects]]
-  from = "/accessibility"
-  to = "/accessibility.html"
+  to   = "/privacy.html"
   status = 301
 
-# --- Security Headers ---
+[[redirects]]
+  from = "/terms"
+  to   = "/terms.html"
+  status = 301
+
+[[redirects]]
+  from = "/refunds"
+  to   = "/refunds.html"
+  status = 301
+
+[[redirects]]
+  from = "/disclaimer"
+  to   = "/disclaimer.html"
+  status = 301
+
+[[redirects]]
+  from = "/cookies"
+  to   = "/cookies.html"
+  status = 301
+
+[[redirects]]
+  from = "/security"
+  to   = "/security.html"
+  status = 301
+
+[[redirects]]
+  from = "/accessibility"
+  to   = "/accessibility.html"
+  status = 301
+
+# ===== Security Headers =====
 [[headers]]
   for = "/*"
   [headers.values]
@@ -62,5 +72,4 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=(), interest-cohort=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    # CSP allows self scripts + GA (only if consented and loaded)
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
