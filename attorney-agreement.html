@@ -5,57 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Acuerdo de Participación — Ultima Defensa Legal</title>
   <link rel="stylesheet" href="css/style.css" />
+  <script src="udl-ui.js" defer></script>
   <style>
-    :root{--max:900px}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    .container{max-width:var(--max);margin:0 auto;padding:1rem}header{border-bottom:1px solid #eee;background:#fafafa}
-    .row{display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+    :root{--max:900px}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    .container{max-width:var(--max);margin:0 auto;padding:1rem}
+    header{border-bottom:1px solid #eee;background:#fafafa}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:1rem}
     .btn{padding:.55rem .9rem;border-radius:12px;border:1px solid #111;background:#fff;cursor:pointer}
     .i18n-en{display:none} html[lang="en"] .i18n-en{display:block} html[lang="en"] .i18n-es{display:none}
-    article h1, h2{margin-top:1rem}
     footer{border-top:1px solid #eee;background:#fafafa;margin-top:2rem;text-align:center}
   </style>
-  <script src="udl-consent.js" defer></script>
 </head>
 <body>
 <header><div class="container row">
   <a href="index.html" style="text-decoration:none;color:#111;font-weight:800">Ultima Defensa Legal</a>
-  <div><button class="btn" onclick="UDL_UI?.setLang('en')">EN</button> <button class="btn" onclick="UDL_UI?.setLang('es')">ES</button></div>
+  <div><button class="btn" onclick="UDL_UI.setLang('en')">EN</button> <button class="btn" onclick="UDL_UI.setLang('es')">ES</button></div>
 </div></header>
 
 <main class="container">
   <article class="i18n-es">
     <h1>Acuerdo de Participación de Abogado</h1>
-    <p>Entre <strong>Ultima Defensa Legal, Inc.</strong> (la “Compañía”) y el Abogado firmante (“Abogado”).</p>
-    <h2>1. Propósito</h2><p>La Compañía opera una plataforma bilingüe que conecta miembros con abogados independientes.</p>
-    <h2>2. Relación</h2><p>El Abogado es contratista independiente. No existe relación abogado-cliente con la Compañía.</p>
-    <h2>3. Compromisos</h2><ul><li>Al menos una consulta gratuita o con descuento por miembro activo referido.</li><li>Cumplimiento de leyes, reglas deontológicas y confidencialidad.</li></ul>
-    <h2>4. Honorarios</h2><p>El Abogado puede cobrar servicios adicionales a sus tarifas. La Compañía puede cobrar cuotas de participación o referidos notificadas por escrito.</p>
-    <h2>5. Responsabilidad e indemnización</h2><p>La Compañía no es responsable de los servicios legales. El Abogado indemniza a la Compañía por reclamos derivados de su práctica.</p>
-    <h2>6. Duración</h2><p>Vigente hasta su terminación por cualquiera de las partes con 30 días de aviso.</p>
-    <h2>7. Fuerza mayor</h2><p>Sin responsabilidad por eventos fuera de control razonable (ver Términos).</p>
-    <h2>8. Ley aplicable</h2><p>Delaware, EE. UU.; sede exclusiva en tribunales de Delaware.</p>
-    <p><a href="mailto:attorneys@ultimadefensalegal.com?subject=Join%20UDL%20Network">Firmar / Solicitar incorporación</a></p>
+    <p>Entre <strong>Ultima Defensa Legal, Inc.</strong> (“Compañía”) y el Abogado firmante.</p>
+    <h2>1. Propósito</h2><p>Plataforma bilingüe que conecta miembros con abogados independientes.</p>
+    <h2>2. Relación</h2><p>Contratista independiente; la Compañía no forma relación abogado-cliente.</p>
+    <h2>3. Compromisos</h2><ul><li>Al menos una consulta gratuita o con descuento por miembro referido.</li><li>Cumplimiento de ley, reglas deontológicas y confidencialidad.</li></ul>
+    <h2>4. Honorarios</h2><p>El Abogado puede cobrar servicios adicionales; la Compañía puede cobrar cuotas de participación/referral notificadas por escrito.</p>
+    <h2>5. Responsabilidad e indemnización</h2><p>La Compañía no responde por servicios legales; el Abogado indemniza a la Compañía.</p>
+    <h2>6. Duración</h2><p>Hasta terminación con 30 días de aviso.</p>
+    <h2>7. Fuerza mayor</h2><p>Sin responsabilidad por eventos fuera de control razonable.</p>
+    <h2>8. Ley aplicable</h2><p>Delaware, EE. UU.; sede exclusiva en Delaware.</p>
+    <p><a href="mailto:attorneys@ultimadefensalegal.com?subject=Join%20UDL%20Network">Firmar / Solicitar</a></p>
   </article>
 
   <article class="i18n-en">
     <h1>Attorney Participation Agreement</h1>
-    <p>Between <strong>Ultima Defensa Legal, Inc.</strong> (the “Company”) and the undersigned attorney (“Attorney”).</p>
-    <h2>1. Purpose</h2><p>The Company operates a bilingual platform connecting members to independent attorneys.</p>
-    <h2>2. Relationship</h2><p>Attorney is an independent contractor. No attorney-client relationship is formed with the Company.</p>
-    <h2>3. Commitments</h2><ul><li>At least one free or discounted consultation per active referred member.</li><li>Compliance with law, bar rules, and confidentiality.</li></ul>
-    <h2>4. Fees</h2><p>Attorney may charge beyond the included consultation at customary rates. Company may assess participation/referral fees as disclosed in writing.</p>
-    <h2>5. Liability & Indemnity</h2><p>Company is not liable for legal services. Attorney indemnifies Company for claims arising from Attorney’s practice.</p>
-    <h2>6. Term</h2><p>Continues until terminated by either party with 30-day notice.</p>
-    <h2>7. Force Majeure</h2><p>No liability for events beyond reasonable control (see Terms).</p>
+    <p>Between <strong>Ultima Defensa Legal, Inc.</strong> (the “Company”) and the undersigned Attorney.</p>
+    <h2>1. Purpose</h2><p>Bilingual platform connecting members to independent attorneys.</p>
+    <h2>2. Relationship</h2><p>Independent contractor; Company does not form an attorney-client relationship.</p>
+    <h2>3. Commitments</h2><ul><li>At least one free or discounted consultation per referred member.</li><li>Compliance with law, bar rules, and confidentiality.</li></ul>
+    <h2>4. Fees</h2><p>Attorney may charge for additional services; Company may assess participation/referral fees disclosed in writing.</p>
+    <h2>5. Liability & Indemnity</h2><p>Company not liable for legal services; Attorney indemnifies Company.</p>
+    <h2>6. Term</h2><p>Until terminated with 30-day notice.</p>
+    <h2>7. Force Majeure</h2><p>No liability for events beyond reasonable control.</p>
     <h2>8. Governing Law</h2><p>Delaware; exclusive venue in Delaware courts.</p>
     <p><a href="mailto:attorneys@ultimadefensalegal.com?subject=Join%20UDL%20Network">Sign / Request to Join</a></p>
   </article>
 </main>
 
-<footer><div class="container"><p class="muted">© <span id="year"></span> Ultima Defensa Legal</p></div></footer>
-<script>
-  document.addEventListener('DOMContentLoaded',()=>{ const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
-    const saved = localStorage.getItem('udl_lang') || 'es'; document.documentElement.setAttribute('lang', saved); });
-</script>
+<footer><div class="container"><p>© <span id="year"></span> Ultima Defensa Legal</p></div></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
