@@ -1,65 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page Not Found · Ultima Defensa Legal</title>
-  <meta name="robots" content="noindex" />
+  <title>404 — Página no encontrada</title>
+  <meta http-equiv="refresh" content="5; url=/index.html" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="udl-ui.js" defer></script>
   <style>
-    :root{--bg:#0b1220;--white:#ffffff;--ring:rgba(255,255,255,.15);--card:#0f172a;--shadow:0 10px 25px rgba(0,0,0,.25);--radius:18px}
-    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--white);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.45}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:860px;margin:0 auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
-    .scales{width:26px;height:26px}
-    .card{background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-top:24px}
-    h1{font-size:clamp(28px,5vw,40px);line-height:1.1;margin:6px 0 10px}
-    p{color:#cbd5e1;max-width:60ch}
-    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-    .btn{display:inline-block;padding:12px 16px;border-radius:12px;border:1px solid var(--ring);font-weight:700;box-shadow:var(--shadow)}
-    .btn-primary{background:linear-gradient(180deg, rgba(14,165,233,.25), rgba(14,165,233,.12));border-color:rgba(14,165,233,.35)}
-    .btn-sub{background:linear-gradient(180deg, rgba(34,197,94,.25), rgba(34,197,94,.12));border-color:rgba(34,197,94,.35)}
-    footer{border-top:1px solid var(--ring);margin-top:26px}
-    footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 0;color:#94a3b8}
+    :root{--max:900px}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#0b1220;color:#f6f7fb}
+    .container{max-width:var(--max);margin:0 auto;padding:2rem 1rem}
+    .card{background:#0f172a;border:1px solid #1f2a44;border-radius:18px;padding:1.25rem}
+    .btn{display:inline-block;margin:.4rem .3rem 0 0;padding:.6rem 1rem;border-radius:10px;text-decoration:none}
+    .btn.primary{background:#0ea5e9;color:#fff}
+    .btn.secondary{background:#0b1220;color:#fff;border:1px solid #334155}
+    .i18n-en{display:none} html[lang="en"] .i18n-en{display:block} html[lang="en"] .i18n-es{display:none}
   </style>
 </head>
 <body>
-  <header class="container">
-    <div class="brand">
-      <!-- Scales icon -->
-      <svg class="scales" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M12 3v3M6 21h12M12 6l7 4M12 6L5 10" />
-        <path d="M5 10l-2 4a3 3 0 0 0 6 0l-2-4M19 10l-2 4a3 3 0 0 0 6 0l-2-4" />
-        <path d="M12 21V9" />
-      </svg>
-      <a class="logo" href="/">Ultima Defensa Legal</a>
-    </div>
-    <!-- link to Spanish landing file at root -->
-    <nav><a href="/index_es.html" class="btn">Español</a></nav>
-  </header>
-
-  <main class="container">
-    <section class="card">
-      <h1>404 — Page Not Found</h1>
-      <p>We couldn’t find that page. It may have been moved, renamed, or never existed. Try one of the options below.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="/">Back to Home</a>
-        <a class="btn btn-sub" href="/subscribe.html">Subscriber Membership</a>
-        <a class="btn" href="/attorneys.html">Attorney Membership</a>
-        <a class="btn" href="/index_es.html">Inicio (Español)</a>
-        <a class="btn" href="/subscribe_es.html">Suscriptor (Español)</a>
-        <a class="btn" href="/attorneys_es.html">Abogado (Español)</a>
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+      <div style="font-weight:800">Ultima Defensa Legal</div>
+      <div>
+        <button class="btn secondary" onclick="UDL_UI.setLang('en')">EN</button>
+        <button class="btn secondary" onclick="UDL_UI.setLang('es')">ES</button>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div>© <span id="y"></span> Ultima Defensa Legal</div>
-      <div>support@ultimadefensalegal.com</div>
     </div>
-  </footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+    <div class="card" style="margin-top:1rem">
+      <div class="i18n-es">
+        <h1>404 — Página no encontrada</h1>
+        <p>Te redirigiremos al inicio en <strong>5 segundos</strong>.</p>
+        <a class="btn primary" href="/index.html">Ir al inicio</a>
+        <a class="btn secondary" href="/subscribe.html">Membresía</a>
+        <a class="btn secondary" href="/attorneys.html">Abogados</a>
+      </div>
+      <div class="i18n-en">
+        <h1>404 — Page Not Found</h1>
+        <p>You’ll be redirected to the homepage in <strong>5 seconds</strong>.</p>
+        <a class="btn primary" href="/index.html">Back to Home</a>
+        <a class="btn secondary" href="/subscribe.html">Subscriber Membership</a>
+        <a class="btn secondary" href="/attorneys.html">Attorney Membership</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
