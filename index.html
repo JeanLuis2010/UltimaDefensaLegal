@@ -6,6 +6,8 @@
   <title>Ultima Defensa Legal — Protección legal bilingüe</title>
   <meta name="description" content="Conecta con abogados independientes. Membresías de 3 meses para individuos y familias. Bilingüe EN/ES.">
   <link rel="stylesheet" href="css/style.css" />
+  <script src="udl-ui.js" defer></script>
+  <script src="udl-consent.js" defer></script>
   <style>
     :root { --max: 1100px; }
     * { box-sizing: border-box; }
@@ -16,7 +18,6 @@
     .nav-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
     .nav-links a { text-decoration:none; color:#111; margin:0 .5rem; }
     .brand { font-weight:800; letter-spacing:.3px; }
-
     .hero { background:#fafafa; border-bottom:1px solid #eee; }
     .hero h1 { font-size: clamp(1.8rem, 2.8vw, 2.6rem); margin:0 0 .5rem; font-weight:800; }
     .hero p { margin:.3rem 0 1rem; max-width:70ch; color:#333; }
@@ -36,15 +37,10 @@
     .price { font-size:1.6rem; font-weight:700; margin:.5rem 0 .4rem; }
     .term { display:block; font-size:.95rem; color:#555; margin-bottom:.75rem; }
     footer { border-top:1px solid #eee; background:#fafafa; margin-top:2rem; }
-    /* i18n helpers (Spanish default) */
     .i18n-en{display:none} html[lang="en"] .i18n-en{display:block} html[lang="en"] .i18n-es{display:none}
   </style>
-  <!-- Consent & analytics loader (loads GA only after consent) -->
-  <script src="udl-consent.js" defer></script>
 </head>
-
 <body>
-  <!-- NAV -->
   <nav aria-label="Main">
     <div class="container nav-row">
       <div class="brand">Ultima Defensa Legal</div>
@@ -57,18 +53,17 @@
         <a href="contact.html">Contact</a>
       </div>
       <div>
-        <button type="button" class="btn secondary" style="border-color:#ddd" onclick="UDL_UI?.setLang('en')">EN</button>
-        <button type="button" class="btn secondary" style="border-color:#ddd" onclick="UDL_UI?.setLang('es')">ES</button>
+        <button type="button" class="btn secondary" onclick="UDL_UI.setLang('en')">EN</button>
+        <button type="button" class="btn secondary" onclick="UDL_UI.setLang('es')">ES</button>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
   <header class="hero">
     <div class="container">
       <div class="i18n-es">
         <h1>Protección legal cuando más la necesitas — bilingüe y accesible.</h1>
-        <p>Te conectamos con abogados independientes en inmigración, familia y penal. Membresías sencillas de 3 meses. Una llamada, ayuda real.</p>
+        <p>Te conectamos con abogados independientes en inmigración, familia y penal. Membresías de 3 meses. Una llamada, ayuda real.</p>
         <div class="cta-row">
           <a class="btn" href="#how">Cómo funciona</a>
           <a class="btn secondary" href="#plans">Ver planes</a>
@@ -87,29 +82,27 @@
     </div>
   </header>
 
-  <!-- HOW IT WORKS -->
   <section class="section" id="how">
     <div class="container">
       <div class="i18n-es">
         <h2>Cómo funciona</h2>
         <ol class="ol-steps">
-          <li>Inscríbete: elige Individual o Familiar (3 meses).</li>
+          <li>Inscríbete: Individual o Familiar (3 meses).</li>
           <li>Recibe tu ID de miembro al instante por correo.</li>
-          <li>Llámanos y te conectamos con un abogado adecuado.</li>
+          <li>Llámanos; te conectamos con el abogado indicado.</li>
         </ol>
       </div>
       <div class="i18n-en">
         <h2>How it works</h2>
         <ol class="ol-steps">
-          <li>Join: pick Individual or Family (3 months).</li>
+          <li>Join: Individual or Family (3 months).</li>
           <li>Get your Member ID instantly by email.</li>
-          <li>Call us and we connect you to the right attorney.</li>
+          <li>Call us; we connect you to the right attorney.</li>
         </ol>
       </div>
     </div>
   </section>
 
-  <!-- VALUE PROPS -->
   <section class="section" id="value">
     <div class="container">
       <div class="i18n-es">
@@ -117,8 +110,8 @@
         <div class="cards">
           <div class="card"><h3>Bilingüe EN/ES</h3><p>Atención y documentos en tu idioma.</p></div>
           <div class="card"><h3>Asequible</h3><p>Planes claros de 3 meses; opción para extender.</p></div>
-          <div class="card"><h3>Abogados verificados</h3><p>Compromiso: al menos una consulta gratuita o con descuento.</p></div>
-          <div class="card"><h3>Privado y seguro</h3><p>Protección de datos, 2FA, encriptación y cumplimiento.</p></div>
+          <div class="card"><h3>Abogados verificados</h3><p>Mínimo una consulta gratuita o con descuento.</p></div>
+          <div class="card"><h3>Privado y seguro</h3><p>Protección de datos, 2FA y cumplimiento.</p></div>
         </div>
       </div>
       <div class="i18n-en">
@@ -126,96 +119,33 @@
         <div class="cards">
           <div class="card"><h3>Bilingual EN/ES</h3><p>Support and documents in your language.</p></div>
           <div class="card"><h3>Affordable</h3><p>Simple 3-month plans; easy to extend.</p></div>
-          <div class="card"><h3>Verified attorneys</h3><p>Commitment: at least one free or discounted consultation.</p></div>
-          <div class="card"><h3>Private & secure</h3><p>Data protection, 2FA, encryption, and compliance.</p></div>
+          <div class="card"><h3>Verified attorneys</h3><p>At least one free or discounted consultation.</p></div>
+          <div class="card"><h3>Private & secure</h3><p>Data protection, 2FA, and compliance.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS / SCENARIOS (lite placeholders) -->
   <section class="section" id="stories" style="background:#fafafa; border-top:1px solid #eee; border-bottom:1px solid #eee;">
     <div class="container">
       <div class="i18n-es">
         <h2>Historias reales</h2>
         <div class="cards">
-          <div class="card"><p>“Cuando detuvieron a mi esposo, llamé con mi ID y me conectaron con un abogado de inmigración en minutos.”</p><p class="muted">— Miembro Familiar</p></div>
-          <div class="card"><p>“Necesitaba orientación sobre custodia. La consulta incluida valió por sí sola la membresía.”</p><p class="muted">— Miembro Individual</p></div>
+          <div class="card"><p>“Cuando detuvieron a mi esposo, me conectaron con un abogado en minutos.”</p><p class="muted">— Miembro Familiar</p></div>
+          <div class="card"><p>“La consulta incluida valió por sí sola la membresía.”</p><p class="muted">— Miembro Individual</p></div>
         </div>
       </div>
       <div class="i18n-en">
         <h2>Real stories</h2>
         <div class="cards">
-          <div class="card"><p>“When my husband was detained, I called with my Member ID and was connected to an immigration attorney in minutes.”</p><p class="muted">— Family Member</p></div>
-          <div class="card"><p>“I needed guidance on custody. The included consultation alone paid for the membership.”</p><p class="muted">— Individual Member</p></div>
+          <div class="card"><p>“When my husband was detained, I was connected to an attorney in minutes.”</p><p class="muted">— Family Member</p></div>
+          <div class="card"><p>“The included consultation alone paid for the membership.”</p><p class="muted">— Individual Member</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MEMBERSHIP (pricing rendered by JS; Spanish default) -->
   <section class="section" id="plans">
     <div class="container">
-      <div class="i18n-es">
-        <h2>Membresía — 3 meses</h2>
-        <p class="muted">Sin opción mensual. Después puedes extender fácilmente.</p>
-      </div>
-      <div class="i18n-en">
-        <h2>Membership — 3 months</h2>
-        <p class="muted">No monthly plan. After 3 months you can extend easily.</p>
-      </div>
-
-      <!-- Plans mount here (from pricing-config.js + region-pricing.js) -->
-      <div id="plans-root"></div>
-    </div>
-  </section>
-
-  <!-- ATTORNEY CTA -->
-  <section class="section" id="attorney-cta">
-    <div class="container">
-      <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
-        <div class="i18n-es">
-          <h3>¿Eres abogado?</h3>
-          <p class="muted" style="margin:0">Amplía tu práctica y ayuda a familias — únete a nuestra red.</p>
-        </div>
-        <div class="i18n-en">
-          <h3>Are you an attorney?</h3>
-          <p class="muted" style="margin:0">Grow your practice and help families—join our network.</p>
-        </div>
-        <a class="btn" href="attorneys.html" id="cta-attorneys">Join</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p class="muted">
-        © <span id="year"></span> Ultima Defensa Legal •
-        <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> •
-        <a href="refunds.html">Refunds</a> • <a href="disclaimer.html">Disclaimer</a> •
-        <a href="cookies.html">Cookies</a> • <a href="security.html">Security</a> •
-        <a href="accessibility.html">Accessibility</a>
-      </p>
-    </div>
-  </footer>
-
-  <!-- CONFIG + PRICING RENDERER -->
-  <script src="pricing-config.js"></script>
-  <script src="region-pricing.js"></script>
-  <script>
-    // Basic i18n init + year
-    document.addEventListener('DOMContentLoaded', () => {
-      const y=document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
-      const saved = localStorage.getItem('udl_lang') || 'es';
-      document.documentElement.setAttribute('lang', saved);
-      // Event tracking hooks (fires only if analytics consented)
-      document.body.addEventListener('click', (e) => {
-        const t = e.target;
-        if (t.matches('[data-plan-select]')) UDL_CONSENT.track('select_plan', {plan: t.closest('[data-plan]')?.getAttribute('data-plan')});
-        if (t.id === 'cta-attorneys') UDL_CONSENT.track('click_attorneys_cta', {});
-      });
-    });
-  </script>
-</body>
-</html>
+      <div class="i18n-es"><h2>Membresía — 3 meses</h2><p class="muted">Sin mensual. Puedes extender fácilmente.</p></div>
+      <div class="i18n-en"><h2>Membership —
