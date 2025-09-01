@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comenzar — UDL</title>
+<meta name="description" content="Formulario de registro para conectar con un abogado con licencia.">
+<style>
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f7f8fb;color:#111}
+header,footer{background:#0b2a4a;color:#fff}.wrap{max-width:900px;margin:0 auto;padding:16px}
+input,textarea,select{width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:10px}
+button{padding:.8rem 1rem;border-radius:12px;border:0;background:#e01e24;color:#fff;font-weight:800;cursor:pointer}
+small a{color:#fff}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1 data-i18n="nav_intake">Comenzar</h1></div></header>
+<main><div class="wrap">
+<form name="udl-intake" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="udl-intake">
+  <label>Nombre / Name<input name="name" required></label>
+  <label>Correo / Email<input type="email" name="email" required></label>
+  <label>Teléfono / Phone<input name="phone" required></label>
+  <label>Idioma preferido / Preferred language
+    <select name="lang"><option>Español</option><option>English</option></select>
+  </label>
+  <label>Ciudad y Estado / City & State<input name="location" required></label>
+  <label>Breve descripción (no comparta detalles sensibles) / Brief summary (no sensitive details)
+    <textarea name="summary" rows="5" required></textarea>
+  </label>
+  <button type="submit" data-i18n="cta_start">Comenzar ahora</button>
+</form>
+<p style="margin-top:12px;font-size:.95rem" data-i18n="edu">No somos un bufete. Conectamos personas con abogados independientes con licencia.</p>
+</div></main>
+<footer><div class="wrap"><small>© 2025 UDL • <a href="privacy.html" data-i18n="footer_privacy">Privacidad</a> • <a href="terms.html" data-i18n="footer_terms">Términos</a></small></div></footer>
+<script src="shared.js"></script>
+</body>
+</html>
