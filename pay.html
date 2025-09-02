@@ -2,33 +2,74 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pay — Ultima Defensa Legal</title>
-<meta name="description" content="Pay to begin intake and get connected with a licensed attorney.">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<title>Pay — Ultima Defense Legal</title>
+<meta name="description" content="Complete your payment securely.">
 <style>
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f6f7fb;color:#111}
-header,footer{background:#0b2a4a;color:#fff}.wrap{max-width:900px;margin:0 auto;padding:16px}
-.card{background:#fff;border:1px solid #e6e9ef;border-radius:16px;padding:16px;margin-top:16px}
-.btn{display:inline-block;padding:.8rem 1rem;border-radius:12px;border:0;background:#e01e24;color:#fff;font-weight:800;cursor:pointer}
-.note{background:#fff1c4;border:1px solid #f3d16f;border-radius:12px;padding:10px;margin-top:10px}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f7f8fb;color:#111}
+header,footer{background:#0b2a4a;color:#fff}
+.wrap{max-width:900px;margin:0 auto;padding:16px}
+.btn{padding:.8rem 1rem;border-radius:12px;border:0;background:#e01e24;color:#fff;font-weight:800;text-decoration:none;display:inline-block}
+.notice{background:#fff3cd;border:1px solid #ffe08a;color:#6b5300;padding:12px;border-radius:12px}
+nav a{color:#fff;text-decoration:none;margin-right:12px;font-weight:600}
+.lang button{border:2px solid #fff;background:transparent;color:#fff;border-radius:12px;padding:6px 10px;font-weight:700;cursor:pointer}
+.lang button[aria-current="true"]{background:#fff;color:#0b2a4a}
 </style>
 </head>
 <body>
-<header><div class="wrap"><h1 data-i18n="nav_pay">Pay</h1></div></header>
-<main><div class="wrap">
-  <div class="card">
-    <h2>Choose your option</h2>
-    <ul>
-      <li>Individual — 3 month access (one-time)</li>
-      <li>Family (spouses) — 3 month access (one-time)</li>
-    </ul>
-    <p class="note">We’ll enable checkout here. For now, you can join the waitlist to be notified the moment payments open.</p>
-    <button class="btn" onclick="openWL()">Join Waitlist</button>
+<header>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0">
+    <div class="brand">UltimaDefenseLegal</div>
+    <nav>
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="pricing.html" data-i18n="nav_pricing">Plans</a>
+      <a href="pay.html" data-i18n="nav_pay">Pay</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="lang">
+      <button data-lang="en" aria-current="true">EN</button>
+      <button data-lang="es">ES</button>
+    </div>
   </div>
+</header>
+
+<main><div class="wrap">
+  <h1 data-i18n="pay_title">Pay</h1>
+  <p id="sel" style="font-weight:700"></p>
+
+  <div id="pre" class="notice" style="display:none" data-i18n="pay_note_pre">Online payments open soon. For now, contact us to complete payment.</div>
+
+  <p style="display:flex;gap:10px;flex-wrap:wrap">
+    <a class="btn" id="payCard" href="#" data-i18n="pay_card">Pay Now (Card)</a>
+    <a class="btn" id="payCrypto" href="#" data-i18n="pay_crypto">Pay with Crypto</a>
+  </p>
+
+  <p style="margin-top:14px;color:#444" data-i18n="disclaim">We are not a law firm and do not provide legal advice. We connect you with licensed attorneys.</p>
 </div></main>
-<footer><div class="wrap"><small>© 2025 Ultima Defensa Legal</small></div></footer>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:12px 0">
+  <small>© 2025 UltimaDefenseLegal</small>
+  <small><a href="privacy.html" style="color:#fff" data-i18n="footer_privacy">Privacy</a> • <a href="terms.html" style="color:#fff" data-i18n="footer_terms">Terms</a> • <a href="refunds.html" style="color:#fff" data-i18n="footer_refunds">Refunds</a> • <a href="disclaimers.html" style="color:#fff" data-i18n="footer_disclaimers">Disclaimers</a></small>
+</div></footer>
+
 <script src="shared.js"></script>
+<script>
+// Set selection label and handle PRELAUNCH
+document.addEventListener("DOMContentLoaded", ()=>{
+  const qs=new URLSearchParams(location.search);
+  const plan=qs.get("p")||"individual_3mo";
+  const nameMap={individual_3mo:"Individual — 3 months", family_3mo:"Family (Spouses) — 3 months"};
+  const sel=document.getElementById("sel");
+  sel.textContent = nameMap[plan] + " • " + "$" + (typeof priceFor==="function"? priceFor(plan):"");
+  if(typeof PRELAUNCH!=="undefined" && PRELAUNCH){
+    document.getElementById("pre").style.display="block";
+    document.getElementById("payCard").onclick=(e)=>{e.preventDefault();location.href="contact.html";};
+    document.getElementById("payCrypto").onclick=(e)=>{e.preventDefault();location.href="contact.html";};
+  }else{
+    // TODO: set real links when live (Square checkout + Crypto)
+    document.getElementById("payCard").href="#";
+    document.getElementById("payCrypto").href="#";
+  }
+});
+</script>
 </body>
 </html>
