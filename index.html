@@ -1,137 +1,73 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ultima Defensa Legal — We connect you with attorneys (Not a law firm)</title>
-  <meta name="description" content="Bilingual intake (EN/ES). We connect individuals with independent attorneys for their unique legal concerns. Not a law firm." />
-  <link rel="icon" href="/favicon.ico" />
-  <style>
-    :root{--bg:#0b2239;--light:#f8fafc;--muted:#64748b;--accent:#e11d48;--ok:#0ea5e9}
-    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#fff;color:#0f172a}
-    a{color:inherit;text-decoration:none} .btn{display:inline-block;padding:.9rem 1.25rem;border-radius:9999px;font-weight:700}
-    .btn-primary{background:var(--accent);color:#fff} .btn-outline{border:2px solid var(--bg);color:var(--bg)}
-    .wrap{max-width:1100px;margin:0 auto;padding:1.25rem}
-    header{background:var(--bg);color:#fff;position:sticky;top:0;z-index:50}
-    nav a{padding:.75rem 1rem;border-radius:.65rem} nav a:hover{background:rgba(255,255,255,.08)}
-    .lang{display:flex;gap:.5rem} .chip{padding:.25rem .6rem;border-radius:999px;border:1px solid rgba(255,255,255,.35);cursor:pointer}
-    .chip.active{background:#fff;color:#0b2239}
-    .hero{background:linear-gradient(135deg,#0b2239 0%,#1b3761 100%);color:#fff;padding:4rem 1.25rem}
-    .hero h1{font-size:clamp(1.8rem,3.5vw,3rem);margin:0 0 1rem}
-    .grid{display:grid;gap:1.25rem} @media(min-width:900px){.grid-2{grid-template-columns:1fr 1fr}}
-    .card{border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem}
-    .price{font-size:2rem;font-weight:800}
-    footer{background:#0b2239;color:#cbd5e1;margin-top:3rem}
-    .small{font-size:.9rem;color:var(--muted)}
-    .notice{background:#f1f5f9;border-left:4px solid var(--ok);padding:1rem;border-radius:.5rem}
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;">
-      <a href="/index.html" style="font-weight:800;font-size:1.1rem">UltimaDefensaLegal</a>
-      <nav style="display:flex;gap:.25rem;align-items:center">
-        <a href="/index.html" data-i18n="nav.home">Home</a>
-        <a href="/for-clients.html" data-i18n="nav.clients">For Clients</a>
-        <a href="/for-attorneys.html" data-i18n="nav.attorneys">For Attorneys</a>
-        <a href="/contact.html" data-i18n="nav.contact">Contact</a>
-        <div class="lang" aria-label="Language">
-          <span class="chip" id="langEN">EN</span>
-          <span class="chip" id="langES">ES</span>
-        </div>
-      </nav>
-    </div>
-  </header>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ultima Defensa Legal — We connect you with attorneys (Not a law firm)</title>
+<meta name="description" content="Bilingual intake (EN/ES). We connect individuals with independent attorneys for their unique legal concerns. Not a law firm.">
+<link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/style.css">
+</head><body>
 
-  <section class="hero">
-    <div class="wrap">
-      <h1 data-i18n="hero.title">Real help, fast: We connect you with an attorney who understands your case.</h1>
-      <p class="small" data-i18n="hero.sub">Bilingual intake (EN/ES). We are not a law firm. Membership gives you access to quick, caring connection with independent attorneys.</p>
-      <div style="margin-top:1.25rem;display:flex;gap:.75rem;flex-wrap:wrap">
-        <a class="btn btn-primary" href="/for-clients.html" data-i18n="cta.clients">I need legal help</a>
-        <a class="btn btn-outline" href="/for-attorneys.html" data-i18n="cta.attorneys">I’m an attorney</a>
-      </div>
+<!-- HEADER -->
+<?!-- paste the shared header here if your host supports includes; otherwise copy the block -->
+<header>
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;">
+    <a class="brand" href="/index.html">UltimaDefensaLegal</a>
+    <nav>
+      <a href="/index.html" data-i18n="nav.home">Home</a>
+      <a href="/for-clients.html" data-i18n="nav.clients">For Clients</a>
+      <a href="/for-attorneys.html" data-i18n="nav.attorneys">For Attorneys</a>
+      <a href="/contact.html" data-i18n="nav.contact">Contact</a>
+      <div class="lang"><span class="chip" id="udlLangEN">EN</span><span class="chip" id="udlLangES">ES</span></div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1 data-i18n="hero.title">Real help, fast: We connect you with an attorney who understands your case.</h1>
+    <p class="small" data-i18n="hero.sub">Bilingual intake (EN/ES). We are not a law firm. Membership gives you access to quick, caring connection with independent attorneys.</p>
+    <div style="margin-top:1.1rem;display:flex;gap:.8rem;flex-wrap:wrap">
+      <a class="btn btn-primary" href="/for-clients.html" data-i18n="cta.clients">I need legal help</a>
+      <a class="btn btn-outline" href="/for-attorneys.html" data-i18n="cta.attorneys">I’m an attorney</a>
     </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="notice" style="margin:1.2rem 0">
+    <strong data-i18n="banner.kind">You’re not alone.</strong>
+    <span data-i18n="banner.copy">If you’re worried about deportation or any legal problem, we’ll listen—without judgment—and connect you with a qualified attorney.</span>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h2 data-i18n="block.clientsTitle">For Individuals</h2>
+      <p data-i18n="block.clientsCopy">Simple, affordable membership. Tell us your situation (EN/ES). We match you to a licensed attorney who offers a free or reduced consultation.</p>
+      <div class="price">$25 <span class="small" data-i18n="per.month">/ month</span></div>
+      <div class="small">$65 <span data-i18n="per.quarter">/ quarter</span></div>
+      <a class="btn btn-primary" href="/for-clients.html" data-i18n="block.clientsBtn">See how it works</a>
+    </div>
+
+    <div class="card">
+      <h2 data-i18n="block.attorneysTitle">For Attorneys</h2>
+      <p data-i18n="block.attorneysCopy">Join our bilingual intake network. We deliver qualified leads and provide dashboard updates.</p>
+      <div class="price">$325 <span class="small" data-i18n="per.month3">/ month (first 3 months)</span></div>
+      <div class="small">$499 <span data-i18n="per.monthAfter">/ month thereafter</span></div>
+      <a class="btn btn-outline" href="/for-attorneys.html" data-i18n="block.attorneysBtn">Plans & details</a>
+    </div>
+  </div>
+
+  <section style="margin-top:2rem">
+    <h3 data-i18n="disclaimer.title">Important</h3>
+    <p class="small" data-i18n="disclaimer.copy">Ultima Defensa Legal is not a law firm and does not provide legal advice. We connect members with independent, licensed attorneys. Membership fees are for access to our intake and connection services only. Any attorney–client relationship is solely between you and the attorney.</p>
   </section>
+</main>
 
-  <main class="wrap">
-    <div class="notice" style="margin:1.25rem 0">
-      <strong data-i18n="banner.kind">You’re not alone.</strong>
-      <span data-i18n="banner.copy">If you’re worried about deportation or any legal problem, we’ll listen—without judgment—and connect you with a qualified attorney.</span>
-    </div>
+<footer>
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center">
+    <span>&copy; <span id="yr"></span> Ultima Defensa Legal</span>
+    <a href="/contact.html" style="color:#e2e8f0" data-i18n="footer.contact">Contact</a>
+  </div>
+</footer>
 
-    <div class="grid grid-2">
-      <div class="card">
-        <h2 data-i18n="block.clientsTitle">For Individuals</h2>
-        <p data-i18n="block.clientsCopy">Simple, affordable membership. Tell us your situation (in English or Spanish). We match you to a licensed attorney who offers a free or reduced consultation.</p>
-        <div class="price">$25 <span class="small" data-i18n="per.month">/ month</span></div>
-        <div class="small" style="margin:.25rem 0">$65 <span data-i18n="per.quarter">/ quarter</span></div>
-        <a class="btn btn-primary" href="/for-clients.html" data-i18n="block.clientsBtn">See how it works</a>
-      </div>
-
-      <div class="card">
-        <h2 data-i18n="block.attorneysTitle">For Attorneys</h2>
-        <p data-i18n="block.attorneysCopy">Join our bilingual intake network. We deliver qualified leads, prioritize routing, and provide dashboard updates.</p>
-        <div class="price">$325 <span class="small" data-i18n="per.month3">/ month (first 3 months)</span></div>
-        <div class="small">$499 <span data-i18n="per.monthAfter">/ month thereafter</span></div>
-        <a class="btn btn-outline" href="/for-attorneys.html" data-i18n="block.attorneysBtn">Plans & details</a>
-      </div>
-    </div>
-
-    <section style="margin-top:2rem">
-      <h3 data-i18n="disclaimer.title">Important</h3>
-      <p class="small" data-i18n="disclaimer.copy">
-        Ultima Defensa Legal is not a law firm and does not provide legal advice. We connect members with independent, licensed attorneys. Membership fees are for access to our intake and connection services only. Any attorney–client relationship is solely between you and the attorney.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center">
-      <span>&copy; <span id="yr"></span> Ultima Defensa Legal</span>
-      <a href="/contact.html" style="color:#e2e8f0" data-i18n="footer.contact">Contact</a>
-    </div>
-  </footer>
-
-  <script>
-    // Simple i18n with persistence
-    const dict = {
-      en: {
-        "nav.home":"Home","nav.clients":"For Clients","nav.attorneys":"For Attorneys","nav.contact":"Contact",
-        "hero.title":"Real help, fast: We connect you with an attorney who understands your case.",
-        "hero.sub":"Bilingual intake (EN/ES). We are not a law firm. Membership gives you access to quick, caring connection with independent attorneys.",
-        "cta.clients":"I need legal help","cta.attorneys":"I’m an attorney",
-        "banner.kind":"You’re not alone.","banner.copy":"If you’re worried about deportation or any legal problem, we’ll listen—without judgment—and connect you with a qualified attorney.",
-        "block.clientsTitle":"For Individuals","block.clientsCopy":"Simple, affordable membership. Tell us your situation (in English or Spanish). We match you to a licensed attorney who offers a free or reduced consultation.","block.clientsBtn":"See how it works",
-        "per.month":"/ month","per.quarter":"/ quarter","per.month3":"/ month (first 3 months)","per.monthAfter":"/ month thereafter",
-        "block.attorneysTitle":"For Attorneys","block.attorneysCopy":"Join our bilingual intake network. We deliver qualified leads, prioritize routing, and provide dashboard updates.","block.attorneysBtn":"Plans & details",
-        "disclaimer.title":"Important","disclaimer.copy":"Ultima Defensa Legal is not a law firm and does not provide legal advice. We connect members with independent, licensed attorneys. Membership fees are for access to our intake and connection services only. Any attorney–client relationship is solely between you and the attorney.",
-        "footer.contact":"Contact"
-      },
-      es: {
-        "nav.home":"Inicio","nav.clients":"Para Clientes","nav.attorneys":"Para Abogados","nav.contact":"Contacto",
-        "hero.title":"Ayuda real, rápida: te conectamos con un abogado que entiende tu caso.",
-        "hero.sub":"Atención bilingüe (EN/ES). No somos un bufete de abogados. La membresía te da acceso a una conexión rápida y humana con abogados independientes.",
-        "cta.clients":"Necesito ayuda legal","cta.attorneys":"Soy abogado",
-        "banner.kind":"No estás solo(a).","banner.copy":"Si te preocupa la deportación u otro problema legal, te escuchamos —sin juzgar— y te conectamos con un abogado calificado.",
-        "block.clientsTitle":"Para Clientes","block.clientsCopy":"Membresía simple y asequible. Cuéntanos tu situación (en inglés o español). Te vinculamos con un abogado con consulta gratis o a precio reducido.","block.clientsBtn":"Cómo funciona",
-        "per.month":"/ mes","per.quarter":"/ trimestre","per.month3":"/ mes (primeros 3 meses)","per.monthAfter":"/ mes después",
-        "block.attorneysTitle":"Para Abogados","block.attorneysCopy":"Únete a nuestra red bilingüe. Entregamos prospectos calificados, enrutamiento prioritario y un panel con actualizaciones.","block.attorneysBtn":"Planes y detalles",
-        "disclaimer.title":"Importante","disclaimer.copy":"Ultima Defensa Legal no es un bufete de abogados y no brinda asesoría legal. Conectamos a los miembros con abogados independientes autorizados. Las cuotas de membresía son por el acceso a nuestro servicio de admisión y conexión. Cualquier relación abogado–cliente es solo entre usted y el abogado.",
-        "footer.contact":"Contacto"
-      }
-    };
-    const $ = s=>document.querySelectorAll(`[data-i18n="${s}"]`);
-    function apply(lang){
-      localStorage.setItem('lang',lang);
-      document.getElementById('langEN').classList.toggle('active',lang==='en');
-      document.getElementById('langES').classList.toggle('active',lang==='es');
-      const d=dict[lang]; for(const k in d){ $.(k)?.forEach(el=>el.textContent=d[k]); }
-    }
-    document.getElementById('langEN').onclick=()=>apply('en');
-    document.getElementById('langES').onclick=()=>apply('es');
-    apply(localStorage.getItem('lang')||'en');
-    document.getElementById('yr').textContent=new Date().getFullYear();
-  </script>
-</body>
-</html>
+<!-- Shared i18n -->
+<script src="/shared-udl.js"></script>
+</body></html>
