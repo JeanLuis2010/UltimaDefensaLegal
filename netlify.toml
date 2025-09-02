@@ -1,3 +1,4 @@
+# Root → home
 [[redirects]]
   from = "/"
   to = "/index.html"
@@ -31,7 +32,7 @@
   to = "/for-clients.html"
   status = 301
 
-# If you keep a pretty route for pay, forward to your hosted checkout later
+# Pretty pay routes (swap to hosted checkout later)
 [[redirects]]
   from = "/pay/clients"
   to = "/pay.html"
@@ -41,7 +42,7 @@
   to = "/pay.html"
   status = 200
 
-# 404 fallback
+# Fallback
 [[redirects]]
   from = "/*"
   to = "/udl-404.html"
