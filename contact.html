@@ -3,44 +3,27 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact — Ultima Defensa Legal</title>
-<meta name="description" content="Contact Ultima Defensa Legal for support and enrollment.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<meta name="description" content="Contact us for support or questions.">
 <style>
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f7f8fb;color:#111}
-header,footer{background:#0b2a4a;color:#fff}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f5f7f6;color:#0a0f0d}
+header,footer{background:#0e1b16;color:#fff}
 .wrap{max-width:900px;margin:0 auto;padding:16px}
-input,textarea{width:100%;padding:10px;border:1px solid #ccc;border-radius:10px;margin-bottom:10px}
-button{padding:.8rem 1rem;border-radius:12px;border:0;background:#e01e24;color:#fff;font-weight:800;cursor:pointer}
-footer a{color:#fff}.footer-links{display:flex;gap:12px;flex-wrap:wrap}.cookie-link{cursor:pointer;text-decoration:underline}
+input,textarea{width:100%;padding:12px;border:1px solid #e6e9ef;border-radius:12px;margin:.4rem 0}
+button{padding:.8rem 1rem;border-radius:12px;border:0;background:#1f8a5b;color:#fff;font-weight:800;cursor:pointer}
 </style>
 </head>
 <body>
-<header><div class="wrap"><h1 data-i18n="contact_h1">Contact Us</h1></div></header>
+<header><div class="wrap"><h1>Contact / <span lang="es">Contacto</span></h1></div></header>
 <main><div class="wrap">
 <form name="udl-contact" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="udl-contact">
-  <label><span data-i18n="contact_name">Name</span><input type="text" name="name" required></label>
-  <label><span data-i18n="contact_email">Email</span><input type="email" name="email" required></label>
-  <label><span data-i18n="contact_msg">Message</span><textarea name="message" rows="5" required></textarea></label>
-  <button type="submit" data-i18n="contact_send">Send</button>
+  <label>Name / <span lang="es">Nombre</span><input type="text" name="name" required></label>
+  <label>Email / <span lang="es">Correo</span><input type="email" name="email" required></label>
+  <label>Message / <span lang="es">Mensaje</span><textarea name="message" rows="5" required></textarea></label>
+  <button type="submit">Send / <span lang="es">Enviar</span></button>
 </form>
-<p style="color:#6b7280;margin-top:10px"><small data-i18n="legal_note">We are not a law firm. Services are administrative; legal advice is provided only by licensed attorneys.</small></p>
 </div></main>
-<footer>
-  <div class="wrap">
-    <small>© 2025 Ultima Defensa Legal</small>
-    <div class="footer-links">
-      <a href="privacy.html" data-i18n="footer_privacy">Privacy</a>
-      <a href="terms.html" data-i18n="footer_terms">Terms</a>
-      <a href="refunds.html" data-i18n="footer_refunds">Refunds</a>
-      <a href="cookie-policy.html" data-i18n="footer_cookie">Cookie Policy</a>
-      <a class="cookie-link" id="openPrefs" data-i18n="footer_prefs">Cookie Settings</a>
-      <a href="data-requests.html#dns" data-i18n="footer_dns">Do-Not-Sell/Share</a>
-      <a href="accessibility.html" data-i18n="footer_a11y">Accessibility</a>
-      <a href="security.html" data-i18n="footer_sec">Security</a>
-    </div>
-  </div>
-</footer>
-<script src="shared.js"></script>
+<footer><div class="wrap"><small>© 2025 Ultima Defensa Legal • <a href="privacy.html" style="color:#fff">Privacy</a> • <a href="terms.html" style="color:#fff">Terms</a></small></div></footer>
+<script src="shared-udl.js"></script>
 </body>
 </html>
