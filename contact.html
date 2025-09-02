@@ -1,241 +1,154 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — Edunancial</title>
-<meta name="description" content="Contact Edunancial — Individuals & Families, and Attorneys & Partners.">
-<link rel="canonical" href="https://edunancial.com/contact.html">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — UltimaDefenseLegal</title>
+<meta name="description" content="Contact UltimaDefenseLegal for help or to enroll as an attorney. Bilingual (EN/ES).">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-:root{--blue:#0b2a4a;--red:#e01e24;--ink:#111;--ring:#e6e9ef;--bg:#f7f8fb}
-*{box-sizing:border-box}
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
-header,footer{background:var(--blue);color:#fff}
-.wrap{max-width:980px;margin:0 auto;padding:16px}
-h1{margin:.2rem 0 0 0}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
-.tab-btn{cursor:pointer;border:1px solid var(--ring);background:#fff;color:var(--blue);font-weight:800;border-radius:999px;padding:8px 14px}
-.tab-btn[aria-selected="true"]{background:var(--red);border-color:var(--red);color:#fff}
-.panel{background:#fff;border:1px solid var(--ring);border-radius:16px;padding:16px}
-.grid{display:grid;gap:12px}
-@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
-label{display:block;font-weight:600}
-input,select,textarea{width:100%;padding:12px;border:1px solid var(--ring);border-radius:12px;background:#fff}
-textarea{min-height:120px}
-small.help{display:block;color:#555;margin-top:6px}
-button[type=submit]{padding:.9rem 1.1rem;border-radius:12px;border:0;background:var(--red);color:#fff;font-weight:800;cursor:pointer}
-.note{background:#fff;border:1px dashed var(--ring);border-radius:12px;padding:10px;margin:12px 0;color:#333}
-footer .links a{color:#fff;text-decoration:none;margin-right:12px}
-.cookie-link{cursor:pointer;text-decoration:underline}
-.disclaimer{font-size:.9rem;color:#333}
+:root{--blue:#0b2a4a;--red:#d11f2a;--ink:#111827;--bg:#f7f8fb;--ring:#e6e9ef;--max:900px}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.45}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+
+/* Nav */
+.nav{background:var(--blue);color:#fff;border-bottom:2px solid #0a2745}
+.nav-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:10px}
+.nav a{color:#fff;text-decoration:none;font-weight:700;margin-right:14px}
+.lang button{border:2px solid #fff;background:transparent;color:#fff;border-radius:12px;padding:6px 10px;font-weight:800;cursor:pointer}
+.lang button[aria-current="true"]{background:#fff;color:var(--blue)}
+
+/* Form */
+.section{padding:22px 16px}
+.card{background:#fff;border:1px solid var(--ring);border-radius:16px;padding:16px}
+label{display:block;margin-bottom:8px;font-weight:700}
+input,textarea,select{width:100%;padding:12px;border:1px solid #dcdfe4;border-radius:12px;margin-top:6px}
+button{padding:.9rem 1rem;border-radius:12px;border:0;background:var(--red);color:#fff;font-weight:800;cursor:pointer}
+
+/* Footer */
+footer{background:var(--blue);color:#fff;border-top:1px solid #0a2745}
+footer .wrap{padding:14px 16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+footer a{color:#fff;text-decoration:none}
+.small{font-size:.9rem;opacity:.95}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="wrap">
-    <h1>Contact Us / <span lang="es">Contáctanos</span></h1>
-    <p class="disclaimer">Two paths below: <strong>Individuals & Families</strong> and <strong>Attorneys & Partners</strong>. / 
-      <span lang="es">Dos caminos abajo: <strong>Personas y Familias</strong> y <strong>Abogados y Socios</strong>.</span>
-    </p>
+<header class="nav">
+  <div class="wrap nav-row">
+    <div style="font-weight:900">UltimaDefenseLegal</div>
+    <nav>
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="pricing.html" data-i18n="nav_pricing">Pricing</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="lang">
+      <button data-lang="en" aria-current="true">EN</button>
+      <button data-lang="es">ES</button>
+    </div>
   </div>
 </header>
 
-<main>
+<main class="section">
   <div class="wrap">
-    <!-- TABS -->
-    <div class="tabs" role="tablist" aria-label="Contact Tabs">
-      <button class="tab-btn" role="tab" id="tab-ind" aria-controls="panel-ind" aria-selected="true">Individuals & Families / <span lang="es">Personas y Familias</span></button>
-      <button class="tab-btn" role="tab" id="tab-att" aria-controls="panel-att" aria-selected="false">Attorneys & Partners / <span lang="es">Abogados y Socios</span></button>
+    <h1 data-i18n="title">Contact us</h1>
+    <p class="small" data-i18n="desc">We respond quickly in English or Spanish. If you’re an attorney, choose “Attorney enrollment.”</p>
+
+    <div class="card">
+      <form name="udl-contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="udl-contact">
+        <label data-i18n="f_plan">Plan
+          <select name="plan" id="plan">
+            <option value="individual" data-i18n="opt_ind">Individual (3 months)</option>
+            <option value="family" data-i18n="opt_fam">Family (3 months)</option>
+            <option value="attorney" data-i18n="opt_atty">Attorney enrollment</option>
+            <option value="general" data-i18n="opt_gen">General question</option>
+          </select>
+        </label>
+        <label data-i18n="f_name">Full name
+          <input name="name" required>
+        </label>
+        <label data-i18n="f_email">Email
+          <input type="email" name="email" required>
+        </label>
+        <label data-i18n="f_phone">Phone (optional)
+          <input name="phone">
+        </label>
+        <label data-i18n="f_msg">Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit" data-i18n="btn_send">Send</button>
+      </form>
     </div>
-
-    <!-- PANEL: INDIVIDUALS & FAMILIES -->
-    <section class="panel" id="panel-ind" role="tabpanel" aria-labelledby="tab-ind">
-      <div class="note">
-        Questions about memberships, mini courses, or refunds? Use this form. / 
-        <span lang="es">¿Preguntas sobre membresías, mini cursos o reembolsos? Usa este formulario.</span>
-      </div>
-      <form name="edn-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="edn-contact">
-        <p style="display:none">
-          <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
-        </p>
-        <div class="grid">
-          <div>
-            <label>Name / <span lang="es">Nombre</span>
-              <input type="text" name="name" required>
-            </label>
-          </div>
-          <div>
-            <label>Email / <span lang="es">Correo</span>
-              <input type="email" name="email" required>
-            </label>
-          </div>
-        </div>
-        <div class="grid">
-          <div>
-            <label>Topic / <span lang="es">Tema</span>
-              <select name="topic" required>
-                <option value="general">General</option>
-                <option value="membership">Membership</option>
-                <option value="courses">Mini Courses</option>
-                <option value="billing">Billing / Refund</option>
-                <option value="privacy">Privacy / Data</option>
-              </select>
-            </label>
-          </div>
-          <div>
-            <label>Order # (if any) / <span lang="es">N.º de pedido (si aplica)</span>
-              <input type="text" name="order">
-            </label>
-          </div>
-        </div>
-        <label>Message / <span lang="es">Mensaje</span>
-          <textarea name="message" required></textarea>
-        </label>
-        <label><input type="checkbox" name="consent" required> 
-          I agree to be contacted by email or SMS (where available). / 
-          <span lang="es">Acepto ser contactado por correo o SMS (cuando aplique).</span>
-        </label>
-        <small class="help">See <a href="privacy.html">Privacy</a> & <a href="terms.html">Terms</a>. / 
-          <span lang="es">Consulta <a href="privacy.html">Privacidad</a> y <a href="terms.html">Términos</a>.</span>
-        </small>
-        <p><button type="submit">Send / <span lang="es">Enviar</span></button></p>
-      </form>
-    </section>
-
-    <!-- PANEL: ATTORNEYS & PARTNERS -->
-    <section class="panel" id="panel-att" role="tabpanel" aria-labelledby="tab-att" hidden>
-      <div class="note">
-        For attorneys and partners interested in referrals, collaborations, or speaking: / 
-        <span lang="es">Para abogados y socios interesados en referencias, colaboraciones o charlas:</span>
-      </div>
-      <form name="edn-attorney" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="edn-attorney">
-        <p style="display:none">
-          <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
-        </p>
-
-        <div class="grid">
-          <div>
-            <label>Firm / Organization / <span lang="es">Despacho / Organización</span>
-              <input type="text" name="firm" required>
-            </label>
-          </div>
-          <div>
-            <label>Website
-              <input type="url" name="website" placeholder="https://">
-            </label>
-          </div>
-        </div>
-
-        <div class="grid">
-          <div>
-            <label>Contact Name / <span lang="es">Nombre de contacto</span>
-              <input type="text" name="name" required>
-            </label>
-          </div>
-          <div>
-            <label>Professional Email / <span lang="es">Correo profesional</span>
-              <input type="email" name="email" required>
-            </label>
-          </div>
-        </div>
-
-        <div class="grid">
-          <div>
-            <label>Jurisdiction(s) / <span lang="es">Jurisdicción(es)</span>
-              <input type="text" name="jurisdiction" placeholder="e.g., DE, FL, CA" required>
-            </label>
-          </div>
-          <div>
-            <label>Practice Areas / <span lang="es">Áreas de práctica</span>
-              <input type="text" name="practice" placeholder="e.g., Immigration, Consumer, Tax">
-            </label>
-          </div>
-        </div>
-
-        <div class="grid">
-          <div>
-            <label>Interest / <span lang="es">Interés</span>
-              <select name="interest" required>
-                <option value="referrals">Referral Network</option>
-                <option value="content">Content Collaboration</option>
-                <option value="speaking">Speaking / Webinars</option>
-                <option value="sponsorship">Sponsorship</option>
-                <option value="other">Other</option>
-              </select>
-            </label>
-          </div>
-          <div>
-            <label>Preferred Contact / <span lang="es">Contacto preferido</span>
-              <select name="contactpref">
-                <option>Email</option>
-                <option>Phone</option>
-                <option>Video</option>
-              </select>
-            </label>
-          </div>
-        </div>
-
-        <label>Message / <span lang="es">Mensaje</span>
-          <textarea name="message" placeholder="Tell us about your practice, availability, and interests." required></textarea>
-        </label>
-
-        <label><input type="checkbox" name="consent" required>
-          I agree to be contacted and receive information about opportunities. /
-          <span lang="es">Acepto ser contactado y recibir información sobre oportunidades.</span>
-        </label>
-        <small class="help">We do not request or accept confidential client information via this form. /
-          <span lang="es">No solicitamos ni aceptamos información confidencial de clientes por este formulario.</span>
-        </small>
-
-        <p><button type="submit">Send / <span lang="es">Enviar</span></button></p>
-      </form>
-    </section>
-
   </div>
 </main>
 
 <footer>
   <div class="wrap">
-    <small>© 2025 Edunancial • 
-      <a href="privacy.html">Privacy</a> • 
-      <a href="terms.html">Terms</a> • 
-      <a href="refunds.html">Refunds</a> • 
-      <a href="cookie-policy.html">Cookie Policy</a> • 
-      <a class="cookie-link" id="openPrefs">Cookie Settings</a> •
-      <a href="data-requests.html#dns">Do-Not-Sell/Share</a> • 
-      <a href="accessibility.html">Accessibility</a> • 
-      <a href="security.html">Security</a>
-    </small>
+    <small class="small">© 2025 UltimaDefenseLegal • <span data-i18n="disclaimer">We are not a law firm and do not provide legal advice.</span></small>
+    <div class="small">
+      <a href="pricing.html" data-i18n="nav_pricing">Pricing</a> •
+      <a href="index.html" data-i18n="nav_home">Home</a>
+    </div>
   </div>
 </footer>
 
-<!-- Minimal tab script (kept here so you don't touch shared.js) -->
+<!-- i18n + toggle + prefill plan -->
 <script>
-(function(){
-  const tabs = {
-    ind: {tab: document.getElementById('tab-ind'), panel: document.getElementById('panel-ind')},
-    att: {tab: document.getElementById('tab-att'), panel: document.getElementById('panel-att')}
-  };
-  function select(which){
-    for(const k in tabs){
-      const on = (k===which);
-      tabs[k].tab.setAttribute('aria-selected', on?'true':'false');
-      tabs[k].panel.hidden = !on;
-    }
-    // remember last chosen panel
-    localStorage.setItem('edn-contact-tab', which);
+/*** i18n ***/
+const T = {
+  en:{
+    nav_home:"Home", nav_pricing:"Pricing", nav_contact:"Contact",
+    title:"Contact us",
+    desc:"We respond quickly in English or Spanish. If you’re an attorney, choose “Attorney enrollment.”",
+    f_plan:"Plan", opt_ind:"Individual (3 months)", opt_fam:"Family (3 months)", opt_atty:"Attorney enrollment", opt_gen:"General question",
+    f_name:"Full name", f_email:"Email", f_phone:"Phone (optional)", f_msg:"Message",
+    btn_send:"Send",
+    disclaimer:"We are not a law firm and do not provide legal advice."
+  },
+  es:{
+    nav_home:"Inicio", nav_pricing:"Precios", nav_contact:"Contacto",
+    title:"Contáctanos",
+    desc:"Respondemos rápido en inglés o español. Si eres abogado, elige “Inscripción de abogado”.",
+    f_plan:"Plan", opt_ind:"Individual (3 meses)", opt_fam:"Familiar (3 meses)", opt_atty:"Inscripción de abogado", opt_gen:"Consulta general",
+    f_name:"Nombre completo", f_email:"Correo", f_phone:"Teléfono (opcional)", f_msg:"Mensaje",
+    btn_send:"Enviar",
+    disclaimer:"No somos un bufete ni damos asesoría legal."
   }
-  tabs.ind.tab.addEventListener('click', ()=>select('ind'));
-  tabs.att.tab.addEventListener('click', ()=>select('att'));
-  // default or last chosen
-  select(localStorage.getItem('edn-contact-tab')||'ind');
-})();
-</script>
+};
 
-<!-- Shared site-wide features: language toggle, consent, waitlist -->
-<script src="shared.js"></script>
+function getLang(){ return localStorage.getItem("udl-lang") || "en"; }
+function setLang(l){ localStorage.setItem("udl-lang", l); applyI18n(); }
+function t(k){ const L=T[getLang()]||T.en; return L[k]||k; }
+function applyI18n(){
+  document.documentElement.lang = getLang();
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k=el.getAttribute("data-i18n"); if(T[getLang()][k]) el.textContent=T[getLang()][k];
+  });
+  // update <option> text (needs manual set)
+  document.querySelectorAll("option[data-i18n]").forEach(op=>{
+    const k=op.getAttribute("data-i18n"); if(T[getLang()][k]) op.textContent=T[getLang()][k];
+  });
+}
+
+/*** boot ***/
+document.addEventListener("DOMContentLoaded",()=>{
+  applyI18n();
+  document.querySelectorAll("[data-lang]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      document.querySelectorAll("[data-lang]").forEach(b=>b.removeAttribute("aria-current"));
+      btn.setAttribute("aria-current","true");
+      setLang(btn.getAttribute("data-lang"));
+    });
+  });
+  // prefill plan from query
+  const u=new URL(location.href); const p=u.searchParams.get("plan");
+  if(p && document.getElementById("plan")) document.getElementById("plan").value = p;
+});
+</script>
 </body>
 </html>
