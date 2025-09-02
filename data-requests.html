@@ -1,15 +1,13 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Data Requests — Ultima Defensa Legal</title>
-<style>body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;margin:0;color:#111}header,footer{background:#0e1b16;color:#fff}.wrap{max-width:900px;margin:0 auto;padding:16px}input,select,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:10px}form{display:grid;gap:10px}button{padding:.8rem 1rem;border-radius:12px;border:0;background:#1f8a5b;color:#fff;font-weight:800}</style></head>
-<body><header><div class="wrap"><h1>Data Requests</h1></div></header>
+<style>body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;margin:0;color:#111}header,footer{background:#0b2a4a;color:#fff}.wrap{max-width:900px;margin:0 auto;padding:16px}input,select,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:10px}form{display:grid;gap:10px}button{padding:.8rem 1rem;border-radius:12px;border:0;background:#0b2a4a;color:#fff;font-weight:800}</style></head><body>
+<header><div class="wrap"><h1>Data Requests</h1></div></header>
 <main><div class="wrap">
 <h2 id="dsar">Access / Delete / Correct / Export</h2>
 <form name="udl-dsar" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="udl-dsar">
   <label>Request Type
-    <select name="type" required>
-      <option>Access</option><option>Delete</option><option>Correct</option><option>Export</option>
-    </select>
+    <select name="type" required><option>Access</option><option>Delete</option><option>Correct</option><option>Export</option></select>
   </label>
   <label>Name<input name="name" required></label>
   <label>Email<input name="email" type="email" required></label>
@@ -25,7 +23,7 @@
   <button type="submit">Submit</button>
 </form>
 
-<h2 id="billing">Billing / Refund Support</h2>
+<h2 id="billing">Billing Support</h2>
 <form name="udl-billing" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="udl-billing">
   <label>Name<input name="name" required></label>
