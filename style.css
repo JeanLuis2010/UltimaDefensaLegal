@@ -1,99 +1,29 @@
-/* General Reset */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
-}
-
-/* Header */
 header {
-  background: #00274d; /* Dark Blue */
-  color: #fff;
-  padding: 15px 20px;
-  text-align: center;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 1.8em;
-}
-
-nav {
-  margin-top: 10px;
+  background:#0b2239;
+  padding:.5rem 0; /* tighter spacing */
 }
 
 nav a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
+  color:#fff;
+  padding:.5rem .75rem;
+  border-radius:.4rem;
+  text-decoration:none;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  background:rgba(255,255,255,0.1);
 }
 
-.lang-btn {
-  background: #ff0000; /* Red */
-  padding: 5px 10px;
-  border-radius: 5px;
+.chip {
+  padding:.25rem .6rem;
+  border:1px solid rgba(255,255,255,0.5);
+  border-radius:999px;
+  font-size:.8rem;
+  cursor:pointer;
+  color:#fff;
 }
 
-/* Hero Section */
-.hero {
-  background: #fff;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.hero h2 {
-  color: #00274d;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  max-width: 600px;
-  margin: 0 auto 20px;
-}
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  background: #ff0000; /* Red */
-  color: #fff;
-  padding: 12px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.btn:hover {
-  background: #cc0000;
-}
-
-.btn-secondary {
-  display: inline-block;
-  background: #00274d; /* Blue */
-  color: #fff;
-  padding: 12px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.btn-secondary:hover {
-  background: #001a33;
-}
-
-/* Footer */
-footer {
-  background: #00274d;
-  color: #fff;
-  text-align: center;
-  padding: 15px;
-  margin-top: 30px;
+.chip.active {
+  background:#fff;
+  color:#0b2239;
 }
