@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ultimadefensalegal.com/</loc></url>
-  <url><loc>https://ultimadefensalegal.com/pay.html</loc></url>
+  <url><loc>https://ultimadefensalegal.com/index.html</loc></url>
+  <url><loc>https://ultimadefensalegal.com/for-clients.html</loc></url>
+  <url><loc>https://ultimadefensalegal.com/for-attorneys.html</loc></url>
   <url><loc>https://ultimadefensalegal.com/contact.html</loc></url>
-
   <url><loc>https://ultimadefensalegal.com/privacy.html</loc></url>
   <url><loc>https://ultimadefensalegal.com/terms.html</loc></url>
   <url><loc>https://ultimadefensalegal.com/refunds.html</loc></url>
-  <url><loc>https://ultimadefensalegal.com/cookie-policy.html</loc></url>
-  <url><loc>https://ultimadefensalegal.com/accessibility.html</loc></url>
   <url><loc>https://ultimadefensalegal.com/security.html</loc></url>
-  <url><loc>https://ultimadefensalegal.com/data-requests.html</loc></url>
-  <url><loc>https://ultimadefensalegal.com/disclaimers.html</loc></url>
-  <url><loc>https://ultimadefensalegal.com/dmca.html</loc></url>
+  <url><loc>https://ultimadefensalegal.com/accessibility.html</loc></url>
 </urlset>
