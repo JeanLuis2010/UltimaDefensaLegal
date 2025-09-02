@@ -1,93 +1,174 @@
- <!doctype html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ultima Defensa Legal — Acceso rápido a abogados (ES/EN)</title>
-<meta name="description" content="Conectamos a personas con abogados con licencia. Registro rápido, planes de 3 meses, ayuda bilingüe.">
-<link rel="canonical" href="https://ultimadefensalegal.com/">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>UltimaDefenseLegal — Fast legal triage & attorney connections</title>
+<meta name="description" content="Bilingual (EN/ES) legal triage and rapid connections to licensed attorneys. Not a law firm. 3-month plans for individuals and families, plus attorney enrollment." />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-:root{--blue:#0b2a4a;--red:#e01e24;--bg:#f7f8fb;--ring:#e6e9ef;--card:#fff}
-*{box-sizing:border-box}html,body{margin:0}body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#111}
+:root{--blue:#0b2a4a;--red:#d11f2a;--ink:#111827;--muted:#5b6472;--bg:#f7f8fb;--card:#fff;--ring:#e6e9ef;--max:1100px}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.45}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+
+/* Nav */
 .nav{background:var(--blue);color:#fff;border-bottom:2px solid #0a2745}
-.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
 .nav-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:10px}
-.nav-links{display:flex;gap:14px;flex-wrap:wrap} .nav a{color:#fff;text-decoration:none;font-weight:700}
+.nav a{color:#fff;text-decoration:none;font-weight:700;margin-right:14px}
 .lang button{border:2px solid #fff;background:transparent;color:#fff;border-radius:12px;padding:6px 10px;font-weight:800;cursor:pointer}
 .lang button[aria-current="true"]{background:#fff;color:var(--blue)}
-.hero{background:linear-gradient(135deg,#102a43,#1b3760,#aa1d22);color:#fff}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#102a43,#1b3760,#9b1c20);color:#fff}
 .hero .wrap{padding:40px 16px}
-.btn{padding:.8rem 1rem;border-radius:12px;border:0;font-weight:800;cursor:pointer}
-.btn.ghost{background:#fff;color:var(--blue)} .btn.primary{background:var(--red);color:#fff}
-.section{padding:20px 16px}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:.85rem 1rem;border-radius:12px;border:0;font-weight:800;cursor:pointer}
+.btn.primary{background:var(--red);color:#fff}
+.btn.ghost{background:#fff;color:var(--blue)}
+
+/* Sections */
+.section{padding:22px 16px}
 .cards{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:720px){.cards{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:740px){.cards{grid-template-columns:repeat(3,1fr)}}
 .card{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:16px}
+
+/* Footer */
 footer{background:var(--blue);color:#fff;border-top:1px solid #0a2745}
 footer .wrap{padding:14px 16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-footer a{color:#fff}
+footer a{color:#fff;text-decoration:none}
+.small{font-size:.9rem;opacity:.95}
 </style>
 </head>
 <body>
 <header class="nav">
   <div class="wrap nav-row">
-    <div class="brand" data-i18n="brand">Última Defensa Legal</div>
-    <nav class="nav-links">
-      <a href="index.html" data-i18n="nav_home">Inicio</a>
-      <a href="pricing.html" data-i18n="nav_plans">Planes</a>
-      <a href="intake.html" data-i18n="nav_intake">Comenzar</a>
-      <a href="contact.html" data-i18n="nav_contact">Contacto</a>
+    <div style="font-weight:900">UltimaDefenseLegal</div>
+    <nav>
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="pricing.html" data-i18n="nav_pricing">Pricing</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
     </nav>
     <div class="lang">
-      <button data-lang="es" aria-current="true">ES</button>
-      <button data-lang="en">EN</button>
+      <button data-lang="en" aria-current="true">EN</button>
+      <button data-lang="es">ES</button>
     </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
-    <h1 data-i18n="hero_h1">Acceso a defensa legal, rápido.</h1>
-    <p data-i18n="hero_p">Te conectamos con abogados con licencia. Precios claros. Ayuda bilingüe.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn ghost" href="intake.html" data-i18n="cta_start">Comenzar ahora</a>
-      <a class="btn primary" href="pricing.html" data-i18n="cta_plans">Ver planes</a>
+    <h1 data-i18n="hero_h1">Fast legal triage & attorney connections</h1>
+    <p data-i18n="hero_p">Bilingual (EN/ES) intake and guidance, then we connect you to licensed attorneys. Not a law firm.</p>
+    <div class="cta-row">
+      <a class="btn ghost" href="#how" data-i18n="cta_how">How it works</a>
+      <a class="btn primary" href="pricing.html" data-i18n="cta_pricing">See prices</a>
     </div>
   </div>
 </section>
 
 <main>
-  <section class="section">
+  <section id="how" class="section">
     <div class="wrap">
-      <h2 data-i18n="val_title">Cómo ayudamos</h2>
+      <h2 data-i18n="how_title">How it works</h2>
       <div class="cards">
-        <article class="card"><h3>1</h3><p data-i18n="val_1">Registro rápido en español o inglés</p></article>
-        <article class="card"><h3>2</h3><p data-i18n="val_2">Conexión con abogado—sin intermediario después del enlace</p></article>
-        <article class="card"><h3>3</h3><p data-i18n="val_3">Guía para documentos y audiencias (no asesoría legal)</p></article>
+        <article class="card">
+          <h3 data-i18n="how_1_t">1) Triage</h3>
+          <p data-i18n="how_1_d">We gather details in English or Spanish to understand urgency and needs.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="how_2_t">2) Match</h3>
+          <p data-i18n="how_2_d">We identify licensed attorneys suited to your situation and location.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="how_3_t">3) Connect</h3>
+          <p data-i18n="how_3_d">You choose; we connect you quickly. You pay attorneys directly for their services.</p>
+        </article>
       </div>
-      <p style="margin-top:10px;font-size:.95rem;color:#374151" data-i18n="edu">No somos un bufete. Conectamos personas con abogados independientes con licencia.</p>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <small>© 2025 UDL</small>
-    <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <a href="privacy.html" data-i18n="footer_privacy">Privacidad</a>
-      <a href="terms.html" data-i18n="footer_terms">Términos</a>
-      <a href="refunds.html" data-i18n="footer_refunds">Reembolsos</a>
-      <a href="cookie-policy.html" data-i18n="footer_cookie">Política de cookies</a>
-      <a href="data-requests.html#dns" data-i18n="footer_dns">No vender/compartir</a>
-      <a href="accessibility.html" data-i18n="footer_a11y">Accesibilidad</a>
-      <a href="security.html" data-i18n="footer_sec">Seguridad</a>
-      <a href="#" onclick="openPrefs&&openPrefs()">Cookie Settings</a>
+    <small class="small">© 2025 UltimaDefenseLegal • <span data-i18n="disclaimer">We are not a law firm and do not provide legal advice.</span></small>
+    <div class="small">
+      <a href="pricing.html" data-i18n="nav_pricing">Pricing</a> •
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
     </div>
   </div>
 </footer>
 
-<script src="shared.js"></script>
+<!-- i18n + region-aware price helpers (used here for text only; full pricing applied on pricing.html) -->
+<script>
+/*** CONFIG ***/
+const BASE = { IND:79, FAM:129, ATTY:199 }; // base USD for Individual (3 mo), Family (3 mo), Attorney enrollment
+const REGION_FACTORS = { "CA":1.15, "NY":1.15, "AK":1.10, "HI":1.10, "default":1.00 }; // silently applied; NOT displayed
+
+/*** i18n strings ***/
+const T = {
+  en:{
+    nav_home:"Home", nav_pricing:"Pricing", nav_contact:"Contact",
+    hero_h1:"Fast legal triage & attorney connections",
+    hero_p:"Bilingual (EN/ES) intake and guidance, then we connect you to licensed attorneys. Not a law firm.",
+    cta_how:"How it works", cta_pricing:"See prices",
+    how_title:"How it works",
+    how_1_t:"1) Triage", how_1_d:"We gather details in English or Spanish to understand urgency and needs.",
+    how_2_t:"2) Match",  how_2_d:"We identify licensed attorneys suited to your situation and location.",
+    how_3_t:"3) Connect",how_3_d:"You choose; we connect you quickly. You pay attorneys directly for their services.",
+    disclaimer:"We are not a law firm and do not provide legal advice."
+  },
+  es:{
+    nav_home:"Inicio", nav_pricing:"Precios", nav_contact:"Contacto",
+    hero_h1:"Triaje legal rápido y conexión con abogados",
+    hero_p:"Recepción y orientación bilingüe (EN/ES). Te conectamos con abogados con licencia. No somos bufete.",
+    cta_how:"Cómo funciona", cta_pricing:"Ver precios",
+    how_title:"Cómo funciona",
+    how_1_t:"1) Triaje", how_1_d:"Recopilamos datos en inglés o español para entender la urgencia y la necesidad.",
+    how_2_t:"2) Selección", how_2_d:"Identificamos abogados con licencia adecuados para tu situación y ubicación.",
+    how_3_t:"3) Conexión", how_3_d:"Tú eliges; te conectamos rápido. Los honorarios de abogados se pagan directamente a ellos.",
+    disclaimer:"No somos un bufete ni damos asesoría legal."
+  }
+};
+
+/*** helpers ***/
+function getLang(){ return localStorage.getItem("udl-lang") || "en"; }
+function setLang(l){ localStorage.setItem("udl-lang", l); applyI18n(); }
+function t(k){ const L=T[getLang()]||T.en; return L[k]||k; }
+function applyI18n(){
+  document.documentElement.lang = getLang();
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k=el.getAttribute("data-i18n");
+    if(T[getLang()][k]) el.textContent = T[getLang()][k];
+  });
+}
+function getRegionCode(){
+  const u = new URL(location.href);
+  const qs = (u.searchParams.get("state") || u.searchParams.get("region") || "").toUpperCase();
+  if(qs) { localStorage.setItem("udl-region", qs); return qs; }
+  return localStorage.getItem("udl-region") || "";
+}
+function price(base){
+  const rc = getRegionCode();
+  const f = REGION_FACTORS[rc] ?? REGION_FACTORS.default ?? 1.0;
+  return Math.round(base * f);
+}
+
+/*** boot ***/
+document.addEventListener("DOMContentLoaded",()=>{
+  applyI18n();
+  document.querySelectorAll("[data-lang]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      document.querySelectorAll("[data-lang]").forEach(b=>b.removeAttribute("aria-current"));
+      btn.setAttribute("aria-current","true");
+      setLang(btn.getAttribute("data-lang"));
+    });
+  });
+});
+</script>
 </body>
 </html>
