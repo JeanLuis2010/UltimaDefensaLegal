@@ -2,46 +2,39 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ultima Defensa Legal — Access to Licensed Attorneys (EN/ES)</title>
-<meta name="description" content="Fast, clear access to licensed attorneys. Transparent 3-month plans. Bilingual support.">
-<link rel="canonical" href="https://ultimadefensalegal.com/">
-<meta property="og:type" content="website"><meta property="og:url" content="https://ultimadefensalegal.com/">
-<meta property="og:site_name" content="Ultima Defensa Legal"><meta property="og:title" content="Access to Licensed Attorneys — Fast and Clear">
-<meta property="og:description" content="3-month plans, bilingual support, clear next steps.">
-<meta name="twitter:card" content="summary_large_image">
+<title>Ultima Defensa Legal — Connect with licensed attorneys (EN/ES)</title>
+<meta name="description" content="Bilingual intake and connection to licensed attorneys. Clear pricing and support.">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0a0f0d;--char:#0e1b16;--green:#1f8a5b;--muted:#6b7280;--bg:#f5f7f6;--card:#fff;--ring:#e6e9ef;--max:1100px}
-*{box-sizing:border-box}html,body{margin:0}
-body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
-.nav{background:var(--char);color:#fff;border-bottom:2px solid #0a150f}
+:root{--blue:#0b2a4a;--red:#e01e24;--bg:#f6f7fb;--ink:#111;--ring:#e6e9ef;--card:#fff;--max:1100px}
+*{box-sizing:border-box}html,body{margin:0}body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+.nav{background:var(--blue);color:#fff;border-bottom:2px solid #0a2745}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
 .nav-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:10px}
-.nav-links{display:flex;gap:14px;flex-wrap:wrap}
-.nav a{color:#fff;text-decoration:none;font-weight:600}
-.lang button{border:2px solid #fff;background:transparent;color:#fff;border-radius:12px;padding:6px 10px;font-weight:700;cursor:pointer}
-.lang button[aria-current="true"]{background:#fff;color:var(--char)}
-.hero{background:linear-gradient(135deg,#0e1b16,#173226);color:#fff}
+.nav a{color:#fff;text-decoration:none;font-weight:600;margin-right:12px}
+.lang button{border:2px solid #fff;background:transparent;color:#fff;border-radius:12px;padding:6px 10px;font-weight:800;cursor:pointer}
+.lang button[aria-current="true"]{background:#fff;color:var(--blue)}
+.hero{background:linear-gradient(135deg,#102a43,#1b3760,#aa1d22);color:#fff}
 .hero .wrap{padding:40px 16px}
-.cta-row{display:flex;gap:10px;flex-wrap:wrap}
-.btn{padding:.8rem 1rem;border-radius:12px;border:0;font-weight:800;cursor:pointer}
-.btn.primary{background:var(--green);color:#fff}.btn.ghost{background:#fff;color:var(--char)}
+.btn{display:inline-block;padding:.8rem 1rem;border-radius:12px;border:0;font-weight:800;cursor:pointer}
+.btn.primary{background:var(--red);color:#fff}.btn.ghost{background:#fff;color:var(--blue)}
 .section{padding:20px 16px}
 .cards{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:720px){.cards{grid-template-columns:repeat(3,1fr)}}
 .card{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:16px}
-footer{background:var(--char);color:#fff;border-top:1px solid #0a150f}
+footer{background:var(--blue);color:#fff;border-top:1px solid #0a2745}
 footer .wrap{padding:14px 16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-footer a{color:#fff}.footer-links{display:flex;gap:12px;flex-wrap:wrap}
-.cookie-link{cursor:pointer;text-decoration:underline}
+footer a{color:#fff}
 </style>
 </head>
 <body>
 <header class="nav">
   <div class="wrap nav-row">
     <div class="brand">Ultima Defensa Legal</div>
-    <nav class="nav-links">
+    <nav>
       <a href="index.html" data-i18n="nav_home">Home</a>
-      <a href="pricing.html" data-i18n="nav_pricing">Pricing</a>
       <a href="pay.html" data-i18n="nav_pay">Pay</a>
       <a href="contact.html" data-i18n="nav_contact">Contact</a>
     </nav>
@@ -54,22 +47,20 @@ footer a{color:#fff}.footer-links{display:flex;gap:12px;flex-wrap:wrap}
 
 <section class="hero">
   <div class="wrap">
-    <h1 data-i18n="hero_h1">Legal defense access—fast, clear, and affordable</h1>
-    <p data-i18n="hero_p">Connect with licensed attorneys. Transparent 3-month plans. Bilingual support.</p>
-    <div class="cta-row">
-      <a class="btn ghost" href="pricing.html" data-i18n="cta_pricing">View pricing</a>
-      <a class="btn primary" href="contact.html" data-i18n="cta_contact">Contact us</a>
-    </div>
+    <h1 data-i18n="hero_h1">Legal defense starts with knowing your options.</h1>
+    <p data-i18n="hero_p">We connect you with licensed attorneys. Clear prices. Bilingual support.</p>
+    <a class="btn ghost" href="#how" data-i18n="cta_learn">How it works</a>
+    <a class="btn primary" href="pay.html" data-i18n="cta_pay">Pay</a>
   </div>
 </section>
 
 <main>
-  <section class="section">
+  <section id="how" class="section">
     <div class="wrap">
       <div class="cards">
-        <article class="card"><h3>Step 1</h3><p>Choose a 3-month plan (Individual or Family). No hidden fees.</p></article>
-        <article class="card"><h3>Step 2</h3><p>We connect you with a licensed attorney for your situation.</p></article>
-        <article class="card"><h3>Step 3</h3><p>You and the attorney decide next steps. Clear, direct, bilingual.</p></article>
+        <article class="card"><h3>1) Intake</h3><p>Answer a few questions in English or Spanish. We keep it simple.</p></article>
+        <article class="card"><h3>2) Match</h3><p>We connect you with a licensed attorney. No “legal advice” from us.</p></article>
+        <article class="card"><h3>3) Support</h3><p>Text/email updates, reminders, and follow-ups so you’re not alone.</p></article>
       </div>
     </div>
   </section>
@@ -77,20 +68,13 @@ footer a{color:#fff}.footer-links{display:flex;gap:12px;flex-wrap:wrap}
 
 <footer>
   <div class="wrap">
-    <small>© 2025 Ultima Defensa Legal • <span data-i18n="edu_note">We connect you with licensed attorneys. We do not provide legal advice.</span></small>
-    <div class="footer-links">
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="refunds.html">Refunds</a>
-      <a href="cookie-policy.html">Cookie Policy</a>
-      <a class="cookie-link" id="openPrefs">Cookie Settings</a>
-      <a href="data-requests.html#dns">Do-Not-Sell/Share</a>
-      <a href="accessibility.html">Accessibility</a>
-      <a href="security.html">Security</a>
-      <a href="disclaimers.html">Disclaimers</a>
+    <small>© 2025 Ultima Defensa Legal • <span data-i18n="edu_note">We are not a law firm. We connect you with licensed attorneys.</span></small>
+    <div>
+      <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="refunds.html">Refunds</a> • <a id="openPrefs" href="cookie-policy.html">Cookie Policy</a> • <a href="data-requests.html#dns">Do-Not-Sell/Share</a> • <a href="accessibility.html">Accessibility</a> • <a href="security.html">Security</a>
     </div>
   </div>
 </footer>
-<script src="shared-udl.js"></script>
+
+<script src="shared.js"></script>
 </body>
 </html>
