@@ -1,18 +1,23 @@
-[build]
-  publish = "."
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Security-Policy = "default-src 'self'; img-src 'self' https: data:; script-src 'self' https://plausible.io 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' https: data:; connect-src 'self' https://plausible.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
-    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
-    X-Content-Type-Options = "nosniff"
-    X-Frame-Options = "DENY"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+[[redirects]]
+  from = "/udl/*"
+  to = "https://ultimadefensalegal.com/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
-  from = "/index.html"
-  to = "/"
+  from = "/immigration/*"
+  to = "https://ultimadefensalegal.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/legal/*"
+  to = "https://ultimadefensalegal.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ultimadefensalegal/*"
+  to = "https://ultimadefensalegal.com/:splat"
   status = 301
   force = true
