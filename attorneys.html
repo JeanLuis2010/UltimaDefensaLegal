@@ -1,56 +1,208 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Abogados — Únete a la Red | Ultima Defensa Legal</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="udl-ui.js" defer></script>
-  <script src="udl-consent.js" defer></script>
-  <style>
-    :root{--max:900px}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
-    .container{max-width:var(--max);margin:0 auto;padding:1rem}
-    nav{border-bottom:1px solid #eee;background:#fff}
-    .row{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .btn{padding:.6rem 1rem;border:1px solid #111;border-radius:10px;background:#111;color:#fff;text-decoration:none}
-    .btn.secondary{background:#fff;color:#111}
-    .card{border:1px solid #e5e7eb;border-radius:16px;padding:1rem;background:#fff}
-    .i18n-en{display:none}html[lang="en"] .i18n-en{display:block}html[lang="en"] .i18n-es{display:none}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attorney Partnership — Ultima Defensa Legal</title>
+<meta name="description" content="Attorney membership: $325/mo for 3 months, then $499/mo. Bilingual.">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0b2a4a;--red:#b82020;--ink:#111827;--muted:#6b7280;--bg:#f7f8fb;--card:#fff;--ring:#e6e9ef;--max:1100px}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.45}
+.nav{background:var(--blue);color:#fff;border-bottom:2px solid #09243f}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+.nav-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:10px}
+.nav a{color:#fff;text-decoration:none;font-weight:600;margin-right:12px}
+.lang button{border:2px solid #fff;background:transparent;color:#fff;border-radius:12px;padding:6px 10px;font-weight:700;cursor:pointer}
+.lang button[aria-current="true"]{background:#fff;color:var(--blue)}
+.hero{background:linear-gradient(135deg,#102a43,#1b3760,#7f1111);color:#fff}
+.hero .wrap{padding:40px 16px}
+.section{padding:20px 16px}
+.cards{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:760px){.cards{grid-template-columns:2fr 1fr}}
+.card{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:18px}
+.price{font-size:1.6rem;font-weight:800;margin:.4rem 0}
+.badge{display:inline-block;background:#0b7a2a;color:#fff;font-weight:800;border-radius:999px;padding:4px 10px;font-size:.8rem;margin-left:6px}
+.btn{display:inline-block;padding:.9rem 1.1rem;border-radius:12px;border:0;font-weight:800;cursor:pointer;text-align:center}
+.btn.primary{background:var(--red);color:#fff}
+.btn.ghost{background:#fff;color:var(--blue);border:2px solid var(--blue)}
+.list{margin:.5rem 0 0 0;padding-left:18px}
+.note{color:var(--muted);font-size:.95rem}
+hr{border:0;border-top:1px solid var(--ring);margin:14px 0}
+footer{background:var(--blue);color:#fff;border-top:1px solid #09243f}
+footer .wrap{padding:14px 16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+footer a{color:#fff}
+.footer-links{display:flex;gap:12px;flex-wrap:wrap}
+.alert{background:#fff3cd;border:1px solid #ffe69c;color:#664d03;padding:10px;border-radius:10px;margin:10px 0}
+.success{color:#0b7a2a;font-weight:700}
+</style>
 </head>
 <body>
-  <nav><div class="container row">
-    <a href="index.html" class="brand" style="text-decoration:none;color:#111;font-weight:800">Ultima Defensa Legal</a>
-    <div><a class="btn secondary" href="index.html">Home</a>
-      <button class="btn secondary" onclick="UDL_UI.setLang('en')">EN</button>
-      <button class="btn secondary" onclick="UDL_UI.setLang('es')">ES</button></div>
-  </div></nav>
+<header class="nav">
+  <div class="wrap nav-row">
+    <div class="brand" style="font-weight:800">Ultima Defensa Legal</div>
+    <nav>
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="pricing.html" data-i18n="nav_plans">Plans</a>
+      <a href="attorneys.html" data-i18n="nav_attorneys">For Attorneys</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="lang">
+      <button data-lang="en" aria-current="true">EN</button>
+      <button data-lang="es">ES</button>
+    </div>
+  </div>
+</header>
 
-  <main class="container">
-    <article class="i18n-es">
-      <h1>Únete a nuestra red de abogados</h1>
-      <ul>
-        <li>Consulta gratuita o con descuento por miembro referido.</li>
-        <li>Casos de inmigración, familia y penal.</li>
-        <li>Clientes verificados y soporte bilingüe.</li>
-      </ul>
-      <p><a class="btn" href="attorney-agreement.html">Ver acuerdo</a>
-         <a class="btn secondary" href="mailto:attorneys@ultimadefensalegal.com?subject=Join%20UDL%20Network">Solicitar</a></p>
-    </article>
+<section class="hero">
+  <div class="wrap">
+    <h1 data-i18n="hero_h1">Attorney Partnership Program</h1>
+    <p data-i18n="hero_p">Grow your practice while serving communities that need you most. Clear pricing, no surprises.</p>
+  </div>
+</section>
 
-    <article class="i18n-en">
-      <h1>Join our attorney network</h1>
-      <ul>
-        <li>Free or discounted consultation per referred member.</li>
-        <li>Immigration, family, and criminal matters.</li>
-        <li>Verified clients and bilingual support.</li>
-      </ul>
-      <p><a class="btn" href="attorney-agreement.html">View Agreement</a>
-         <a class="btn secondary" href="mailto:attorneys@ultimadefensalegal.com?subject=Join%20UDL%20Network">Apply</a></p>
-    </article>
-  </main>
+<main>
+  <section class="section">
+    <div class="wrap cards">
+      <article class="card">
+        <h2 data-i18n="plan_title">Attorney Membership</h2>
+        <p class="note" data-i18n="plan_sub">Single plan with an introductory period — cancel anytime after month 3.</p>
+        <div class="price">
+          <span data-i18n="price_intro">First 3 months:</span> <strong>$325</strong> <span data-i18n="per_month">/month</span> 
+          <span class="badge" data-i18n="badge_commit">Intro rate</span>
+        </div>
+        <div class="price"><span data-i18n="price_then">Then:</span> <strong>$499</strong> <span data-i18n="per_month">/month</span></div>
+        <ul class="list">
+          <li data-i18n="li1">Priority client referrals in your licensed state(s)</li>
+          <li data-i18n="li2">Attorney profile page & lead routing</li>
+          <li data-i18n="li3">Call-bot screening + message handoff (where available)</li>
+          <li data-i18n="li4">Monthly analytics report</li>
+          <li data-i18n="li5">Cancel any time after month 3</li>
+        </ul>
+        <hr>
+        <div id="ctaArea"></div>
+        <p class="note" style="margin-top:10px">
+          <a href="subscription.html" data-i18n="see_policy">See Subscription Policy</a> • 
+          <a href="refunds.html" data-i18n="see_refunds">Refunds</a>
+        </p>
+      </article>
 
-  <footer><div class="container"><p>© <span id="year"></span> Ultima Defensa Legal</p></div></footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+      <aside class="card">
+        <h3 data-i18n="faq_title">Common Questions</h3>
+        <p><strong data-i18n="q1">When does $499 start?</strong><br><span data-i18n="a1">Beginning in month 4; months 1–3 are billed at $325 each.</span></p>
+        <p><strong data-i18n="q2">Can I cancel?</strong><br><span data-i18n="a2">Yes, any time after the first 3 months. No long-term contract.</span></p>
+        <p><strong data-i18n="q3">What about payment methods?</strong><br><span data-i18n="a3">We support standard online payments. “Pay” buttons do not show the processor.</span></p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <small>© 2025 Ultima Defensa Legal • <span data-i18n="edu_note">Informational only — not legal advice.</span></small>
+    <div class="footer-links">
+      <a href="privacy.html" data-i18n="footer_privacy">Privacy</a>
+      <a href="terms.html" data-i18n="footer_terms">Terms</a>
+      <a href="refunds.html" data-i18n="footer_refunds">Refunds</a>
+      <a href="cookie-policy.html" data-i18n="footer_cookie">Cookie Policy</a>
+      <a href="accessibility.html" data-i18n="footer_a11y">Accessibility</a>
+      <a href="security.html" data-i18n="footer_sec">Security</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Inline script: i18n + prelaunch + dynamic CTAs (no external deps) -->
+<script>
+/*** CONFIG ***/
+const PRELAUNCH = true;  // set to false when payments are live
+const LINKS = {
+  intro_month: "#",   // Square/checkout link for $325 monthly (months 1-3) – when live
+  standard_month: "#",// Square/checkout link for $499 monthly – when live
+  waitlist_form: "contact.html#attorney" // fallback while prelaunch
+};
+
+/*** i18n ***/
+const T = {
+  en: {
+    nav_home:"Home", nav_plans:"Plans", nav_attorneys:"For Attorneys", nav_contact:"Contact",
+    hero_h1:"Attorney Partnership Program",
+    hero_p:"Grow your practice while serving communities that need you most. Clear pricing, no surprises.",
+    plan_title:"Attorney Membership",
+    plan_sub:"Single plan with an introductory period — cancel anytime after month 3.",
+    price_intro:"First 3 months:",
+    price_then:"Then:",
+    per_month:"/month",
+    badge_commit:"Intro rate",
+    li1:"Priority client referrals in your licensed state(s)",
+    li2:"Attorney profile page & lead routing",
+    li3:"Call-bot screening + message handoff (where available)",
+    li4:"Monthly analytics report",
+    li5:"Cancel any time after month 3",
+    see_policy:"See Subscription Policy", see_refunds:"Refunds",
+    faq_title:"Common Questions",
+    q1:"When does $499 start?", a1:"Beginning in month 4; months 1–3 are billed at $325 each.",
+    q2:"Can I cancel?", a2:"Yes, any time after the first 3 months. No long-term contract.",
+    q3:"What about payment methods?", a3:"We support standard online payments. “Pay” buttons do not show the processor.",
+    cta_live1:"Pay $325 (Month 1–3)", cta_live2:"Pay $499 (Month 4+)",
+    cta_pre:"Join Attorney Waitlist",
+    pre_msg:"Payments go live soon. Leave your info and we’ll notify you immediately."
+  },
+  es: {
+    nav_home:"Inicio", nav_plans:"Planes", nav_attorneys:"Para Abogados", nav_contact:"Contacto",
+    hero_h1:"Programa para Abogados",
+    hero_p:"Haz crecer tu despacho y sirve a las comunidades que más lo necesitan. Precios claros, sin sorpresas.",
+    plan_title:"Membresía para Abogados",
+    plan_sub:"Un solo plan con periodo introductorio — cancela en cualquier momento después del mes 3.",
+    price_intro:"Primeros 3 meses:",
+    price_then:"Luego:",
+    per_month:"/mes",
+    badge_commit:"Tarifa inicial",
+    li1:"Referencias prioritarias en tus estados con licencia",
+    li2:"Perfil del abogado y enrutamiento de prospectos",
+    li3:"Filtro por bot de llamadas + traspaso de mensajes (donde esté disponible)",
+    li4:"Reporte mensual de analítica",
+    li5:"Cancela en cualquier momento después del mes 3",
+    see_policy:"Ver Política de Suscripción", see_refunds:"Reembolsos",
+    faq_title:"Preguntas Frecuentes",
+    q1:"¿Cuándo inicia $499?", a1:"A partir del mes 4; los meses 1–3 se cobran a $325 cada uno.",
+    q2:"¿Puedo cancelar?", a2:"Sí, en cualquier momento después de los primeros 3 meses. Sin contrato a largo plazo.",
+    q3:"¿Métodos de pago?", a3:"Aceptamos pagos en línea. Los botones de “Pagar” no muestran el procesador.",
+    cta_live1:"Pagar $325 (Mes 1–3)", cta_live2:"Pagar $499 (Mes 4+)",
+    cta_pre:"Unirme a la Lista de Abogados",
+    pre_msg:"Los pagos estarán activos pronto. Déjanos tus datos y te avisamos de inmediato."
+  }
+};
+const getLang=()=>localStorage.getItem("lang")||"en";
+const setLang=(l)=>{localStorage.setItem("lang",l);applyI18n();};
+function t(k){const L=T[getLang()]||T.en; return L[k]||k;}
+function applyI18n(){document.documentElement.lang=getLang(); document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n"); if(T[getLang()][k]) el.textContent=T[getLang()][k];});}
+
+/*** Build CTAs ***/
+function buildCTAs(){
+  const area=document.getElementById("ctaArea");
+  area.innerHTML="";
+  if(PRELAUNCH){
+    const note=document.createElement("div"); note.className="alert"; note.textContent=t("pre_msg"); area.appendChild(note);
+    const a=document.createElement("a"); a.className="btn primary"; a.href=LINKS.waitlist_form; a.textContent=t("cta_pre"); area.appendChild(a);
+  }else{
+    const row=document.createElement("div"); row.style.display="flex"; row.style.gap="10px"; row.style.flexWrap="wrap";
+    const b1=document.createElement("a"); b1.className="btn primary"; b1.href=LINKS.intro_month; b1.textContent=t("cta_live1"); row.appendChild(b1);
+    const b2=document.createElement("a"); b2.className="btn ghost"; b2.href=LINKS.standard_month; b2.textContent=t("cta_live2"); row.appendChild(b2);
+    area.appendChild(row);
+  }
+}
+
+/*** Init ***/
+document.addEventListener("DOMContentLoaded",()=>{
+  applyI18n();
+  document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>{
+    document.querySelectorAll("[data-lang]").forEach(x=>x.removeAttribute("aria-current"));
+    b.setAttribute("aria-current","true"); setLang(b.getAttribute("data-lang"));
+  }));
+  buildCTAs();
+});
+</script>
 </body>
 </html>
