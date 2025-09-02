@@ -1,41 +1,51 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pricing — Ultima Defensa Legal</title>
-<meta name="description" content="Transparent 3-month plans: Individual and Family.">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plans — Ultima Defensa Legal</title>
+<meta name="description" content="3-month memberships: Individual and Family.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f5f7f6;color:#0a0f0d}
-header,footer{background:#0e1b16;color:#fff}
+:root{--blue:#0b2a4a;--red:#e01e24;--bg:#f7f8fb;--ring:#e6e9ef}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#111}
+header,footer{background:var(--blue);color:#fff}
 .wrap{max-width:1100px;margin:0 auto;padding:16px}
-.grid{display:grid;gap:16px}
-@media(min-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
-.card{background:#fff;border:1px solid #e6e9ef;border-radius:16px;padding:16px;display:flex;flex-direction:column}
-.price{font-size:1.6rem;font-weight:800}
-.btn{margin-top:auto;padding:.8rem 1rem;border-radius:12px;border:0;background:#1f8a5b;color:#fff;font-weight:800;cursor:pointer;text-align:center;text-decoration:none}
-.small{color:#555;font-size:.95rem}
+.cards{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:720px){.cards{grid-template-columns:repeat(2,1fr)}}
+.card{background:#fff;border:1px solid var(--ring);border-radius:16px;padding:16px;display:flex;flex-direction:column}
+.price{font-size:1.6rem;font-weight:800;margin:.2rem 0}
+.btn{margin-top:auto;padding:.8rem 1rem;border-radius:12px;border:0;font-weight:800;cursor:pointer;background:#e01e24;color:#fff}
+.lang{display:flex;gap:8px}
+.lang button{border:2px solid #fff;background:transparent;color:#fff;border-radius:12px;padding:6px 10px;font-weight:800;cursor:pointer}
+.lang button[aria-current="true"]{background:#fff;color:#0b2a4a}
 </style>
 </head>
-<body>
-<header><div class="wrap"><h1>Pricing / <span lang="es">Precios</span></h1></div></header>
+<body data-page="pricing">
+<header><div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+  <h1 data-i18n="plans_title">Membership Plans (3 months)</h1>
+  <div class="lang"><button data-lang="en" aria-current="true">EN</button><button data-lang="es">ES</button></div>
+</div></header>
 <main><div class="wrap">
-<div class="grid">
-  <div class="card">
-    <h2>Individual</h2>
-    <p class="small">3-month access and connection to a licensed attorney.</p>
-    <div class="price">$79 / 3 months</div>
-    <a class="btn" href="pay.html#individual">Choose Individual</a>
+  <div class="cards">
+    <div class="card">
+      <h2 data-i18n="plan_ind_title">Individual</h2>
+      <p data-i18n="plan_ind_desc">3-month membership. Direct access & rapid match.</p>
+      <div class="price" data-price="individual">$79</div>
+      <button class="btn" data-plan="individual" data-i18n="plan_btn_join">Select & Continue</button>
+    </div>
+    <div class="card">
+      <h2 data-i18n="plan_fam_title">Family</h2>
+      <p data-i18n="plan_fam_desc">Husband & wife. 3-month membership. Rapid match.</p>
+      <div class="price" data-price="family">$139</div>
+      <button class="btn" data-plan="family" data-i18n="plan_btn_join">Select & Continue</button>
+    </div>
   </div>
-  <div class="card">
-    <h2>Family (Husband & Wife)</h2>
-    <p class="small">3-month access covering two adults in the same household.</p>
-    <div class="price">$129 / 3 months</div>
-    <a class="btn" href="pay.html#family">Choose Family</a>
-  </div>
-</div>
-<p class="small" style="margin-top:14px">After 3 months, you may extend coverage. No long-term contracts.</p>
+  <p style="opacity:.85;margin-top:10px" data-i18n="legal_note">Independent attorneys handle all legal representation.</p>
 </div></main>
-<footer><div class="wrap"><small>© 2025 Ultima Defensa Legal</small></div></footer>
-<script src="shared-udl.js"></script>
+<footer><div class="wrap">
+  <small>© 2025 Ultima Defensa Legal • <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="refunds.html">Refunds</a> • <a href="disclaimers.html">Disclaimers</a> • <a href="cookie-policy.html">Cookie Policy</a> • <a id="openPrefs" style="cursor:pointer;text-decoration:underline">Cookie Settings</a></small>
+</div></footer>
+<script src="shared.js"></script>
 </body>
 </html>
