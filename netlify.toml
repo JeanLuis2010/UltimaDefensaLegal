@@ -1,18 +1,48 @@
-[build]
-  publish = "."
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Security-Policy = "default-src 'self'; img-src 'self' https: data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' https: data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
-    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
-    X-Content-Type-Options = "nosniff"
-    X-Frame-Options = "DENY"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-
 [[redirects]]
-  from = "/index.html"
-  to = "/"
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+# Legacy → canonical (attorneys)
+[[redirects]]
+  from = "/attorneys"
+  to = "/for-attorneys.html"
   status = 301
-  force = true
+[[redirects]]
+  from = "/attorney-pricing"
+  to = "/for-attorneys.html"
+  status = 301
+[[redirects]]
+  from = "/pricing"
+  to = "/for-attorneys.html"
+  status = 301
+
+# Legacy → canonical (clients)
+[[redirects]]
+  from = "/subscription"
+  to = "/for-clients.html"
+  status = 301
+[[redirects]]
+  from = "/subscribe"
+  to = "/for-clients.html"
+  status = 301
+[[redirects]]
+  from = "/subscribe_es"
+  to = "/for-clients.html"
+  status = 301
+
+# If you keep a pretty route for pay, forward to your hosted checkout later
+[[redirects]]
+  from = "/pay/clients"
+  to = "/pay.html"
+  status = 200
+[[redirects]]
+  from = "/pay/attorneys"
+  to = "/pay.html"
+  status = 200
+
+# 404 fallback
+[[redirects]]
+  from = "/*"
+  to = "/udl-404.html"
+  status = 404
