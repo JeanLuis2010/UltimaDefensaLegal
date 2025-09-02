@@ -1,29 +1,241 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-i18n="contact_title">Contacto — UDL</title>
-<meta name="description" content="Soporte y preguntas generales.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Edunancial</title>
+<meta name="description" content="Contact Edunancial — Individuals & Families, and Attorneys & Partners.">
+<link rel="canonical" href="https://edunancial.com/contact.html">
 <style>
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f7f8fb;color:#111}
-header,footer{background:#0b2a4a;color:#fff}.wrap{max-width:900px;margin:0 auto;padding:16px}
-input,textarea{width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:10px}
-button{padding:.8rem 1rem;border-radius:12px;border:0;background:#e01e24;color:#fff;font-weight:800;cursor:pointer}
-small a{color:#fff}
+:root{--blue:#0b2a4a;--red:#e01e24;--ink:#111;--ring:#e6e9ef;--bg:#f7f8fb}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header,footer{background:var(--blue);color:#fff}
+.wrap{max-width:980px;margin:0 auto;padding:16px}
+h1{margin:.2rem 0 0 0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tab-btn{cursor:pointer;border:1px solid var(--ring);background:#fff;color:var(--blue);font-weight:800;border-radius:999px;padding:8px 14px}
+.tab-btn[aria-selected="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.panel{background:#fff;border:1px solid var(--ring);border-radius:16px;padding:16px}
+.grid{display:grid;gap:12px}
+@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+label{display:block;font-weight:600}
+input,select,textarea{width:100%;padding:12px;border:1px solid var(--ring);border-radius:12px;background:#fff}
+textarea{min-height:120px}
+small.help{display:block;color:#555;margin-top:6px}
+button[type=submit]{padding:.9rem 1.1rem;border-radius:12px;border:0;background:var(--red);color:#fff;font-weight:800;cursor:pointer}
+.note{background:#fff;border:1px dashed var(--ring);border-radius:12px;padding:10px;margin:12px 0;color:#333}
+footer .links a{color:#fff;text-decoration:none;margin-right:12px}
+.cookie-link{cursor:pointer;text-decoration:underline}
+.disclaimer{font-size:.9rem;color:#333}
 </style>
 </head>
 <body>
-<header><div class="wrap"><h1 data-i18n="contact_title">Contacto</h1></div></header>
-<main><div class="wrap">
-<form name="udl-contact" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="udl-contact">
-  <label>Nombre / Name<input name="name" required></label>
-  <label>Correo / Email<input type="email" name="email" required></label>
-  <label>Mensaje / Message<textarea name="message" rows="5" required></textarea></label>
-  <button type="submit" data-i18n="contact_send">Enviar</button>
-</form>
-</div></main>
-<footer><div class="wrap"><small>© 2025 UDL • <a href="privacy.html" data-i18n="footer_privacy">Privacidad</a> • <a href="terms.html" data-i18n="footer_terms">Términos</a> • <a href="refunds.html" data-i18n="footer_refunds">Reembolsos</a> • <a href="cookie-policy.html" data-i18n="footer_cookie">Cookies</a> • <a href="data-requests.html#dns" data-i18n="footer_dns">No vender/compartir</a></small></div></footer>
+
+<header>
+  <div class="wrap">
+    <h1>Contact Us / <span lang="es">Contáctanos</span></h1>
+    <p class="disclaimer">Two paths below: <strong>Individuals & Families</strong> and <strong>Attorneys & Partners</strong>. / 
+      <span lang="es">Dos caminos abajo: <strong>Personas y Familias</strong> y <strong>Abogados y Socios</strong>.</span>
+    </p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <!-- TABS -->
+    <div class="tabs" role="tablist" aria-label="Contact Tabs">
+      <button class="tab-btn" role="tab" id="tab-ind" aria-controls="panel-ind" aria-selected="true">Individuals & Families / <span lang="es">Personas y Familias</span></button>
+      <button class="tab-btn" role="tab" id="tab-att" aria-controls="panel-att" aria-selected="false">Attorneys & Partners / <span lang="es">Abogados y Socios</span></button>
+    </div>
+
+    <!-- PANEL: INDIVIDUALS & FAMILIES -->
+    <section class="panel" id="panel-ind" role="tabpanel" aria-labelledby="tab-ind">
+      <div class="note">
+        Questions about memberships, mini courses, or refunds? Use this form. / 
+        <span lang="es">¿Preguntas sobre membresías, mini cursos o reembolsos? Usa este formulario.</span>
+      </div>
+      <form name="edn-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="edn-contact">
+        <p style="display:none">
+          <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+        </p>
+        <div class="grid">
+          <div>
+            <label>Name / <span lang="es">Nombre</span>
+              <input type="text" name="name" required>
+            </label>
+          </div>
+          <div>
+            <label>Email / <span lang="es">Correo</span>
+              <input type="email" name="email" required>
+            </label>
+          </div>
+        </div>
+        <div class="grid">
+          <div>
+            <label>Topic / <span lang="es">Tema</span>
+              <select name="topic" required>
+                <option value="general">General</option>
+                <option value="membership">Membership</option>
+                <option value="courses">Mini Courses</option>
+                <option value="billing">Billing / Refund</option>
+                <option value="privacy">Privacy / Data</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            <label>Order # (if any) / <span lang="es">N.º de pedido (si aplica)</span>
+              <input type="text" name="order">
+            </label>
+          </div>
+        </div>
+        <label>Message / <span lang="es">Mensaje</span>
+          <textarea name="message" required></textarea>
+        </label>
+        <label><input type="checkbox" name="consent" required> 
+          I agree to be contacted by email or SMS (where available). / 
+          <span lang="es">Acepto ser contactado por correo o SMS (cuando aplique).</span>
+        </label>
+        <small class="help">See <a href="privacy.html">Privacy</a> & <a href="terms.html">Terms</a>. / 
+          <span lang="es">Consulta <a href="privacy.html">Privacidad</a> y <a href="terms.html">Términos</a>.</span>
+        </small>
+        <p><button type="submit">Send / <span lang="es">Enviar</span></button></p>
+      </form>
+    </section>
+
+    <!-- PANEL: ATTORNEYS & PARTNERS -->
+    <section class="panel" id="panel-att" role="tabpanel" aria-labelledby="tab-att" hidden>
+      <div class="note">
+        For attorneys and partners interested in referrals, collaborations, or speaking: / 
+        <span lang="es">Para abogados y socios interesados en referencias, colaboraciones o charlas:</span>
+      </div>
+      <form name="edn-attorney" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="edn-attorney">
+        <p style="display:none">
+          <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+        </p>
+
+        <div class="grid">
+          <div>
+            <label>Firm / Organization / <span lang="es">Despacho / Organización</span>
+              <input type="text" name="firm" required>
+            </label>
+          </div>
+          <div>
+            <label>Website
+              <input type="url" name="website" placeholder="https://">
+            </label>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div>
+            <label>Contact Name / <span lang="es">Nombre de contacto</span>
+              <input type="text" name="name" required>
+            </label>
+          </div>
+          <div>
+            <label>Professional Email / <span lang="es">Correo profesional</span>
+              <input type="email" name="email" required>
+            </label>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div>
+            <label>Jurisdiction(s) / <span lang="es">Jurisdicción(es)</span>
+              <input type="text" name="jurisdiction" placeholder="e.g., DE, FL, CA" required>
+            </label>
+          </div>
+          <div>
+            <label>Practice Areas / <span lang="es">Áreas de práctica</span>
+              <input type="text" name="practice" placeholder="e.g., Immigration, Consumer, Tax">
+            </label>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div>
+            <label>Interest / <span lang="es">Interés</span>
+              <select name="interest" required>
+                <option value="referrals">Referral Network</option>
+                <option value="content">Content Collaboration</option>
+                <option value="speaking">Speaking / Webinars</option>
+                <option value="sponsorship">Sponsorship</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            <label>Preferred Contact / <span lang="es">Contacto preferido</span>
+              <select name="contactpref">
+                <option>Email</option>
+                <option>Phone</option>
+                <option>Video</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <label>Message / <span lang="es">Mensaje</span>
+          <textarea name="message" placeholder="Tell us about your practice, availability, and interests." required></textarea>
+        </label>
+
+        <label><input type="checkbox" name="consent" required>
+          I agree to be contacted and receive information about opportunities. /
+          <span lang="es">Acepto ser contactado y recibir información sobre oportunidades.</span>
+        </label>
+        <small class="help">We do not request or accept confidential client information via this form. /
+          <span lang="es">No solicitamos ni aceptamos información confidencial de clientes por este formulario.</span>
+        </small>
+
+        <p><button type="submit">Send / <span lang="es">Enviar</span></button></p>
+      </form>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <small>© 2025 Edunancial • 
+      <a href="privacy.html">Privacy</a> • 
+      <a href="terms.html">Terms</a> • 
+      <a href="refunds.html">Refunds</a> • 
+      <a href="cookie-policy.html">Cookie Policy</a> • 
+      <a class="cookie-link" id="openPrefs">Cookie Settings</a> •
+      <a href="data-requests.html#dns">Do-Not-Sell/Share</a> • 
+      <a href="accessibility.html">Accessibility</a> • 
+      <a href="security.html">Security</a>
+    </small>
+  </div>
+</footer>
+
+<!-- Minimal tab script (kept here so you don't touch shared.js) -->
+<script>
+(function(){
+  const tabs = {
+    ind: {tab: document.getElementById('tab-ind'), panel: document.getElementById('panel-ind')},
+    att: {tab: document.getElementById('tab-att'), panel: document.getElementById('panel-att')}
+  };
+  function select(which){
+    for(const k in tabs){
+      const on = (k===which);
+      tabs[k].tab.setAttribute('aria-selected', on?'true':'false');
+      tabs[k].panel.hidden = !on;
+    }
+    // remember last chosen panel
+    localStorage.setItem('edn-contact-tab', which);
+  }
+  tabs.ind.tab.addEventListener('click', ()=>select('ind'));
+  tabs.att.tab.addEventListener('click', ()=>select('att'));
+  // default or last chosen
+  select(localStorage.getItem('edn-contact-tab')||'ind');
+})();
+</script>
+
+<!-- Shared site-wide features: language toggle, consent, waitlist -->
 <script src="shared.js"></script>
 </body>
 </html>
