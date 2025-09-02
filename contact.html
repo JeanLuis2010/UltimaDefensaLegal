@@ -1,54 +1,77 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — Ultima Defense Legal</title>
-<meta name="description" content="Contact Ultima Defense Legal for support and questions.">
-<style>
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f7f8fb;color:#111}
-header,footer{background:#0b2a4a;color:#fff}
-.wrap{max-width:900px;margin:0 auto;padding:16px}
-input,textarea{width:100%;padding:10px;border:1px solid #ccc;border-radius:10px;margin-bottom:10px}
-button{padding:.8rem 1rem;border-radius:12px;border:0;background:#e01e24;color:#fff;font-weight:800;cursor:pointer}
-nav a{color:#fff;text-decoration:none;margin-right:12px;font-weight:600}
-.lang button{border:2px solid #fff;background:transparent;color:#fff;border-radius:12px;padding:6px 10px;font-weight:700;cursor:pointer}
-.lang button[aria-current="true"]{background:#fff;color:#0b2a4a}
-</style>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Ultima Defensa Legal</title>
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{--bg:#0b2239;--accent:#e11d48}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    header{background:var(--bg);color:#fff} .wrap{max-width:1000px;margin:0 auto;padding:1.25rem}
+    nav a{color:#fff;padding:.75rem 1rem;border-radius:.5rem;text-decoration:none}
+    nav a:hover{background:rgba(255,255,255,.08)} .chip{padding:.25rem .6rem;border:1px solid #cbd5e1;border-radius:999px;cursor:pointer}
+    .chip.active{background:#fff;color:#0b2239} .card{border:1px solid #e5e7eb;border-radius:1rem;padding:1.1rem}
+    .btn{display:inline-block;padding:.9rem 1.2rem;border-radius:999px;font-weight:700;text-decoration:none;background:var(--accent);color:#fff}
+    .small{color:#475569}
+    form{display:grid;gap:.75rem} input,textarea{width:100%;padding:.8rem;border:1px solid #cbd5e1;border-radius:.6rem}
+  </style>
 </head>
 <body>
 <header>
-  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0">
-    <div class="brand">UltimaDefenseLegal</div>
-    <nav>
-      <a href="index.html" data-i18n="nav_home">Home</a>
-      <a href="pricing.html" data-i18n="nav_pricing">Plans</a>
-      <a href="pay.html" data-i18n="nav_pay">Pay</a>
-      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
+    <a href="/index.html" style="font-weight:800">UltimaDefensaLegal</a>
+    <nav style="display:flex;gap:.25rem;align-items:center">
+      <a href="/index.html" data-i18n="nav.home">Home</a>
+      <a href="/for-clients.html" data-i18n="nav.clients">For Clients</a>
+      <a href="/for-attorneys.html" data-i18n="nav.attorneys">For Attorneys</a>
+      <a href="/contact.html" data-i18n="nav.contact">Contact</a>
+      <span class="chip" id="langEN">EN</span>
+      <span class="chip" id="langES">ES</span>
     </nav>
-    <div class="lang">
-      <button data-lang="en" aria-current="true">EN</button>
-      <button data-lang="es">ES</button>
-    </div>
   </div>
 </header>
 
-<main><div class="wrap">
-  <h1 data-i18n="nav_contact">Contact</h1>
-  <form name="udl-contact" method="POST" data-netlify="true">
-    <input type="hidden" name="form-name" value="udl-contact">
-    <label>Name / <span lang="es">Nombre</span><input name="name" required></label>
-    <label>Email / <span lang="es">Correo</span><input name="email" type="email" required></label>
-    <label>Message / <span lang="es">Mensaje</span><textarea name="message" rows="5" required></textarea></label>
-    <button type="submit">Send / <span lang="es">Enviar</span></button>
-  </form>
-  <p style="margin-top:14px;color:#444" data-i18n="disclaim">We are not a law firm and do not provide legal advice. We connect you with licensed attorneys.</p>
-</div></main>
+<main class="wrap">
+  <h1 data-i18n="title">Contact us</h1>
+  <p class="small" data-i18n="lead">Send a secure message. We’ll respond promptly in English or Spanish.</p>
 
-<footer><div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:12px 0">
-  <small>© 2025 UltimaDefenseLegal</small>
-  <small><a href="privacy.html" style="color:#fff" data-i18n="footer_privacy">Privacy</a> • <a href="terms.html" style="color:#fff" data-i18n="footer_terms">Terms</a> • <a href="refunds.html" style="color:#fff" data-i18n="footer_refunds">Refunds</a> • <a href="disclaimers.html" style="color:#fff" data-i18n="footer_disclaimers">Disclaimers</a></small>
-</div></footer>
+  <div class="card">
+    <form name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact" />
+      <label><span data-i18n="f.name">Name</span><br><input name="name" required></label>
+      <label><span data-i18n="f.email">Email</span><br><input type="email" name="email" required></label>
+      <label><span data-i18n="f.message">Message</span><br><textarea name="message" rows="6" required></textarea></label>
+      <button class="btn" type="submit" data-i18n="btn.send">Send</button>
+    </form>
+  </div>
 
-<script src="shared.js"></script>
+  <section class="card" style="margin-top:1rem">
+    <h3 data-i18n="disclaimer.title">Important</h3>
+    <p class="small" data-i18n="disclaimer.copy">Ultima Defensa Legal is not a law firm and does not provide legal advice. We connect members with independent, licensed attorneys. Membership fees are for access to our intake and connection services only. Any attorney–client relationship is solely between you and the attorney.</p>
+  </section>
+</main>
+
+<script>
+const dict={en:{
+"nav.home":"Home","nav.clients":"For Clients","nav.attorneys":"For Attorneys","nav.contact":"Contact",
+"title":"Contact us","lead":"Send a secure message. We’ll respond promptly in English or Spanish.",
+"f.name":"Name","f.email":"Email","f.message":"Message","btn.send":"Send",
+"disclaimer.title":"Important","disclaimer.copy":"Ultima Defensa Legal is not a law firm and does not provide legal advice. We connect members with independent, licensed attorneys. Membership fees are for access to our intake and connection services only. Any attorney–client relationship is solely between you and the attorney."
+},
+es:{
+"nav.home":"Inicio","nav.clients":"Para Clientes","nav.attorneys":"Para Abogados","nav.contact":"Contacto",
+"title":"Contáctanos","lead":"Envíanos un mensaje seguro. Respondemos con prontitud en inglés o español.",
+"f.name":"Nombre","f.email":"Correo electrónico","f.message":"Mensaje","btn.send":"Enviar",
+"disclaimer.title":"Importante","disclaimer.copy":"Ultima Defensa Legal no es un bufete de abogados y no brinda asesoría legal. Conectamos a los miembros con abogados independientes autorizados. Las cuotas de membresía son por el acceso a nuestro servicio de admisión y conexión. Cualquier relación abogado–cliente es solo entre usted y el abogado."
+}};
+const $=s=>document.querySelectorAll(`[data-i18n="${s}"]`);
+function apply(lang){localStorage.setItem('lang',lang);
+document.getElementById('langEN').classList.toggle('active',lang==='en');
+document.getElementById('langES').classList.toggle('active',lang==='es');
+const d=dict[lang]; for(const k in d){ $.(k)?.forEach(el=>el.textContent=d[k]); }}
+document.getElementById('langEN').onclick=()=>apply('en');
+document.getElementById('langES').onclick=()=>apply('es');
+apply(localStorage.getItem('lang')||'en');
+</script>
 </body>
 </html>
