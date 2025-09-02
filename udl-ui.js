@@ -1,97 +1,269 @@
-<script>
-/* ====== i18n dictionary ====== */
-const UDL_I18N={en:{
-  "nav.home":"Home","nav.clients":"For Clients","nav.attorneys":"For Attorneys","nav.contact":"Contact",
-  "hero.title":"Real help, fast: We connect you with an attorney who understands your case.",
-  "hero.sub":"Bilingual intake (EN/ES). We are not a law firm. Membership gives you access to quick, caring connection with independent attorneys.",
-  "cta.clients":"I need legal help","cta.attorneys":"I’m an attorney",
-  "banner.kind":"You’re not alone.","banner.copy":"If you’re worried about deportation or any legal problem, we’ll listen—without judgment—and connect you with a qualified attorney.",
-  "block.clientsTitle":"For Individuals","block.clientsCopy":"Simple, affordable membership. Tell us your situation (EN/ES). We match you to a licensed attorney who offers a free or reduced consultation.","block.clientsBtn":"See how it works",
-  "block.attorneysTitle":"For Attorneys","block.attorneysCopy":"Join our bilingual intake network. We deliver qualified leads and provide dashboard updates.","block.attorneysBtn":"Plans & details",
-  "per.month":"/ month","per.quarter":"/ quarter","per.month3":"/ month (first 3 months)","per.monthAfter":"/ month thereafter",
-  "disclaimer.title":"Important","disclaimer.copy":"Ultima Defensa Legal is not a law firm and does not provide legal advice. We connect members with independent, licensed attorneys. Membership fees are for access to our intake and connection services only. Any attorney–client relationship is solely between you and the attorney.",
-  "footer.contact":"Contact",
-  "cl.title":"Get connected to a licensed attorney — fast and respectfully.","cl.lead":"We listen in English or Spanish, gather your details, and connect you with an attorney who offers a free or reduced consultation. Cancel anytime.",
-  "cl.monthly":"Monthly Membership","cl.monthlyCopy":"Best if you need help right now.",
-  "cl.quarter":"Quarterly Membership","cl.quarterCopy":"Save money while you get settled.","btn.pay":"Pay",
-  "cl.how.title":"How it works","cl.how.1":"Join as a member and complete a short bilingual intake (EN/ES).","cl.how.2":"We match you with an independent, licensed attorney for your issue and location.","cl.how.3":"You receive a free or reduced consultation. If you hire the attorney, you pay them directly.","cl.note":"Many members leave after being connected—and that’s okay. We’re here to help you reach the right attorney.",
-  "at.title":"Grow your practice with caring, bilingual intake and qualified leads.","at.lead":"We screen in English and Spanish, route by practice area and geography, and deliver details to your dashboard or preferred channel.",
-  "at.intro":"Intro Rate","at.badge":"first 3 months","at.ongoing":"Ongoing Rate","feat.intake":"Bilingual intake (EN/ES)","feat.leads":"Qualified lead delivery","feat.dashboard":"Attorney dashboard & updates","feat.priority":"Priority lead routing","feat.featured":"Featured listing placement","btn.pay3":"Pay (3 months)",
-  "co.title":"Contact us","co.lead":"Send a secure message. We’ll respond promptly in English or Spanish.","f.name":"Name","f.email":"Email","f.message":"Message","btn.send":"Send"
-},es:{
-  "nav.home":"Inicio","nav.clients":"Para Clientes","nav.attorneys":"Para Abogados","nav.contact":"Contacto",
-  "hero.title":"Ayuda real, rápida: te conectamos con un abogado que entiende tu caso.",
-  "hero.sub":"Atención bilingüe (EN/ES). No somos un bufete de abogados. La membresía te da acceso a una conexión rápida y humana con abogados independientes.",
-  "cta.clients":"Necesito ayuda legal","cta.attorneys":"Soy abogado",
-  "banner.kind":"No estás solo(a).","banner.copy":"Si te preocupa la deportación u otro problema legal, te escuchamos —sin juzgar— y te conectamos con un abogado calificado.",
-  "block.clientsTitle":"Para Clientes","block.clientsCopy":"Membresía simple y accesible. Cuéntanos tu situación (EN/ES). Te vinculamos con un abogado que ofrece consulta gratis o a precio reducido.","block.clientsBtn":"Cómo funciona",
-  "block.attorneysTitle":"Para Abogados","block.attorneysCopy":"Únete a nuestra red bilingüe. Entregamos prospectos calificados y ofrecemos actualizaciones en tu panel.","block.attorneysBtn":"Planes y detalles",
-  "per.month":"/ mes","per.quarter":"/ trimestre","per.month3":"/ mes (primeros 3 meses)","per.monthAfter":"/ mes después",
-  "disclaimer.title":"Importante","disclaimer.copy":"Ultima Defensa Legal no es un bufete de abogados y no brinda asesoría legal. Conectamos a los miembros con abogados independientes autorizados. Las cuotas de membresía son por el acceso a nuestro servicio de admisión y conexión. Cualquier relación abogado–cliente es solo entre usted y el abogado.",
-  "footer.contact":"Contacto",
-  "cl.title":"Conéctate con un abogado autorizado — de forma rápida y respetuosa.","cl.lead":"Te escuchamos en inglés o español, tomamos tus datos y te conectamos con un abogado que ofrece consulta gratis o a precio reducido. Cancela cuando quieras.",
-  "cl.monthly":"Membresía Mensual","cl.monthlyCopy":"Ideal si necesitas ayuda ahora.",
-  "cl.quarter":"Membresía Trimestral","cl.quarterCopy":"Ahorra mientras te estabilizas.","btn.pay":"Pagar",
-  "cl.how.title":"Cómo funciona","cl.how.1":"Únete como miembro y completa una admisión bilingüe (EN/ES).","cl.how.2":"Te vinculamos con un abogado independiente y autorizado según tu tema y ubicación.","cl.how.3":"Recibes una consulta gratis o a precio reducido. Si contratas al abogado, le pagas directamente.","cl.note":"Muchos miembros se dan de baja después de la conexión—y está bien. Nuestra misión es acercarte al abogado correcto.",
-  "at.title":"Haz crecer tu práctica con admisión bilingüe y prospectos calificados.","at.lead":"Atendemos en inglés y español, enroutamos por especialidad y ubicación, y enviamos los detalles a tu panel o canal preferido.",
-  "at.intro":"Tarifa Inicial","at.badge":"primeros 3 meses","at.ongoing":"Tarifa Regular","feat.intake":"Admisión bilingüe (EN/ES)","feat.leads":"Entrega de prospectos calificados","feat.dashboard":"Panel del abogado y actualizaciones","feat.priority":"Enrutamiento prioritario","feat.featured":"Ubicación destacada en el listado","btn.pay3":"Pagar (3 meses)",
-  "co.title":"Contáctanos","co.lead":"Envíanos un mensaje seguro. Respondemos con prontitud en inglés o español.","f.name":"Nombre","f.email":"Correo electrónico","f.message":"Mensaje","btn.send":"Enviar"
-}};
+/*!
+ * UltimaDefensaLegal — Site-wide EN/ES language system (single file)
+ * File: /udl-ui.js
+ * Purpose: No page edits. Ensures EN+ES buttons exist, translates all pages,
+ * persists choice, fixes header spacing, and coexists with any existing CSS.
+ */
+(function () {
+  "use strict";
+  if (window.__UDL_I18N_READY__) return; // prevent double load
+  window.__UDL_I18N_READY__ = true;
 
-/* ====== header & footer injection ====== */
-function udlHeaderHTML(){
-  return `
-  <header>
-    <div class="wrap">
-      <a class="brand" href="/index.html">UltimaDefensaLegal</a>
-      <nav>
-        <a href="/index.html" data-i18n="nav.home">Home</a>
-        <a href="/for-clients.html" data-i18n="nav.clients">For Clients</a>
-        <a href="/for-attorneys.html" data-i18n="nav.attorneys">For Attorneys</a>
-        <a href="/contact.html" data-i18n="nav.contact">Contact</a>
-        <div class="lang" aria-label="Language">
-          <span class="chip" id="udlLangEN">EN</span>
-          <span class="chip" id="udlLangES">ES</span>
-        </div>
-      </nav>
-    </div>
-  </header>`;
-}
-function udlFooterHTML(){
-  return `
-  <footer>
-    <div class="wrap" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center">
-      <span>&copy; <span id="yr"></span> Ultima Defensa Legal</span>
-      <a href="/contact.html" style="color:#e2e8f0" data-i18n="footer.contact">Contact</a>
-    </div>
-  </footer>`;
-}
+  /* ========================= Dictionary ========================= */
+  const T = {
+    en: {
+      "title": "Ultima Defensa Legal — Real help, fast",
+      "nav.home": "Home",
+      "nav.clients": "For Clients",
+      "nav.attorneys": "For Attorneys",
+      "nav.contact": "Contact",
+      "per.month": "/ month",
+      "per.quarter": "/ quarter",
+      "per.month3": "/ month (first 3 months)",
+      "per.monthAfter": "/ month thereafter",
+      "btn.pay": "Pay",
+      "btn.pay3": "Pay (3 months)",
 
-/* ====== apply language ====== */
-const $$ = key => document.querySelectorAll(`[data-i18n="${key}"]`);
-function udlApplyLang(lang){
-  try{ localStorage.setItem('udl_lang',lang); }catch{}
-  document.getElementById('udlLangEN')?.classList.toggle('active',lang==='en');
-  document.getElementById('udlLangES')?.classList.toggle('active',lang==='es');
-  const dict = UDL_I18N[lang] || UDL_I18N.en;
-  for(const k in dict){ $$(k).forEach(el=>el.textContent=dict[k]); }
-}
+      "hero.title": "Real help, fast: We connect you with an attorney who understands your case.",
+      "hero.sub": "Bilingual intake (EN/ES). We are not a law firm. Membership gives you access to quick, caring connection with independent attorneys.",
+      "cta.clients": "I need legal help",
+      "cta.attorneys": "I’m an attorney",
+      "clients.title": "For Individuals",
+      "clients.copy": "Simple, affordable membership. Tell us your situation (EN/ES). We match you to a licensed attorney who offers a free or reduced consultation.",
+      "clients.btn": "See how it works",
+      "attorneys.title": "For Attorneys",
+      "attorneys.copy": "Join our bilingual intake network. We deliver qualified leads and provide dashboard updates.",
+      "attorneys.btn": "Plans & details",
 
-/* ====== boot ====== */
-document.addEventListener('DOMContentLoaded',()=>{
-  // Inject header/footer if not already present
-  if(!document.querySelector('header')) document.body.insertAdjacentHTML('afterbegin', udlHeaderHTML());
-  if(!document.querySelector('footer')) document.body.insertAdjacentHTML('beforeend', udlFooterHTML());
+      "disclaimer.title": "Important",
+      "disclaimer.copy": "Ultima Defensa Legal is not a law firm and does not provide legal advice. We connect members with independent, licensed attorneys. Membership fees are for access to our intake and connection services only. Any attorney–client relationship is solely between you and the attorney.",
 
-  // Wire up toggle
-  document.getElementById('udlLangEN')?.addEventListener('click',()=>udlApplyLang('en'));
-  document.getElementById('udlLangES')?.addEventListener('click',()=>udlApplyLang('es'));
-  const lang = (()=>{
-    try{ return localStorage.getItem('udl_lang') || 'en'; }catch{ return 'en'; }
+      "clients.titlePage": "For Clients — Ultima Defensa Legal",
+      "clients.hero": "Get connected to a licensed attorney — fast and respectfully.",
+      "clients.sub": "We listen in English or Spanish, gather your details, and connect you with an attorney who offers a free or reduced consultation. Cancel anytime.",
+      "plan.monthly": "Monthly Membership",
+      "plan.monthlyCopy": "Best if you need help right now.",
+      "plan.quarterly": "Quarterly Membership",
+      "plan.quarterlyCopy": "Save money while you get settled.",
+      "how.title": "How it works",
+      "how.step1": "Join as a member and complete a short bilingual intake (EN/ES).",
+      "how.step2": "We match you with an independent, licensed attorney for your issue and location.",
+      "how.step3": "You receive a free or reduced consultation. If you hire the attorney, you pay them directly.",
+
+      "attorneys.titlePage": "For Attorneys — Ultima Defensa Legal",
+      "attorneys.hero": "Grow your practice with caring, bilingual intake and qualified leads.",
+      "attorneys.sub": "We screen in English and Spanish, route by practice area and geography, and deliver details to your dashboard or preferred channel.",
+      "plan.intro": "Intro Rate (first 3 months)",
+      "plan.ongoing": "Ongoing Rate",
+      "attorneys.feature1": "Bilingual intake (EN/ES)",
+      "attorneys.feature2": "Qualified lead delivery",
+      "attorneys.feature3": "Attorney dashboard & updates",
+      "attorneys.feature4": "Priority lead routing",
+      "attorneys.feature5": "Featured listing placement",
+
+      "contact.titlePage": "Contact — Ultima Defensa Legal",
+      "contact.hero": "Get in Touch",
+      "contact.sub": "Have questions? Reach out and we’ll connect you with the right information.",
+      "form.name": "Your Name",
+      "form.email": "Your Email",
+      "form.message": "Message",
+      "form.submit": "Send"
+    },
+    es: {
+      "title": "Ultima Defensa Legal — Ayuda real, rápida",
+      "nav.home": "Inicio",
+      "nav.clients": "Para Clientes",
+      "nav.attorneys": "Para Abogados",
+      "nav.contact": "Contacto",
+      "per.month": "/ mes",
+      "per.quarter": "/ trimestre",
+      "per.month3": "/ mes (primeros 3 meses)",
+      "per.monthAfter": "/ mes después",
+      "btn.pay": "Pagar",
+      "btn.pay3": "Pagar (3 meses)",
+
+      "hero.title": "Ayuda real y rápida: Le conectamos con un abogado que entiende su caso.",
+      "hero.sub": "Admisión bilingüe (EN/ES). No somos un bufete de abogados. La membresía le da acceso a una conexión rápida y humana con abogados independientes.",
+      "cta.clients": "Necesito ayuda legal",
+      "cta.attorneys": "Soy abogado",
+      "clients.title": "Para Individuos",
+      "clients.copy": "Membresía simple y accesible. Cuéntenos su situación (EN/ES). Le vinculamos con un abogado con licencia que ofrece consulta gratis o a precio reducido.",
+      "clients.btn": "Cómo funciona",
+      "attorneys.title": "Para Abogados",
+      "attorneys.copy": "Únase a nuestra red bilingüe. Entregamos prospectos calificados y ofrecemos actualizaciones en su panel.",
+      "attorneys.btn": "Planes y detalles",
+
+      "disclaimer.title": "Importante",
+      "disclaimer.copy": "Ultima Defensa Legal no es un bufete y no brinda asesoría legal. Conectamos a los miembros con abogados independientes con licencia. Las cuotas de membresía son por el acceso a nuestros servicios de admisión y conexión. Cualquier relación abogado–cliente es solo entre usted y el abogado.",
+
+      "clients.titlePage": "Para Clientes — Ultima Defensa Legal",
+      "clients.hero": "Conéctese con un abogado con licencia — rápido y con respeto.",
+      "clients.sub": "Le escuchamos en inglés o español, tomamos sus datos y le conectamos con un abogado que ofrece consulta gratis o a precio reducido. Puede cancelar en cualquier momento.",
+      "plan.monthly": "Membresía Mensual",
+      "plan.monthlyCopy": "Ideal si necesita ayuda ahora.",
+      "plan.quarterly": "Membresía Trimestral",
+      "plan.quarterlyCopy": "Ahorre mientras se establece.",
+      "how.title": "Cómo funciona",
+      "how.step1": "Únase como miembro y complete una breve admisión bilingüe (EN/ES).",
+      "how.step2": "Le vinculamos con un abogado independiente con licencia según su tema y ubicación.",
+      "how.step3": "Recibe una consulta gratuita o a precio reducido. Si contrata al abogado, le paga directamente.",
+
+      "attorneys.titlePage": "Para Abogados — Ultima Defensa Legal",
+      "attorneys.hero": "Haga crecer su práctica con admisión bilingüe y prospectos calificados.",
+      "attorneys.sub": "Atendemos en inglés y español, enroutamos por especialidad y ubicación, y enviamos los detalles a su panel o canal preferido.",
+      "plan.intro": "Tarifa Inicial (primeros 3 meses)",
+      "plan.ongoing": "Tarifa Regular",
+      "attorneys.feature1": "Admisión bilingüe (EN/ES)",
+      "attorneys.feature2": "Entrega de prospectos calificados",
+      "attorneys.feature3": "Panel del abogado y actualizaciones",
+      "attorneys.feature4": "Enrutamiento prioritario",
+      "attorneys.feature5": "Ubicación destacada en el listado",
+
+      "contact.titlePage": "Contacto — Ultima Defensa Legal",
+      "contact.hero": "Contáctenos",
+      "contact.sub": "¿Tiene preguntas? Escríbanos y le conectaremos con la información correcta.",
+      "form.name": "Nombre",
+      "form.email": "Correo electrónico",
+      "form.message": "Mensaje",
+      "form.submit": "Enviar"
+    }
+  };
+
+  /* ========================= Helpers ========================= */
+  const qs = (s, r = document) => r.querySelector(s);
+  const qsa = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const norm = s => (s || "").replace(/\s+/g, " ").trim();
+  const getLang = () => { try { return localStorage.getItem("udl_lang") || "en"; } catch { return "en"; } };
+  const setLang = l => { try { localStorage.setItem("udl_lang", l); } catch {} document.documentElement.setAttribute("lang", l); };
+
+  // Build map of ENG text -> key to autolabel elements that lack data-i18n
+  const EN_INDEX = (() => { const m = new Map(); Object.entries(T.en).forEach(([k, v]) => m.set(norm(v), k)); return m; })();
+
+  /* ========================= Toggle UI ========================= */
+  function ensureToggle() {
+    const header = qs("header") || qs(".navbar") || document.body;
+    let wrap = qs(".lang-toggle", header);
+    if (!wrap) {
+      wrap = document.createElement("div");
+      wrap.className = "lang-toggle";
+      header.appendChild(wrap);
+    }
+    let enBtn = wrap.querySelector('[data-lang="en"]');
+    let esBtn = wrap.querySelector('[data-lang="es"]');
+    if (!enBtn) { enBtn = document.createElement("button"); enBtn.type = "button"; enBtn.setAttribute("data-lang", "en"); enBtn.textContent = "EN"; wrap.appendChild(enBtn); }
+    if (!esBtn) { esBtn = document.createElement("button"); esBtn.type = "button"; esBtn.setAttribute("data-lang", "es"); esBtn.textContent = "ES"; wrap.appendChild(esBtn); }
+
+    // Visibility & layout so both always show
+    wrap.style.display = "inline-flex";
+    wrap.style.gap = ".5rem";
+    wrap.style.marginLeft = "auto";
+    wrap.style.alignItems = "center";
+  }
+
+  (function injectCSS(){
+    const css = `
+      .lang-toggle [data-lang]{border:1px solid rgba(255,255,255,.35);background:transparent;color:inherit;
+        padding:.25rem .5rem;border-radius:.6rem;line-height:1;cursor:pointer}
+      .lang-toggle [data-lang].active{background:#fff;color:#0b2239}
+      @media (prefers-color-scheme: light){ .lang-toggle [data-lang]{border-color:rgba(0,0,0,.25)} }
+    `;
+    const s = document.createElement("style"); s.textContent = css; document.head.appendChild(s);
   })();
-  udlApplyLang(lang);
 
-  // Year
-  const yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYear();
-});
-</script>
+  /* ========================= Autolabel ========================= */
+  function leafElements(root = document) {
+    const tags = "h1,h2,h3,h4,p,li,button,a,span,small,strong,em,label,th,td";
+    return qsa(tags, root).filter(el => !qsa("*", el).length);
+  }
+  function autolabel(root = document) {
+    leafElements(root).forEach(el => {
+      if (el.hasAttribute("data-i18n")) return;
+      const k = EN_INDEX.get(norm(el.textContent));
+      if (k) el.setAttribute("data-i18n", k);
+    });
+    // common fragments:
+    qsa("*", root).forEach(el => {
+      if (el.hasAttribute("data-i18n")) return;
+      const t = el.textContent || "";
+      if (/\b\/\s*month\b/i.test(t)) el.setAttribute("data-i18n", "per.month");
+      else if (/\b\/\s*quarter\b/i.test(t)) el.setAttribute("data-i18n", "per.quarter");
+      else if (/^Pay$/i.test(t.trim())) el.setAttribute("data-i18n", "btn.pay");
+      else if (/Pay\s*\(3\s*months\)/i.test(t)) el.setAttribute("data-i18n", "btn.pay3");
+    });
+  }
+
+  /* ========================= Translate ========================= */
+  function applyLang(lang) {
+    const dict = T[lang] || T.en;
+
+    // <title>
+    const titleEl = qs("title[data-i18n]");
+    if (titleEl) {
+      const k = titleEl.getAttribute("data-i18n");
+      if (dict[k]) titleEl.textContent = dict[k];
+    }
+
+    // All labelled nodes
+    qsa("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      const val = dict[key];
+      if (typeof val === "string") {
+        if (el.children.length) {
+          Array.from(el.childNodes).forEach(n => { if (n.nodeType === 3) n.nodeValue = val; });
+        } else {
+          el.textContent = val;
+        }
+      }
+    });
+
+    // Toggle state
+    qsa("[data-lang]").forEach(btn => {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+      btn.setAttribute("aria-pressed", btn.classList.contains("active") ? "true" : "false");
+    });
+
+    setLang(lang);
+  }
+
+  /* ========================= Events & Safety ========================= */
+  function bindControls() {
+    document.addEventListener("click", e => {
+      const btn = e.target.closest("[data-lang]");
+      if (!btn) return;
+      e.preventDefault();
+      applyLang(btn.getAttribute("data-lang"));
+    });
+  }
+
+  function fixTopPadding(){
+    // Avoid hero being hidden under sticky header on mobile
+    const header = qs("header"); const main = qs("main");
+    if (!header || !main) return;
+    const h = Math.max(56, Math.round(header.getBoundingClientRect().height));
+    main.style.scrollMarginTop = `${h + 8}px`;
+  }
+
+  // If content is injected later, watch and autolabel + retranslate it.
+  function observeDynamic() {
+    const mo = new MutationObserver(muts => {
+      let needs = false;
+      muts.forEach(m => { if (m.addedNodes && m.addedNodes.length) needs = true; });
+      if (needs) {
+        autolabel(document);
+        applyLang(getLang());
+      }
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+  }
+
+  /* ========================= Boot ========================= */
+  document.addEventListener("DOMContentLoaded", () => {
+    ensureToggle();
+    bindControls();
+    autolabel(document);
+    applyLang(getLang());
+    fixTopPadding();
+    window.addEventListener("resize", fixTopPadding, { passive: true });
+    observeDynamic();
+  });
+})();
