@@ -1,6 +1,7 @@
 :root{
   --bg:#0b2239; --bg2:#102a4a; --ink:#0f172a; --muted:#64748b;
   --accent:#e11d48; --ok:#0ea5e9; --card:#ffffff;
+  --header-h:56px; /* JS will update if header wraps on phones */
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -12,16 +13,25 @@ h1{font-size:clamp(1.8rem,3.2vw,2.8rem);margin:.25rem 0 1rem}
 h2{margin:.25rem 0 .5rem}
 ol,ul{padding-left:1.25rem}
 
-/* Sticky header with safe spacing on phones */
-header{background:var(--bg);position:sticky;top:0;z-index:50;padding-top:max(.5rem, env(safe-area-inset-top));}
-header .wrap{min-height:56px;display:flex;align-items:center;justify-content:space-between;}
+/* --- Header (mobile-safe, with safe area) --- */
+header{
+  position:sticky; top:0; z-index:50; background:var(--bg);
+  padding-top:max(.5rem, env(safe-area-inset-top));
+}
+header .wrap{min-height:var(--header-h); display:flex; align-items:center; justify-content:space-between;}
 .brand{font-weight:800;font-size:1.15rem;color:#fff}
-nav{display:flex;align-items:center;gap:.4rem}
+nav{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}
 nav a{color:#fff;padding:.55rem .8rem;border-radius:.5rem}
-nav a:hover, nav a:focus{background:rgba(255,255,255,.10);outline:none}
+nav a:hover,nav a:focus{background:rgba(255,255,255,.10);outline:none}
+
+/* Language pills */
 .lang{display:flex;gap:.35rem;margin-left:.5rem}
-.chip{display:inline-block;padding:.28rem .65rem;border:1px solid rgba(255,255,255,.45);border-radius:999px;color:#fff;cursor:pointer;font-size:.8rem}
+.chip{display:inline-block;padding:.28rem .65rem;border:1px solid rgba(255,255,255,.45);
+      border-radius:999px;color:#fff;cursor:pointer;font-size:.8rem}
 .chip.active{background:#fff;color:var(--bg)}
+
+/* Keep content clear of sticky header */
+main{padding-top:calc(var(--header-h) + .5rem)}
 
 .hero{background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);color:#fff;padding:3.5rem 1.25rem}
 .hero p{color:#e2e8f0}
@@ -36,4 +46,3 @@ nav a:hover, nav a:focus{background:rgba(255,255,255,.10);outline:none}
 .btn-outline{border:2px solid var(--bg);color:var(--bg);background:#fff}
 .notice{background:#f1f5f9;border-left:4px solid var(--ok);padding:1rem;border-radius:.6rem}
 footer{background:var(--bg);color:#cbd5e1;margin-top:3rem}
-main{padding-top:.5rem} /* extra breathing room below sticky header */
