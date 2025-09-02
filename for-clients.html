@@ -1,48 +1,58 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>For Clients — Ultima Defensa Legal</title>
-  <link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="clients.titlePage">For Clients — Ultima Defensa Legal</title>
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
+<header class="navbar">
+  <div class="logo">UltimaDefensaLegal</div>
+  <nav>
+    <a href="/index.html" data-i18n="nav.home">Home</a>
+    <a href="/for-clients.html" data-i18n="nav.clients">For Clients</a>
+    <a href="/for-attorneys.html" data-i18n="nav.attorneys">For Attorneys</a>
+    <a href="/contact.html" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="lang-toggle">
+    <button data-lang="en">EN</button> | <button data-lang="es">ES</button>
+  </div>
+</header>
 
-<main class="wrap">
-  <h1 data-i18n="cl.title">Get connected to a licensed attorney — fast and respectfully.</h1>
-  <p class="small" data-i18n="cl.lead">We listen in English or Spanish, gather your details, and connect you with an attorney who offers a free or reduced consultation. Cancel anytime.</p>
+<main>
+  <h1 data-i18n="clients.hero">Get connected to a licensed attorney — fast and respectfully.</h1>
+  <p data-i18n="clients.sub">We listen in English or Spanish, gather your details, and connect you with an attorney who offers a free or reduced consultation. Cancel anytime.</p>
 
-  <div class="grid grid-2">
-    <div class="card">
-      <h2 data-i18n="cl.monthly">Monthly Membership</h2>
-      <p class="small" data-i18n="cl.monthlyCopy">Best if you need help right now.</p>
-      <p class="price">$25 <span class="small" data-i18n="per.month">/ month</span></p>
-      <a class="btn btn-primary" href="/pay/clients?plan=monthly" data-i18n="btn.pay">Pay</a>
-    </div>
-
-    <div class="card">
-      <h2 data-i18n="cl.quarter">Quarterly Membership</h2>
-      <p class="small" data-i18n="cl.quarterCopy">Save money while you get settled.</p>
-      <p class="price">$65 <span class="small" data-i18n="per.quarter">/ quarter</span></p>
-      <a class="btn btn-primary" href="/pay/clients?plan=quarterly" data-i18n="btn.pay">Pay</a>
-    </div>
+  <div class="card">
+    <h2 data-i18n="plan.monthly">Monthly Membership</h2>
+    <p data-i18n="plan.monthlyCopy">Best if you need help right now.</p>
+    <div class="price">$25 / <span data-i18n="per.month">month</span></div>
+    <a href="/pay.html" class="btn btn-primary" data-i18n="btn.pay">Pay</a>
   </div>
 
-  <section class="card">
-    <h3 data-i18n="cl.how.title">How it works</h3>
+  <div class="card">
+    <h2 data-i18n="plan.quarterly">Quarterly Membership</h2>
+    <p data-i18n="plan.quarterlyCopy">Save money while you get settled.</p>
+    <div class="price">$65 / <span data-i18n="per.quarter">quarter</span></div>
+    <a href="/pay.html" class="btn btn-primary" data-i18n="btn.pay">Pay</a>
+  </div>
+
+  <section>
+    <h3 data-i18n="how.title">How it works</h3>
     <ol>
-      <li data-i18n="cl.how.1">Join as a member and complete a short bilingual intake (EN/ES).</li>
-      <li data-i18n="cl.how.2">We match you with an independent, licensed attorney for your issue and location.</li>
-      <li data-i18n="cl.how.3">You receive a free or reduced consultation. If you hire the attorney, you pay them directly.</li>
+      <li data-i18n="how.step1">Join as a member and complete a short bilingual intake (EN/ES).</li>
+      <li data-i18n="how.step2">We match you with an independent, licensed attorney for your issue and location.</li>
+      <li data-i18n="how.step3">You receive a free or reduced consultation. If you hire the attorney, you pay them directly.</li>
     </ol>
-    <p class="small" data-i18n="cl.note">Many members leave after being connected—and that’s okay. We’re here to help you reach the right attorney.</p>
   </section>
 
-  <section class="card">
+  <section>
     <h3 data-i18n="disclaimer.title">Important</h3>
-    <p class="small" data-i18n="disclaimer.copy">Ultima Defensa Legal is not a law firm and does not provide legal advice. We connect members with independent, licensed attorneys. Membership fees are for access to our intake and connection services only. Any attorney–client relationship is solely between you and the attorney.</p>
+    <p data-i18n="disclaimer.copy">Ultima Defensa Legal is not a law firm and does not provide legal advice. We connect members with independent, licensed attorneys. Membership fees are for access to our intake and connection services only. Any attorney–client relationship is solely between you and the attorney.</p>
   </section>
 </main>
 
-<script src="/shared-udl.js?v=10"></script>
+<script src="/shared-udl.js?v=final"></script>
 </body>
 </html>
