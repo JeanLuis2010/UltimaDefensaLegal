@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Page not found • Ultima Defensa Legal</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/js-i18n.js" defer></script>
+  <style>
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:#0b2740;color:#fff;}
+    header{background:#0b2740;border-bottom:1px solid rgba(255,255,255,.08)}
+    .bar{max-width:1100px;margin:auto;display:flex;gap:.75rem;align-items:center;justify-content:space-between;padding:.9rem 1rem}
+    .brand{font-weight:800;letter-spacing:.2px}
+    .nav a{color:#cfe0ff;text-decoration:none;margin:0 .6rem;font-weight:600}
+    main{background:#0e355a;min-height:60vh;display:grid;place-items:center;padding:2rem 1rem}
+    .card{max-width:720px;background:#fff;color:#0b2740;border-radius:16px;padding:1.5rem;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    h1{margin:.2rem 0 1rem 0;font-size:clamp(1.6rem,4.5vw,2.2rem)}
+    p{line-height:1.6}
+    .btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
+    .btn{display:inline-block;padding:.7rem 1rem;border-radius:10px;text-decoration:none;font-weight:700}
+    .primary{background:#0b2740;color:#fff}
+    .ghost{background:#eef4ff;color:#0b2740}
+    footer{padding:1rem;text-align:center;background:#092032;color:#cfe0ff}
+    .lang{display:flex;gap:.5rem}
+    .lang button{border:1px solid #8ab4ff;background:#0b2740;color:#cfe0ff;border-radius:10px;padding:.35rem .6rem;font-weight:700}
+  </style>
+</head>
+<body data-i18n-scope="udl404">
+  <header>
+    <div class="bar">
+      <div class="brand">UltimaDefenseLegal</div>
+      <nav class="nav">
+        <a href="/index.html" data-i18n="nav.home">Home</a>
+        <a href="/clients.html" data-i18n="nav.clients">For Clients</a>
+        <a href="/attorneys.html" data-i18n="nav.attorneys">For Attorneys</a>
+        <a href="/contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="lang">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="card">
+      <h1 data-i18n="title">Page not found</h1>
+      <p data-i18n="lead">That page doesn’t exist or the link is broken.</p>
+      <p data-i18n="tip">Choose where to go next:</p>
+      <div class="btns">
+        <a class="btn primary" href="/index.html" data-i18n="cta.home">Back to Home</a>
+        <a class="btn ghost" href="/clients.html" data-i18n="cta.clients">For Clients</a>
+        <a class="btn ghost" href="/attorneys.html" data-i18n="cta.attorneys">For Attorneys</a>
+        <a class="btn ghost" href="/pricing.html" data-i18n="cta.pricing">Plans & Pricing</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>© <span id="y"></span> Ultima Defensa Legal</footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // Minimal i18n strings for this page (the loader will merge if you have a global file)
+    window.__I18N__ = Object.assign(window.__I18N__||{},{
+      udl404:{
+        en:{
+          "nav.home":"Home","nav.clients":"For Clients","nav.attorneys":"For Attorneys","nav.contact":"Contact",
+          "title":"Page not found","lead":"That page doesn’t exist or the link is broken.",
+          "tip":"Choose where to go next:","cta.home":"Back to Home","cta.clients":"For Clients",
+          "cta.attorneys":"For Attorneys","cta.pricing":"Plans & Pricing"
+        },
+        es:{
+          "nav.home":"Inicio","nav.clients":"Para Clientes","nav.attorneys":"Para Abogados","nav.contact":"Contacto",
+          "title":"Página no encontrada","lead":"Esa página no existe o el enlace está roto.",
+          "tip":"Elige a dónde ir:","cta.home":"Volver al inicio","cta.clients":"Para Clientes",
+          "cta.attorneys":"Para Abogados","cta.pricing":"Planes y Precios"
+        }
+      }
+    });
+    // simple toggle
+    document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{
+      document.documentElement.lang=b.dataset.lang;
+      (window.updateI18N && window.updateI18N());
+    }));
+  </script>
+</body>
+</html>
