@@ -1,35 +1,43 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Solicitudes de datos — UDL</title>
-<style>body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;line-height:1.6;color:#111}header,footer{background:#0b2a4a;color:#fff}.wrap{max-width:900px;margin:0 auto;padding:16px}input,select,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:10px}form{display:grid;gap:10px}button{padding:.8rem 1rem;border-radius:12px;border:0;background:#0b2a4a;color:#fff;font-weight:800}</style></head>
-<body><header><div class="wrap"><h1>Solicitudes de datos</h1></div></header>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data Requests — Ultima Defensa Legal</title>
+<style>
+body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;margin:0;color:#111}
+header,footer{background:#0b2a4a;color:#fff}.wrap{max-width:900px;margin:0 auto;padding:16px}
+input,select,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:10px}form{display:grid;gap:10px}
+button{padding:.8rem 1rem;border-radius:12px;border:0;background:#0b2a4a;color:#fff;font-weight:800}
+</style></head>
+<body>
+<header><div class="wrap"><h1>Data Requests</h1></div></header>
 <main><div class="wrap">
-<h2 id="dsar">Acceso / Eliminación / Corrección / Exportación</h2>
+<h2 id="dsar">Access / Delete / Correct / Export</h2>
 <form name="udl-dsar" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="udl-dsar">
-  <label>Tipo<select name="type"><option>Acceso</option><option>Eliminar</option><option>Corregir</option><option>Exportar</option></select></label>
-  <label>Nombre<input name="name" required></label>
-  <label>Correo<input type="email" name="email" required></label>
-  <label>Detalles<textarea name="details" rows="5"></textarea></label>
-  <button type="submit">Enviar</button>
+  <label>Request Type
+    <select name="type" required><option>Access</option><option>Delete</option><option>Correct</option><option>Export</option></select>
+  </label>
+  <label>Name<input name="name" required></label>
+  <label>Email<input name="email" type="email" required></label>
+  <label>Details<textarea name="details" rows="5"></textarea></label>
+  <button type="submit">Submit</button>
 </form>
 
-<h2 id="dns">No vender/compartir (CCPA/CPRA)</h2>
+<h2 id="dns">Do-Not-Sell/Share (CCPA/CPRA)</h2>
 <form name="udl-dns" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="udl-dns">
-  <label>Nombre<input name="name" required></label>
-  <label>Correo<input type="email" name="email" required></label>
-  <button type="submit">Enviar</button>
+  <label>Name<input name="name" required></label>
+  <label>Email<input name="email" type="email" required></label>
+  <button type="submit">Submit</button>
 </form>
 
-<h2 id="billing">Soporte de cobros</h2>
+<h2 id="billing">Billing / Refund Support</h2>
 <form name="udl-billing" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="udl-billing">
-  <label>Nombre<input name="name" required></label>
-  <label>Correo<input type="email" name="email" required></label>
-  <label># de recibo<input name="order"></label>
-  <label>Mensaje<textarea name="msg" rows="5"></textarea></label>
-  <button type="submit">Enviar</button>
+  <label>Name<input name="name" required></label>
+  <label>Email<input name="email" type="email" required></label>
+  <label>Order/Receipt #<input name="order"></label>
+  <label>Message<textarea name="msg" rows="5"></textarea></label>
+  <button type="submit">Send</button>
 </form>
 </div></main>
-<footer><div class="wrap"><small>© 2025 UDL</small></div></footer>
+<footer><div class="wrap"><small>© 2025 Ultima Defensa Legal</small></div></footer>
 </body></html>
