@@ -2,27 +2,53 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — Ultima Defensa Legal</title>
-<meta name="description" content="Contact Ultima Defensa Legal for support.">
+<title>Contact — Ultima Defense Legal</title>
+<meta name="description" content="Contact Ultima Defense Legal for support and questions.">
 <style>
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f6f7fb;color:#111}
-header,footer{background:#0b2a4a;color:#fff}.wrap{max-width:900px;margin:0 auto;padding:16px}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f7f8fb;color:#111}
+header,footer{background:#0b2a4a;color:#fff}
+.wrap{max-width:900px;margin:0 auto;padding:16px}
 input,textarea{width:100%;padding:10px;border:1px solid #ccc;border-radius:10px;margin-bottom:10px}
 button{padding:.8rem 1rem;border-radius:12px;border:0;background:#e01e24;color:#fff;font-weight:800;cursor:pointer}
+nav a{color:#fff;text-decoration:none;margin-right:12px;font-weight:600}
+.lang button{border:2px solid #fff;background:transparent;color:#fff;border-radius:12px;padding:6px 10px;font-weight:700;cursor:pointer}
+.lang button[aria-current="true"]{background:#fff;color:#0b2a4a}
 </style>
 </head>
 <body>
-<header><div class="wrap"><h1 data-i18n="nav_contact">Contact</h1></div></header>
+<header>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0">
+    <div class="brand">UltimaDefenseLegal</div>
+    <nav>
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="pricing.html" data-i18n="nav_pricing">Plans</a>
+      <a href="pay.html" data-i18n="nav_pay">Pay</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="lang">
+      <button data-lang="en" aria-current="true">EN</button>
+      <button data-lang="es">ES</button>
+    </div>
+  </div>
+</header>
+
 <main><div class="wrap">
-<form name="udl-contact" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="udl-contact">
-  <label>Name / <span lang="es">Nombre</span><input type="text" name="name" required></label>
-  <label>Email / <span lang="es">Correo</span><input type="email" name="email" required></label>
-  <label>Message / <span lang="es">Mensaje</span><textarea name="message" rows="5" required></textarea></label>
-  <button type="submit">Send / <span lang="es">Enviar</span></button>
-</form>
+  <h1 data-i18n="nav_contact">Contact</h1>
+  <form name="udl-contact" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="udl-contact">
+    <label>Name / <span lang="es">Nombre</span><input name="name" required></label>
+    <label>Email / <span lang="es">Correo</span><input name="email" type="email" required></label>
+    <label>Message / <span lang="es">Mensaje</span><textarea name="message" rows="5" required></textarea></label>
+    <button type="submit">Send / <span lang="es">Enviar</span></button>
+  </form>
+  <p style="margin-top:14px;color:#444" data-i18n="disclaim">We are not a law firm and do not provide legal advice. We connect you with licensed attorneys.</p>
 </div></main>
-<footer><div class="wrap"><small>© 2025 Ultima Defensa Legal</small></div></footer>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:12px 0">
+  <small>© 2025 UltimaDefenseLegal</small>
+  <small><a href="privacy.html" style="color:#fff" data-i18n="footer_privacy">Privacy</a> • <a href="terms.html" style="color:#fff" data-i18n="footer_terms">Terms</a> • <a href="refunds.html" style="color:#fff" data-i18n="footer_refunds">Refunds</a> • <a href="disclaimers.html" style="color:#fff" data-i18n="footer_disclaimers">Disclaimers</a></small>
+</div></footer>
+
 <script src="shared.js"></script>
 </body>
 </html>
