@@ -1,5 +1,5 @@
 /*!
- * UltimaDefensaLegal — EN/ES + Mobile Tap Unblocker (single file)  v22
+ * UltimaDefensaLegal — EN/ES + Mobile Nav Fallback (single file)  v23
  * File: shared-udl.js   — drop-in; no page edits
  */
 (function () {
@@ -87,7 +87,10 @@
   const norm=s=>(s||"").replace(/\s+/g," ").trim();
   const getLang=()=>{try{return localStorage.getItem("udl_lang")||"en";}catch{return"en";}};
   const setLang=l=>{try{localStorage.setItem("udl_lang",l);}catch{};document.documentElement.setAttribute("lang",l);};
+
+  // Index BOTH languages so autolabel works even if page starts in Spanish
   const EN_INDEX=(()=>{const m=new Map();Object.entries(T.en).forEach(([k,v])=>m.set(norm(v),k));return m;})();
+  const ES_INDEX=(()=>{const m=new Map();Object.entries(T.es).forEach(([k,v])=>m.set(norm(v),k));return m;})();
 
   /* ============== Fixed, always-visible toggle (top-right) ============== */
   function mountToggle(){
@@ -103,7 +106,7 @@
     }
   }
 
-  // Hard styles so labels never go “blank” and widget doesn’t block nav
+  // Hard styles so labels never go blank and widget doesn’t block nav
   (function injectCSS(){
     const css = `
       #udl-language-toggle{
@@ -121,30 +124,34 @@
         #udl-language-toggle [data-lang]{border-color:rgba(255,255,255,.4); background:#0b2239; color:#fff !important}
         #udl-language-toggle [data-lang].active{background:#fff; color:#0b2239 !important; border-color:#fff}
       }
-      /* Make sure anchors keep receiving taps even if some CSS elsewhere breaks it */
       a, nav a, button { touch-action: manipulation; }
     `;
     const s=document.createElement("style"); s.textContent=css; document.head.appendChild(s);
   })();
 
-  /* ============== Autolabel ============== */
+  /* ============== Autolabel (works with EN or ES starting text) ============== */
   function leafElements(root=document){
     const tags="h1,h2,h3,h4,p,li,button,a,span,small,strong,em,label,th,td";
     return qsa(tags,root).filter(el=>!qsa("*",el).length);
   }
+  function guessKeyFromText(txt){
+    const t = norm(txt);
+    return EN_INDEX.get(t) || ES_INDEX.get(t) || null;
+  }
   function autolabel(root=document){
     leafElements(root).forEach(el=>{
       if(el.hasAttribute("data-i18n")) return;
-      const k=EN_INDEX.get(norm(el.textContent));
+      const k=guessKeyFromText(el.textContent);
       if(k) el.setAttribute("data-i18n",k);
     });
+    // Common fragments:
     qsa("*",root).forEach(el=>{
       if(el.hasAttribute("data-i18n")) return;
       const t=el.textContent||"";
-      if(/\b\/\s*month\b/i.test(t)) el.setAttribute("data-i18n","per.month");
-      else if(/\b\/\s*quarter\b/i.test(t)) el.setAttribute("data-i18n","per.quarter");
-      else if(/^Pay$/i.test(t.trim())) el.setAttribute("data-i18n","btn.pay");
-      else if(/Pay\s*\(3\s*months\)/i.test(t)) el.setAttribute("data-i18n","btn.pay3");
+      if(/\b\/\s*month\b/i.test(t) || /\b\/\s*mes\b/i.test(t)) el.setAttribute("data-i18n","per.month");
+      else if(/\b\/\s*quarter\b/i.test(t) || /\b\/\s*trimestre\b/i.test(t)) el.setAttribute("data-i18n","per.quarter");
+      else if(/^Pay$/i.test(t.trim()) || /^Pagar$/i.test(t.trim())) el.setAttribute("data-i18n","btn.pay");
+      else if(/Pay\s*\(3\s*months\)/i.test(t) || /Pagar\s*\(3\s*meses\)/i.test(t)) el.setAttribute("data-i18n","btn.pay3");
     });
   }
 
@@ -154,6 +161,7 @@
     const title=qs("title[data-i18n]");
     if(title){const k=title.getAttribute("data-i18n"); if(dict[k]) title.textContent=dict[k];}
 
+    // Translate all marked nodes
     qsa("[data-i18n]").forEach(el=>{
       const key=el.getAttribute("data-i18n"); const val=dict[key];
       if(typeof val==="string"){
@@ -165,15 +173,16 @@
       }
     });
 
-    qsa("#udl-language-toggle [data-lang]").forEach(b=>{
+    // Update toggle state
+    const btns = qsa("#udl-language-toggle [data-lang]");
+    btns.forEach(b=>{
       b.classList.toggle("active", b.getAttribute("data-lang")===lang);
     });
 
     setLang(lang);
   }
 
-  /* ============== Make taps work even if an overlay is on top ============== */
-  // Find any full-screen, fixed overlays (not our toggle) that intercept taps → disable pointer events.
+  /* ============== Unblock hidden overlays ================= */
   function unblockTapOverlays(){
     const viewportW = window.innerWidth, viewportH = window.innerHeight;
     const all = qsa("body *");
@@ -183,7 +192,6 @@
       if (style.position !== "fixed") continue;
       const r = el.getBoundingClientRect();
       if (r.width >= viewportW*0.95 && r.height >= viewportH*0.95){
-        // If it doesn't contain visible links or buttons, it's likely a stray overlay: disable it.
         const hasInteractive = el.querySelector("a,button,[role='button'],input,select,textarea");
         if (!hasInteractive){
           el.style.pointerEvents = "none";
@@ -193,6 +201,7 @@
   }
 
   /* ============== Events ============== */
+  // Make toggle work even if other scripts stop propagation
   function onTogglePress(e){
     const btn = e.target.closest("#udl-language-toggle [data-lang]");
     if (!btn) return;
@@ -200,15 +209,31 @@
     applyLang(btn.getAttribute("data-lang"));
   }
 
+  // Force navigation for links even if some overlay/scripts block clicks
+  function onAnyLink(e){
+    const a = e.target.closest("a[href]");
+    if (!a) return;
+    const hrefAttr = (a.getAttribute("href")||"").trim();
+    if (!hrefAttr || hrefAttr.startsWith("#") || hrefAttr.startsWith("mailto:") || hrefAttr.startsWith("tel:")) return;
+    e.preventDefault();
+    // Prefer same-window navigation
+    try { window.location.assign(a.href); } catch { window.location.href = a.href; }
+  }
+
   function boot(){
     mountToggle();
+    // Bind in capture so we win against other handlers
     document.addEventListener("click", onTogglePress, {capture:true});
     document.addEventListener("touchstart", onTogglePress, {passive:false, capture:true});
-    autolabel(document);
-    applyLang(getLang());
-    unblockTapOverlays();
+    document.addEventListener("click", onAnyLink, {capture:true});
+    document.addEventListener("touchstart", onAnyLink, {passive:false, capture:true});
+
+    autolabel(document);                 // works even if initial text is Spanish
+    applyLang(getLang());                // render saved/default language
+    unblockTapOverlays();                // free up taps
     addEventListener("resize", unblockTapOverlays, {passive:true});
-    // If new content is injected, re-translate
+
+    // Re-translate if new nodes arrive
     const mo=new MutationObserver(muts=>{
       let needs=false; muts.forEach(m=>{ if(m.addedNodes && m.addedNodes.length) needs=true; });
       if(needs){ autolabel(document); applyLang(getLang()); unblockTapOverlays(); }
