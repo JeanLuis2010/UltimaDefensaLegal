@@ -1,7 +1,6 @@
 /*!
- * UltimaDefensaLegal — EN/ES toggle (single-file, mobile-safe)  v21
- * File: shared-udl.js
- * Drop-in: replace this file ONLY. No HTML edits.
+ * UltimaDefensaLegal — EN/ES + Mobile Tap Unblocker (single file)  v22
+ * File: shared-udl.js   — drop-in; no page edits
  */
 (function () {
   "use strict";
@@ -39,8 +38,8 @@
       "attorneys.hero":"Grow your practice with caring, bilingual intake and qualified leads.",
       "attorneys.sub":"We screen in English and Spanish, route by practice area and geography, and deliver details to your dashboard or preferred channel.",
       "plan.intro":"Intro Rate (first 3 months)","plan.ongoing":"Ongoing Rate",
-      "attorneys.feature1":"Bilingual intake (EN/ES)","attorneys.feature2":"Qualified lead delivery",
-      "attorneys.feature3":"Attorney dashboard & updates","attorneys.feature4":"Priority lead routing","attorneys.feature5":"Featured listing placement",
+      "attorneys.feature1":"Bilingual intake (EN/ES)","attorneys.feature2":"Qualified lead delivery","attorneys.feature3":"Attorney dashboard & updates",
+      "attorneys.feature4":"Priority lead routing","attorneys.feature5":"Featured listing placement",
       "contact.titlePage":"Contact — Ultima Defensa Legal","contact.hero":"Get in Touch",
       "contact.sub":"Have questions? Reach out and we’ll connect you with the right information.",
       "form.name":"Your Name","form.email":"Your Email","form.message":"Message","form.submit":"Send"
@@ -74,15 +73,15 @@
       "attorneys.hero":"Haga crecer su práctica con admisión bilingüe y prospectos calificados.",
       "attorneys.sub":"Atendemos en inglés y español, enroutamos por especialidad y ubicación, y enviamos los detalles a su panel o canal preferido.",
       "plan.intro":"Tarifa Inicial (primeros 3 meses)","plan.ongoing":"Tarifa Regular",
-      "attorneys.feature1":"Admisión bilingüe (EN/ES)","attorneys.feature2":"Entrega de prospectos calificados",
-      "attorneys.feature3":"Panel del abogado y actualizaciones","attorneys.feature4":"Enrutamiento prioritario","attorneys.feature5":"Ubicación destacada en el listado",
+      "attorneys.feature1":"Admisión bilingüe (EN/ES)","attorneys.feature2":"Entrega de prospectos calificados","attorneys.feature3":"Panel del abogado y actualizaciones",
+      "attorneys.feature4":"Enrutamiento prioritario","attorneys.feature5":"Ubicación destacada en el listado",
       "contact.titlePage":"Contacto — Ultima Defensa Legal","contact.hero":"Contáctenos",
       "contact.sub":"¿Tiene preguntas? Escríbanos y le conectaremos con la información correcta.",
       "form.name":"Nombre","form.email":"Correo electrónico","form.message":"Mensaje","form.submit":"Enviar"
     }
   };
 
-  /* ================= Helpers ================= */
+  /* =============== helpers =============== */
   const qs=(s,r=document)=>r.querySelector(s);
   const qsa=(s,r=document)=>Array.from(r.querySelectorAll(s));
   const norm=s=>(s||"").replace(/\s+/g," ").trim();
@@ -90,7 +89,7 @@
   const setLang=l=>{try{localStorage.setItem("udl_lang",l);}catch{};document.documentElement.setAttribute("lang",l);};
   const EN_INDEX=(()=>{const m=new Map();Object.entries(T.en).forEach(([k,v])=>m.set(norm(v),k));return m;})();
 
-  /* ============== Fixed, mobile-safe toggle (top-right) ============== */
+  /* ============== Fixed, always-visible toggle (top-right) ============== */
   function mountToggle(){
     let wrap = qs("#udl-language-toggle");
     if (!wrap){
@@ -102,39 +101,33 @@
       `;
       document.body.appendChild(wrap);
     }
-    // Always ensure labels visible (work around site CSS)
-    qsa("[data-lang]", wrap).forEach(b=>{
-      b.textContent = b.getAttribute("data-lang").toUpperCase();
-      b.style.display = "inline-block";
-    });
   }
 
-  // Hard styles so text never disappears and widget never blocks nav
+  // Hard styles so labels never go “blank” and widget doesn’t block nav
   (function injectCSS(){
     const css = `
       #udl-language-toggle{
         position:fixed; top:10px; right:10px; z-index:2147483647;
-        display:flex; gap:.5rem; pointer-events:none;
+        display:flex; gap:.5rem;
       }
       #udl-language-toggle [data-lang]{
-        pointer-events:auto;
-        font-size:14px !important; font-weight:600 !important;
-        line-height:1; padding:.35rem .55rem; border-radius:.6rem;
-        border:1px solid rgba(0,0,0,.25); background:#ffffffcc; color:#0b2239 !important;
-        -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+        font-size:14px !important; font-weight:700 !important; letter-spacing:.02em;
+        line-height:1; padding:.38rem .6rem; border-radius:.6rem;
+        border:1px solid rgba(0,0,0,.25); background:#fff; color:#0b2239 !important;
+        cursor:pointer; user-select:none; -webkit-font-smoothing:antialiased;
       }
-      #udl-language-toggle [data-lang].active{
-        background:#0b2239; color:#fff !important; border-color:#0b2239;
-      }
+      #udl-language-toggle [data-lang].active{ background:#0b2239; color:#fff !important; border-color:#0b2239; }
       @media (prefers-color-scheme: dark){
-        #udl-language-toggle [data-lang]{border-color:rgba(255,255,255,.35); background:#0b2239cc; color:#fff !important}
+        #udl-language-toggle [data-lang]{border-color:rgba(255,255,255,.4); background:#0b2239; color:#fff !important}
         #udl-language-toggle [data-lang].active{background:#fff; color:#0b2239 !important; border-color:#fff}
       }
+      /* Make sure anchors keep receiving taps even if some CSS elsewhere breaks it */
+      a, nav a, button { touch-action: manipulation; }
     `;
     const s=document.createElement("style"); s.textContent=css; document.head.appendChild(s);
   })();
 
-  /* ================= Autolabel ================= */
+  /* ============== Autolabel ============== */
   function leafElements(root=document){
     const tags="h1,h2,h3,h4,p,li,button,a,span,small,strong,em,label,th,td";
     return qsa(tags,root).filter(el=>!qsa("*",el).length);
@@ -155,7 +148,7 @@
     });
   }
 
-  /* ================= Translate ================= */
+  /* ============== Translate ============== */
   function applyLang(lang){
     const dict=T[lang]||T.en;
     const title=qs("title[data-i18n]");
@@ -165,7 +158,7 @@
       const key=el.getAttribute("data-i18n"); const val=dict[key];
       if(typeof val==="string"){
         if(el.children.length){
-          Array.from(el.childNodes).forEach(n=>{if(n.nodeType===3) n.nodeValue=val;});
+          Array.from(el.childNodes).forEach(n=>{ if(n.nodeType===3) n.nodeValue=val; });
         } else {
           el.textContent=val;
         }
@@ -179,31 +172,49 @@
     setLang(lang);
   }
 
-  /* ================= Events & safety ================= */
-  function bindControls(){
-    document.addEventListener("click", e=>{
-      const b=e.target.closest("#udl-language-toggle [data-lang]");
-      if(!b) return;
-      e.preventDefault();
-      applyLang(b.getAttribute("data-lang"));
-    });
+  /* ============== Make taps work even if an overlay is on top ============== */
+  // Find any full-screen, fixed overlays (not our toggle) that intercept taps → disable pointer events.
+  function unblockTapOverlays(){
+    const viewportW = window.innerWidth, viewportH = window.innerHeight;
+    const all = qsa("body *");
+    for (const el of all){
+      if (el.id === "udl-language-toggle") continue;
+      const style = window.getComputedStyle(el);
+      if (style.position !== "fixed") continue;
+      const r = el.getBoundingClientRect();
+      if (r.width >= viewportW*0.95 && r.height >= viewportH*0.95){
+        // If it doesn't contain visible links or buttons, it's likely a stray overlay: disable it.
+        const hasInteractive = el.querySelector("a,button,[role='button'],input,select,textarea");
+        if (!hasInteractive){
+          el.style.pointerEvents = "none";
+        }
+      }
+    }
   }
 
-  function observeDynamic(){
+  /* ============== Events ============== */
+  function onTogglePress(e){
+    const btn = e.target.closest("#udl-language-toggle [data-lang]");
+    if (!btn) return;
+    e.preventDefault();
+    applyLang(btn.getAttribute("data-lang"));
+  }
+
+  function boot(){
+    mountToggle();
+    document.addEventListener("click", onTogglePress, {capture:true});
+    document.addEventListener("touchstart", onTogglePress, {passive:false, capture:true});
+    autolabel(document);
+    applyLang(getLang());
+    unblockTapOverlays();
+    addEventListener("resize", unblockTapOverlays, {passive:true});
+    // If new content is injected, re-translate
     const mo=new MutationObserver(muts=>{
       let needs=false; muts.forEach(m=>{ if(m.addedNodes && m.addedNodes.length) needs=true; });
-      if(needs){ autolabel(document); applyLang(getLang()); }
+      if(needs){ autolabel(document); applyLang(getLang()); unblockTapOverlays(); }
     });
     mo.observe(document.body,{childList:true,subtree:true});
   }
 
-  /* ================= Boot ================= */
-  function boot(){
-    mountToggle();
-    bindControls();
-    autolabel(document);
-    applyLang(getLang());
-    observeDynamic();
-  }
   (document.readyState==="loading") ? document.addEventListener("DOMContentLoaded", boot) : boot();
 })();
