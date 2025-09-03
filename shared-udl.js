@@ -1,6 +1,7 @@
 /*!
- * UltimaDefensaLegal — EN/ES toggle (single-file, no page edits)  v18
+ * UltimaDefensaLegal — EN/ES toggle (single-file, mobile-safe)  v21
  * File: shared-udl.js
+ * Drop-in: replace this file ONLY. No HTML edits.
  */
 (function () {
   "use strict";
@@ -38,8 +39,8 @@
       "attorneys.hero":"Grow your practice with caring, bilingual intake and qualified leads.",
       "attorneys.sub":"We screen in English and Spanish, route by practice area and geography, and deliver details to your dashboard or preferred channel.",
       "plan.intro":"Intro Rate (first 3 months)","plan.ongoing":"Ongoing Rate",
-      "attorneys.feature1":"Bilingual intake (EN/ES)","attorneys.feature2":"Qualified lead delivery","attorneys.feature3":"Attorney dashboard & updates",
-      "attorneys.feature4":"Priority lead routing","attorneys.feature5":"Featured listing placement",
+      "attorneys.feature1":"Bilingual intake (EN/ES)","attorneys.feature2":"Qualified lead delivery",
+      "attorneys.feature3":"Attorney dashboard & updates","attorneys.feature4":"Priority lead routing","attorneys.feature5":"Featured listing placement",
       "contact.titlePage":"Contact — Ultima Defensa Legal","contact.hero":"Get in Touch",
       "contact.sub":"Have questions? Reach out and we’ll connect you with the right information.",
       "form.name":"Your Name","form.email":"Your Email","form.message":"Message","form.submit":"Send"
@@ -73,63 +74,67 @@
       "attorneys.hero":"Haga crecer su práctica con admisión bilingüe y prospectos calificados.",
       "attorneys.sub":"Atendemos en inglés y español, enroutamos por especialidad y ubicación, y enviamos los detalles a su panel o canal preferido.",
       "plan.intro":"Tarifa Inicial (primeros 3 meses)","plan.ongoing":"Tarifa Regular",
-      "attorneys.feature1":"Admisión bilingüe (EN/ES)","attorneys.feature2":"Entrega de prospectos calificados","attorneys.feature3":"Panel del abogado y actualizaciones",
-      "attorneys.feature4":"Enrutamiento prioritario","attorneys.feature5":"Ubicación destacada en el listado",
+      "attorneys.feature1":"Admisión bilingüe (EN/ES)","attorneys.feature2":"Entrega de prospectos calificados",
+      "attorneys.feature3":"Panel del abogado y actualizaciones","attorneys.feature4":"Enrutamiento prioritario","attorneys.feature5":"Ubicación destacada en el listado",
       "contact.titlePage":"Contacto — Ultima Defensa Legal","contact.hero":"Contáctenos",
       "contact.sub":"¿Tiene preguntas? Escríbanos y le conectaremos con la información correcta.",
       "form.name":"Nombre","form.email":"Correo electrónico","form.message":"Mensaje","form.submit":"Enviar"
     }
   };
 
-  /* =============== helpers =============== */
+  /* ================= Helpers ================= */
   const qs=(s,r=document)=>r.querySelector(s);
   const qsa=(s,r=document)=>Array.from(r.querySelectorAll(s));
   const norm=s=>(s||"").replace(/\s+/g," ").trim();
   const getLang=()=>{try{return localStorage.getItem("udl_lang")||"en";}catch{return"en";}};
   const setLang=l=>{try{localStorage.setItem("udl_lang",l);}catch{};document.documentElement.setAttribute("lang",l);};
-
-  // map EN text -> key (for autolabel)
   const EN_INDEX=(()=>{const m=new Map();Object.entries(T.en).forEach(([k,v])=>m.set(norm(v),k));return m;})();
 
-  /* =============== force-visible toggle =============== */
-  function ensureToggle(){
-    // Prefer header; fall back to body top
-    const container = qs("header") || document.body;
-    let wrap = qs(".lang-toggle") || document.createElement("div");
-    if (!wrap.parentNode) container.appendChild(wrap);
-    wrap.className = "lang-toggle";
-
-    // Make sure BOTH buttons exist
-    let en = wrap.querySelector('[data-lang="en"]');
-    let es = wrap.querySelector('[data-lang="es"]');
-    if (!en){en=document.createElement("button");en.type="button";en.setAttribute("data-lang","en");en.textContent="EN";wrap.appendChild(en);}
-    if (!es){es=document.createElement("button");es.type="button";es.setAttribute("data-lang","es");es.textContent="ES";wrap.appendChild(es);}
-
-    // If a site CSS hides ES, override it hard:
-    en.style.display = "inline-block";
-    es.style.display = "inline-block";
+  /* ============== Fixed, mobile-safe toggle (top-right) ============== */
+  function mountToggle(){
+    let wrap = qs("#udl-language-toggle");
+    if (!wrap){
+      wrap = document.createElement("div");
+      wrap.id = "udl-language-toggle";
+      wrap.innerHTML = `
+        <button type="button" data-lang="en" aria-label="English">EN</button>
+        <button type="button" data-lang="es" aria-label="Español">ES</button>
+      `;
+      document.body.appendChild(wrap);
+    }
+    // Always ensure labels visible (work around site CSS)
+    qsa("[data-lang]", wrap).forEach(b=>{
+      b.textContent = b.getAttribute("data-lang").toUpperCase();
+      b.style.display = "inline-block";
+    });
   }
 
-  // Hard CSS overrides so nothing can hide ES button
+  // Hard styles so text never disappears and widget never blocks nav
   (function injectCSS(){
     const css = `
-      .lang-toggle{display:inline-flex !important; gap:.5rem; margin-left:auto; align-items:center;
-                   flex-wrap:wrap; max-width:100%}
-      .lang-toggle [data-lang]{display:inline-block !important; border:1px solid rgba(255,255,255,.35);
-          background:transparent;color:inherit;padding:.25rem .5rem;border-radius:.6rem;line-height:1;cursor:pointer}
-      .lang-toggle [data-lang].active{background:#fff;color:#0b2239}
-      header{overflow:visible !important} /* prevent clipping */
-      @media (max-width:480px){
-        .lang-toggle{margin-top:.5rem} /* allow wrap on tiny screens */
+      #udl-language-toggle{
+        position:fixed; top:10px; right:10px; z-index:2147483647;
+        display:flex; gap:.5rem; pointer-events:none;
       }
-      @media (prefers-color-scheme: light){
-        .lang-toggle [data-lang]{border-color:rgba(0,0,0,.25)}
+      #udl-language-toggle [data-lang]{
+        pointer-events:auto;
+        font-size:14px !important; font-weight:600 !important;
+        line-height:1; padding:.35rem .55rem; border-radius:.6rem;
+        border:1px solid rgba(0,0,0,.25); background:#ffffffcc; color:#0b2239 !important;
+        -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      }
+      #udl-language-toggle [data-lang].active{
+        background:#0b2239; color:#fff !important; border-color:#0b2239;
+      }
+      @media (prefers-color-scheme: dark){
+        #udl-language-toggle [data-lang]{border-color:rgba(255,255,255,.35); background:#0b2239cc; color:#fff !important}
+        #udl-language-toggle [data-lang].active{background:#fff; color:#0b2239 !important; border-color:#fff}
       }
     `;
     const s=document.createElement("style"); s.textContent=css; document.head.appendChild(s);
   })();
 
-  /* =============== autolabel =============== */
+  /* ================= Autolabel ================= */
   function leafElements(root=document){
     const tags="h1,h2,h3,h4,p,li,button,a,span,small,strong,em,label,th,td";
     return qsa(tags,root).filter(el=>!qsa("*",el).length);
@@ -150,67 +155,55 @@
     });
   }
 
-  /* =============== translate =============== */
+  /* ================= Translate ================= */
   function applyLang(lang){
     const dict=T[lang]||T.en;
     const title=qs("title[data-i18n]");
     if(title){const k=title.getAttribute("data-i18n"); if(dict[k]) title.textContent=dict[k];}
+
     qsa("[data-i18n]").forEach(el=>{
-      const key=el.getAttribute("data-i18n");
-      const val=dict[key];
+      const key=el.getAttribute("data-i18n"); const val=dict[key];
       if(typeof val==="string"){
         if(el.children.length){
           Array.from(el.childNodes).forEach(n=>{if(n.nodeType===3) n.nodeValue=val;});
-        }else{
+        } else {
           el.textContent=val;
         }
       }
     });
-    // reflect active
-    qsa("[data-lang]").forEach(b=>{
+
+    qsa("#udl-language-toggle [data-lang]").forEach(b=>{
       b.classList.toggle("active", b.getAttribute("data-lang")===lang);
-      b.setAttribute("aria-pressed", b.classList.contains("active")?"true":"false");
-      b.style.display="inline-block"; // keep visible
     });
+
     setLang(lang);
   }
 
-  /* =============== events/safety =============== */
+  /* ================= Events & safety ================= */
   function bindControls(){
     document.addEventListener("click", e=>{
-      const b=e.target.closest("[data-lang]");
+      const b=e.target.closest("#udl-language-toggle [data-lang]");
       if(!b) return;
       e.preventDefault();
       applyLang(b.getAttribute("data-lang"));
     });
   }
-  function fixTopPadding(){
-    const header=qs("header"), main=qs("main");
-    if(!header||!main) return;
-    const h=Math.max(56, Math.round(header.getBoundingClientRect().height));
-    main.style.scrollMarginTop=`${h+8}px`;
-  }
+
   function observeDynamic(){
     const mo=new MutationObserver(muts=>{
       let needs=false; muts.forEach(m=>{ if(m.addedNodes && m.addedNodes.length) needs=true; });
-      if(needs){ ensureToggle(); autolabel(document); applyLang(getLang()); }
+      if(needs){ autolabel(document); applyLang(getLang()); }
     });
     mo.observe(document.body,{childList:true,subtree:true});
   }
 
-  /* =============== boot =============== */
+  /* ================= Boot ================= */
   function boot(){
-    ensureToggle();
+    mountToggle();
     bindControls();
     autolabel(document);
     applyLang(getLang());
-    fixTopPadding();
-    addEventListener("resize", fixTopPadding, {passive:true});
     observeDynamic();
   }
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot);
-  } else {
-    boot();
-  }
+  (document.readyState==="loading") ? document.addEventListener("DOMContentLoaded", boot) : boot();
 })();
