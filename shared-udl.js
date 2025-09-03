@@ -1,14 +1,13 @@
 /*!
- * UltimaDefensaLegal — Site-wide EN/ES language system (single file)
- * File: shared-udl.js  (v17)
- * Drop-in: replace this file only. No HTML changes required.
+ * UltimaDefensaLegal — EN/ES toggle (single-file, no page edits)  v18
+ * File: shared-udl.js
  */
 (function () {
   "use strict";
   if (window.__UDL_I18N_READY__) return;
   window.__UDL_I18N_READY__ = true;
 
-  /* ========================= Dictionary ========================= */
+  /* ================= Dictionary ================= */
   const T = {
     en: {
       "title":"Ultima Defensa Legal — Real help, fast",
@@ -82,41 +81,55 @@
     }
   };
 
-  /* ========================= Helpers ========================= */
+  /* =============== helpers =============== */
   const qs=(s,r=document)=>r.querySelector(s);
   const qsa=(s,r=document)=>Array.from(r.querySelectorAll(s));
   const norm=s=>(s||"").replace(/\s+/g," ").trim();
-  const getLang=()=>{try{return localStorage.getItem("udl_lang")||"en";}catch{return "en";}};
+  const getLang=()=>{try{return localStorage.getItem("udl_lang")||"en";}catch{return"en";}};
   const setLang=l=>{try{localStorage.setItem("udl_lang",l);}catch{};document.documentElement.setAttribute("lang",l);};
+
+  // map EN text -> key (for autolabel)
   const EN_INDEX=(()=>{const m=new Map();Object.entries(T.en).forEach(([k,v])=>m.set(norm(v),k));return m;})();
 
-  /* ========================= Toggle UI ========================= */
+  /* =============== force-visible toggle =============== */
   function ensureToggle(){
-    const header = qs("header") || qs(".navbar") || document.body;
-    let wrap = qs(".lang-toggle", header);
-    if(!wrap){
-      wrap=document.createElement("div");
-      wrap.className="lang-toggle";
-      header.appendChild(wrap);
-    }
+    // Prefer header; fall back to body top
+    const container = qs("header") || document.body;
+    let wrap = qs(".lang-toggle") || document.createElement("div");
+    if (!wrap.parentNode) container.appendChild(wrap);
+    wrap.className = "lang-toggle";
+
+    // Make sure BOTH buttons exist
     let en = wrap.querySelector('[data-lang="en"]');
     let es = wrap.querySelector('[data-lang="es"]');
-    if(!en){en=document.createElement("button");en.type="button";en.setAttribute("data-lang","en");en.textContent="EN";wrap.appendChild(en);}
-    if(!es){es=document.createElement("button");es.type="button";es.setAttribute("data-lang","es");es.textContent="ES";wrap.appendChild(es);}
-    wrap.style.display="inline-flex";wrap.style.gap=".5rem";wrap.style.marginLeft="auto";wrap.style.alignItems="center";
+    if (!en){en=document.createElement("button");en.type="button";en.setAttribute("data-lang","en");en.textContent="EN";wrap.appendChild(en);}
+    if (!es){es=document.createElement("button");es.type="button";es.setAttribute("data-lang","es");es.textContent="ES";wrap.appendChild(es);}
+
+    // If a site CSS hides ES, override it hard:
+    en.style.display = "inline-block";
+    es.style.display = "inline-block";
   }
 
+  // Hard CSS overrides so nothing can hide ES button
   (function injectCSS(){
-    const css=`
-      .lang-toggle [data-lang]{border:1px solid rgba(255,255,255,.35);background:transparent;color:inherit;
-        padding:.25rem .5rem;border-radius:.6rem;line-height:1;cursor:pointer}
+    const css = `
+      .lang-toggle{display:inline-flex !important; gap:.5rem; margin-left:auto; align-items:center;
+                   flex-wrap:wrap; max-width:100%}
+      .lang-toggle [data-lang]{display:inline-block !important; border:1px solid rgba(255,255,255,.35);
+          background:transparent;color:inherit;padding:.25rem .5rem;border-radius:.6rem;line-height:1;cursor:pointer}
       .lang-toggle [data-lang].active{background:#fff;color:#0b2239}
-      @media (prefers-color-scheme: light){ .lang-toggle [data-lang]{border-color:rgba(0,0,0,.25)} }
+      header{overflow:visible !important} /* prevent clipping */
+      @media (max-width:480px){
+        .lang-toggle{margin-top:.5rem} /* allow wrap on tiny screens */
+      }
+      @media (prefers-color-scheme: light){
+        .lang-toggle [data-lang]{border-color:rgba(0,0,0,.25)}
+      }
     `;
-    const s=document.createElement("style");s.textContent=css;document.head.appendChild(s);
+    const s=document.createElement("style"); s.textContent=css; document.head.appendChild(s);
   })();
 
-  /* ========================= Autolabel ========================= */
+  /* =============== autolabel =============== */
   function leafElements(root=document){
     const tags="h1,h2,h3,h4,p,li,button,a,span,small,strong,em,label,th,td";
     return qsa(tags,root).filter(el=>!qsa("*",el).length);
@@ -137,50 +150,56 @@
     });
   }
 
-  /* ========================= Translate ========================= */
+  /* =============== translate =============== */
   function applyLang(lang){
     const dict=T[lang]||T.en;
     const title=qs("title[data-i18n]");
     if(title){const k=title.getAttribute("data-i18n"); if(dict[k]) title.textContent=dict[k];}
     qsa("[data-i18n]").forEach(el=>{
-      const key=el.getAttribute("data-i18n"); const val=dict[key];
+      const key=el.getAttribute("data-i18n");
+      const val=dict[key];
       if(typeof val==="string"){
-        if(el.children.length){ Array.from(el.childNodes).forEach(n=>{if(n.nodeType===3) n.nodeValue=val;}); }
-        else el.textContent=val;
+        if(el.children.length){
+          Array.from(el.childNodes).forEach(n=>{if(n.nodeType===3) n.nodeValue=val;});
+        }else{
+          el.textContent=val;
+        }
       }
     });
+    // reflect active
     qsa("[data-lang]").forEach(b=>{
       b.classList.toggle("active", b.getAttribute("data-lang")===lang);
       b.setAttribute("aria-pressed", b.classList.contains("active")?"true":"false");
+      b.style.display="inline-block"; // keep visible
     });
     setLang(lang);
   }
 
-  /* ========================= Events & Safety ========================= */
+  /* =============== events/safety =============== */
   function bindControls(){
     document.addEventListener("click", e=>{
-      const btn=e.target.closest("[data-lang]");
-      if(!btn) return;
+      const b=e.target.closest("[data-lang]");
+      if(!b) return;
       e.preventDefault();
-      applyLang(btn.getAttribute("data-lang"));
+      applyLang(b.getAttribute("data-lang"));
     });
   }
   function fixTopPadding(){
-    const header=qs("header"); const main=qs("main");
+    const header=qs("header"), main=qs("main");
     if(!header||!main) return;
     const h=Math.max(56, Math.round(header.getBoundingClientRect().height));
     main.style.scrollMarginTop=`${h+8}px`;
   }
   function observeDynamic(){
     const mo=new MutationObserver(muts=>{
-      let needs=false; muts.forEach(m=>{if(m.addedNodes&&m.addedNodes.length) needs=true;});
-      if(needs){ autolabel(document); applyLang(getLang()); }
+      let needs=false; muts.forEach(m=>{ if(m.addedNodes && m.addedNodes.length) needs=true; });
+      if(needs){ ensureToggle(); autolabel(document); applyLang(getLang()); }
     });
     mo.observe(document.body,{childList:true,subtree:true});
   }
 
-  /* ========================= Boot ========================= */
-  document.addEventListener("DOMContentLoaded", ()=>{
+  /* =============== boot =============== */
+  function boot(){
     ensureToggle();
     bindControls();
     autolabel(document);
@@ -188,5 +207,10 @@
     fixTopPadding();
     addEventListener("resize", fixTopPadding, {passive:true});
     observeDynamic();
-  });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
