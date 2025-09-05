@@ -1,38 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ultima Defensa Legal — Attorney Network Agreement / Acuerdo para Abogados</title>
-<style>
-  :root{--bg:#0f2233;--card:#f7f9fc;--accent:#e41f4b}
-  *{box-sizing:border-box}
-  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0b1420;background:#fff}
-  header{position:sticky;top:0;z-index:50;background:var(--bg);color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-  .wrap{max-width:950px;margin:0 auto;padding:0 16px}
-  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-  nav a{color:#fff;text-decoration:none;font-weight:700}
-  .lang-switch{display:flex;gap:8px}
-  .lang-switch button{border:0;background:#fff;color:#102133;font-weight:700;padding:6px 10px;border-radius:9px;opacity:.9}
-  .lang-switch button.active{outline:2px solid #fff}
-  main{padding:18px 0}
-  h1{margin:10px 0 6px}
-  h2{margin:22px 0 8px}
-  .notice{background:#fff3cd;border:1px solid #ffe08a;padding:12px;border-radius:12px}
-  .card{background:var(--card);border:1px solid #e7eef6;border-radius:16px;padding:18px;margin:14px 0}
-  ul{padding-left:18px}
-  li{margin:.35rem 0}
-  .muted{color:#5a7086}
-  .btn{display:inline-block;background:#cfd9e6;padding:10px 14px;border-radius:10px;text-decoration:none;color:#12253a;font-weight:800}
-  form input, form select, form textarea{width:100%;padding:10px;border-radius:10px;border:1px solid #d8e3ef;margin-top:6px}
-  form label{font-weight:600;margin-top:10px;display:block}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-  .agree{display:flex;gap:10px;align-items:flex-start;margin-top:12px}
-  footer{margin-top:24px;background:#0f2233;color:#c8d6e6}
-  footer a{color:#c8d6e6}
-  .print{float:right;font-size:.9rem}
-  @media print{header,footer,.print{display:none}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UDL — Acuerdo para Abogados / Attorney Agreement</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/shared-udl.js" defer></script>
 </head>
 <body>
 <header>
@@ -46,7 +19,6 @@
     </nav>
   </div>
 </header>
-
 <main class="wrap">
   <a class="print" href="javascript:window.print()" data-lang="en">Print</a>
   <a class="print" href="javascript:window.print()" data-lang="es">Imprimir</a>
@@ -54,18 +26,14 @@
   <h1 data-lang="en">Attorney Network Agreement</h1>
   <h1 data-lang="es">Acuerdo para la Red de Abogados</h1>
 
-  <p class="notice" data-lang="en">
-    Summary: Attorneys remain independent, agree to offer at least one free or discounted consultation to Ultima Defensa Legal members, and receive qualified prospects and call routing. This page is a binding agreement once submitted.
-  </p>
-  <p class="notice" data-lang="es">
-    Resumen: Los abogados siguen siendo independientes, aceptan ofrecer al menos una consulta gratuita o con descuento a los miembros de Ultima Defensa Legal y reciben prospectos calificados y enrutamiento de llamadas. Esta página es un acuerdo vinculante al enviarse.
-  </p>
+  <p class="notice" data-lang="en">Summary: Attorneys remain independent, agree to offer at least one free or discounted consultation to UDL members, and receive qualified prospects and call routing. This page becomes binding upon submission.</p>
+  <p class="notice" data-lang="es">Resumen: Los abogados siguen siendo independientes, aceptan ofrecer al menos una consulta gratuita o con descuento a los miembros de UDL y reciben prospectos calificados y enrutamiento de llamadas. Esta página es vinculante al enviarse.</p>
 
   <div class="card">
     <h2 data-lang="en">1) Relationship & Independence</h2>
     <h2 data-lang="es">1) Relación e Independencia</h2>
-    <p data-lang="en">You are an independent attorney, not an employee, partner, or agent of Ultima Defensa Legal (“UDL”). You control your practice and set your own fees. UDL is not a law firm and does not provide legal advice.</p>
-    <p data-lang="es">Usted es un abogado independiente, no empleado, socio ni agente de Ultima Defensa Legal (“UDL”). Usted controla su práctica y fija sus honorarios. UDL no es un bufete y no brinda asesoría legal.</p>
+    <p data-lang="en">You are an independent attorney, not an employee, partner, or agent of Ultima Defensa Legal ("UDL"). You control your practice and set your own fees. UDL is not a law firm and does not provide legal advice.</p>
+    <p data-lang="es">Usted es un abogado independiente, no empleado, socio ni agente de Ultima Defensa Legal ("UDL"). Usted controla su práctica y fija sus honorarios. UDL no es un bufete y no brinda asesoría legal.</p>
 
     <h2 data-lang="en">2) Member Experience</h2>
     <h2 data-lang="es">2) Experiencia del Miembro</h2>
@@ -104,7 +72,6 @@
     <p data-lang="es">UDL puede enviar avisos por vía electrónica al correo que usted proporcione. Mantenga su información de contacto actualizada.</p>
   </div>
 
-  <!-- Signature / E-Sign (Netlify form) -->
   <div class="card">
     <h2 data-lang="en">Join the Network</h2>
     <h2 data-lang="es">Unirse a la Red</h2>
@@ -136,22 +103,19 @@
           <input name="licenses" required>
         </div>
       </div>
-
       <label data-lang="en">Office Hours / Availability</label>
       <label data-lang="es">Horario / Disponibilidad</label>
       <textarea name="hours" rows="3"></textarea>
-
-      <div class="agree">
+      <div class="agree" style="display:flex;gap:10px;align-items:flex-start;margin-top:12px">
         <input id="agree" type="checkbox" name="agree" required>
         <label for="agree">
           <span data-lang="en">I confirm I am a licensed attorney in good standing and I agree to the Attorney Network Agreement above, including Delaware governing law and venue.</span>
           <span data-lang="es">Confirmo que soy un abogado con licencia vigente y acepto el Acuerdo de la Red de Abogados anterior, incluida la ley aplicable y jurisdicción de Delaware.</span>
         </label>
       </div>
-
       <div class="grid">
         <div>
-          <label data-lang="en">E-Signature (type your name)</label>
+          <label data-lang="en">E‑Signature (type your name)</label>
           <label data-lang="es">Firma electrónica (escriba su nombre)</label>
           <input name="esign" required>
         </div>
@@ -160,19 +124,13 @@
           <input type="date" name="date" required>
         </div>
       </div>
-
-      <p class="muted" data-lang="en">Billing note: payment links will appear after verification (Square pending). Network access fee per current pricing.</p>
-      <p class="muted" data-lang="es">Nota de facturación: los enlaces de pago aparecerán después de la verificación (Square pendiente). Cuota de acceso según precios vigentes.</p>
-
+      <p class="muted" data-lang="en">Billing: payment links will appear after verification (Square pending). Network access fee per current pricing.</p>
+      <p class="muted" data-lang="es">Facturación: los enlaces de pago aparecerán después de la verificación (Square pendiente). Cuota de acceso según precios vigentes.</p>
       <button class="btn" type="submit" data-lang="en">Submit Agreement</button>
       <button class="btn" type="submit" data-lang="es">Enviar Acuerdo</button>
     </form>
   </div>
-
-  <p class="muted" data-lang="en">Questions? See <a href="/attorney-pricing.html">Attorney Pricing</a> or contact us.</p>
-  <p class="muted" data-lang="es">¿Preguntas? Vea <a href="/attorney-pricing.html">Precios para Abogados</a> o contáctenos.</p>
 </main>
-
 <footer>
   <div class="wrap" style="padding:16px 0;display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap">
     <small>© <span id="yr"></span> Ultima Defensa Legal</small>
@@ -184,23 +142,6 @@
     </div>
   </div>
 </footer>
-
-<script>
- (function(){
-   const query=new URLSearchParams(location.search);
-   const saved=localStorage.getItem('udl_lang');
-   const lang=query.get('lang')||saved||'es';
-   window.setLang=function(l){
-     localStorage.setItem('udl_lang',l);
-     document.documentElement.lang=l;
-     document.querySelectorAll('[data-lang]')
-       .forEach(el=>el.style.display=(el.dataset.lang===l)?'':'none');
-     document.querySelectorAll('.lang-switch button')
-       .forEach(b=>b.classList.toggle('active',b.dataset.setlang===l));
-   };
-   setLang(lang);
-   document.getElementById('yr').textContent=new Date().getFullYear();
- })();
-</script>
+<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
 </body>
 </html>
