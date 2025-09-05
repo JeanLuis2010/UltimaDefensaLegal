@@ -1,11 +1,58 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Privacy Policy — Ultima Defensa Legal</title>
-<style>body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;margin:0;color:#111}header,footer{background:#0b2a4a;color:#fff}.wrap{max-width:900px;margin:0 auto;padding:16px}a{color:#0b2a4a}</style></head><body>
-<header><div class="wrap"><h1>Privacy Policy</h1></div></header>
-<main><div class="wrap">
-<p><strong>Effective:</strong> 2025-05-01 • <strong>Jurisdiction:</strong> Delaware, USA • <strong>Contact:</strong> hello@ultimadefensalegal.com</p>
-<p>We collect account/contact info you provide, and site usage. Payments will be handled by a third-party processor; we do not store card numbers on our servers. See Data Requests for your rights.</p>
-<p>Not directed to children under 13.</p>
-</div></main>
-<footer><div class="wrap"><small>© 2025 Ultima Defensa Legal • <a href="data-requests.html#dns">Do-Not-Sell/Share</a></small></div></footer>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UDL — Privacy / Privacidad</title>
+<style>
+  :root{--bg:#0f2233}
+  body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#0b1420}
+  header{position:sticky;top:0;background:var(--bg);color:#fff}
+  .wrap{max-width:900px;margin:0 auto;padding:0 16px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+  nav a{color:#fff;text-decoration:none;font-weight:700}
+  .lang-switch{display:flex;gap:8px}
+  .lang-switch button{border:0;background:#fff;color:#102133;font-weight:700;padding:6px 10px;border-radius:9px;opacity:.85}
+  .lang-switch button.active{outline:2px solid #fff}
+  h1,h2{margin:16px 0}
+  .note{background:#f7f9fc;border:1px solid #e7eef6;border-radius:12px;padding:12px}
+</style></head>
+<body>
+<header><div class="wrap"><nav>
+  <a href="/index.html">Ultima Defensa Legal</a>
+  <div class="lang-switch">
+    <button data-setlang="en" onclick="setLang('en')">EN</button>
+    <button data-setlang="es" onclick="setLang('es')">ES</button>
+  </div>
+</nav></div></header>
+<main class="wrap">
+  <h1 data-lang="en">Privacy Notice</h1>
+  <h1 data-lang="es">Aviso de Privacidad</h1>
+  <div class="note">
+    <p data-lang="en">We collect only what we need to provide intake, routing, and support (e.g., name, contact, member ID, call metadata). We do not sell personal information.</p>
+    <p data-lang="es">Recopilamos solo lo necesario para brindar admisión, enrutamiento y soporte (por ejemplo, nombre, contacto, ID de miembro, metadatos de llamadas). No vendemos información personal.</p>
+  </div>
+  <h2 data-lang="en">California Privacy (CCPA/CPRA)</h2>
+  <h2 data-lang="es">Privacidad de California (CCPA/CPRA)</h2>
+  <p data-lang="en">California residents have the right to know, delete, correct, and limit use of sensitive data. To exercise rights, use the Contact page or email the address on that page. We verify requests before acting.</p>
+  <p data-lang="es">Los residentes de California tienen derecho a saber, eliminar, corregir y limitar el uso de datos sensibles. Para ejercer derechos, use la página de Contacto o el correo indicado allí. Verificamos las solicitudes antes de actuar.</p>
+  <h2 data-lang="en">New York Notices</h2>
+  <h2 data-lang="es">Avisos para Nueva York</h2>
+  <p data-lang="en">We provide clear pricing and do not offer legal advice. We connect members to independent attorneys. Complaints can be submitted via our Contact page; we respond within required timeframes.</p>
+  <p data-lang="es">Ofrecemos precios claros y no brindamos asesoría legal. Conectamos a los miembros con abogados independientes. Las quejas se envían por Contacto; respondemos dentro de los plazos requeridos.</p>
+  <h2 data-lang="en">Global/GDPR</h2>
+  <h2 data-lang="es">Global/GDPR</h2>
+  <p data-lang="en">If GDPR applies, our legal bases are performance of a service and legitimate interests in fraud prevention and quality assurance. You may request access, correction, or deletion.</p>
+  <p data-lang="es">Si aplica el GDPR, nuestras bases legales son la prestación del servicio e intereses legítimos en prevención de fraude y control de calidad. Puede solicitar acceso, corrección o eliminación.</p>
+  <h2 data-lang="en">Cookies</h2>
+  <h2 data-lang="es">Cookies</h2>
+  <p data-lang="en">We use minimal cookies for language preference and session security. You can disable cookies in your browser; the site will still function with reduced features.</p>
+  <p data-lang="es">Usamos cookies mínimas para preferencia de idioma y seguridad de sesión. Puede desactivarlas en su navegador; el sitio seguirá funcionando con funciones reducidas.</p>
+</main>
+<footer><div class="wrap" style="padding:16px 0;display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap">
+  <small>© <span id="yr"></span> UDL</small>
+  <div><a href="/terms.html" data-lang="en">Terms</a><a href="/terms.html" data-lang="es" style="margin-left:14px">Términos</a></div>
+</div></footer>
+<script>
+ (function(){const query=new URLSearchParams(location.search);const saved=localStorage.getItem('udl_lang');const lang=query.get('lang')||saved||'es';
+  window.setLang=function(l){localStorage.setItem('udl_lang',l);document.documentElement.lang=l;document.querySelectorAll('[data-lang]')
+   .forEach(el=>el.style.display=(el.dataset.lang===l)?'':'none');
+   document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active',b.dataset.setlang===l));};
+  setLang(lang);document.getElementById('yr').textContent=new Date().getFullYear();})();
+</script>
 </body></html>
