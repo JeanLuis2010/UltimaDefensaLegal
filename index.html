@@ -1,55 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Ultima Defensa Legal — Bilingual Legal Connection</title>
-<style>
-  :root{--bg:#0f2233;--fg:#0b1420;--ink:#0e1a26;--text:#0b1420;--white:#fff;--accent:#e41f4b;--muted:#5b738a;--card:#f7f9fc}
-  *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0b1420;background:#fff}
-  header{position:sticky;top:0;z-index:50;background:var(--bg);color:var(--white);box-shadow:0 2px 10px rgba(0,0,0,.08)}
-  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-  .brand a{color:#fff;text-decoration:none;font-weight:700;letter-spacing:.2px}
-  .navlinks{display:flex;gap:18px;align-items:center}
-  .navlinks a{color:#fff;text-decoration:none;font-weight:600}
-  .lang-switch{display:flex;gap:8px;margin-left:8px}
-  .lang-switch button{border:0;background:#fff;color:#102133;font-weight:700;padding:6px 10px;border-radius:9px;opacity:.8}
-  .lang-switch button.active{opacity:1;outline:2px solid #fff}
-  /* mobile */
-  @media(max-width:800px){ .navlinks{display:none} .hamb{display:block} }
-  .hamb{display:none}
-  .hero{background:linear-gradient(180deg,#11273d 0%,#0f2233 60%);color:#fff}
-  .hero .wrap{display:grid;grid-template-columns:1.2fr;gap:12px;padding:36px 16px 28px}
-  .cta{display:inline-block;margin-top:8px;background:var(--accent);color:#fff;padding:14px 18px;border-radius:999px;text-decoration:none;font-weight:800}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:28px 0}
-  .card{background:var(--card);border-radius:16px;padding:18px;border:1px solid #e7eef6}
-  footer{margin-top:32px;background:#0f2233;color:#c8d6e6}
-  footer a{color:#c8d6e6}
-  .disclaimer{background:#fff;border-top:1px solid #e7eef6;color:#344a5f;padding:18px 0}
-  .pay{display:inline-block;padding:10px 14px;border-radius:10px;background:#e9eef5;color:#44576b;text-decoration:none;font-weight:700}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ultima Defensa Legal — Conexión legal bilingüe</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/shared-udl.js" defer></script>
 </head>
 <body>
 <header>
   <div class="wrap">
     <nav>
-      <div class="brand"><a href="/index.html">Ultima Defensa Legal</a></div>
-      <div class="navlinks">
-        <a href="/index.html" data-lang="en">Home</a>
-        <a href="/index.html" data-lang="es">Inicio</a>
-        <a href="/clients.html" data-lang="en">For Clients</a>
-        <a href="/clients.html" data-lang="es">Para Clientes</a>
-        <a href="/attorneys.html" data-lang="en">For Attorneys</a>
-        <a href="/attorneys.html" data-lang="es">Para Abogados</a>
-        <a href="/contact.html" data-lang="en">Contact</a>
-        <a href="/contact.html" data-lang="es">Contacto</a>
-        <div class="lang-switch">
-          <button type="button" data-setlang="en" onclick="setLang('en')">EN</button>
-          <button type="button" data-setlang="es" onclick="setLang('es')">ES</button>
-        </div>
+      <a href="/index.html">Ultima Defensa Legal</a>
+      <div class="lang-switch">
+        <button type="button" data-setlang="en" onclick="setLang('en')">EN</button>
+        <button type="button" data-setlang="es" onclick="setLang('es')">ES</button>
       </div>
-      <button class="hamb" aria-label="Menu" onclick="toggleMenu()">☰</button>
     </nav>
   </div>
 </header>
@@ -112,16 +78,6 @@
     </div>
   </div>
 </footer>
-<script>
-  function toggleMenu(){/* simple placeholder if you add a mobile drawer later */}
-  (function(){
-    const query=new URLSearchParams(location.search);const saved=localStorage.getItem('udl_lang');
-    const lang=query.get('lang')||saved||'es';
-    window.setLang=function setLang(l){localStorage.setItem('udl_lang',l);document.documentElement.lang=l;document.querySelectorAll('[data-lang]')
-      .forEach(el=>{el.style.display=(el.getAttribute('data-lang')===l)?'':'none'});
-      document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active',b.dataset.setlang===l));};
-    setLang(lang); document.getElementById('yr').textContent=new Date().getFullYear();
-  })();
-</script>
+<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
 </body>
 </html>
