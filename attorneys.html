@@ -1,34 +1,24 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UDL — For Attorneys / Para Abogados</title>
-<style>
-  :root{--bg:#0f2233;--accent:#e41f4b;--card:#f7f9fc}
-  body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#0b1420}
-  header{position:sticky;top:0;background:var(--bg);color:#fff}
-  .wrap{max-width:1000px;margin:0 auto;padding:0 16px}
-  nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
-  nav a{color:#fff;text-decoration:none;font-weight:700}
-  .lang-switch{display:flex;gap:8px}
-  .lang-switch button{border:0;background:#fff;color:#102133;font-weight:700;padding:6px 10px;border-radius:9px;opacity:.85}
-  .lang-switch button.active{outline:2px solid #fff}
-  h1{margin:18px 0}
-  .panel{background:var(--card);border:1px solid #e7eef6;border-radius:16px;padding:18px}
-  .price{font-size:32px;font-weight:900}
-  .btn{display:inline-block;margin-top:10px;background:#cfd9e6;padding:10px 14px;border-radius:10px;text-decoration:none;color:#12253a;font-weight:800}
-  .btn[aria-disabled="true"]{opacity:.6;pointer-events:none}
-  footer{margin-top:20px;background:#0f2233;color:#c8d6e6}
-  footer a{color:#c8d6e6}
-</style></head>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UDL — Para Abogados / For Attorneys</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/shared-udl.js" defer></script>
+</head>
 <body>
 <header><div class="wrap"><nav>
   <a href="/index.html">Ultima Defensa Legal</a>
   <div class="lang-switch">
-    <button data-setlang="en" onclick="setLang('en')">EN</button>
-    <button data-setlang="es" onclick="setLang('es')">ES</button>
+    <button type="button" data-setlang="en" onclick="setLang('en')">EN</button>
+    <button type="button" data-setlang="es" onclick="setLang('es')">ES</button>
   </div>
 </nav></div></header>
 <main class="wrap">
   <h1 data-lang="es">Para Abogados</h1>
   <h1 data-lang="en">For Attorneys</h1>
-  <div class="panel">
+  <div class="card">
     <p data-lang="es">Únase a nuestra red bilingüe. Entregamos prospectos calificados y actualizaciones en su panel.</p>
     <p data-lang="en">Join our bilingual network. We deliver qualified prospects and panel updates to your dashboard.</p>
     <div class="price" data-lang="es">$325 / mes (primeros 3 meses)</div>
@@ -43,8 +33,8 @@
       <li data-lang="es">Requisito: ofrecer al menos 1 consulta gratuita o con descuento para nuestros miembros</li>
       <li data-lang="en">Requirement: offer at least one free or discounted consultation to our members</li>
     </ul>
-    <a href="#" class="btn" aria-disabled="true" data-lang="en" title="Square pending">Pay</a>
-    <a href="#" class="btn" aria-disabled="true" data-lang="es" title="Square pendiente">Pagar</a>
+    <a href="/attorney-agreement.html" class="btn" data-lang="en">Join & Sign</a>
+    <a href="/attorney-agreement.html" class="btn" data-lang="es">Unirse y Firmar</a>
   </div>
   <h2 data-lang="en">Important</h2><h2 data-lang="es">Importante</h2>
   <p data-lang="es">Los abogados en la red son independientes y no empleados de UDL. La relación abogado–cliente es exclusivamente entre usted y el cliente. Usted establece sus honorarios y controla su práctica.</p>
@@ -55,11 +45,6 @@
   <div><a href="/privacy.html" data-lang="en">Privacy</a><a href="/privacy.html" data-lang="es" style="margin-left:14px">Privacidad</a>
   <a href="/terms.html" data-lang="en" style="margin-left:14px">Terms</a><a href="/terms.html" data-lang="es" style="margin-left:14px">Términos</a></div>
 </div></footer>
-<script>
- (function(){const query=new URLSearchParams(location.search);const saved=localStorage.getItem('udl_lang');const lang=query.get('lang')||saved||'es';
-  window.setLang=function(l){localStorage.setItem('udl_lang',l);document.documentElement.lang=l;document.querySelectorAll('[data-lang]')
-   .forEach(el=>el.style.display=(el.dataset.lang===l)?'':'none');
-   document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active',b.dataset.setlang===l));};
-  setLang(lang);document.getElementById('yr').textContent=new Date().getFullYear();})();
-</script>
-</body></html>
+<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+</body>
+</html>
