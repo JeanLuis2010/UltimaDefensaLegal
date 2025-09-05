@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UDL — For Clients / Para Clientes</title>
+<style>
+  :root{--bg:#0f2233;--accent:#e41f4b;--card:#f7f9fc}
+  body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#0b1420}
+  header{position:sticky;top:0;background:var(--bg);color:#fff}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+  nav a{color:#fff;text-decoration:none;font-weight:700}
+  .lang-switch{display:flex;gap:8px}
+  .lang-switch button{border:0;background:#fff;color:#102133;font-weight:700;padding:6px 10px;border-radius:9px;opacity:.85}
+  .lang-switch button.active{outline:2px solid #fff}
+  h1{margin:18px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin:16px 0}
+  .plan{background:var(--card);border:1px solid #e7eef6;border-radius:16px;padding:18px}
+  .price{font-size:28px;font-weight:900}
+  .btn{display:inline-block;margin-top:10px;background:#cfd9e6;padding:10px 14px;border-radius:10px;text-decoration:none;color:#12253a;font-weight:800}
+  .btn[aria-disabled="true"]{opacity:.6;pointer-events:none}
+  footer{margin-top:20px;background:#0f2233;color:#c8d6e6}
+  footer a{color:#c8d6e6}
+</style></head>
+<body>
+<header><div class="wrap"><nav>
+  <a href="/index.html">Ultima Defensa Legal</a>
+  <div class="lang-switch">
+    <button data-setlang="en" onclick="setLang('en')">EN</button>
+    <button data-setlang="es" onclick="setLang('es')">ES</button>
+  </div>
+</nav></div></header>
+<main class="wrap">
+  <h1 data-lang="en">For Clients</h1>
+  <h1 data-lang="es">Para Clientes</h1>
+  <p data-lang="en">Choose a plan. Members can call our line, enter their ID, select the legal topic, and we route the call to an available attorney who agreed to provide at least one free or discounted consultation.</p>
+  <p data-lang="es">Elija un plan. Los miembros llaman, ingresan su ID, eligen el tema legal y los dirigimos a un abogado disponible que ofrece al menos una consulta gratuita o con descuento.</p>
+  <div class="grid">
+    <div class="plan">
+      <h3 data-lang="en">Monthly</h3><h3 data-lang="es">Mensual</h3>
+      <div class="price">$19.99</div>
+      <p data-lang="en">Access to intake & connection services. Attorney fees are separate.</p>
+      <p data-lang="es">Acceso a admisión y conexión. Los honorarios del abogado son por separado.</p>
+      <a href="#" class="btn" aria-disabled="true" data-lang="en" title="Square pending">Pay</a>
+      <a href="#" class="btn" aria-disabled="true" data-lang="es" title="Square pendiente">Pagar</a>
+    </div>
+    <div class="plan">
+      <h3 data-lang="en">Quarterly</h3><h3 data-lang="es">Trimestral</h3>
+      <div class="price">$49</div>
+      <p data-lang="en">Save vs. monthly. Includes call routing & follow‑ups.</p>
+      <p data-lang="es">Ahorre vs. mensual. Incluye enrutamiento y seguimiento.</p>
+      <a href="#" class="btn" aria-disabled="true" data-lang="en">Pay</a>
+      <a href="#" class="btn" aria-disabled="true" data-lang="es">Pagar</a>
+    </div>
+    <div class="plan">
+      <h3 data-lang="en">Annual</h3><h3 data-lang="es">Anual</h3>
+      <div class="price">$149</div>
+      <p data-lang="en">Best value. Priority call routing.</p>
+      <p data-lang="es">Mejor valor. Enrutamiento prioritario.</p>
+      <a href="#" class="btn" aria-disabled="true" data-lang="en">Pay</a>
+      <a href="#" class="btn" aria-disabled="true" data-lang="es">Pagar</a>
+    </div>
+  </div>
+  <hr>
+  <h2 data-lang="en">Important</h2><h2 data-lang="es">Importante</h2>
+  <p data-lang="es"><strong>Ultima Defensa Legal</strong> no es un bufete y no brinda asesoría legal. Las cuotas de membresía son por el acceso a nuestros servicios de admisión y conexión. Cualquier relación abogado–cliente es solo entre usted y el abogado.</p>
+  <p data-lang="en"><strong>Ultima Defensa Legal</strong> is not a law firm and does not provide legal advice. Membership fees are for access to our intake and connection services. Any attorney–client relationship is solely between you and the attorney.</p>
+</main>
+<footer><div class="wrap" style="padding:16px 0;display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap">
+  <small>© <span id="yr"></span> UDL</small>
+  <div><a href="/privacy.html" data-lang="en">Privacy</a><a href="/privacy.html" data-lang="es" style="margin-left:14px">Privacidad</a>
+  <a href="/terms.html" data-lang="en" style="margin-left:14px">Terms</a><a href="/terms.html" data-lang="es" style="margin-left:14px">Términos</a></div>
+</div></footer>
+<script>
+ (function(){const query=new URLSearchParams(location.search);const saved=localStorage.getItem('udl_lang');const lang=query.get('lang')||saved||'es';
+  window.setLang=function(l){localStorage.setItem('udl_lang',l);document.documentElement.lang=l;document.querySelectorAll('[data-lang]')
+   .forEach(el=>el.style.display=(el.dataset.lang===l)?'':'none');
+   document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active',b.dataset.setlang===l));};
+  setLang(lang);document.getElementById('yr').textContent=new Date().getFullYear();})();
+</script>
+</body></html>
