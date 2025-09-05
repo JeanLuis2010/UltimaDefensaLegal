@@ -1,12 +1,55 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Terms of Use — Ultima Defensa Legal</title>
-<style>body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;margin:0;color:#111}header,footer{background:#0b2a4a;color:#fff}.wrap{max-width:900px;margin:0 auto;padding:16px}a{color:#0b2a4a}</style></head><body>
-<header><div class="wrap"><h1>Terms of Use</h1></div></header>
-<main><div class="wrap">
-<p><strong>Governing law:</strong> Delaware, USA</p>
-<p>Ultima Defensa Legal is not a law firm and does not provide legal advice. We connect users with licensed attorneys.</p>
-<p>Payments are processed by a third-party provider. See <a href="refunds.html">Refunds</a>.</p>
-<p>Binding arbitration (AAA) in Wilmington, DE; small-claims carve-out; no class actions.</p>
-</div></main>
-<footer><div class="wrap"><small>© 2025 Ultima Defensa Legal</small></div></footer>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UDL — Terms / Términos</title>
+<style>
+  :root{--bg:#0f2233}
+  body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#0b1420}
+  header{position:sticky;top:0;background:var(--bg);color:#fff}
+  .wrap{max-width:900px;margin:0 auto;padding:0 16px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+  nav a{color:#fff;text-decoration:none;font-weight:700}
+  .lang-switch{display:flex;gap:8px}
+  .lang-switch button{border:0;background:#fff;color:#102133;font-weight:700;padding:6px 10px;border-radius:9px;opacity:.85}
+  .lang-switch button.active{outline:2px solid #fff}
+  li{margin:.25rem 0}
+</style></head>
+<body>
+<header><div class="wrap"><nav>
+  <a href="/index.html">Ultima Defensa Legal</a>
+  <div class="lang-switch">
+    <button data-setlang="en" onclick="setLang('en')">EN</button>
+    <button data-setlang="es" onclick="setLang('es')">ES</button>
+  </div>
+</nav></div></header>
+<main class="wrap">
+  <h1 data-lang="en">Terms of Use</h1>
+  <h1 data-lang="es">Términos de Uso</h1>
+  <p data-lang="en"><strong>No Legal Advice.</strong> UDL is not a law firm and does not provide legal advice. We provide intake and connection services to independent attorneys.</p>
+  <p data-lang="es"><strong>Sin asesoría legal.</strong> UDL no es un bufete y no brinda asesoría legal. Brindamos servicios de admisión y conexión con abogados independientes.</p>
+  <ul>
+    <li data-lang="en">Membership fees are for access to our services; attorney fees are separate.</li>
+    <li data-lang="es">Las cuotas de membresía son por el acceso a nuestros servicios; los honorarios del abogado son aparte.</li>
+    <li data-lang="en">You must be 18+ or have legal guardian consent.</li>
+    <li data-lang="es">Debe tener 18+ años o consentimiento del tutor legal.</li>
+    <li data-lang="en">We may record calls for quality and compliance. You will be notified at the start of any recording.</li>
+    <li data-lang="es">Podemos grabar llamadas para calidad y cumplimiento. Se le notificará al inicio de cualquier grabación.</li>
+  </ul>
+  <h2 data-lang="en">Governing Law & Venue</h2>
+  <h2 data-lang="es">Ley Aplicable y Jurisdicción</h2>
+  <p data-lang="en">These terms are governed by Delaware law. You agree to the exclusive jurisdiction and venue of the state courts located in <strong>Delaware</strong>.</p>
+  <p data-lang="es">Estos términos se rigen por las leyes de Delaware. Usted acepta la jurisdicción y el fuero exclusivos de los tribunales estatales ubicados en <strong>Delaware</strong>.</p>
+  <h2 data-lang="en">Auto‑Renew & Billing</h2>
+  <h2 data-lang="es">Renovación Automática y Facturación</h2>
+  <p data-lang="en">Plans auto‑renew until cancelled. By subscribing you authorize recurring charges to your card or payment method. You may cancel at any time to stop future renewals.</p>
+  <p data-lang="es">Los planes se renuevan automáticamente hasta cancelar. Al suscribirse, autoriza cargos recurrentes a su tarjeta o método de pago. Puede cancelar en cualquier momento para detener futuras renovaciones.</p>
+</main>
+<footer><div class="wrap" style="padding:16px 0;display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap">
+  <small>© <span id="yr"></span> UDL</small>
+  <div><a href="/privacy.html" data-lang="en">Privacy</a><a href="/privacy.html" data-lang="es" style="margin-left:14px">Privacidad</a></div>
+</div></footer>
+<script>
+ (function(){const query=new URLSearchParams(location.search);const saved=localStorage.getItem('udl_lang');const lang=query.get('lang')||saved||'es';
+  window.setLang=function(l){localStorage.setItem('udl_lang',l);document.documentElement.lang=l;document.querySelectorAll('[data-lang]')
+   .forEach(el=>el.style.display=(el.dataset.lang===l)?'':'none');
+   document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active',b.dataset.setlang===l));};
+  setLang(lang);document.getElementById('yr').textContent=new Date().getFullYear();})();
+</script>
 </body></html>
