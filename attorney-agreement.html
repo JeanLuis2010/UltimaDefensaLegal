@@ -1,58 +1,109 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Acuerdo de Participación — Ultima Defensa Legal</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="udl-ui.js" defer></script>
-  <style>
-    :root{--max:900px}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
-    .container{max-width:var(--max);margin:0 auto;padding:1rem}
-    header{border-bottom:1px solid #eee;background:#fafafa}
-    .row{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .btn{padding:.55rem .9rem;border-radius:12px;border:1px solid #111;background:#fff;cursor:pointer}
-    .i18n-en{display:none} html[lang="en"] .i18n-en{display:block} html[lang="en"] .i18n-es{display:none}
-    footer{border-top:1px solid #eee;background:#fafafa;margin-top:2rem;text-align:center}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ultima Defensa Legal — Attorney Network Agreement / Acuerdo para Abogados</title>
+<style>
+  :root{--bg:#0f2233;--card:#f7f9fc;--accent:#e41f4b}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0b1420;background:#fff}
+  header{position:sticky;top:0;z-index:50;background:var(--bg);color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+  .wrap{max-width:950px;margin:0 auto;padding:0 16px}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  nav a{color:#fff;text-decoration:none;font-weight:700}
+  .lang-switch{display:flex;gap:8px}
+  .lang-switch button{border:0;background:#fff;color:#102133;font-weight:700;padding:6px 10px;border-radius:9px;opacity:.9}
+  .lang-switch button.active{outline:2px solid #fff}
+  main{padding:18px 0}
+  h1{margin:10px 0 6px}
+  h2{margin:22px 0 8px}
+  .notice{background:#fff3cd;border:1px solid #ffe08a;padding:12px;border-radius:12px}
+  .card{background:var(--card);border:1px solid #e7eef6;border-radius:16px;padding:18px;margin:14px 0}
+  ul{padding-left:18px}
+  li{margin:.35rem 0}
+  .muted{color:#5a7086}
+  .btn{display:inline-block;background:#cfd9e6;padding:10px 14px;border-radius:10px;text-decoration:none;color:#12253a;font-weight:800}
+  form input, form select, form textarea{width:100%;padding:10px;border-radius:10px;border:1px solid #d8e3ef;margin-top:6px}
+  form label{font-weight:600;margin-top:10px;display:block}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .agree{display:flex;gap:10px;align-items:flex-start;margin-top:12px}
+  footer{margin-top:24px;background:#0f2233;color:#c8d6e6}
+  footer a{color:#c8d6e6}
+  .print{float:right;font-size:.9rem}
+  @media print{header,footer,.print{display:none}}
+</style>
 </head>
 <body>
-<header><div class="container row">
-  <a href="index.html" style="text-decoration:none;color:#111;font-weight:800">Ultima Defensa Legal</a>
-  <div><button class="btn" onclick="UDL_UI.setLang('en')">EN</button> <button class="btn" onclick="UDL_UI.setLang('es')">ES</button></div>
-</div></header>
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="/index.html">Ultima Defensa Legal</a>
+      <div class="lang-switch">
+        <button type="button" data-setlang="en" onclick="setLang('en')">EN</button>
+        <button type="button" data-setlang="es" onclick="setLang('es')">ES</button>
+      </div>
+    </nav>
+  </div>
+</header>
 
-<main class="container">
-  <article class="i18n-es">
-    <h1>Acuerdo de Participación de Abogado</h1>
-    <p>Entre <strong>Ultima Defensa Legal, Inc.</strong> (“Compañía”) y el Abogado firmante.</p>
-    <h2>1. Propósito</h2><p>Plataforma bilingüe que conecta miembros con abogados independientes.</p>
-    <h2>2. Relación</h2><p>Contratista independiente; la Compañía no forma relación abogado-cliente.</p>
-    <h2>3. Compromisos</h2><ul><li>Al menos una consulta gratuita o con descuento por miembro referido.</li><li>Cumplimiento de ley, reglas deontológicas y confidencialidad.</li></ul>
-    <h2>4. Honorarios</h2><p>El Abogado puede cobrar servicios adicionales; la Compañía puede cobrar cuotas de participación/referral notificadas por escrito.</p>
-    <h2>5. Responsabilidad e indemnización</h2><p>La Compañía no responde por servicios legales; el Abogado indemniza a la Compañía.</p>
-    <h2>6. Duración</h2><p>Hasta terminación con 30 días de aviso.</p>
-    <h2>7. Fuerza mayor</h2><p>Sin responsabilidad por eventos fuera de control razonable.</p>
-    <h2>8. Ley aplicable</h2><p>Delaware, EE. UU.; sede exclusiva en Delaware.</p>
-    <p><a href="mailto:attorneys@ultimadefensalegal.com?subject=Join%20UDL%20Network">Firmar / Solicitar</a></p>
-  </article>
+<main class="wrap">
+  <a class="print" href="javascript:window.print()" data-lang="en">Print</a>
+  <a class="print" href="javascript:window.print()" data-lang="es">Imprimir</a>
 
-  <article class="i18n-en">
-    <h1>Attorney Participation Agreement</h1>
-    <p>Between <strong>Ultima Defensa Legal, Inc.</strong> (the “Company”) and the undersigned Attorney.</p>
-    <h2>1. Purpose</h2><p>Bilingual platform connecting members to independent attorneys.</p>
-    <h2>2. Relationship</h2><p>Independent contractor; Company does not form an attorney-client relationship.</p>
-    <h2>3. Commitments</h2><ul><li>At least one free or discounted consultation per referred member.</li><li>Compliance with law, bar rules, and confidentiality.</li></ul>
-    <h2>4. Fees</h2><p>Attorney may charge for additional services; Company may assess participation/referral fees disclosed in writing.</p>
-    <h2>5. Liability & Indemnity</h2><p>Company not liable for legal services; Attorney indemnifies Company.</p>
-    <h2>6. Term</h2><p>Until terminated with 30-day notice.</p>
-    <h2>7. Force Majeure</h2><p>No liability for events beyond reasonable control.</p>
-    <h2>8. Governing Law</h2><p>Delaware; exclusive venue in Delaware courts.</p>
-    <p><a href="mailto:attorneys@ultimadefensalegal.com?subject=Join%20UDL%20Network">Sign / Request to Join</a></p>
-  </article>
-</main>
+  <h1 data-lang="en">Attorney Network Agreement</h1>
+  <h1 data-lang="es">Acuerdo para la Red de Abogados</h1>
 
-<footer><div class="container"><p>© <span id="year"></span> Ultima Defensa Legal</p></div></footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
-</body>
-</html>
+  <p class="notice" data-lang="en">
+    Summary: Attorneys remain independent, agree to offer at least one free or discounted consultation to Ultima Defensa Legal members, and receive qualified prospects and call routing. This page is a binding agreement once submitted.
+  </p>
+  <p class="notice" data-lang="es">
+    Resumen: Los abogados siguen siendo independientes, aceptan ofrecer al menos una consulta gratuita o con descuento a los miembros de Ultima Defensa Legal y reciben prospectos calificados y enrutamiento de llamadas. Esta página es un acuerdo vinculante al enviarse.
+  </p>
+
+  <div class="card">
+    <h2 data-lang="en">1) Relationship & Independence</h2>
+    <h2 data-lang="es">1) Relación e Independencia</h2>
+    <p data-lang="en">You are an independent attorney, not an employee, partner, or agent of Ultima Defensa Legal (“UDL”). You control your practice and set your own fees. UDL is not a law firm and does not provide legal advice.</p>
+    <p data-lang="es">Usted es un abogado independiente, no empleado, socio ni agente de Ultima Defensa Legal (“UDL”). Usted controla su práctica y fija sus honorarios. UDL no es un bufete y no brinda asesoría legal.</p>
+
+    <h2 data-lang="en">2) Member Experience</h2>
+    <h2 data-lang="es">2) Experiencia del Miembro</h2>
+    <ul>
+      <li data-lang="en">Provide at least <strong>one free or discounted consultation</strong> to UDL members you accept.</li>
+      <li data-lang="es">Ofrecer al menos <strong>una consulta gratuita o con descuento</strong> a los miembros de UDL que usted acepte.</li>
+      <li data-lang="en">Respond to UDL referrals promptly; keep your profile and hours current.</li>
+      <li data-lang="es">Responder con prontitud a las referencias de UDL; mantenga su perfil y horario actualizados.</li>
+      <li data-lang="en">You are solely responsible for conflicts checks and the attorney–client relationship.</li>
+      <li data-lang="es">Usted es el único responsable de verificar conflictos y de la relación abogado–cliente.</li>
+    </ul>
+
+    <h2 data-lang="en">3) Compliance & Recording</h2>
+    <h2 data-lang="es">3) Cumplimiento y Grabación</h2>
+    <p data-lang="en">You agree to comply with applicable ethics rules and advertising regulations. Calls may be recorded for quality and compliance with notice at call start.</p>
+    <p data-lang="es">Usted acepta cumplir con las reglas de ética y regulaciones de publicidad aplicables. Las llamadas pueden grabarse para calidad y cumplimiento con aviso al inicio.</p>
+
+    <h2 data-lang="en">4) Fees</h2>
+    <h2 data-lang="es">4) Cuotas</h2>
+    <p data-lang="en"><strong>Network access fee:</strong> $325/month for the first 3 months, then $499/month (subject to change per posted pricing). Attorney fees charged to clients are separate and set by you.</p>
+    <p data-lang="es"><strong>Cuota de acceso a la red:</strong> $325/mes por los primeros 3 meses, luego $499/mes (sujeto a cambios según precios publicados). Los honorarios cobrados a los clientes son separados y los fija usted.</p>
+
+    <h2 data-lang="en">5) Term & Termination</h2>
+    <h2 data-lang="es">5) Plazo y Terminación</h2>
+    <p data-lang="en">Month-to-month; auto-renews until cancelled. Either party may terminate with notice. Sections on compliance, confidentiality, and governing law survive termination.</p>
+    <p data-lang="es">Mensual con renovación automática hasta cancelar. Cualquiera de las partes puede terminar con aviso. Las secciones sobre cumplimiento, confidencialidad y ley aplicable sobreviven a la terminación.</p>
+
+    <h2 data-lang="en">6) Governing Law & Venue</h2>
+    <h2 data-lang="es">6) Ley Aplicable y Jurisdicción</h2>
+    <p data-lang="en">This Agreement is governed by the laws of <strong>Delaware</strong>. The exclusive venue for any action is the state courts located in <strong>Delaware</strong>.</p>
+    <p data-lang="es">Este Acuerdo se rige por las leyes de <strong>Delaware</strong>. La jurisdicción y el fuero exclusivos para cualquier acción son los tribunales estatales ubicados en <strong>Delaware</strong>.</p>
+
+    <h2 data-lang="en">7) Notices</h2>
+    <h2 data-lang="es">7) Avisos</h2>
+    <p data-lang="en">UDL may provide notices electronically to the email you provide. Please keep your contact information up to date.</p>
+    <p data-lang="es">UDL puede enviar avisos por vía electrónica al correo que usted proporcione. Mantenga su información de contacto actualizada.</p>
+  </div>
+
+  <!-- Signature / E-Sign (Netlify form) -->
+  <div class="card">
+    <h2 data
