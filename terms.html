@@ -1,22 +1,18 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UDL — Terms / Términos</title>
-<style>
-  :root{--bg:#0f2233}
-  body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#0b1420}
-  header{position:sticky;top:0;background:var(--bg);color:#fff}
-  .wrap{max-width:900px;margin:0 auto;padding:0 16px}
-  nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
-  nav a{color:#fff;text-decoration:none;font-weight:700}
-  .lang-switch{display:flex;gap:8px}
-  .lang-switch button{border:0;background:#fff;color:#102133;font-weight:700;padding:6px 10px;border-radius:9px;opacity:.85}
-  .lang-switch button.active{outline:2px solid #fff}
-  li{margin:.25rem 0}
-</style></head>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UDL — Términos / Terms</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/shared-udl.js" defer></script>
+</head>
 <body>
 <header><div class="wrap"><nav>
   <a href="/index.html">Ultima Defensa Legal</a>
   <div class="lang-switch">
-    <button data-setlang="en" onclick="setLang('en')">EN</button>
-    <button data-setlang="es" onclick="setLang('es')">ES</button>
+    <button type="button" data-setlang="en" onclick="setLang('en')">EN</button>
+    <button type="button" data-setlang="es" onclick="setLang('es')">ES</button>
   </div>
 </nav></div></header>
 <main class="wrap">
@@ -45,11 +41,6 @@
   <small>© <span id="yr"></span> UDL</small>
   <div><a href="/privacy.html" data-lang="en">Privacy</a><a href="/privacy.html" data-lang="es" style="margin-left:14px">Privacidad</a></div>
 </div></footer>
-<script>
- (function(){const query=new URLSearchParams(location.search);const saved=localStorage.getItem('udl_lang');const lang=query.get('lang')||saved||'es';
-  window.setLang=function(l){localStorage.setItem('udl_lang',l);document.documentElement.lang=l;document.querySelectorAll('[data-lang]')
-   .forEach(el=>el.style.display=(el.dataset.lang===l)?'':'none');
-   document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active',b.dataset.setlang===l));};
-  setLang(lang);document.getElementById('yr').textContent=new Date().getFullYear();})();
-</script>
-</body></html>
+<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+</body>
+</html>
