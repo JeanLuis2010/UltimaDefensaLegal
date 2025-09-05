@@ -106,4 +106,101 @@
 
   <!-- Signature / E-Sign (Netlify form) -->
   <div class="card">
-    <h2 data
+    <h2 data-lang="en">Join the Network</h2>
+    <h2 data-lang="es">Unirse a la Red</h2>
+    <form name="attorney-agreement" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="attorney-agreement">
+      <div class="grid">
+        <div>
+          <label data-lang="en">Full Name</label><label data-lang="es">Nombre completo</label>
+          <input name="name" required>
+        </div>
+        <div>
+          <label data-lang="en">Firm / Organization</label><label data-lang="es">Firma / Organización</label>
+          <input name="firm" required>
+        </div>
+        <div>
+          <label data-lang="en">Email</label><label data-lang="es">Correo electrónico</label>
+          <input type="email" name="email" required>
+        </div>
+        <div>
+          <label data-lang="en">Phone</label><label data-lang="es">Teléfono</label>
+          <input name="phone">
+        </div>
+        <div>
+          <label data-lang="en">Primary Practice Area</label><label data-lang="es">Área de práctica principal</label>
+          <input name="practice" required>
+        </div>
+        <div>
+          <label data-lang="en">State(s) of Licensure</label><label data-lang="es">Estado(s) de licencia</label>
+          <input name="licenses" required>
+        </div>
+      </div>
+
+      <label data-lang="en">Office Hours / Availability</label>
+      <label data-lang="es">Horario / Disponibilidad</label>
+      <textarea name="hours" rows="3"></textarea>
+
+      <div class="agree">
+        <input id="agree" type="checkbox" name="agree" required>
+        <label for="agree">
+          <span data-lang="en">I confirm I am a licensed attorney in good standing and I agree to the Attorney Network Agreement above, including Delaware governing law and venue.</span>
+          <span data-lang="es">Confirmo que soy un abogado con licencia vigente y acepto el Acuerdo de la Red de Abogados anterior, incluida la ley aplicable y jurisdicción de Delaware.</span>
+        </label>
+      </div>
+
+      <div class="grid">
+        <div>
+          <label data-lang="en">E-Signature (type your name)</label>
+          <label data-lang="es">Firma electrónica (escriba su nombre)</label>
+          <input name="esign" required>
+        </div>
+        <div>
+          <label data-lang="en">Date</label><label data-lang="es">Fecha</label>
+          <input type="date" name="date" required>
+        </div>
+      </div>
+
+      <p class="muted" data-lang="en">Billing note: payment links will appear after verification (Square pending). Network access fee per current pricing.</p>
+      <p class="muted" data-lang="es">Nota de facturación: los enlaces de pago aparecerán después de la verificación (Square pendiente). Cuota de acceso según precios vigentes.</p>
+
+      <button class="btn" type="submit" data-lang="en">Submit Agreement</button>
+      <button class="btn" type="submit" data-lang="es">Enviar Acuerdo</button>
+    </form>
+  </div>
+
+  <p class="muted" data-lang="en">Questions? See <a href="/attorney-pricing.html">Attorney Pricing</a> or contact us.</p>
+  <p class="muted" data-lang="es">¿Preguntas? Vea <a href="/attorney-pricing.html">Precios para Abogados</a> o contáctenos.</p>
+</main>
+
+<footer>
+  <div class="wrap" style="padding:16px 0;display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap">
+    <small>© <span id="yr"></span> Ultima Defensa Legal</small>
+    <div>
+      <a href="/privacy.html" data-lang="en">Privacy</a>
+      <a href="/privacy.html" data-lang="es" style="margin-left:12px">Privacidad</a>
+      <a href="/terms.html" data-lang="en" style="margin-left:12px">Terms</a>
+      <a href="/terms.html" data-lang="es" style="margin-left:12px">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+ (function(){
+   const query=new URLSearchParams(location.search);
+   const saved=localStorage.getItem('udl_lang');
+   const lang=query.get('lang')||saved||'es';
+   window.setLang=function(l){
+     localStorage.setItem('udl_lang',l);
+     document.documentElement.lang=l;
+     document.querySelectorAll('[data-lang]')
+       .forEach(el=>el.style.display=(el.dataset.lang===l)?'':'none');
+     document.querySelectorAll('.lang-switch button')
+       .forEach(b=>b.classList.toggle('active',b.dataset.setlang===l));
+   };
+   setLang(lang);
+   document.getElementById('yr').textContent=new Date().getFullYear();
+ })();
+</script>
+</body>
+</html>
