@@ -1,56 +1,127 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title data-i18n="title">Ultima Defensa Legal — Real help, fast</title>
-  <link rel="stylesheet" href="/style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ultima Defensa Legal — Bilingual Legal Connection</title>
+<style>
+  :root{--bg:#0f2233;--fg:#0b1420;--ink:#0e1a26;--text:#0b1420;--white:#fff;--accent:#e41f4b;--muted:#5b738a;--card:#f7f9fc}
+  *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0b1420;background:#fff}
+  header{position:sticky;top:0;z-index:50;background:var(--bg);color:var(--white);box-shadow:0 2px 10px rgba(0,0,0,.08)}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .brand a{color:#fff;text-decoration:none;font-weight:700;letter-spacing:.2px}
+  .navlinks{display:flex;gap:18px;align-items:center}
+  .navlinks a{color:#fff;text-decoration:none;font-weight:600}
+  .lang-switch{display:flex;gap:8px;margin-left:8px}
+  .lang-switch button{border:0;background:#fff;color:#102133;font-weight:700;padding:6px 10px;border-radius:9px;opacity:.8}
+  .lang-switch button.active{opacity:1;outline:2px solid #fff}
+  /* mobile */
+  @media(max-width:800px){ .navlinks{display:none} .hamb{display:block} }
+  .hamb{display:none}
+  .hero{background:linear-gradient(180deg,#11273d 0%,#0f2233 60%);color:#fff}
+  .hero .wrap{display:grid;grid-template-columns:1.2fr;gap:12px;padding:36px 16px 28px}
+  .cta{display:inline-block;margin-top:8px;background:var(--accent);color:#fff;padding:14px 18px;border-radius:999px;text-decoration:none;font-weight:800}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:28px 0}
+  .card{background:var(--card);border-radius:16px;padding:18px;border:1px solid #e7eef6}
+  footer{margin-top:32px;background:#0f2233;color:#c8d6e6}
+  footer a{color:#c8d6e6}
+  .disclaimer{background:#fff;border-top:1px solid #e7eef6;color:#344a5f;padding:18px 0}
+  .pay{display:inline-block;padding:10px 14px;border-radius:10px;background:#e9eef5;color:#44576b;text-decoration:none;font-weight:700}
+</style>
 </head>
 <body>
-<header class="navbar">
-  <div class="logo">UltimaDefensaLegal</div>
-  <nav>
-    <a href="/index.html" data-i18n="nav.home">Home</a>
-    <a href="/for-clients.html" data-i18n="nav.clients">For Clients</a>
-    <a href="/for-attorneys.html" data-i18n="nav.attorneys">For Attorneys</a>
-    <a href="/contact.html" data-i18n="nav.contact">Contact</a>
-  </nav>
-  <div class="lang-toggle"><button data-lang="en">EN</button> <button data-lang="es">ES</button></div>
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand"><a href="/index.html">Ultima Defensa Legal</a></div>
+      <div class="navlinks">
+        <a href="/index.html" data-lang="en">Home</a>
+        <a href="/index.html" data-lang="es">Inicio</a>
+        <a href="/clients.html" data-lang="en">For Clients</a>
+        <a href="/clients.html" data-lang="es">Para Clientes</a>
+        <a href="/attorneys.html" data-lang="en">For Attorneys</a>
+        <a href="/attorneys.html" data-lang="es">Para Abogados</a>
+        <a href="/contact.html" data-lang="en">Contact</a>
+        <a href="/contact.html" data-lang="es">Contacto</a>
+        <div class="lang-switch">
+          <button type="button" data-setlang="en" onclick="setLang('en')">EN</button>
+          <button type="button" data-setlang="es" onclick="setLang('es')">ES</button>
+        </div>
+      </div>
+      <button class="hamb" aria-label="Menu" onclick="toggleMenu()">☰</button>
+    </nav>
+  </div>
 </header>
-
-<main>
-  <section class="hero">
-    <h1 data-i18n="hero.title">Real help, fast: We connect you with an attorney who understands your case.</h1>
-    <p data-i18n="hero.sub">Bilingual intake (EN/ES). We are not a law firm. Membership gives you access to quick, caring connection with independent attorneys.</p>
-    <div>
-      <a href="/for-clients.html" class="btn btn-primary" data-i18n="cta.clients">I need legal help</a>
-      <a href="/for-attorneys.html" class="btn btn-outline" data-i18n="cta.attorneys">I’m an attorney</a>
-    </div>
-  </section>
-
-  <section class="grid grid-2">
+<section class="hero">
+  <div class="wrap">
+    <h1 data-lang="en">Bilingual legal connection — fast.</h1>
+    <h1 data-lang="es">Conexión legal bilingüe — rápido.</h1>
+    <p data-lang="en">We connect members with independent, licensed attorneys. We are not a law firm.</p>
+    <p data-lang="es">Conectamos a los miembros con abogados independientes con licencia. No somos un bufete.</p>
+    <p>
+      <a class="cta" href="#how" data-lang="en">How it works</a>
+      <a class="cta" href="#how" data-lang="es">Cómo funciona</a>
+    </p>
+  </div>
+</section>
+<main class="wrap">
+  <section id="how" class="cards">
     <div class="card">
-      <h2 data-i18n="clients.title">For Individuals</h2>
-      <p data-i18n="clients.copy">Simple, affordable membership. Tell us your situation (EN/ES). We match you to a licensed attorney who offers a free or reduced consultation.</p>
-      <div class="price">$25 <span data-i18n="per.month">/ month</span></div>
-      <div class="small">$65 <span data-i18n="per.quarter">/ quarter</span></div>
-      <a href="/for-clients.html" class="btn btn-primary" data-i18n="clients.btn">See how it works</a>
+      <h3 data-lang="en">For Clients</h3>
+      <h3 data-lang="es">Para Clientes</h3>
+      <p data-lang="en">Tell us the area of law and your location. We route you to an attorney who agreed to provide at least one free or discounted consultation to our members.</p>
+      <p data-lang="es">Indíquenos el área legal y su ubicación. Lo conectamos con un abogado que ofrece al menos una consulta gratuita o con descuento a nuestros miembros.</p>
+      <a class="pay" href="/clients.html" data-lang="en">View Plans</a>
+      <a class="pay" href="/clients.html" data-lang="es">Ver Planes</a>
     </div>
     <div class="card">
-      <h2 data-i18n="attorneys.title">For Attorneys</h2>
-      <p data-i18n="attorneys.copy">Join our bilingual intake network. We deliver qualified leads and provide dashboard updates.</p>
-      <div class="price">$325 <span data-i18n="per.month3">/ month (first 3 months)</span></div>
-      <div class="small">$499 <span data-i18n="per.monthAfter">/ month thereafter</span></div>
-      <a href="/for-attorneys.html" class="btn btn-outline" data-i18n="attorneys.btn">Plans & details</a>
+      <h3 data-lang="en">For Attorneys</h3>
+      <h3 data-lang="es">Para Abogados</h3>
+      <p data-lang="en">Join our bilingual network. We deliver qualified prospects and panel updates in your dashboard.</p>
+      <p data-lang="es">Únase a nuestra red bilingüe. Entregamos prospectos calificados y actualizaciones en su panel.</p>
+      <a class="pay" href="/attorneys.html" data-lang="en">Plans & Details</a>
+      <a class="pay" href="/attorneys.html" data-lang="es">Planes y detalles</a>
     </div>
-  </section>
-
-  <section>
-    <h3 data-i18n="disclaimer.title">Important</h3>
-    <p data-i18n="disclaimer.copy">Ultima Defensa Legal is not a law firm and does not provide legal advice. We connect members with independent, licensed attorneys. Membership fees are for access to our intake and connection services only. Any attorney–client relationship is solely between you and the attorney.</p>
+    <div class="card">
+      <h3 data-lang="en">Support</h3>
+      <h3 data-lang="es">Soporte</h3>
+      <p data-lang="en">Bilingual live support via phone and chat. Call center is being activated now.</p>
+      <p data-lang="es">Soporte bilingüe por teléfono y chat. Estamos activando el centro de llamadas.</p>
+      <a class="pay" href="/contact.html" data-lang="en">Contact us</a>
+      <a class="pay" href="/contact.html" data-lang="es">Contáctenos</a>
+    </div>
   </section>
 </main>
-
-<script src="/shared-udl.js?v=13"></script>
+<section class="disclaimer">
+  <div class="wrap">
+    <p data-lang="es"><strong>Importante:</strong> Ultima Defensa Legal no es un bufete y no brinda asesoría legal. Conectamos a los miembros con abogados independientes con licencia. Las cuotas de membresía son por el acceso a nuestros servicios de admisión y conexión. Cualquier relación abogado–cliente es solo entre usted y el abogado.</p>
+    <p data-lang="en"><strong>Important:</strong> Ultima Defensa Legal is not a law firm and does not provide legal advice. We connect members with independent, licensed attorneys. Membership fees are for access to our intake and connection services. Any attorney–client relationship is solely between you and the attorney.</p>
+  </div>
+</section>
+<footer>
+  <div class="wrap" style="padding:18px 0;display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;align-items:center">
+    <small>© <span id="yr"></span> Ultima Defensa Legal</small>
+    <div style="display:flex;gap:14px">
+      <a href="/privacy.html" data-lang="en">Privacy</a>
+      <a href="/privacy.html" data-lang="es">Privacidad</a>
+      <a href="/terms.html" data-lang="en">Terms</a>
+      <a href="/terms.html" data-lang="es">Términos</a>
+      <a href="/contact.html" data-lang="en">Contact</a>
+      <a href="/contact.html" data-lang="es">Contacto</a>
+    </div>
+  </div>
+</footer>
+<script>
+  function toggleMenu(){/* simple placeholder if you add a mobile drawer later */}
+  (function(){
+    const query=new URLSearchParams(location.search);const saved=localStorage.getItem('udl_lang');
+    const lang=query.get('lang')||saved||'es';
+    window.setLang=function setLang(l){localStorage.setItem('udl_lang',l);document.documentElement.lang=l;document.querySelectorAll('[data-lang]')
+      .forEach(el=>{el.style.display=(el.getAttribute('data-lang')===l)?'':'none'});
+      document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active',b.dataset.setlang===l));};
+    setLang(lang); document.getElementById('yr').textContent=new Date().getFullYear();
+  })();
+</script>
 </body>
 </html>
