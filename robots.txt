@@ -1,5 +1,2 @@
 User-agent: *
-Disallow: /pay.html
-Disallow: /thankyou.html
-Disallow: /intake.html
-Sitemap: https://ultimadefensalegal.com/sitemap.xml
+Disallow:
