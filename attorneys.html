@@ -1,302 +1,65 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-i18n="title">Ultimate Defense Legal — Attorneys</title>
-<meta name="description" content="Join Ultimate Defense Legal as a participating attorney. Intake-ready leads, clear timeframes, and compliance-first operations.">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UDL — For Attorneys / Para Abogados</title>
 <style>
-:root{
-  --bg:#0e1116; --panel:#151a23; --ink:#e6eaf2; --muted:#a7b0c0; --accent:#19c37d; --warn:#f59e0b; --danger:#ef4444;
-  --ring:#202633; --max:1100px
-}
-*{box-sizing:border-box}
-html,body{margin:0}
-body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
-a{color:#9fd8ff;text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
-.nav{border-bottom:1px solid var(--ring);background:#0c1017}
-.nav-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:10px}
-.nav-links{display:flex;gap:14px;flex-wrap:wrap}
-.nav a{color:var(--ink);font-weight:600}
-.lang{display:flex;gap:8px}
-.lang button{border:1px solid var(--ring);background:transparent;color:var(--ink);border-radius:10px;padding:6px 10px;font-weight:700;cursor:pointer}
-.lang button[aria-current="true"]{background:#fff;color:#0c1017}
-.hero{background:linear-gradient(135deg,#101828,#0f172a 60%,#111827);border-bottom:1px solid var(--ring)}
-.hero .wrap{padding:32px 16px}
-.badge{display:inline-block;background:#0b3b2c;border:1px solid #134e39;color:#b8f3d7;font-weight:800;padding:4px 10px;border-radius:999px;margin-bottom:8px}
-.h1{font-size:clamp(24px,3vw,36px);margin:6px 0 8px 0}
-.sub{color:var(--muted);max-width:800px}
-.section{padding:22px 16px;border-bottom:1px solid var(--ring);background:var(--panel)}
-.grid{display:grid;gap:12px}
-@media(min-width:720px){.grid{grid-template-columns:repeat(3,1fr)}}
-.card{background:#0f1420;border:1px solid var(--ring);border-radius:14px;padding:14px}
-.card h3{margin-top:0}
-.list{margin:0;padding-left:18px}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-.btn{padding:.8rem 1rem;border-radius:12px;border:0;font-weight:800;cursor:pointer}
-.btn.primary{background:var(--accent);color:#052016}
-.btn.ghost{background:transparent;border:1px solid var(--ring);color:var(--ink)}
-form{display:grid;gap:10px}
-input,select,textarea{width:100%;padding:12px;border:1px solid var(--ring);border-radius:12px;background:#0b0f16;color:var(--ink)}
-label{font-weight:600}
-small.helper{color:var(--muted)}
-footer{background:#0c1017;border-top:1px solid var(--ring)}
-footer .wrap{padding:14px 16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.footer-links{display:flex;gap:12px;flex-wrap:wrap}
-.note{background:#0c1017;border:1px dashed #2b3342;border-radius:12px;padding:10px;margin-top:10px;color:#b7c3d7}
-.faq h3{margin-bottom:6px}
-</style>
-
-<!-- Basic structured data -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Ultimate Defense Legal — Attorneys","description":"Participating attorney information and onboarding.","publisher":{"@type":"Organization","name":"Ultimate Defense Legal"}}
-</script>
-</head>
+  :root{--bg:#0f2233;--accent:#e41f4b;--card:#f7f9fc}
+  body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#0b1420}
+  header{position:sticky;top:0;background:var(--bg);color:#fff}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+  nav a{color:#fff;text-decoration:none;font-weight:700}
+  .lang-switch{display:flex;gap:8px}
+  .lang-switch button{border:0;background:#fff;color:#102133;font-weight:700;padding:6px 10px;border-radius:9px;opacity:.85}
+  .lang-switch button.active{outline:2px solid #fff}
+  h1{margin:18px 0}
+  .panel{background:var(--card);border:1px solid #e7eef6;border-radius:16px;padding:18px}
+  .price{font-size:32px;font-weight:900}
+  .btn{display:inline-block;margin-top:10px;background:#cfd9e6;padding:10px 14px;border-radius:10px;text-decoration:none;color:#12253a;font-weight:800}
+  .btn[aria-disabled="true"]{opacity:.6;pointer-events:none}
+  footer{margin-top:20px;background:#0f2233;color:#c8d6e6}
+  footer a{color:#c8d6e6}
+</style></head>
 <body>
-<header class="nav">
-  <div class="wrap nav-row">
-    <div class="brand" style="font-weight:800">Ultimate Defense Legal</div>
-    <nav class="nav-links">
-      <a href="index.html" data-i18n="nav_home">Home</a>
-      <a href="pricing.html" data-i18n="nav_plans">Plans</a>
-      <a href="pay.html" data-i18n="nav_pay">Pay</a>
-      <a href="attorney.html" aria-current="page" data-i18n="nav_attorneys">Attorneys</a>
-      <a href="contact.html" data-i18n="nav_contact">Contact</a>
-    </nav>
-    <div class="lang">
-      <button data-lang="en" aria-current="true">EN</button>
-      <button data-lang="es">ES</button>
-    </div>
+<header><div class="wrap"><nav>
+  <a href="/index.html">Ultima Defensa Legal</a>
+  <div class="lang-switch">
+    <button data-setlang="en" onclick="setLang('en')">EN</button>
+    <button data-setlang="es" onclick="setLang('es')">ES</button>
   </div>
-</header>
-
-<section class="hero">
-  <div class="wrap">
-    <span class="badge" data-i18n="badge">Attorney Network</span>
-    <h1 class="h1" data-i18n="h1">Join our defense network—intake-ready clients, clear timeframes.</h1>
-    <p class="sub" data-i18n="sub">
-      We connect prospective clients with licensed attorneys. You control representation decisions and fees.
-      We are not a law firm and we do not provide legal advice.
-    </p>
-    <div class="cta">
-      <a class="btn primary" href="#apply" data-i18n="cta_apply">Apply to Join</a>
-      <a class="btn ghost" href="#how" data-i18n="cta_how">How it works</a>
-    </div>
-  </div>
-</section>
-
-<section id="how" class="section">
-  <div class="wrap">
-    <div class="grid">
-      <article class="card">
-        <h3 data-i18n="how1_t">1) Intake-ready inquiries</h3>
-        <p data-i18n="how1_d">We pre-screen for basics (contact, location, matter type) and deliver to you securely.</p>
-      </article>
-      <article class="card">
-        <h3 data-i18n="how2_t">2) You set engagement</h3>
-        <p data-i18n="how2_d">You decide conflicts, scope, and fees. We don’t interfere with attorney–client decisions.</p>
-      </article>
-      <article class="card">
-        <h3 data-i18n="how3_t">3) Clear timeframes</h3>
-        <p data-i18n="how3_d">We operate on defined windows so clients aren’t waiting. You accept when available.</p>
-      </article>
-    </div>
-
-    <div class="note" data-i18n="note_upl">
-      Compliance first: We avoid UPL and advertising pitfalls. You remain responsible for ethical rules in your jurisdiction.
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <h2 data-i18n="reqs_h2">Eligibility & requirements</h2>
-    <ul class="list">
-      <li data-i18n="req1">Active license in good standing; no conflicts for accepted matters.</li>
-      <li data-i18n="req2">Agree to treat connections as prospective clients under applicable rules.</li>
-      <li data-i18n="req3">Maintain malpractice coverage as required by your jurisdiction.</li>
-      <li data-i18n="req4">Use our secure channels for intake and communications.</li>
+</nav></div></header>
+<main class="wrap">
+  <h1 data-lang="es">Para Abogados</h1>
+  <h1 data-lang="en">For Attorneys</h1>
+  <div class="panel">
+    <p data-lang="es">Únase a nuestra red bilingüe. Entregamos prospectos calificados y actualizaciones en su panel.</p>
+    <p data-lang="en">Join our bilingual network. We deliver qualified prospects and panel updates to your dashboard.</p>
+    <div class="price" data-lang="es">$325 / mes (primeros 3 meses)</div>
+    <div class="price" data-lang="en">$325 / month (first 3 months)</div>
+    <p data-lang="es">Luego $499 / mes.</p>
+    <p data-lang="en">Then $499 / month.</p>
+    <ul>
+      <li data-lang="es">Panel bilingüe y enrutamiento de llamadas</li>
+      <li data-lang="en">Bilingual dashboard & call routing</li>
+      <li data-lang="es">Prospectos verificados y registro de llamadas</li>
+      <li data-lang="en">Verified prospects & call logs</li>
+      <li data-lang="es">Requisito: ofrecer al menos 1 consulta gratuita o con descuento para nuestros miembros</li>
+      <li data-lang="en">Requirement: offer at least one free or discounted consultation to our members</li>
     </ul>
+    <a href="#" class="btn" aria-disabled="true" data-lang="en" title="Square pending">Pay</a>
+    <a href="#" class="btn" aria-disabled="true" data-lang="es" title="Square pendiente">Pagar</a>
   </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <h2 data-i18n="faq_h2">FAQs</h2>
-    <div class="faq grid" style="grid-template-columns:1fr">
-      <div class="card">
-        <h3 data-i18n="q1">Are you a law firm?</h3>
-        <p data-i18n="a1">No. We are a platform that connects people to licensed attorneys. All legal services are provided by independent attorneys.</p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="q2">Do you set legal fees?</h3>
-        <p data-i18n="a2">No. Attorneys set their own fees and engagement terms directly with clients.</p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="q3">How are leads delivered?</h3>
-        <p data-i18n="a3">Securely via our dashboard/email. Only the information needed to evaluate the matter is shared.</p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="q4">Advertising & ethics?</h3>
-        <p data-i18n="a4">We follow platform-neutral, factual descriptions. Attorneys remain responsible for jurisdictional advertising rules.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="apply" class="section">
-  <div class="wrap">
-    <h2 data-i18n="apply_h2">Apply to join</h2>
-    <p class="sub" data-i18n="apply_p">Tell us about your practice. We’ll follow up to verify and onboard you.</p>
-    <form name="udl-attorney-apply" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="udl-attorney-apply">
-      <label data-i18n="f_name">Full name
-        <input name="name" required>
-      </label>
-      <label data-i18n="f_email">Work email
-        <input type="email" name="email" required>
-      </label>
-      <label data-i18n="f_phone">Phone
-        <input name="phone">
-      </label>
-      <label data-i18n="f_bar">Bar state(s) & number(s)
-        <input name="bar" placeholder="e.g., FL 123456; TX 987654" required>
-      </label>
-      <label data-i18n="f_focus">Primary practice focus
-        <select name="focus" required>
-          <option>Immigration — Removal Defense</option>
-          <option>Immigration — Family</option>
-          <option>Immigration — Asylum</option>
-          <option>Criminal Defense (related)</option>
-          <option>Other</option>
-        </select>
-      </label>
-      <label data-i18n="f_geo">Where you accept clients
-        <input name="geo" placeholder="Cities/Counties/States you serve">
-      </label>
-      <label data-i18n="f_notes">Notes
-        <textarea name="notes" rows="4" placeholder="Availability, language skills, preferences"></textarea>
-      </label>
-      <label>
-        <input type="checkbox" name="confirm" required>
-        <span data-i18n="f_confirm">I confirm I am a licensed attorney and agree to be contacted about onboarding.</span>
-      </label>
-      <button class="btn primary" type="submit" data-i18n="btn_submit">Submit application</button>
-      <small class="helper" data-i18n="helper">By submitting, you agree to our <a href="terms.html">Terms</a> and acknowledge our <a href="privacy.html">Privacy Policy</a>.</small>
-    </form>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <h2 data-i18n="legal_h2">Important notices</h2>
-    <div class="note" data-i18n="legal_note">
-      Ultimate Defense Legal is not a law firm and does not provide legal advice. We do not interfere with attorney–client decisions or fee arrangements. Participation is subject to verification and availability.
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <small>© 2025 Ultimate Defense Legal</small>
-    <div class="footer-links">
-      <a href="privacy.html" data-i18n="f_priv">Privacy</a>
-      <a href="terms.html" data-i18n="f_terms">Terms</a>
-      <a href="refunds.html" data-i18n="f_refunds">Refunds</a>
-      <a href="cookie-policy.html" data-i18n="f_cookie">Cookie Policy</a>
-      <a href="data-requests.html#dns" data-i18n="f_dns">Do-Not-Sell/Share</a>
-      <a href="accessibility.html" data-i18n="f_a11y">Accessibility</a>
-      <a href="security.html" data-i18n="f_sec">Security</a>
-    </div>
-  </div>
-</footer>
-
-<!-- Inline i18n (EN/ES) and simple toggle -->
+  <h2 data-lang="en">Important</h2><h2 data-lang="es">Importante</h2>
+  <p data-lang="es">Los abogados en la red son independientes y no empleados de UDL. La relación abogado–cliente es exclusivamente entre usted y el cliente. Usted establece sus honorarios y controla su práctica.</p>
+  <p data-lang="en">Network attorneys are independent and not employees of UDL. The attorney–client relationship exists solely between you and the client. You set your own fees and control your practice.</p>
+</main>
+<footer><div class="wrap" style="padding:16px 0;display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap">
+  <small>© <span id="yr"></span> UDL</small>
+  <div><a href="/privacy.html" data-lang="en">Privacy</a><a href="/privacy.html" data-lang="es" style="margin-left:14px">Privacidad</a>
+  <a href="/terms.html" data-lang="en" style="margin-left:14px">Terms</a><a href="/terms.html" data-lang="es" style="margin-left:14px">Términos</a></div>
+</div></footer>
 <script>
-const T = {
-  en:{
-    title:"Ultimate Defense Legal — Attorneys",
-    nav_home:"Home",nav_plans:"Plans",nav_pay:"Pay",nav_attorneys:"Attorneys",nav_contact:"Contact",
-    badge:"Attorney Network",
-    h1:"Join our defense network—intake-ready clients, clear timeframes.",
-    sub:"We connect prospective clients with licensed attorneys. You control representation decisions and fees. We are not a law firm and we do not provide legal advice.",
-    cta_apply:"Apply to Join", cta_how:"How it works",
-    how1_t:"1) Intake-ready inquiries", how1_d:"We pre-screen for basics (contact, location, matter type) and deliver to you securely.",
-    how2_t:"2) You set engagement", how2_d:"You decide conflicts, scope, and fees. We don’t interfere with attorney–client decisions.",
-    how3_t:"3) Clear timeframes", how3_d:"We operate on defined windows so clients aren’t waiting. You accept when available.",
-    note_upl:"Compliance first: We avoid UPL and advertising pitfalls. You remain responsible for ethical rules in your jurisdiction.",
-    reqs_h2:"Eligibility & requirements",
-    req1:"Active license in good standing; no conflicts for accepted matters.",
-    req2:"Agree to treat connections as prospective clients under applicable rules.",
-    req3:"Maintain malpractice coverage as required by your jurisdiction.",
-    req4:"Use our secure channels for intake and communications.",
-    faq_h2:"FAQs",
-    q1:"Are you a law firm?", a1:"No. We are a platform that connects people to licensed attorneys. All legal services are provided by independent attorneys.",
-    q2:"Do you set legal fees?", a2:"No. Attorneys set their own fees and engagement terms directly with clients.",
-    q3:"How are leads delivered?", a3:"Securely via our dashboard/email. Only the information needed to evaluate the matter is shared.",
-    q4:"Advertising & ethics?", a4:"We follow platform-neutral, factual descriptions. Attorneys remain responsible for jurisdictional advertising rules.",
-    apply_h2:"Apply to join", apply_p:"Tell us about your practice. We’ll follow up to verify and onboard you.",
-    f_name:"Full name", f_email:"Work email", f_phone:"Phone", f_bar:"Bar state(s) & number(s)", f_focus:"Primary practice focus",
-    f_geo:"Where you accept clients", f_notes:"Notes",
-    f_confirm:"I confirm I am a licensed attorney and agree to be contacted about onboarding.",
-    btn_submit:"Submit application", helper:"By submitting, you agree to our Terms and acknowledge our Privacy Policy.",
-    legal_h2:"Important notices",
-    legal_note:"Ultimate Defense Legal is not a law firm and does not provide legal advice. We do not interfere with attorney–client decisions or fee arrangements. Participation is subject to verification and availability.",
-    f_priv:"Privacy", f_terms:"Terms", f_refunds:"Refunds", f_cookie:"Cookie Policy", f_dns:"Do-Not-Sell/Share", f_a11y:"Accessibility", f_sec:"Security"
-  },
-  es:{
-    title:"Ultimate Defense Legal — Abogados",
-    nav_home:"Inicio",nav_plans:"Planes",nav_pay:"Pagar",nav_attorneys:"Abogados",nav_contact:"Contacto",
-    badge:"Red de Abogados",
-    h1:"Únete a nuestra red de defensa—clientes listos para intake y plazos claros.",
-    sub:"Conectamos a posibles clientes con abogados con licencia. Usted controla decisiones y honorarios. No somos un despacho jurídico ni brindamos asesoría legal.",
-    cta_apply:"Solicitar ingreso", cta_how:"Cómo funciona",
-    how1_t:"1) Consultas listas para intake", how1_d:"Pre-filtramos lo básico (contacto, ubicación, tipo de asunto) y se lo entregamos de forma segura.",
-    how2_t:"2) Usted define la contratación", how2_d:"Usted decide conflictos, alcance y honorarios. No interferimos en la relación abogado–cliente.",
-    how3_t:"3) Plazos definidos", how3_d:"Operamos con ventanas claras para que los clientes no esperen. Usted acepta cuando esté disponible.",
-    note_upl:"Cumplimiento primero: evitamos UPL y riesgos de publicidad. Usted es responsable de las reglas éticas en su jurisdicción.",
-    reqs_h2:"Elegibilidad y requisitos",
-    req1:"Licencia activa en regla; sin conflictos en los asuntos aceptados.",
-    req2:"Acordar tratar los contactos como clientes potenciales según las normas aplicables.",
-    req3:"Mantener seguro de responsabilidad profesional según su jurisdicción.",
-    req4:"Usar nuestros canales seguros para intake y comunicaciones.",
-    faq_h2:"Preguntas frecuentes",
-    q1:"¿Son un despacho?", a1:"No. Somos una plataforma que conecta personas con abogados con licencia. Los servicios legales los prestan abogados independientes.",
-    q2:"¿Ustedes fijan honorarios?", a2:"No. Los honorarios y términos los define el abogado directamente con el cliente.",
-    q3:"¿Cómo entregan los contactos?", a3:"De forma segura por panel/correo. Solo lo necesario para evaluar el asunto.",
-    q4:"¿Publicidad y ética?", a4:"Usamos descripciones objetivas y neutrales. El abogado responde por las reglas de su jurisdicción.",
-    apply_h2:"Solicitar ingreso", apply_p:"Cuéntenos sobre su práctica. Le contactaremos para verificar y darle de alta.",
-    f_name:"Nombre completo", f_email:"Correo profesional", f_phone:"Teléfono", f_bar:"Estado(s) y número(s) de cédula", f_focus:"Área principal",
-    f_geo:"Dónde acepta clientes", f_notes:"Notas",
-    f_confirm:"Confirmo que soy abogado con licencia y acepto ser contactado para el alta.",
-    btn_submit:"Enviar solicitud", helper:"Al enviar, acepta nuestros Términos y reconoce nuestra Política de Privacidad.",
-    legal_h2:"Avisos importantes",
-    legal_note:"Ultimate Defense Legal no es un despacho jurídico ni brinda asesoría legal. No intervenimos en decisiones ni honorarios. La participación está sujeta a verificación y disponibilidad.",
-    f_priv:"Privacidad", f_terms:"Términos", f_refunds:"Reembolsos", f_cookie:"Cookies", f_dns:"No vender/compartir", f_a11y:"Accesibilidad", f_sec:"Seguridad"
-  }
-};
-function getLang(){return localStorage.getItem("udl-lang")||"en";}
-function setLang(v){localStorage.setItem("udl-lang",v);applyI18n();}
-function applyI18n(){
-  const L=T[getLang()]||T.en;
-  document.title=L.title;
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
-    const k=el.getAttribute("data-i18n"); if(L[k]) el.textContent=L[k];
-  });
-  document.documentElement.lang=getLang();
-}
-document.addEventListener("DOMContentLoaded",()=>{
-  applyI18n();
-  document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>{
-    document.querySelectorAll("[data-lang]").forEach(x=>x.removeAttribute("aria-current"));
-    b.setAttribute("aria-current","true"); setLang(b.getAttribute("data-lang"));
-  }));
-});
+ (function(){const query=new URLSearchParams(location.search);const saved=localStorage.getItem('udl_lang');const lang=query.get('lang')||saved||'es';
+  window.setLang=function(l){localStorage.setItem('udl_lang',l);document.documentElement.lang=l;document.querySelectorAll('[data-lang]')
+   .forEach(el=>el.style.display=(el.dataset.lang===l)?'':'none');
+   document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active',b.dataset.setlang===l));};
+  setLang(lang);document.getElementById('yr').textContent=new Date().getFullYear();})();
 </script>
-</body>
-</html>
+</body></html>
