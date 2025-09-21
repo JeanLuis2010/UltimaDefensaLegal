@@ -1,64 +1,57 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Plans — Ultima Defense Legal</title>
-<meta name="description" content="3-month Individual and Family packages.">
-<style>
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f7f8fb;color:#111}
-header,footer{background:#0b2a4a;color:#fff}
-.wrap{max-width:1100px;margin:0 auto;padding:16px}
-.grid{display:grid;gap:16px}
-@media(min-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
-.card{background:#fff;border:1px solid #e6e9ef;border-radius:16px;padding:16px;display:flex;flex-direction:column}
-.price{font-size:1.6rem;font-weight:800;margin:.2rem 0}
-.btn{margin-top:auto;padding:.8rem 1rem;border-radius:12px;border:0;background:#e01e24;color:#fff;font-weight:800;text-align:center;text-decoration:none}
-nav a{color:#fff;text-decoration:none;margin-right:12px;font-weight:600}
-.lang button{border:2px solid #fff;background:transparent;color:#fff;border-radius:12px;padding:6px 10px;font-weight:700;cursor:pointer}
-.lang button[aria-current="true"]{background:#fff;color:#0b2a4a}
-</style>
-</head>
-<body>
-<header>
-  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0">
-    <div class="brand">UltimaDefenseLegal</div>
-    <nav>
-      <a href="index.html" data-i18n="nav_home">Home</a>
-      <a href="pricing.html" data-i18n="nav_pricing">Plans</a>
-      <a href="pay.html" data-i18n="nav_pay">Pay</a>
-      <a href="contact.html" data-i18n="nav_contact">Contact</a>
-    </nav>
-    <div class="lang">
-      <button data-lang="en" aria-current="true">EN</button>
-      <button data-lang="es">ES</button>
+<section id="pricing" class="pricing-section">
+  <h2 class="lang" data-es="Planes de Suscripción" data-en="Subscription Plans">Subscription Plans</h2>
+
+  <div class="pricing-table">
+
+    <!-- BASIC INDIVIDUAL PLAN -->
+    <div class="pricing-box">
+      <h3 class="lang" data-es="Plan Individual Básico" data-en="Basic Individual Plan">Basic Individual Plan</h3>
+      <p class="price">$27.99 / mes</p>
+
+      <form action="https://www.paypal.com/paypalme/placeholder_individual" method="post" target="_blank">
+        <button type="submit" class="lang" data-es="Pagar" data-en="Pay">Pay</button>
+      </form>
+
+      <ul>
+        <li class="lang" data-es="1 consulta legal mensual" data-en="1 legal consultation per month">1 legal consultation per month</li>
+        <li class="lang" data-es="Hasta 10 páginas de revisión de documentos" data-en="Up to 10 pages of document review">Up to 10 pages of document review</li>
+        <li class="lang" data-es="Acceso al directorio de abogados bilingües" data-en="Access to bilingual attorney directory">Access to bilingual attorney directory</li>
+      </ul>
     </div>
+
+    <!-- FAMILY PLAN -->
+    <div class="pricing-box">
+      <h3 class="lang" data-es="Plan Familiar" data-en="Family Plan">Family Plan</h3>
+      <p class="price">$39.99 / mes</p>
+
+      <form action="https://www.paypal.com/paypalme/placeholder_family" method="post" target="_blank">
+        <button type="submit" class="lang" data-es="Pagar" data-en="Pay">Pay</button>
+      </form>
+
+      <ul>
+        <li class="lang" data-es="Incluye hasta 4 miembros del hogar" data-en="Includes up to 4 household members">Includes up to 4 household members</li>
+        <li class="lang" data-es="Consultas legales ampliadas" data-en="Expanded legal consultations">Expanded legal consultations</li>
+        <li class="lang" data-es="Descarga de cartilla de derechos legales" data-en="Downloadable legal rights card">Downloadable legal rights card</li>
+        <li class="lang" data-es="Revisión de documentos (hasta 20 páginas)" data-en="Document review (up to 20 pages)">Document review (up to 20 pages)</li>
+      </ul>
+    </div>
+
+    <!-- ATTORNEY PLAN -->
+    <div class="pricing-box">
+      <h3 class="lang" data-es="Plan para Abogados" data-en="Attorney Plan">Attorney Plan</h3>
+      <p class="price">$64.99 / mes</p>
+
+      <form action="https://www.paypal.com/paypalme/placeholder_attorney" method="post" target="_blank">
+        <button type="submit" class="lang" data-es="Pagar" data-en="Pay">Pay</button>
+      </form>
+
+      <ul>
+        <li class="lang" data-es="Acceso a clientes verificados por código postal" data-en="Access to ZIP-code matched clients">Access to ZIP-code matched clients</li>
+        <li class="lang" data-es="Listado en el portal legal bilingüe" data-en="Listing in bilingual legal portal">Listing in bilingual legal portal</li>
+        <li class="lang" data-es="Se requiere una consulta gratuita mensual" data-en="One free consultation required per month">One free consultation required per month</li>
+        <li class="lang" data-es="Panel de rendimiento y acceso al CRM" data-en="Performance dashboard and CRM access">Performance dashboard and CRM access</li>
+      </ul>
+    </div>
+
   </div>
-</header>
-
-<main><div class="wrap">
-  <h1 data-i18n="plans_h1">3-Month Plans</h1>
-  <div class="grid">
-    <div class="card">
-      <h2 data-i18n="ind_title">Individual</h2>
-      <p data-i18n="ind_desc">One person. 3 months of access and support to connect with attorneys.</p>
-      <div class="price"><span data-price="individual_3mo"></span></div>
-      <a class="btn" href="pay.html?p=individual_3mo" data-plan="individual_3mo" data-i18n="cta_pay">Pay</a>
-    </div>
-    <div class="card">
-      <h2 data-i18n="fam_title">Family (Spouses)</h2>
-      <p data-i18n="fam_desc">Two spouses. 3 months of access and support to connect with attorneys.</p>
-      <div class="price"><span data-price="family_3mo"></span></div>
-      <a class="btn" href="pay.html?p=family_3mo" data-plan="family_3mo" data-i18n="cta_pay">Pay</a>
-    </div>
-  </div>
-  <p style="margin-top:14px;color:#444" data-i18n="disclaim">We are not a law firm and do not provide legal advice. We connect you with licensed attorneys.</p>
-</div></main>
-
-<footer><div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:12px 0">
-  <small>© 2025 UltimaDefenseLegal</small>
-  <small><a href="privacy.html" style="color:#fff" data-i18n="footer_privacy">Privacy</a> • <a href="terms.html" style="color:#fff" data-i18n="footer_terms">Terms</a> • <a href="refunds.html" style="color:#fff" data-i18n="footer_refunds">Refunds</a> • <a href="disclaimers.html" style="color:#fff" data-i18n="footer_disclaimers">Disclaimers</a></small>
-</div></footer>
-
-<script src="shared.js"></script>
-</body>
-</html>
+</section>
