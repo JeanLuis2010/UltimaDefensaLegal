@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Call Center Intake – Ultima Defensa Legal</title>
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <script src="assets/js/call-intake.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1 id="form-title">Call Center Intake Form</h1>
+    <button onclick="toggleLanguage('en')">English</button>
+    <button onclick="toggleLanguage('es')">Español</button>
+  </header>
+
+  <form id="intake-form">
+    <label for="fullname" data-en="Full Name" data-es="Nombre Completo">Full Name</label>
+    <input type="text" id="fullname" name="fullname" required>
+
+    <label for="zipcode" data-en="ZIP Code" data-es="Código Postal">ZIP Code</label>
+    <input type="text" id="zipcode" name="zipcode" required pattern="\\d{5}">
+
+    <label for="phone" data-en="Phone Number" data-es="Número de Teléfono">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="issue" data-en="Legal Issue" data-es="Tipo de Problema Legal">Legal Issue</label>
+    <select id="issue" name="issue" required>
+      <option value="immigration" data-en="Immigration" data-es="Inmigración">Immigration</option>
+      <option value="criminal" data-en="Criminal Law" data-es="Derecho Penal">Criminal Law</option>
+      <option value="family" data-en="Family Law" data-es="Derecho de Familia">Family Law</option>
+      <option value="other" data-en="Other" data-es="Otro">Other</option>
+    </select>
+
+    <label for="description" data-en="Brief Description" data-es="Descripción Breve">Brief Description</label>
+    <textarea id="description" name="description" rows="4"></textarea>
+
+    <button type="submit" data-en="Submit" data-es="Enviar">Submit</button>
+  </form>
+
+  <footer>
+    <p>&copy; 2025 Ultima Defensa Legal</p>
+  </footer>
+</body>
+</html>
