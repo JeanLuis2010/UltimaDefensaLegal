@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attorney Membership Payment | Ultima Defensa Legal</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f6f7f9;margin:0}
+  .wrap{max-width:960px;margin:32px auto;padding:20px}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.06);padding:24px}
+  h1{margin:0 0 8px}
+  .muted{color:#666}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  label{font-weight:700}
+  select,input[type="text"],input[type="email"]{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:8px;margin-top:6px}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .btn{background:#0b6bcb;color:#fff;border:0;border-radius:10px;padding:12px 18px;font-size:16px;cursor:pointer}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .price{font-size:22px;font-weight:800}
+  .tag{background:#eef6ff;color:#0b6bcb;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700}
+  .legal{font-size:13px;color:#444;line-height:1.55}
+  .divider{height:1px;background:#e5e7eb;margin:18px 0}
+  .notice{background:#f0fdf4;border:1px solid #bbf7d0;padding:12px;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>Attorney Membership Payment</h1>
+    <p class="muted" id="i-subtitle">Select your membership and complete checkout. Enter a promo code if applicable.</p>
+
+    <!-- Language toggle -->
+    <div class="row" style="margin:10px 0 20px">
+      <span>Language:</span>
+      <button class="btn" type="button" id="btn-en">English</button>
+      <button class="btn" type="button" id="btn-es" style="background:#059669">Español</button>
+    </div>
+
+    <!-- Membership + promo -->
+    <div class="grid">
+      <div>
+        <label id="i-plan">Membership</label>
+        <select id="plan">
+          <!-- Edit names/prices as needed -->
+          <option value="panel" data-price="79" data-interval="month">Panel Membership — $79 / month</option>
+          <option value="panel-pro" data-price="129" data-interval="month">Panel + Call Routing Pro — $129 / month</option>
+        </select>
+      </div>
+      <div>
+        <label id="i-email">Billing Email</label>
+        <input id="email" type="email" placeholder="lawyer@example.com" required>
+      </div>
+    </div>
+
+    <div class="grid" style="margin-top:12px">
+      <div>
+        <label id="i-promo">Promo Code (Optional)</label>
+        <input id="promo" type="text" placeholder="e.g., WNEU20">
+        <div class="muted" id="i-promo-hint">Western New England University alumni may use <b>WNEU20</b> for 20% off.</div>
+      </div>
+      <div>
+        <label id="i-bar">Bar Number</label>
+        <input id="bar" type="text" placeholder="Your state bar number" required>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Summary -->
+    <div class="row" style="justify-content:space-between">
+      <div>
+        <span class="tag" id="i-recurring">Recurring Billing</span>
+        <div class="legal" id="i-recurring-copy" style="margin-top:8px">
+          By clicking Pay, you authorize recurring charges to your card or PayPal account until you cancel.
+        </div>
+      </div>
+      <div class="price" id="priceDisplay">$79 / month</div>
+    </div>
+
+    <div class="notice" style="margin-top:16px" id="i-terms-note">
+      By joining, you accept the <a href="/attorney-agreement.html" target="_blank">Attorney Independent Contractor Agreement</a> (Delaware law; consumer claims against UDL in Palm Beach County, FL).
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PayPal placeholder -->
+    <div id="paypal-container"></div>
+    <div class="row" style="gap:10px;margin-top:10px">
+      <button class="btn" id="fakePay">Pay (Test Mode)</button>
+      <span class="muted" id="i-fake-note">Real checkout will appear here once your PayPal/Bank gateway is connected.</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Disclaimers -->
+    <div class="legal" id="i-legal">
+      Attorneys are independent and solely responsible for legal services. Ultima Defensa Legal is not a law firm and provides a referral/subscription platform only. 
+      Services are provided “as is.” Any disputes must be brought in Palm Beach County, Florida. See
+      <a href="/terms.html">Terms</a>, <a href="/privacy.html">Privacy</a>, and <a href="/legal-notices.html">Legal Notices</a>.
+    </div>
+  </div>
+</div>
+
+<script>
+  // i18n toggles
+  const T = {
+    en: {
+      subtitle: "Select your membership and complete checkout. Enter a promo code if applicable.",
+      plan: "Membership",
+      email: "Billing Email",
+      promo: "Promo Code (Optional)",
+      promoHint: "Western New England University alumni may use WNEU20 for 20% off.",
+      bar: "Bar Number",
+      recurring: "Recurring Billing",
+      recurringCopy: "By clicking Pay, you authorize recurring charges to your card or PayPal account until you cancel.",
+      termsNote: `By joining, you accept the <a href="/attorney-agreement.html" target="_blank">Attorney Independent Contractor Agreement</a> (Delaware law; consumer claims against UDL in Palm Beach County, FL).`,
+      fakeNote: "Real checkout will appear here once your PayPal/Bank gateway is connected.",
+      legal: `Attorneys are independent and solely responsible for legal services. Ultima Defensa Legal is not a law firm and provides a referral/subscription platform only. 
+              Services are provided “as is.” Any disputes must be brought in Palm Beach County, Florida. See
+              <a href="/terms.html">Terms</a>, <a href="/privacy.html">Privacy</a>, and <a href="/legal-notices.html">Legal Notices</a>.`
+    },
+    es: {
+      subtitle: "Seleccione su membresía y complete el pago. Ingrese un código promocional si aplica.",
+      plan: "Membresía",
+      email: "Correo de Facturación",
+      promo: "Código Promocional (Opcional)",
+      promoHint: "Los exalumnos de Western New England University pueden usar WNEU20 para un 20% de descuento.",
+      bar: "Número de Colegio",
+      recurring: "Facturación Recurrente",
+      recurringCopy: "Al hacer clic en Pagar, usted autoriza cargos recurrentes a su tarjeta o cuenta de PayPal hasta que cancele.",
+      termsNote: `Al unirse, usted acepta el <a href="/attorney-agreement.html" target="_blank">Acuerdo de Abogado Contratista Independiente</a> (ley de Delaware; reclamaciones de consumidores contra UDL en el Condado de Palm Beach, FL).`,
+      fakeNote: "El pago real aparecerá aquí cuando su pasarela de PayPal/Banco esté conectada.",
+      legal: `Los abogados son independientes y los únicos responsables de sus servicios. Ultima Defensa Legal no es un bufete; provee una plataforma de suscripción y referidos.
+              Los servicios se brindan “tal cual”. Cualquier disputa debe presentarse en el Condado de Palm Beach, Florida. Consulte <a href="/terms.html">Términos</a>, <a href="/privacy.html">Privacidad</a> y <a href="/legal-notices.html">Avisos Legales</a>.`
+    }
+  };
+
+  const plan = document.getElementById('plan');
+  const priceDisplay = document.getElementById('priceDisplay');
+  const promo = document.getElementById('promo');
+
+  function computePrice(){
+    const base = Number(plan.selectedOptions[0].dataset.price||0);
+    const code = (promo.value||"").trim().toUpperCase();
+    let final = base;
+    if(code === "WNEU20"){ final = Math.round(base * 80) / 100; } // 20% off
+    priceDisplay.textContent = `$${final} / ${plan.selectedOptions[0].dataset.interval||'month'}`;
+  }
+  plan.addEventListener('change', computePrice);
+  promo.addEventListener('input', computePrice);
+  computePrice();
+
+  function setLang(lang){
+    const t=T[lang];
+    document.getElementById('i-subtitle').innerHTML=t.subtitle;
+    document.getElementById('i-plan').innerHTML=t.plan;
+    document.getElementById('i-email').innerHTML=t.email;
+    document.getElementById('i-promo').innerHTML=t.promo;
+    document.getElementById('i-promo-hint').innerHTML=t.promoHint;
+    document.getElementById('i-bar').innerHTML=t.bar;
+    document.getElementById('i-recurring').innerHTML=t.recurring;
+    document.getElementById('i-recurring-copy').innerHTML=t.recurringCopy;
+    document.getElementById('i-terms-note').innerHTML=t.termsNote;
+    document.getElementById('i-fake-note').innerHTML=t.fakeNote;
+    document.getElementById('i-legal').innerHTML=t.legal;
+  }
+  document.getElementById('btn-en').onclick=()=>setLang('en');
+  document.getElementById('btn-es').onclick=()=>setLang('es');
+  setLang('en');
+
+  document.getElementById('fakePay').addEventListener('click', ()=>{
+    const opt = plan.selectedOptions[0];
+    const base = Number(opt.dataset.price||0);
+    const code = (promo.value||"").trim().toUpperCase();
+    const final = code==="WNEU20" ? Math.round(base*80)/100 : base;
+    alert(`(Test Mode) Selected: ${opt.text}\nPromo: ${code||'—'}\nTotal: $${final} / ${opt.dataset.interval}\nNo real charge made.`);
+  });
+</script>
+
+<!--
+When PayPal is ready, uncomment and add your client-id; then render into #paypal-container.
+
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD" data-sdk-integration-source="button-factory"></script>
+<script>
+paypal.Buttons({
+  createSubscription: function(data, actions) {
+    const opt = document.getElementById('plan').selectedOptions[0];
+    const code = (document.getElementById('promo').value||"").trim().toUpperCase();
+    // Map plan to PayPal Plan IDs you create in PayPal dashboard
+    const planIdMap = { panel: "P-AAAA", panel-pro: "P-BBBB" }; // replace
+    // Optional: create discounted plan IDs in PayPal for WNEU20, or apply discount server-side before creating subscription
+    return actions.subscription.create({ plan_id: planIdMap[opt.value] });
+  },
+  onApprove: function(data, actions){ window.location.href="/thankyou.html"; }
+}).render('#paypal-container');
+</script>
+-->
+</body>
+</html>
