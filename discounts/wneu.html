@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WNEU Alumni Discount | Ultima Defensa Legal</title>
+  <meta name="description" content="Western New England University alumni receive 20% off eligible attorney memberships at Ultima Defensa Legal. Use code WNEU20."/>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#f6f7f9;margin:0}
+    .wrap{max-width:960px;margin:32px auto;padding:20px}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.06);padding:24px}
+    h1{margin:0 0 8px}
+    h2{margin-top:18px}
+    p{line-height:1.6}
+    .highlight{background:#ecfdf5;border:1px solid #a7f3d0;padding:12px;border-radius:8px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .btn{background:#0b6bcb;color:#fff;border:0;border-radius:10px;padding:12px 18px;font-size:16px;cursor:pointer;text-decoration:none;display:inline-block}
+    .btn.secondary{background:#059669}
+    .code{font-weight:800}
+    .legal{font-size:13px;color:#444;margin-top:18px}
+    .box{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:14px;margin-top:14px}
+    .lang{margin:10px 0 16px}
+    .lang a{margin-right:10px;text-decoration:none}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="lang">
+      <strong>Language:</strong>
+      <a href="#" onclick="setLang('en');return false;">English</a> |
+      <a href="#" onclick="setLang('es');return false;">Español</a>
+    </div>
+
+    <h1 id="t1">WNEU Alumni Discount (Attorneys)</h1>
+    <p id="t2">Western New England University (formerly Western New England College) alumni and law firms receive <span class="code">20% off</span> eligible attorney memberships at Ultima Defensa Legal.</p>
+
+    <div class="highlight" id="t3">
+      Use promo code <span class="code">WNEU20</span> during checkout.
+    </div>
+
+    <div class="box" id="t4">
+      <h2 id="t4h">How to Redeem</h2>
+      <ol id="t4ol">
+        <li>Click “Join & Pay (Attorneys)”.</li>
+        <li>Enter <strong>WNEU20</strong> in the Promo Code field.</li>
+        <li>Complete the recurring membership checkout.</li>
+      </ol>
+      <div class="cta">
+        <a class="btn" id="joinAtt" href="/attorney/attorney-pay.html?promo=WNEU20">Join &amp; Pay (Attorneys)</a>
+        <a class="btn secondary" href="/attorney/attorney-signup.html">Attorney Signup (Info)</a>
+      </div>
+    </div>
+
+    <div class="box" id="t5">
+      <h2 id="t5h">Eligible Plans</h2>
+      <ul id="t5ul">
+        <li>Panel Membership — monthly</li>
+        <li>Panel + Call Routing Pro — monthly</li>
+      </ul>
+      <p id="t5p">Discount applied at checkout with the promo code.</p>
+    </div>
+
+    <div class="legal" id="t6">
+      Ultima Defensa Legal is not a law firm and does not provide legal advice. Services are provided “as is.” By joining, you accept the
+      <a href="/attorney-agreement.html" target="_blank">Attorney Independent Contractor Agreement</a> (Delaware law; consumer claims against UDL in Palm Beach County, FL).
+    </div>
+
+    <hr style="margin:24px 0">
+
+    <h2 id="s1">Descuento para Exalumnos de WNEU (Abogados)</h2>
+    <p id="s2">Los exalumnos y despachos de Western New England University (antes Western New England College) reciben <span class="code">20% de descuento</span> en membresías de abogado elegibles en Ultima Defensa Legal.</p>
+    <div class="highlight" id="s3">
+      Use el código <span class="code">WNEU20</span> durante el pago.
+    </div>
+    <div class="box">
+      <h3 id="s4h">Cómo canjear</h3>
+      <ol id="s4ol">
+        <li>Haga clic en “Unirse y Pagar (Abogados)”.</li>
+        <li>Ingrese <strong>WNEU20</strong> en el campo de Código Promocional.</li>
+        <li>Complete el pago de la membresía recurrente.</li>
+      </ol>
+      <div class="cta">
+        <a class="btn" id="joinAttEs" href="/attorney/attorney-pay.html?promo=WNEU20">Unirse y Pagar (Abogados)</a>
+        <a class="btn secondary" href="/attorney/attorney-signup.html">Registro de Abogados (Info)</a>
+      </div>
+    </div>
+    <div class="legal" id="s6">
+      Ultima Defensa Legal no es un bufete de abogados y no brinda asesoría legal. Los servicios se brindan “tal cual”. Al unirse, usted acepta el
+      <a href="/attorney-agreement.html" target="_blank">Acuerdo de Abogado Contratista Independiente</a> (ley de Delaware; reclamaciones de consumidores contra UDL en el Condado de Palm Beach, FL).
+    </div>
+  </div>
+</div>
+
+<script>
+  // Auto-prefill promo if user clicks from here
+  (function(){
+    const url = new URL(window.location.href);
+    if(!url.searchParams.get('promo')){
+      const links = [document.getElementById('joinAtt'), document.getElementById('joinAttEs')];
+      links.forEach(a=>{ if(a) a.href = a.href; });
+    }
+  })();
+
+  function setLang(l){
+    document.documentElement.lang = l === 'es' ? 'es' : 'en';
+  }
+</script>
+</body>
+</html>
