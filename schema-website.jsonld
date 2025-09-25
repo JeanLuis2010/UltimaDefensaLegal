@@ -1,0 +1,13 @@
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "url":"https://ultimadefensalegal.com/",
+  "name":"Ultima Defensa Legal",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"https://ultimadefensalegal.com/search?q={query}",
+    "query-input":"required name=query"
+  }
+}
+</script>
