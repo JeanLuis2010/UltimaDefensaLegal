@@ -1,47 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Core Legal Pages -->
+  <!-- Core site -->
   <url>
-    <loc>https://www.ultimadefensalegal.com/terms.html</loc>
+    <loc>https://ultimadefensalegal.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/index.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/what-we-do</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/how.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/pricing.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/contact.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Compliance & legal -->
+  <url>
+    <loc>https://ultimadefensalegal.com/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
-    <loc>https://www.ultimadefensalegal.com/privacy.html</loc>
+    <loc>https://ultimadefensalegal.com/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
-    <loc>https://www.ultimadefensalegal.com/cancellation.html</loc>
+    <loc>https://ultimadefensalegal.com/cancellation.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://www.ultimadefensalegal.com/legal-notices.html</loc>
+    <loc>https://ultimadefensalegal.com/legal-notices.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://www.ultimadefensalegal.com/compliance-notices.html</loc>
+    <loc>https://ultimadefensalegal.com/compliance-notices.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://www.ultimadefensalegal.com/attorney-agreement.html</loc>
+    <loc>https://ultimadefensalegal.com/accessibility.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/pamphlet.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/crimmigration-educational.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <!-- Attorney-facing -->
   <url>
-    <loc>https://www.ultimadefensalegal.com/pamphlet.html</loc>
+    <loc>https://ultimadefensalegal.com/attorneys.html</loc>
     <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/attorney/attorney-signup.html</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/attorney-agreement.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/attorney-pricing.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/attorney-call-center.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
 
+  <!-- Subscriber flows (if public) -->
+  <url>
+    <loc>https://ultimadefensalegal.com/signup.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/subscribe.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/subscribe_es.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/subscription.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/thankyou.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Utilities -->
+  <url>
+    <loc>https://ultimadefensalegal.com/udl-404.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/robots.txt</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/sitemap-legal.xml</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
 </urlset>
