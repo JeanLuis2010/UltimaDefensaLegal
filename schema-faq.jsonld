@@ -1,0 +1,23 @@
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"Is Ultima Defensa Legal a law firm?",
+      "acceptedAnswer":{"@type":"Answer","text":"No. UDL connects subscribers with independent licensed attorneys. UDL is not a law firm and does not provide legal advice."}
+    },
+    {
+      "@type":"Question",
+      "name":"How does the membership work?",
+      "acceptedAnswer":{"@type":"Answer","text":"Choose a plan, authorize recurring billing, and we match you with attorneys by specialty and language. Cancel anytime in your account."}
+    },
+    {
+      "@type":"Question",
+      "name":"What languages are supported?",
+      "acceptedAnswer":{"@type":"Answer","text":"English and Spanish."}
+    }
+  ]
+}
+</script>
