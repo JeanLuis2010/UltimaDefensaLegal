@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subscriber Pamphlet | Ultima Defensa Legal</title>
+</head>
+<body>
+  <h1>Ultima Defensa Legal Pamphlet / Folleto de Suscriptor</h1>
+
+  <p>
+    Download your complimentary educational pamphlet below.  
+    Descargue su folleto educativo de cortesía a continuación.
+  </p>
+
+  <a href="/assets/UDL_Pamphlet.pdf" download class="btn">
+    📥 Download Pamphlet (PDF) / Descargar Folleto
+  </a>
+
+  <p><em>For educational use only. This pamphlet is not legal advice.  
+  Para uso educativo únicamente. Este folleto no constituye asesoría legal.</em></p>
+</body>
+</html>
