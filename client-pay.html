@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscribe & Pay | Ultima Defensa Legal</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f6f7f9;margin:0}
+  .wrap{max-width:960px;margin:32px auto;padding:20px}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.06);padding:24px}
+  h1{margin:0 0 8px}
+  .muted{color:#666}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  label{font-weight:700}
+  select,input[type="text"],input[type="email"]{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:8px;margin-top:6px}
+  .price{font-size:22px;font-weight:800}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .btn{background:#0b6bcb;color:#fff;border:0;border-radius:10px;padding:12px 18px;font-size:16px;cursor:pointer}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .tag{background:#eef6ff;color:#0b6bcb;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700}
+  .legal{font-size:13px;color:#444;line-height:1.55}
+  .divider{height:1px;background:#e5e7eb;margin:18px 0}
+  .flag{font-size:13px;font-weight:700;margin-left:8px}
+  .notice{background:#fff9e6;border:1px solid #ffe08a;padding:12px;border-radius:8px}
+  @media (max-width:800px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>Subscribe & Pay</h1>
+    <p class="muted" id="i-subtitle">Choose your plan and complete checkout.</p>
+
+    <!-- Language toggle -->
+    <div class="row" style="margin:10px 0 20px">
+      <span>Language:</span>
+      <button class="btn" type="button" id="btn-en">English</button>
+      <button class="btn" type="button" id="btn-es" style="background:#059669">Español</button>
+    </div>
+
+    <!-- Plan selection -->
+    <div class="grid">
+      <div>
+        <label id="i-plan">Plan</label>
+        <select id="plan">
+          <!-- Edit names/prices as needed -->
+          <option value="starter" data-price="19" data-interval="month">Starter — $19 / month</option>
+          <option value="standard" data-price="29" data-interval="month">Standard — $29 / month</option>
+          <option value="premium" data-price="49" data-interval="month">Premium — $49 / month</option>
+        </select>
+      </div>
+      <div>
+        <label id="i-email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" required>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Summary -->
+    <div class="row" style="justify-content:space-between">
+      <div>
+        <span class="tag" id="i-recurring">Recurring Billing</span>
+        <div class="legal" id="i-recurring-copy" style="margin-top:8px">
+          By clicking Pay, you authorize recurring charges to your card or PayPal account until you cancel.
+        </div>
+      </div>
+      <div class="price" id="priceDisplay">$19 / month</div>
+    </div>
+
+    <div class="notice" style="margin-top:16px" id="i-90day">
+      Fulfillment: We reserve up to <b>90 days</b> to assign you to an attorney before a refund is required. If no assignment occurs within 90 days, you’ll receive a full refund for that billing cycle.
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PayPal placeholder (ready when you have your client-id) -->
+    <div id="paypal-container"></div>
+    <div class="row" style="gap:10px;margin-top:10px">
+      <button class="btn" id="fakePay">Pay (Test Mode)</button>
+      <span class="muted" id="i-fake-note">Real checkout will appear here once your PayPal/Bank gateway is connected.</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Disclaimers -->
+    <div class="legal" id="i-legal">
+      Ultima Defensa Legal is not a law firm and does not provide legal advice. Use of this site does not create an attorney–client relationship.
+      Services are provided “as is.” Any disputes must be brought in Palm Beach County, Florida. See
+      <a href="/terms.html">Terms</a>, <a href="/privacy.html">Privacy</a>, and <a href="/cancellation.html">Cancellation & Refunds</a>.
+    </div>
+  </div>
+</div>
+
+<script>
+  // i18n toggles
+  const T = {
+    en: {
+      subtitle: "Choose your plan and complete checkout.",
+      plan: "Plan",
+      email: "Email",
+      recurring: "Recurring Billing",
+      recurringCopy: "By clicking Pay, you authorize recurring charges to your card or PayPal account until you cancel.",
+      fakeNote: "Real checkout will appear here once your PayPal/Bank gateway is connected.",
+      ninety: "Fulfillment: We reserve up to <b>90 days</b> to assign you to an attorney before a refund is required. If no assignment occurs within 90 days, you’ll receive a full refund for that billing cycle.",
+      legal: `Ultima Defensa Legal is not a law firm and does not provide legal advice. Use of this site does not create an attorney–client relationship.
+              Services are provided “as is.” Any disputes must be brought in Palm Beach County, Florida. See
+              <a href="/terms.html">Terms</a>, <a href="/privacy.html">Privacy</a>, and <a href="/cancellation.html">Cancellation & Refunds</a>.`
+    },
+    es: {
+      subtitle: "Elija su plan y complete el pago.",
+      plan: "Plan",
+      email: "Correo electrónico",
+      recurring: "Facturación Recurrente",
+      recurringCopy: "Al hacer clic en Pagar, usted autoriza cargos recurrentes a su tarjeta o cuenta de PayPal hasta que cancele.",
+      fakeNote: "El pago real aparecerá aquí cuando su pasarela de PayPal/Banco esté conectada.",
+      ninety: "Cumplimiento: Nos reservamos hasta <b>90 días</b> para asignarle un abogado antes de que se requiera un reembolso. Si no hay asignación dentro de 90 días, recibirá un reembolso completo para ese ciclo.",
+      legal: `Ultima Defensa Legal no es un bufete y no brinda asesoría legal. El uso del sitio no crea relación abogado–cliente.
+              Los servicios se brindan “tal cual”. Cualquier disputa debe presentarse en el Condado de Palm Beach, Florida.
+              Consulte los <a href="/terms.html">Términos</a>, la <a href="/privacy.html">Privacidad</a> y <a href="/cancellation.html">Cancelaciones y Reembolsos</a>.`
+    }
+  };
+
+  const plan = document.getElementById('plan');
+  const priceDisplay = document.getElementById('priceDisplay');
+  function updatePrice(){
+    const opt = plan.selectedOptions[0];
+    const p = Number(opt.dataset.price||0);
+    const interval = opt.dataset.interval || 'month';
+    priceDisplay.textContent = `$${p} / ${interval}`;
+  }
+  plan.addEventListener('change', updatePrice); updatePrice();
+
+  function setLang(lang){
+    const t=T[lang];
+    document.getElementById('i-subtitle').innerHTML=t.subtitle;
+    document.getElementById('i-plan').innerHTML=t.plan;
+    document.getElementById('i-email').innerHTML=t.email;
+    document.getElementById('i-recurring').innerHTML=t.recurring;
+    document.getElementById('i-recurring-copy').innerHTML=t.recurringCopy;
+    document.getElementById('i-fake-note').innerHTML=t.fakeNote;
+    document.getElementById('i-90day').innerHTML=t.ninety;
+    document.getElementById('i-legal').innerHTML=t.legal;
+  }
+  document.getElementById('btn-en').onclick=()=>setLang('en');
+  document.getElementById('btn-es').onclick=()=>setLang('es');
+  setLang('en');
+
+  // Placeholder "test" payment until PayPal/bank live
+  document.getElementById('fakePay').addEventListener('click', ()=>{
+    const opt = plan.selectedOptions[0];
+    alert(`(Test Mode) Selected plan: ${opt.text} — No real charge made.`);
+  });
+</script>
+
+<!--
+When PayPal is ready, uncomment and add your client-id; then render into #paypal-container.
+
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD" data-sdk-integration-source="button-factory"></script>
+<script>
+paypal.Buttons({
+  createSubscription: function(data, actions) {
+    const opt = document.getElementById('plan').selectedOptions[0];
+    const planIdMap = { starter: "P-XXXX", standard: "P-YYYY", premium: "P-ZZZZ" }; // replace with your PayPal Plan IDs
+    return actions.subscription.create({ plan_id: planIdMap[opt.value] });
+  },
+  onApprove: function(data, actions){ window.location.href="/thankyou.html"; }
+}).render('#paypal-container');
+</script>
+-->
+</body>
+</html>
