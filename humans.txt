@@ -1,0 +1,9 @@
+/* TEAM */
+Founder: Waldemar M. Caban (JD, MA)
+Brand: Ultima Defensa Legal
+Languages: English, Spanish
+Location: West Palm Beach, Florida, USA
+
+/* SITE */
+Standards: HTML5, CSS3, WCAG 2.1 AA
+Stack: Netlify + GitHub, Cloudflare, Make.com
