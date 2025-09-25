@@ -1,0 +1,18 @@
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "serviceType":"Attorney referral and subscription platform",
+  "provider":{
+    "@type":"Organization",
+    "name":"Ultima Defensa Legal",
+    "url":"https://ultimadefensalegal.com/"
+  },
+  "areaServed":"US",
+  "availableChannel":{
+    "@type":"ServiceChannel",
+    "serviceUrl":"https://ultimadefensalegal.com/signup.html",
+    "availableLanguage":["English","Spanish"]
+  }
+}
+</script>
