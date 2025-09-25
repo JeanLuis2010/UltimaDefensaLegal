@@ -7,16 +7,76 @@
 <body>
   <h1>Ultima Defensa Legal Pamphlet / Folleto de Suscriptor</h1>
 
+  <p><em>For Educational Use Only / Solo Para Uso Educativo<br>
+  Not Legal Advice / No Constituye Asesoría Legal</em></p>
+
   <p>
-    Download your complimentary educational pamphlet below.  
-    Descargue su folleto educativo de cortesía a continuación.
+    Download your complimentary pamphlet as a PDF:<br>
+    Descargue su folleto educativo en PDF:
+  </p>
+  <p>
+    <a href="/assets/UDL_Pamphlet.pdf" download>📥 Download Pamphlet (PDF)</a>
   </p>
 
-  <a href="/assets/UDL_Pamphlet.pdf" download class="btn">
-    📥 Download Pamphlet (PDF) / Descargar Folleto
-  </a>
+  <hr>
 
-  <p><em>For educational use only. This pamphlet is not legal advice.  
-  Para uso educativo únicamente. Este folleto no constituye asesoría legal.</em></p>
+  <h2>1. What is Ultima Defensa Legal? / ¿Qué es Ultima Defensa Legal?</h2>
+  <p>
+    <strong>EN:</strong> A bilingual subscription platform connecting individuals with licensed attorneys. 
+    We are not a law firm and do not give legal advice.<br>
+    <strong>ES:</strong> Una plataforma bilingüe de suscripción que conecta a las personas con abogados licenciados. 
+    No somos un bufete y no brindamos asesoría legal.
+  </p>
+
+  <h2>2. Supreme Court & Regulatory Updates (2024–2025) / Actualizaciones de la Corte Suprema y Regulaciones (2024–2025)</h2>
+  <p>
+    <strong>EN:</strong><br>
+    • First Amendment & Legal Tech — Supreme Court reaffirmed that non-law-firm entities may provide informational or educational legal resources if not individualized legal advice.<br>
+    • Consumer Protection — Courts require clear disclaimers to distinguish education from representation.<br>
+    • Recurring Billing — FTC rules (2024) require clear disclosure and online cancellation.<br>
+    • ADA Accessibility — Cases confirm websites open to the public must provide reasonable digital accessibility.<br><br>
+    <strong>ES:</strong><br>
+    • Primera Enmienda y Tecnología Legal — La Corte Suprema confirmó que entidades que no son bufetes pueden proveer recursos informativos o educativos si no dan asesoría individualizada.<br>
+    • Protección al Consumidor — Los tribunales requieren descargos claros que distingan educación de representación.<br>
+    • Cobros Recurrentes — Las reglas de la FTC (2024) exigen divulgación clara y cancelación en línea.<br>
+    • Accesibilidad ADA — Casos confirman que los sitios web abiertos al público deben proveer accesibilidad digital razonable.
+  </p>
+
+  <h2>3. Your Membership Rights / Sus Derechos de Membresía</h2>
+  <p>
+    <strong>EN:</strong><br>
+    • Cancel anytime.<br>
+    • We will match you with an attorney within 90 days or issue a refund.<br>
+    • Fees disclosed before charges.<br><br>
+    <strong>ES:</strong><br>
+    • Puede cancelar en cualquier momento.<br>
+    • Le asignaremos un abogado en 90 días o emitiremos reembolso.<br>
+    • Tarifas divulgadas antes de cobros.
+  </p>
+
+  <h2>4. Your Responsibilities / Sus Responsabilidades</h2>
+  <p>
+    <strong>EN:</strong><br>
+    • Provide accurate information.<br>
+    • Understand this pamphlet is educational only.<br>
+    • Contact attorneys directly for legal advice.<br><br>
+    <strong>ES:</strong><br>
+    • Proporcione información precisa.<br>
+    • Entienda que este folleto es solo educativo.<br>
+    • Contacte a abogados directamente para asesoría legal.
+  </p>
+
+  <h2>5. Disclaimers (Required by Law) / Descargos (Requeridos por Ley)</h2>
+  <p>
+    <strong>EN:</strong><br>
+    • Ultima Defensa Legal is not a law firm.<br>
+    • No attorney–client relationship is created by this pamphlet.<br>
+    • Independent attorneys are solely responsible.<br><br>
+    <strong>ES:</strong><br>
+    • Ultima Defensa Legal no es un bufete.<br>
+    • No se crea relación abogado–cliente mediante este folleto.<br>
+    • Los abogados independientes son responsables exclusivos.
+  </p>
+
 </body>
 </html>
