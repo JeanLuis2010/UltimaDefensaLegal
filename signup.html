@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign Up | Ultima Defensa Legal</title>
+<style>
+  :root { --bg:#ffffff; --ink:#111; --muted:#525252; --line:#e5e5e5; --primary:#0a5; --danger:#b00; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; color:var(--ink); background:var(--bg); }
+  header, main, footer { max-width: 960px; margin: 0 auto; padding: 24px; }
+  header { display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
+  .lang-toggle button { border:1px solid var(--line); background:#fff; padding:6px 10px; margin-left:8px; cursor:pointer; }
+  .card { border:1px solid var(--line); border-radius:12px; padding:20px; margin:24px 0; }
+  label { display:block; margin:10px 0 6px; font-weight:600; }
+  input, select, textarea { width:100%; padding:10px; border:1px solid var(--line); border-radius:8px; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .row-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .checkbox { display:flex; align-items:flex-start; gap:10px; margin:8px 0; }
+  .small { color:var(--muted); font-size:12px; line-height:1.4; }
+  .actions { display:flex; gap:12px; align-items:center; }
+  .btn { background:var(--primary); color:#fff; padding:12px 18px; border:none; border-radius:10px; cursor:pointer; font-weight:700; }
+  .btn:disabled { opacity:.6; cursor:not-allowed; }
+  .link { color:#06c; text-decoration:underline; }
+  .error { color:var(--danger); margin-top:8px; }
+  footer { border-top:1px solid var(--line); margin-top:24px; text-align:center; font-size:14px; }
+  footer a { color:#06c; text-decoration:underline; margin:0 6px; }
+</style>
+</head>
+<body>
+<header>
+  <h1 data-i="title">Ultima Defensa Legal — Sign Up</h1>
+  <div class="lang-toggle">
+    <span class="small" data-i="lang-label">Language:</span>
+    <button type="button" onclick="setLang('en')">EN</button>
+    <button type="button" onclick="setLang('es')">ES</button>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <h2 data-i="plan-title">Choose Your Plan</h2>
+    <div class="row">
+      <div>
+        <label for="plan" data-i="plan-label">Subscription Plan</label>
+        <select id="plan" required>
+          <option value="" data-i="plan-select">— Select —</option>
+          <option value="entry" data-i="plan-entry">Entry (Monthly)</option>
+          <option value="standard" data-i="plan-standard">Standard (Monthly)</option>
+          <option value="premium" data-i="plan-premium">Premium (Monthly)</option>
+          <option value="entry-annual" data-i="plan-entry-annual">Entry (Annual)</option>
+          <option value="standard-annual" data-i="plan-standard-annual">Standard (Annual)</option>
+          <option value="premium-annual" data-i="plan-premium-annual">Premium (Annual)</option>
+        </select>
+      </div>
+      <div>
+        <label for="coupon" data-i="coupon-label">Coupon Code (optional)</label>
+        <input id="coupon" placeholder="">
+      </div>
+    </div>
+  </section>
+
+  <form id="signupForm" class="card">
+    <h2 data-i="acct-title">Account Information</h2>
+    <div class="row">
+      <div>
+        <label for="fname" data-i="fname">First Name</label>
+        <input id="fname" required>
+      </div>
+      <div>
+        <label for="lname" data-i="lname">Last Name</label>
+        <input id="lname" required>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="email" data-i="email">Email</label>
+        <input id="email" type="email" required>
+      </div>
+      <div>
+        <label for="phone" data-i="phone">Phone</label>
+        <input id="phone" placeholder="+1">
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="zip" data-i="zip">ZIP / City</label>
+        <input id="zip">
+      </div>
+      <div>
+        <label for="topic" data-i="topic">Legal Topic</label>
+        <select id="topic">
+          <option value="" data-i="topic-select">— Select —</option>
+          <option>Immigration</option>
+          <option>Family</option>
+          <option>Employment</option>
+          <option>Criminal</option>
+          <option>Housing</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <h2 data-i="pay-title" style="margin-top:24px;">Payment</h2>
+    <div class="row-3">
+      <div>
+        <label for="cc-name" data-i="cc-name">Name on Card</label>
+        <input id="cc-name" autocomplete="cc-name" required>
+      </div>
+      <div>
+        <label for="cc-number" data-i="cc-number">Card Number</label>
+        <input id="cc-number" inputmode="numeric" autocomplete="cc-number" required>
+      </div>
+      <div>
+        <label for="cc-exp" data-i="cc-exp">Exp (MM/YY)</label>
+        <input id="cc-exp" placeholder="MM/YY" autocomplete="cc-exp" required>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="cc-cvc" data-i="cc-cvc">CVC</label>
+        <input id="cc-cvc" inputmode="numeric" autocomplete="cc-csc" required>
+      </div>
+      <div>
+        <label for="cc-zip" data-i="cc-zip">Billing ZIP</label>
+        <input id="cc-zip" autocomplete="billing postal-code" required>
+      </div>
+    </div>
+
+    <!-- CONSENTS -->
+    <div class="card" style="background:#fafafa;">
+      <h3 data-i="consent-title">Consents</h3>
+
+      <!-- OPT-OUT (checked by default): Marketing -->
+      <div class="checkbox">
+        <input id="consent-marketing" type="checkbox" checked>
+        <label for="consent-marketing">
+          <span data-i="consent-marketing">
+            I agree to receive emails/SMS from Ultima Defensa Legal. I can opt out anytime by unchecking this box or using “unsubscribe”.
+          </span>
+          <br><span class="small" data-i="consent-marketing-small">
+            This covers service updates, receipts, and promotional content as described in our Privacy Policy.
+          </span>
+        </label>
+      </div>
+
+      <!-- OPT-OUT (checked by default): Terms & Policies -->
+      <div class="checkbox">
+        <input id="consent-terms" type="checkbox" checked>
+        <label for="consent-terms">
+          <span data-i="consent-terms">
+            I accept the Terms of Service, Privacy Policy, Legal Notices, and Cancellation Policy (links below). I may opt out by unchecking before submission.
+          </span>
+        </label>
+      </div>
+
+      <!-- OPT-IN (REQUIRED, UNCHECKED): Billing -->
+      <div class="checkbox">
+        <input id="consent-billing" type="checkbox" required>
+        <label for="consent-billing">
+          <strong data-i="consent-billing-strong">Required:</strong>
+          <span data-i="consent-billing">
+            I authorize Ultima Defensa Legal to automatically charge my debit/credit card for my subscription until I cancel. I can cancel anytime by logging in or contacting support.
+          </span>
+        </label>
+      </div>
+
+      <p class="small">
+        <a class="link" href="/terms.html" target="_blank">Terms</a> ·
+        <a class="link" href="/privacy.html" target="_blank">Privacy</a> ·
+        <a class="link" href="/legal-notices.html" target="_blank">Legal Notices</a> ·
+        <a class="link" href="/cancellation.html" target="_blank">Cancellation</a>
+      </p>
+    </div>
+
+    <div class="actions">
+      <button class="btn" id="submitBtn" type="submit" data-i="btn-submit">Start Membership</button>
+      <span id="formMsg" class="small"></span>
+    </div>
+    <div id="formError" class="error" aria-live="polite"></div>
+
+    <!-- hidden policy versions for evidence -->
+    <input type="hidden" id="policyVersionTerms" value="terms-v1-2025-09-24">
+    <input type="hidden" id="policyVersionPrivacy" value="privacy-v1-2025-09-24">
+    <input type="hidden" id="policyVersionLegal" value="legal-v1-2025-09-24">
+    <input type="hidden" id="policyVersionCancel" value="cancel-v1-2025-09-24">
+  </form>
+</main>
+
+<footer>
+  <p>
+    <a href="/terms.html">Terms of Service</a> |
+    <a href="/privacy.html">Privacy Policy</a> |
+    <a href="/cancellation.html">Cancellation Policy</a> |
+    <a href="/legal-notices.html">Legal Notices</a> |
+    <a href="/attorney-agreement.html">Attorney Agreement</a>
+  </p>
+  <p>
+    <a href="/terms.html">Términos de Servicio</a> |
+    <a href="/privacy.html">Política de Privacidad</a> |
+    <a href="/cancellation.html">Política de Cancelación</a> |
+    <a href="/legal-notices.html">Avisos Legales</a> |
+    <a href="/attorney-agreement.html">Acuerdo de Abogado</a>
+  </p>
+  <p>© 2025 Ultima Defensa Legal. All rights reserved. / Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  // ---- CONFIG ----
+  const WEBHOOK_URL = "https://YOUR-MAKE-COM-WEBHOOK-URL"; // <-- Replace with your Make.com webhook
+  let currentLang = "en";
+
+  const i18n = {
+    en: {
+      title:"Ultima Defensa Legal — Sign Up",
+      "lang-label":"Language:",
+      "plan-title":"Choose Your Plan",
+      "plan-label":"Subscription Plan",
+      "plan-select":"— Select —",
+      "plan-entry":"Entry (Monthly)",
+      "plan-standard":"Standard (Monthly)",
+      "plan-premium":"Premium (Monthly)",
+      "plan-entry-annual":"Entry (Annual)",
+      "plan-standard-annual":"Standard (Annual)",
+      "plan-premium-annual":"Premium (Annual)",
+      "coupon-label":"Coupon Code (optional)",
+      "acct-title":"Account Information",
+      "fname":"First Name","lname":"Last Name","email":"Email","phone":"Phone","zip":"ZIP / City",
+      "topic":"Legal Topic","topic-select":"— Select —",
+      "pay-title":"Payment","cc-name":"Name on Card","cc-number":"Card Number","cc-exp":"Exp (MM/YY)","cc-cvc":"CVC","cc-zip":"Billing ZIP",
+      "consent-title":"Consents",
+      "consent-marketing":"I agree to receive emails/SMS from Ultima Defensa Legal. I can opt out anytime by unchecking this box or using “unsubscribe”.",
+      "consent-marketing-small":"This covers service updates, receipts, and promotional content as described in our Privacy Policy.",
+      "consent-terms":"I accept the Terms of Service, Privacy Policy, Legal Notices, and Cancellation Policy (links below). I may opt out by unchecking before submission.",
+      "consent-billing-strong":"Required:",
+      "consent-billing":"I authorize Ultima Defensa Legal to automatically charge my debit/credit card for my subscription until I cancel. I can cancel anytime by logging in or contacting support.",
+      "btn-submit":"Start Membership"
+    },
+    es: {
+      title:"Ultima Defensa Legal — Suscripción",
+      "lang-label":"Idioma:",
+      "plan-title":"Elija su Plan",
+      "plan-label":"Plan de Suscripción",
+      "plan-select":"— Seleccione —",
+      "plan-entry":"Entrada (Mensual)",
+      "plan-standard":"Estándar (Mensual)",
+      "plan-premium":"Premium (Mensual)",
+      "plan-entry-annual":"Entrada (Anual)",
+      "plan-standard-annual":"Estándar (Anual)",
+      "plan-premium-annual":"Premium (Anual)",
+      "coupon-label":"Código de Cupón (opcional)",
+      "acct-title":"Información de la Cuenta",
+      "fname":"Nombre","lname":"Apellido","email":"Correo","phone":"Teléfono","zip":"Código Postal / Ciudad",
+      "topic":"Tema Legal","topic-select":"— Seleccione —",
+      "pay-title":"Pago","cc-name":"Nombre en la Tarjeta","cc-number":"Número de Tarjeta","cc-exp":"Venc (MM/AA)","cc-cvc":"CVC","cc-zip":"Código Postal de Facturación",
+      "consent-title":"Consentimientos",
+      "consent-marketing":"Acepto recibir correos/SMS de Ultima Defensa Legal. Puedo anularlo en cualquier momento desmarcando esta casilla o usando “unsubscribe”.",
+      "consent-marketing-small":"Incluye actualizaciones del servicio, recibos y contenido promocional según nuestra Política de Privacidad.",
+      "consent-terms":"Acepto los Términos de Servicio, la Política de Privacidad, los Avisos Legales y la Política de Cancelación (enlaces abajo). Puedo optar por no aceptar desmarcando antes de enviar.",
+      "consent-billing-strong":"Obligatorio:",
+      "consent-billing":"Autorizo a Ultima Defensa Legal a cargar automáticamente mi tarjeta de débito/crédito por mi suscripción hasta que la cancele. Puedo cancelar en cualquier momento iniciando sesión o contactando a soporte.",
+      "btn-submit":"Comenzar Membresía"
+    }
+  };
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll("[data-i]").forEach(el=>{
+      const key = el.getAttribute("data-i");
+      if(i18n[lang][key]) el.textContent = i18n[lang][key];
+    });
+    document.documentElement.lang = lang;
+  }
+
+  setLang("en"); // default
+
+  // Helper to serialize and post
+  async function postJSON(url, data) {
+    const res = await fetch(url, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(data) });
+    return res.ok;
+  }
+
+  document.getElementById("signupForm").addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    const err = document.getElementById("formError");
+    const msg = document.getElementById("formMsg");
+    err.textContent = ""; msg.textContent = "";
+
+    // Basic front-end validation for required billing consent
+    const billingOK = document.getElementById("consent-billing").checked;
+    if(!billingOK){
+      err.textContent = currentLang==="es" ? "Debe autorizar la facturación recurrente para continuar." : "You must authorize recurring billing to proceed.";
+      return;
+    }
+
+    // Build payload for your webhook (Make.com → Google Sheets / Stripe, etc.)
+    const payload = {
+      type: "subscriber_signup",
+      lang: currentLang,
+      plan: document.getElementById("plan").value,
+      coupon: document.getElementById("coupon").value || null,
+      first_name: document.getElementById("fname").value,
+      last_name: document.getElementById("lname").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      zip: document.getElementById("zip").value,
+      topic: document.getElementById("topic").value,
+      // DO NOT send raw card data to your webhook in production—tokenize with Stripe/Square instead.
+      card_name: document.getElementById("cc-name").value,
+      card_last4: (document.getElementById("cc-number").value || "").slice(-4),
+      policy_versions: {
+        terms: document.getElementById("policyVersionTerms").value,
+        privacy: document.getElementById("policyVersionPrivacy").value,
+        legal: document.getElementById("policyVersionLegal").value,
+        cancel: document.getElementById("policyVersionCancel").value
+      },
+      consents: {
+        marketing_opted_out: !document.getElementById("consent-marketing").checked ? true : false,
+        terms_opted_out: !document.getElementById("consent-terms").checked ? true : false,
+        billing_opt_in: document.getElementById("consent-billing").checked ? true : false
+      },
+      submitted_at: new Date().toISOString(),
+      user_agent: navigator.userAgent
+    };
+
+    // Save minimal evidence locally too
+    try { localStorage.setItem("udl_last_signup", JSON.stringify(payload)); } catch(_){}
+
+    document.getElementById("submitBtn").disabled = true;
+
+    try {
+      const ok = await postJSON(WEBHOOK_URL, payload);
+      if(ok){
+        msg.textContent = currentLang==="es" ? "¡Gracias! Su membresía ha sido creada o está en proceso." : "Thank you! Your membership has been created or is being processed.";
+        // Optionally redirect to a success page
+        // location.href = "/thank-you.html";
+      } else {
+        throw new Error("Webhook error");
+      }
+    } catch (e2){
+      err.textContent = currentLang==="es" ? "No se pudo enviar. Inténtelo de nuevo o contacte a soporte." : "Submission failed. Please try again or contact support.";
+    } finally {
+      document.getElementById("submitBtn").disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
