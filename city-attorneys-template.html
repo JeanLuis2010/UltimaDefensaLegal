@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>{{CITY_NAME}} Founding Attorneys | Ultima Defensa Legal</title>
+<style>
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f8fafc;color:#0f172a}
+  header,footer{background:#1e293b;color:#fff;text-align:center;padding:1rem}
+  .wrap{max-width:1000px;margin:2rem auto;padding:0 1rem}
+  .hero{background:#ffffff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.07);padding:1.25rem;margin-bottom:1rem}
+  .list{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+  .card{background:#fff;border-radius:8px;box-shadow:0 1px 6px rgba(0,0,0,.06);padding:1rem}
+  .badge{display:inline-block;background:#e2e8f0;color:#0f172a;border-radius:999px;padding:.2rem .6rem;margin-bottom:.3rem;font-weight:700}
+  .cta{display:inline-block;background:#0f766e;color:#fff;padding:.7rem 1rem;border-radius:8px;text-decoration:none;font-weight:700}
+  .es{display:none}
+</style>
+<script>
+  function toggleLang(lang){
+    document.querySelectorAll('.en').forEach(e=>e.style.display=lang==='en'?'block':'none');
+    document.querySelectorAll('.es').forEach(e=>e.style.display=lang==='es'?'block':'none');
+  }
+</script>
+</head>
+<body onload="toggleLang('en')">
+<header>
+  <h1>{{CITY_NAME}} — Founding Attorneys</h1>
+  <div><a href="#" onclick="toggleLang('en')" style="color:#fff">English</a> | <a href="#" onclick="toggleLang('es')" style="color:#fff">Español</a></div>
+</header>
+
+<div class="wrap">
+  <section class="hero en">
+    <h2>Launch in {{CITY_NAME}}</h2>
+    <p>We’re onboarding 10–20 Founding Attorneys in {{CITY_NAME}} across Immigration, Family, Criminal, and Housing. Lock discounted <strong>$99/mo</strong> (first 12 months) and priority placement.</p>
+    <a class="cta" href="founding-attorneys-signup.html?city={{CITY_SLUG}}">Apply Now</a>
+    <p class="note">Questions? <a href="attorney-faq.html">See Attorney FAQ</a> | <a href="attorney-pricing.html">Plans</a></p>
+  </section>
+
+  <section class="hero es">
+    <h2>Lanzamiento en {{CITY_NAME}}</h2>
+    <p>Estamos incorporando 10–20 Abogados Fundadores en {{CITY_NAME}} en Inmigración, Familia, Penal y Vivienda. Asegure <strong>$99/mes</strong> (primeros 12 meses) y posición prioritaria.</p>
+    <a class="cta" href="founding-attorneys-signup.html?city={{CITY_SLUG}}">Aplicar Ahora</a>
+    <p class="note">¿Preguntas? <a href="attorney-faq.html">Preguntas Frecuentes</a> | <a href="attorney-pricing.html">Planes</a></p>
+  </section>
+
+  <h3 class="en">Featured {{CITY_NAME}} Attorneys</h3>
+  <h3 class="es">Abogados Destacados en {{CITY_NAME}}</h3>
+  <div class="list">
+    <!-- Duplicate .card blocks as you add attorney profiles -->
+    <div class="card">
+      <span class="badge">Founding Attorney</span>
+      <h4>Attorney Name</h4>
+      <p>Practice: Immigration, Family</p>
+      <p>Contact: email@example.com • (555) 555-5555</p>
+    </div>
+  </div>
+</div>
+
+<footer><small>&copy; 2025 Ultima Defensa Legal</small></footer>
+</body>
+</html>
