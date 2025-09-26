@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Founding Attorneys | Ultima Defensa Legal</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#222; }
+    header { background:#1e293b; color:#fff; padding:1.5rem; text-align:center; }
+    h1 { margin:0; font-size:1.8rem; }
+    nav { margin-top:0.5rem; }
+    nav a { color:#fff; margin:0 10px; text-decoration:none; }
+    .container { max-width:1000px; margin:2rem auto; padding:1.5rem; background:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    h2 { color:#1e293b; margin-top:0; }
+    .cta { background:#0f766e; color:#fff; padding:1rem; text-align:center; border-radius:6px; margin-top:2rem; }
+    .cta a { background:#fff; color:#0f766e; padding:0.7rem 1.2rem; margin-top:0.8rem; border-radius:6px; text-decoration:none; font-weight:bold; display:inline-block; }
+    footer { background:#1e293b; color:#fff; padding:1rem; text-align:center; margin-top:2rem; }
+    .lang-toggle { float:right; }
+    .es { display:none; }
+  </style>
+  <script>
+    function toggleLang(lang) {
+      document.querySelectorAll('.en').forEach(el => el.style.display = (lang === 'en' ? 'block' : 'none'));
+      document.querySelectorAll('.es').forEach(el => el.style.display = (lang === 'es' ? 'block' : 'none'));
+    }
+  </script>
+</head>
+<body onload="toggleLang('en')">
+
+<header>
+  <h1>Ultima Defensa Legal</h1>
+  <nav>
+    <a href="#" onclick="toggleLang('en')">English</a> | 
+    <a href="#" onclick="toggleLang('es')">Español</a>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="en">
+    <h2>Become a Founding Attorney</h2>
+    <p><strong>Ultima Defensa Legal</strong> is expanding city by city. We invite local attorneys to become <em>Founding Attorneys</em> in their city. As a Founding Attorney, you receive:</p>
+    <ul>
+      <li>Discounted advertising rates for your first year ($99/mo instead of $149).</li>
+      <li>Priority placement in your city directory.</li>
+      <li>“Founding Attorney” badge on your profile.</li>
+      <li>Early access to bilingual lead routing and community events.</li>
+    </ul>
+    <div class="cta">
+      <h3>Join Today</h3>
+      <p>Lock in your position before we launch in your city.</p>
+      <a href="founding-attorneys-signup.html">Apply Now</a>
+    </div>
+  </div>
+
+  <div class="es">
+    <h2>Conviértase en un Abogado Fundador</h2>
+    <p><strong>Ultima Defensa Legal</strong> se está expandiendo ciudad por ciudad. Invitamos a los abogados locales a convertirse en <em>Abogados Fundadores</em> en su ciudad. Como Abogado Fundador, usted recibe:</p>
+    <ul>
+      <li>Tarifa de publicidad con descuento durante el primer año ($99/mes en lugar de $149).</li>
+      <li>Ubicación prioritaria en el directorio de su ciudad.</li>
+      <li>Insignia de “Abogado Fundador” en su perfil.</li>
+      <li>Acceso temprano a clientes potenciales bilingües y eventos comunitarios.</li>
+    </ul>
+    <div class="cta">
+      <h3>Únase Hoy</h3>
+      <p>Asegure su posición antes de que lancemos en su ciudad.</p>
+      <a href="founding-attorneys-signup.html">Aplicar Ahora</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Ultima Defensa Legal. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
