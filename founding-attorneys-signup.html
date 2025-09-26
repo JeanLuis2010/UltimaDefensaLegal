@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Founding Attorney Signup | Ultima Defensa Legal</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f9f9f9; margin:0; padding:0; }
+    header { background:#1e293b; color:#fff; text-align:center; padding:1.5rem; }
+    .container { max-width:600px; margin:2rem auto; padding:2rem; background:#fff; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    label { display:block; margin-top:1rem; }
+    input, select, textarea { width:100%; padding:0.5rem; margin-top:0.3rem; border:1px solid #ccc; border-radius:4px; }
+    button { background:#0f766e; color:#fff; padding:0.8rem 1.2rem; border:none; border-radius:6px; font-size:1rem; margin-top:1.5rem; cursor:pointer; }
+    button:hover { background:#115e59; }
+    .lang-toggle { text-align:right; margin-bottom:1rem; }
+    .es { display:none; }
+  </style>
+  <script>
+    function toggleLang(lang) {
+      document.querySelectorAll('.en').forEach(el => el.style.display = (lang === 'en' ? 'block' : 'none'));
+      document.querySelectorAll('.es').forEach(el => el.style.display = (lang === 'es' ? 'block' : 'none'));
+    }
+  </script>
+</head>
+<body onload="toggleLang('en')">
+
+<header>
+  <h1>Founding Attorney Application</h1>
+</header>
+
+<div class="container">
+  <div class="lang-toggle">
+    <a href="#" onclick="toggleLang('en')">English</a> | 
+    <a href="#" onclick="toggleLang('es')">Español</a>
+  </div>
+
+  <form action="process-founding-attorneys.php" method="post">
+    <div class="en">
+      <label>Full Name</label>
+      <input type="text" name="fullname" required/>
+
+      <label>Email</label>
+      <input type="email" name="email" required/>
+
+      <label>Phone</label>
+      <input type="tel" name="phone" required/>
+
+      <label>Practice Areas</label>
+      <input type="text" name="practice" placeholder="Immigration, Family, Criminal..." required/>
+
+      <label>City</label>
+      <input type="text" name="city" required/>
+
+      <label>Message</label>
+      <textarea name="message"></textarea>
+
+      <button type="submit">Submit Application</button>
+    </div>
+
+    <div class="es">
+      <label>Nombre Completo</label>
+      <input type="text" name="fullname" required/>
+
+      <label>Correo Electrónico</label>
+      <input type="email" name="email" required/>
+
+      <label>Teléfono</label>
+      <input type="tel" name="phone" required/>
+
+      <label>Áreas de Práctica</label>
+      <input type="text" name="practice" placeholder="Inmigración, Familia, Penal..." required/>
+
+      <label>Ciudad</label>
+      <input type="text" name="city" required/>
+
+      <label>Mensaje</label>
+      <textarea name="message"></textarea>
+
+      <button type="submit">Enviar Solicitud</button>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
