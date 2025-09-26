@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Founding Attorney Outreach Kit | Ultima Defensa Legal</title>
+<style>
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#ffffff;color:#0f172a}
+  header{background:#1e293b;color:#fff;text-align:center;padding:1rem}
+  .wrap{max-width:1000px;margin:2rem auto;padding:0 1rem}
+  pre{white-space:pre-wrap;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:1rem;overflow:auto}
+  h2{margin:.4rem 0}
+  .es{display:none}
+  a{color:#0f766e;text-decoration:none}
+</style>
+<script>
+  function toggleLang(lang){
+    document.querySelectorAll('.en').forEach(e=>e.style.display=lang==='en'?'block':'none');
+    document.querySelectorAll('.es').forEach(e=>e.style.display=lang==='es'?'block':'none');
+  }
+</script>
+</head>
+<body onload="toggleLang('en')">
+<header>
+  <h1>Founding Attorney Outreach Kit</h1>
+  <div><a href="#" onclick="toggleLang('en')" style="color:#fff">English</a> | <a href="#" onclick="toggleLang('es')" style="color:#fff">Español</a></div>
+</header>
+
+<div class="wrap">
+  <section class="en">
+    <h2>Email — Cold Outreach</h2>
+    <pre>Subject: Founding Attorney Invitation — {{CITY_NAME}} Launch
+
+Hi {{LastName}},
+
+We’re launching Ultima Defensa Legal in {{CITY_NAME}} — a bilingual, city-focused platform connecting local families to local attorneys. 
+Founding Attorneys receive first-year pricing ($99/mo), priority placement, and a “Founding Attorney” badge.
+
+No fee-splitting. We’re not a law firm — this is advertising & tech access only.
+
+Would you like one of the {{CITY_NAME}} founding slots? 
+If yes, pick your plan here: https://yourdomain.com/attorney-pricing.html
+
+— UDL Team
+support@ultimadefensalegal.com</pre>
+
+    <h2>Phone Script</h2>
+    <pre>Hello, this is {{AgentName}} with Ultima Defensa Legal. May I speak with {{AttorneyName}}?
+
+We’re opening {{CITY_NAME}} with a limited number of Founding Attorney spots. 
+It’s a bilingual, city-specific directory + lead inbox. No fee sharing; it’s advertising access only.
+Founding rate is $99/mo for the first year with priority placement.
+
+Would you like me to text or email the sign-up link? (attorney-pricing.html)</pre>
+
+    <h2>Community Webinar Invite (for attorneys)</h2>
+    <pre>Subject: Be Featured: Know Your Rights — {{CITY_NAME}} Community Webinar
+
+We host bilingual “Know Your Rights” webinars for {{CITY_NAME}}. 
+Founding Attorneys can be featured, with top-of-city placement and analytics. Interested? 
+Reply with your practice area and availability.</pre>
+  </section>
+
+  <section class="es">
+    <h2>Email — Alcance en Frío</h2>
+    <pre>Asunto: Invitación Abogado Fundador — Lanzamiento en {{CITY_NAME}}
+
+Hola {{Apellido}},
+
+Estamos lanzando Ultima Defensa Legal en {{CITY_NAME}} — una plataforma bilingüe, enfocada por ciudad, que conecta familias locales con abogados locales.
+Los Abogados Fundadores reciben precio del primer año ($99/mes), posición prioritaria y la insignia “Abogado Fundador”.
+
+No hay reparto de honorarios. No somos bufete — es acceso de publicidad y tecnología.
+
+¿Le interesa uno de los cupos fundadores de {{CITY_NAME}}?
+Si es así, elija su plan aquí: https://yourdomain.com/attorney-pricing.html
+
+— Equipo UDL
+support@ultimadefensalegal.com</pre>
+
+    <h2>Guion Telefónico</h2>
+    <pre>Hola, soy {{Agente}} de Ultima Defensa Legal. ¿Puedo hablar con {{Abogado}}?
+
+Abrimos {{CITY_NAME}} con cupos limitados para Abogados Fundadores.
+Es un directorio y bandeja de leads bilingüe por ciudad. Sin reparto de honorarios; solo acceso publicitario.
+La tarifa de fundador es $99/mes el primer año con posición prioritaria.
+
+¿Le envío por texto o email el enlace de registro? (attorney-pricing.html)</pre>
+
+    <h2>Invitación a Webinar Comunitario</h2>
+    <pre>Asunto: Sea Ponente: Conozca Sus Derechos — Webinar en {{CITY_NAME}}
+
+Realizamos webinars bilingües “Conozca Sus Derechos” para {{CITY_NAME}}.
+Los Abogados Fundadores pueden ser ponentes, con posición superior en la ciudad y analítica. ¿Interesado?
+Responda con su área de práctica y disponibilidad.</pre>
+  </section>
+</div>
+</body>
+</html>
