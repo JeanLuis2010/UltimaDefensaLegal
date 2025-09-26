@@ -1,224 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>For Attorneys — Plans & Pricing | UltimaDefenseLegal</title>
-<meta name="description" content="Join UltimaDefenseLegal. Attorney plans with set timeframes, bilingual intake, and lead delivery. No monthly billing — quarterly or annual.">
-<link rel="canonical" href="https://ultimadefensalegal.com/attorney-pricing.html">
-<link rel="alternate" href="https://ultimadefensalegal.com/attorney-pricing.html?lang=en" hreflang="en">
-<link rel="alternate" href="https://ultimadefensalegal.com/attorney-pricing.html?lang=es" hreflang="es">
-<link rel="alternate" href="https://ultimadefensalegal.com/attorney-pricing.html" hreflang="x-default">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Attorney Plans | Ultima Defensa Legal</title>
 <style>
-:root{--ink:#111827;--bg:#f7f8fb;--card:#fff;--ring:#e6e9ef;--blue:#0b2a4a;--red:#e01e24;--green:#0a7a3f;--max:1100px}
-*{box-sizing:border-box}html,body{margin:0}
-body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
-header{background:var(--blue);color:#fff;border-bottom:2px solid #0a2745}
-.nav-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:10px}
-.nav-links{display:flex;gap:14px;flex-wrap:wrap}
-.nav a{color:#fff;text-decoration:none;font-weight:600}
-.lang button{border:2px solid #fff;background:transparent;color:#fff;border-radius:12px;padding:6px 10px;font-weight:700;cursor:pointer}
-.lang button[aria-current="true"]{background:#fff;color:var(--blue)}
-.hero{background:linear-gradient(135deg,#102a43,#1b3760,#aa1d22);color:#fff}
-.hero .wrap{padding:36px 16px}
-.hero h1{margin:.2rem 0}
-.hero p{opacity:.95;max-width:800px}
-.section{padding:20px 16px}
-.grid{display:grid;gap:16px}
-@media(min-width:760px){.grid.cards{grid-template-columns:repeat(3,1fr)}}
-.card{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:16px;display:flex;flex-direction:column}
-.badge{display:inline-block;background:#f1f5f9;color:#0b2a4a;border:1px solid #dce3ee;border-radius:999px;padding:4px 10px;font-size:.8rem;font-weight:700;margin-bottom:8px}
-.price{font-size:1.6rem;font-weight:800;margin:.25rem 0}
-.small{color:#6b7280;font-size:.9rem}
-.features{margin:.5rem 0 1rem 0;padding-left:18px}
-.btn{margin-top:auto;padding:.8rem 1rem;border-radius:12px;border:0;font-weight:800;cursor:pointer}
-.btn.primary{background:var(--red);color:#fff}
-.note{background:#fff;border-left:4px solid #0b2a4a;border:1px solid #e6e9ef;border-radius:12px;padding:12px;margin-top:10px}
-footer{background:var(--blue);color:#fff;border-top:1px solid #0a2745}
-footer .wrap{padding:14px 16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-footer a{color:#fff}
-.footer-links{display:flex;gap:12px;flex-wrap:wrap}
-.cookie-link{cursor:pointer;text-decoration:underline}
+  :root { --bg:#f9fafb; --ink:#0f172a; --brand:#0f766e; --panel:#ffffff; --muted:#475569;}
+  *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+  header,footer{background:#1e293b;color:#fff;text-align:center;padding:1rem 1.25rem}
+  .wrap{max-width:1100px;margin:2rem auto;padding:0 1rem}
+  h1,h2{margin:0.25rem 0}
+  .lang{ text-align:right; margin:0 0 1rem 0;}
+  .lang a{color:#1e293b; text-decoration:none; margin-left:8px}
+  .grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .card{background:var(--panel);border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.07);padding:1.25rem}
+  .price{font-size:2rem;font-weight:700;color:var(--brand)}
+  ul{padding-left:1.1rem}
+  .cta{display:block;text-align:center;background:var(--brand);color:#fff;padding:.9rem 1.1rem;border-radius:8px;
+       text-decoration:none;font-weight:700;margin-top:1rem}
+  .note{color:var(--muted);font-size:.95rem;margin-top:.75rem}
+  .badge{display:inline-block;background:#e2e8f0;color:#0f172a;font-weight:700;border-radius:9999px;padding:.25rem .6rem;margin-bottom:.6rem}
+  .es{display:none}
 </style>
+<script>
+  function toggleLang(lang){
+    document.querySelectorAll('.en').forEach(e=>e.style.display=lang==='en'?'block':'none');
+    document.querySelectorAll('.es').forEach(e=>e.style.display=lang==='es'?'block':'none');
+  }
+  function pay(planId,billing){ 
+    // Leave processor-agnostic. You’ll wire this to Square/PayPal later.
+    alert('Pay clicked for plan: '+planId+' ('+billing+')');
+  }
+</script>
 </head>
-<body>
+<body onload="toggleLang('en')">
 <header>
-  <div class="wrap nav-row">
-    <div class="brand" style="font-weight:800">UltimaDefenseLegal</div>
-    <nav class="nav-links">
-      <a href="index.html" data-i18n="nav_home">Home</a>
-      <a href="client-pricing.html" data-i18n="nav_clients">For Clients</a>
-      <a href="attorney-pricing.html" data-i18n="nav_attorneys" aria-current="page">For Attorneys</a>
-      <a href="contact.html" data-i18n="nav_contact">Contact</a>
-    </nav>
-    <div class="lang">
-      <button data-lang="en" aria-current="true">EN</button>
-      <button data-lang="es">ES</button>
-    </div>
-  </div>
+  <h1>Ultima Defensa Legal</h1>
 </header>
 
-<section class="hero">
-  <div class="wrap">
-    <h1 data-i18n="hero_h1">Attorney Plans — Set Terms, Clear Value</h1>
-    <p data-i18n="hero_p">Join our bilingual intake and rapid-connect system. No monthly billing — choose a 3-month commitment or annual enrollment. “Pay” buttons use our secure checkout (no processor name shown).</p>
+<div class="wrap">
+  <div class="lang">
+    <a href="#" onclick="toggleLang('en')">English</a> | 
+    <a href="#" onclick="toggleLang('es')">Español</a>
   </div>
-</section>
 
-<main>
-  <section class="section">
-    <div class="wrap">
-      <div class="grid cards">
-        <!-- Local -->
-        <article class="card">
-          <span class="badge" data-i18n="badge_local">Local Coverage</span>
-          <h2 data-i18n="plan_local">Local</h2>
-          <p class="small" data-i18n="local_scope">Focused intake for your primary service area.</p>
-          <div class="price">$599 <span class="small" data-i18n="per_quarter">/ 3 months</span></div>
-          <div class="small">$1,999 <span data-i18n="per_year">/ year</span></div>
-          <ul class="features">
-            <li data-i18n="f_bilingual">Bilingual intake (EN/ES)</li>
-            <li data-i18n="f_leads">Qualified lead delivery</li>
-            <li data-i18n="f_dashboard">Attorney dashboard & updates</li>
-            <li data-i18n="f_support">Priority support</li>
-          </ul>
-          <a class="btn primary" href="#" data-plan="local_q" data-i18n="btn_pay_q">Pay (3 months)</a>
-          <a class="btn" style="background:#f1f5f9" href="#" data-plan="local_y" data-i18n="btn_pay_y">Pay (Annual)</a>
-        </article>
+  <section class="en">
+    <h2>Attorney Plans (City Launch)</h2>
+    <p class="note">Advertising & listing access only. We are <strong>not</strong> a law firm. One free or reduced consult minimum per month recommended.</p>
+  </section>
+  <section class="es">
+    <h2>Planes para Abogados (Lanzamiento por Ciudad)</h2>
+    <p class="note">Acceso de publicidad y directorio. <strong>No</strong> somos un bufete. Se recomienda mínimo una consulta gratis o con descuento por mes.</p>
+  </section>
 
-        <!-- Expanded -->
-        <article class="card">
-          <span class="badge" data-i18n="badge_best">Most Popular</span>
-          <h2 data-i18n="plan_expanded">Expanded</h2>
-          <p class="small" data-i18n="expanded_scope">Wider intake footprint with higher volume.</p>
-          <div class="price">$1,499 <span class="small">/ 3 months</span></div>
-          <div class="small">$4,999 / year</div>
-          <ul class="features">
-            <li data-i18n="f_bilingual">Bilingual intake (EN/ES)</li>
-            <li data-i18n="f_leads_plus">Priority lead routing</li>
-            <li data-i18n="f_dashboard">Attorney dashboard & updates</li>
-            <li data-i18n="f_spotlight">Featured listing placement</li>
-          </ul>
-          <a class="btn primary" href="#" data-plan="exp_q" data-i18n="btn_pay_q">Pay (3 months)</a>
-          <a class="btn" style="background:#f1f5f9" href="#" data-plan="exp_y" data-i18n="btn_pay_y">Pay (Annual)</a>
-        </article>
-
-        <!-- Statewide -->
-        <article class="card">
-          <span class="badge" data-i18n="badge_state">Statewide</span>
-          <h2 data-i18n="plan_state">Statewide</h2>
-          <p class="small" data-i18n="state_scope">Maximum coverage across the state.</p>
-          <div class="price">$2,999 <span class="small">/ 3 months</span></div>
-          <div class="small">$9,999 / year</div>
-          <ul class="features">
-            <li data-i18n="f_bilingual">Bilingual intake (EN/ES)</li>
-            <li data-i18n="f_leads_premium">Top-tier lead routing</li>
-            <li data-i18n="f_dashboard">Attorney dashboard & updates</li>
-            <li data-i18n="f_priority">Spotlight placement & dedicated line</li>
-          </ul>
-          <a class="btn primary" href="#" data-plan="state_q" data-i18n="btn_pay_q">Pay (3 months)</a>
-          <a class="btn" style="background:#f1f5f9" href="#" data-plan="state_y" data-i18n="btn_pay_y">Pay (Annual)</a>
-        </article>
-      </div>
-
-      <div class="note">
-        <strong data-i18n="note_title">Notes:</strong>
-        <ul class="small" style="margin:6px 0 0 18px">
-          <li data-i18n="note_no_monthly">No monthly billing. Plans are 3-month or annual.</li>
-          <li data-i18n="note_checkout">Checkout buttons display “Pay” only; no processor branding.</li>
-          <li data-i18n="note_terms">Enrollment subject to verification and <a href="terms.html" style="color:#0b2a4a;text-decoration:underline">Terms</a>. We are not a law firm.</li>
+  <div class="grid">
+    <div class="card">
+      <div class="en">
+        <span class="badge">Founding Offer</span>
+        <h3>Basic</h3>
+        <div class="price">$99<span style="font-size:0.7em">/mo</span></div>
+        <ul>
+          <li>Verified city listing</li>
+          <li>Lead inbox & email alerts</li>
+          <li>“Founding Attorney” badge (first 12 months)</li>
         </ul>
+        <a class="cta" href="#" onclick="pay('basic','monthly')">Pay</a>
+      </div>
+      <div class="es">
+        <span class="badge">Oferta de Lanzamiento</span>
+        <h3>Básico</h3>
+        <div class="price">$99<span style="font-size:0.7em">/mes</span></div>
+        <ul>
+          <li>Listado verificado por ciudad</li>
+          <li>Bandeja de leads y alertas por email</li>
+          <li>Insignia “Abogado Fundador” (12 meses)</li>
+        </ul>
+        <a class="cta" href="#" onclick="pay('basic','monthly')">Pagar</a>
       </div>
     </div>
-  </section>
-</main>
+
+    <div class="card">
+      <div class="en">
+        <h3>Standard</h3>
+        <div class="price">$149<span style="font-size:0.7em">/mo</span></div>
+        <ul>
+          <li>All Basic features</li>
+          <li>Priority placement in city/category</li>
+          <li>Bilingual intake routing</li>
+        </ul>
+        <a class="cta" href="#" onclick="pay('standard','monthly')">Pay</a>
+      </div>
+      <div class="es">
+        <h3>Estándar</h3>
+        <div class="price">$149<span style="font-size:0.7em">/mes</span></div>
+        <ul>
+          <li>Todo lo del Básico</li>
+          <li>Posición prioritaria en ciudad/categoría</li>
+          <li>Enrutamiento bilingüe de intake</li>
+        </ul>
+        <a class="cta" href="#" onclick="pay('standard','monthly')">Pagar</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="en">
+        <h3>Premium</h3>
+        <div class="price">$199<span style="font-size:0.7em">/mo</span></div>
+        <ul>
+          <li>Top-of-city placement</li>
+          <li>Monthly analytics report</li>
+          <li>Community webinar spotlight</li>
+        </ul>
+        <a class="cta" href="#" onclick="pay('premium','monthly')">Pay</a>
+        <p class="note">Annual prepay: save 15% — ask support to enable.</p>
+      </div>
+      <div class="es">
+        <h3>Premium</h3>
+        <div class="price">$199<span style="font-size:0.7em">/mes</span></div>
+        <ul>
+          <li>Posición superior en la ciudad</li>
+          <li>Reporte mensual de analítica</li>
+          <li>Destacado en webinar comunitario</li>
+        </ul>
+        <a class="cta" href="#" onclick="pay('premium','monthly')">Pagar</a>
+        <p class="note">Prepago anual: ahorra 15% — solicítelo a soporte.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="en note" style="margin-top:1rem">
+    Questions? See <a href="attorney-faq.html">Attorney FAQ</a> and <a href="attorney-terms.html">Advertising & Listing Terms</a>.
+  </div>
+  <div class="es note" style="margin-top:1rem">
+    ¿Preguntas? Vea <a href="attorney-faq.html">Preguntas Frecuentes</a> y <a href="attorney-terms.html">Términos de Publicidad y Directorio</a>.
+  </div>
+</div>
 
 <footer>
-  <div class="wrap">
-    <small>© 2025 UltimaDefenseLegal</small>
-    <div class="footer-links">
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="refunds.html">Refunds</a>
-      <a href="cookie-policy.html">Cookie Policy</a>
-      <a class="cookie-link" id="openPrefs">Cookie Settings</a>
-      <a href="data-requests.html#dns">Do-Not-Sell/Share</a>
-      <a href="accessibility.html">Accessibility</a>
-      <a href="security.html">Security</a>
-    </div>
-  </div>
+  <small>&copy; 2025 Ultima Defensa Legal</small>
 </footer>
-
-<script>
-/*** CONFIG ***/
-const PRELAUNCH = true; // set false when checkout links are live
-const LINKS = {
-  // Replace these with your real checkout URLs when ready
-  local_q:"#", local_y:"#",
-  exp_q:"#",   exp_y:"#",
-  state_q:"#", state_y:"#"
-};
-
-/*** i18n ***/
-const T = {
-  en:{nav_home:"Home",nav_clients:"For Clients",nav_attorneys:"For Attorneys",nav_contact:"Contact",
-      hero_h1:"Attorney Plans — Set Terms, Clear Value",
-      hero_p:"Join our bilingual intake and rapid-connect system. No monthly billing — choose a 3-month commitment or annual enrollment. “Pay” buttons use our secure checkout (no processor name shown).",
-      badge_local:"Local Coverage", plan_local:"Local", local_scope:"Focused intake for your primary service area.",
-      badge_best:"Most Popular", plan_expanded:"Expanded", expanded_scope:"Wider intake footprint with higher volume.",
-      badge_state:"Statewide", plan_state:"Statewide", state_scope:"Maximum coverage across the state.",
-      f_bilingual:"Bilingual intake (EN/ES)", f_leads:"Qualified lead delivery", f_leads_plus:"Priority lead routing",
-      f_leads_premium:"Top-tier lead routing", f_dashboard:"Attorney dashboard & updates",
-      f_spotlight:"Featured listing placement", f_priority:"Spotlight placement & dedicated line",
-      per_quarter:"/ 3 months", per_year:"/ year",
-      btn_pay_q:"Pay (3 months)", btn_pay_y:"Pay (Annual)",
-      note_title:"Notes:", note_no_monthly:"No monthly billing. Plans are 3-month or annual.",
-      note_checkout:"Checkout buttons display “Pay” only; no processor branding.",
-      note_terms:"Enrollment subject to verification and <a href='terms.html' style='color:#0b2a4a;text-decoration:underline'>Terms</a>. We are not a law firm."},
-  es:{nav_home:"Inicio",nav_clients:"Para Clientes",nav_attorneys:"Para Abogados",nav_contact:"Contacto",
-      hero_h1:"Planes para Abogados — Plazos Claros, Valor Claro",
-      hero_p:"Únete a nuestra recepción bilingüe y conexión rápida. Sin facturación mensual — elige compromiso de 3 meses o anual. Los botones dicen “Pagar” sin mostrar el procesador.",
-      badge_local:"Cobertura Local", plan_local:"Local", local_scope:"Recepción enfocada en tu zona principal.",
-      badge_best:"Más Popular", plan_expanded:"Ampliado", expanded_scope:"Alcance mayor con más volumen.",
-      badge_state:"Estatal", plan_state:"Estatal", state_scope:"Cobertura máxima en todo el estado.",
-      f_bilingual:"Recepción bilingüe (EN/ES)", f_leads:"Entrega de clientes potenciales calificados",
-      f_leads_plus:"Enrutamiento prioritario de clientes", f_leads_premium:"Enrutamiento de nivel superior",
-      f_dashboard:"Panel del abogado y actualizaciones", f_spotlight:"Ubicación destacada en el listado",
-      f_priority:"Ubicación destacada y línea dedicada",
-      per_quarter:"/ 3 meses", per_year:"/ año",
-      btn_pay_q:"Pagar (3 meses)", btn_pay_y:"Pagar (Anual)",
-      note_title:"Notas:", note_no_monthly:"Sin mensualidad. Planes de 3 meses o anuales.",
-      note_checkout:"Los botones de pago muestran “Pagar” sin la marca del procesador.",
-      note_terms:"Inscripción sujeta a verificación y <a href='terms.html' style='color:#0b2a4a;text-decoration:underline'>Términos</a>. No somos un bufete."}
-};
-const getLang=()=>localStorage.getItem("udl-lang")||"en";
-const setLang=(l)=>{localStorage.setItem("udl-lang",l);applyI18n();};
-function t(k){const L=T[getLang()]||T.en; return L[k]||k;}
-function applyI18n(){document.documentElement.lang=getLang(); document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.getAttribute("data-i18n"); if(T[getLang()][k]) el.innerHTML=T[getLang()][k];});}
-
-/*** CONSENT: stub (optional banner is on other pages). Keep link working. ***/
-document.getElementById("openPrefs")?.addEventListener("click",()=>alert("Open cookie preferences (available on main pages)."));
-
-/*** NAV LANG TOGGLE ***/
-document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-lang]").forEach(x=>x.removeAttribute("aria-current")); b.setAttribute("aria-current","true"); setLang(b.getAttribute("data-lang"));}));
-
-/*** PLAN LINKS ***/
-document.querySelectorAll("[data-plan]").forEach(a=>{
-  a.addEventListener("click",(e)=>{
-    if(PRELAUNCH || !LINKS[a.dataset.plan] || LINKS[a.dataset.plan]==="#"){
-      e.preventDefault();
-      alert(getLang()==="es" ? "Las inscripciones se abrirán pronto. Gracias por tu interés." : "Enrollment opens soon. Thank you for your interest.");
-    } else {
-      a.href = LINKS[a.dataset.plan];
-    }
-  });
-});
-
-/*** INIT ***/
-applyI18n();
-</script>
 </body>
 </html>
