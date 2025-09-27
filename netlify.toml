@@ -1,12 +1,13 @@
+# Netlify config for UDL
 [build]
-  publish = "public"
-  command = "npm run build"
+  # Static HTML site (no build step)
+  publish = "."
 
 # ==============================
-# Redirects
+# Redirects (friendly URLs + legacy fixes)
 # ==============================
 
-# Global city naming consistency
+# NYC naming consistency
 [[redirects]]
   from = "/nyc-attorneys"
   to = "/newyork-attorneys.html"
@@ -17,52 +18,84 @@
   to = "/newyork-abogados.html"
   status = 301
 
-[[redirects]]
-  from = "/philadelphia-attorney.html"
-  to = "/philadelphia-attorneys.html"
-  status = 301
-
-# Convenience: drop .html extension
-[[redirects]]
-  from = "/chicago-attorneys"
-  to = "/chicago-attorneys.html"
-  status = 301
-
-[[redirects]]
-  from = "/chicago-abogados"
-  to = "/chicago-abogados.html"
-  status = 301
-
-[[redirects]]
+# Convenience: allow URLs without .html
+[[redirects]]  # New York
   from = "/newyork-attorneys"
   to = "/newyork-attorneys.html"
   status = 301
-
 [[redirects]]
   from = "/newyork-abogados"
   to = "/newyork-abogados.html"
   status = 301
 
-[[redirects]]
+[[redirects]]  # Miami
   from = "/miami-attorneys"
   to = "/miami-attorneys.html"
   status = 301
-
 [[redirects]]
   from = "/miami-abogados"
   to = "/miami-abogados.html"
   status = 301
 
+[[redirects]]  # Philadelphia (legacy singular -> plural)
+  from = "/philadelphia-attorney.html"
+  to = "/philadelphia-attorneys.html"
+  status = 301
 [[redirects]]
   from = "/philadelphia-attorneys"
   to = "/philadelphia-attorneys.html"
   status = 301
-
 [[redirects]]
   from = "/philadelphia-abogados"
   to = "/philadelphia-abogados.html"
   status = 301
 
-[[redirects]]
+[[redirects]]  # Newark
   from = "/newark-attorneys"
-  to = "/
+  to = "/newark-attorneys.html"
+  status = 301
+[[redirects]]
+  from = "/newark-abogados"
+  to = "/newark-abogados.html"
+  status = 301
+
+[[redirects]]  # Chicago
+  from = "/chicago-attorneys"
+  to = "/chicago-attorneys.html"
+  status = 301
+[[redirects]]
+  from = "/chicago-abogados"
+  to = "/chicago-abogados.html"
+  status = 301
+
+# Optional: custom 404 page if you add /404.html later
+# [[redirects]]
+#   from = "/*"
+#   to = "/404.html"
+#   status = 404
+
+# ==============================
+# Security & caching headers
+# ==============================
+
+# Security defaults for all routes
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy = "default-src 'self' https:; img-src 'self' https: data:; script-src 'self' https:'unsafe-inline'; style-src 'self' https:'unsafe-inline'; frame-ancestors 'self';"
+
+# Cache static assets aggressively
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache HTML lightly so updates show quickly
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
