@@ -1,7 +1,68 @@
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self' https: data: blob:; img-src 'self' https: data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https:;"
+[build]
+  publish = "public"
+  command = "npm run build"
+
+# ==============================
+# Redirects
+# ==============================
+
+# Global city naming consistency
+[[redirects]]
+  from = "/nyc-attorneys"
+  to = "/newyork-attorneys.html"
+  status = 301
+
+[[redirects]]
+  from = "/nyc-abogados"
+  to = "/newyork-abogados.html"
+  status = 301
+
+[[redirects]]
+  from = "/philadelphia-attorney.html"
+  to = "/philadelphia-attorneys.html"
+  status = 301
+
+# Convenience: drop .html extension
+[[redirects]]
+  from = "/chicago-attorneys"
+  to = "/chicago-attorneys.html"
+  status = 301
+
+[[redirects]]
+  from = "/chicago-abogados"
+  to = "/chicago-abogados.html"
+  status = 301
+
+[[redirects]]
+  from = "/newyork-attorneys"
+  to = "/newyork-attorneys.html"
+  status = 301
+
+[[redirects]]
+  from = "/newyork-abogados"
+  to = "/newyork-abogados.html"
+  status = 301
+
+[[redirects]]
+  from = "/miami-attorneys"
+  to = "/miami-attorneys.html"
+  status = 301
+
+[[redirects]]
+  from = "/miami-abogados"
+  to = "/miami-abogados.html"
+  status = 301
+
+[[redirects]]
+  from = "/philadelphia-attorneys"
+  to = "/philadelphia-attorneys.html"
+  status = 301
+
+[[redirects]]
+  from = "/philadelphia-abogados"
+  to = "/philadelphia-abogados.html"
+  status = 301
+
+[[redirects]]
+  from = "/newark-attorneys"
+  to = "/
