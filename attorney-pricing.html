@@ -1,143 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Attorney Plans | Ultima Defensa Legal</title>
-<style>
-  :root { --bg:#f9fafb; --ink:#0f172a; --brand:#0f766e; --panel:#ffffff; --muted:#475569;}
-  *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
-  header,footer{background:#1e293b;color:#fff;text-align:center;padding:1rem 1.25rem}
-  .wrap{max-width:1100px;margin:2rem auto;padding:0 1rem}
-  h1,h2{margin:0.25rem 0}
-  .lang{ text-align:right; margin:0 0 1rem 0;}
-  .lang a{color:#1e293b; text-decoration:none; margin-left:8px}
-  .grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-  .card{background:var(--panel);border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.07);padding:1.25rem}
-  .price{font-size:2rem;font-weight:700;color:var(--brand)}
-  ul{padding-left:1.1rem}
-  .cta{display:block;text-align:center;background:var(--brand);color:#fff;padding:.9rem 1.1rem;border-radius:8px;
-       text-decoration:none;font-weight:700;margin-top:1rem}
-  .note{color:var(--muted);font-size:.95rem;margin-top:.75rem}
-  .badge{display:inline-block;background:#e2e8f0;color:#0f172a;font-weight:700;border-radius:9999px;padding:.25rem .6rem;margin-bottom:.6rem}
-  .es{display:none}
-</style>
-<script>
-  function toggleLang(lang){
-    document.querySelectorAll('.en').forEach(e=>e.style.display=lang==='en'?'block':'none');
-    document.querySelectorAll('.es').forEach(e=>e.style.display=lang==='es'?'block':'none');
-  }
-  function pay(planId,billing){ 
-    // Leave processor-agnostic. You’ll wire this to Square/PayPal later.
-    alert('Pay clicked for plan: '+planId+' ('+billing+')');
-  }
-</script>
+  <meta charset="utf-8" />
+  <title>Attorney Pricing | Ultima Defensa Legal</title>
+  <meta name="description" content="Founding attorney pricing and ongoing network plans." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link id="canonical-link" rel="canonical" href="" />
+  <link rel="stylesheet" href="/style.css" />
+  <script>(function(){var u=location.origin+location.pathname;var c=document.getElementById('canonical-link');if(c)c.href=u;})();</script>
 </head>
-<body onload="toggleLang('en')">
-<header>
-  <h1>Ultima Defensa Legal</h1>
+<body>
+<header class="udl-header">
+  <nav class="udl-topnav">
+    <a href="/" class="brand">Ultima Defensa Legal</a>
+    <div class="udl-lang-toggle" style="margin-left:auto;display:flex;gap:.5rem;">
+      <a class="toggle-en" data-lang="en" href="#">EN</a>
+      <a class="toggle-es" data-lang="es" href="#">ES</a>
+    </div>
+  </nav>
 </header>
 
-<div class="wrap">
-  <div class="lang">
-    <a href="#" onclick="toggleLang('en')">English</a> | 
-    <a href="#" onclick="toggleLang('es')">Español</a>
-  </div>
+<main class="container">
+  <h1>Attorney Pricing</h1>
+  <ul>
+    <li>Founding Plan: $100/mo (90 days)</li>
+    <li>Bridge Plan: $325/mo (optional extension 90 days)</li>
+    <li>Standard Plan: $499/mo</li>
+  </ul>
+</main>
 
-  <section class="en">
-    <h2>Attorney Plans (City Launch)</h2>
-    <p class="note">Advertising & listing access only. We are <strong>not</strong> a law firm. One free or reduced consult minimum per month recommended.</p>
-  </section>
-  <section class="es">
-    <h2>Planes para Abogados (Lanzamiento por Ciudad)</h2>
-    <p class="note">Acceso de publicidad y directorio. <strong>No</strong> somos un bufete. Se recomienda mínimo una consulta gratis o con descuento por mes.</p>
-  </section>
-
-  <div class="grid">
-    <div class="card">
-      <div class="en">
-        <span class="badge">Founding Offer</span>
-        <h3>Basic</h3>
-        <div class="price">$99<span style="font-size:0.7em">/mo</span></div>
-        <ul>
-          <li>Verified city listing</li>
-          <li>Lead inbox & email alerts</li>
-          <li>“Founding Attorney” badge (first 12 months)</li>
-        </ul>
-        <a class="cta" href="#" onclick="pay('basic','monthly')">Pay</a>
-      </div>
-      <div class="es">
-        <span class="badge">Oferta de Lanzamiento</span>
-        <h3>Básico</h3>
-        <div class="price">$99<span style="font-size:0.7em">/mes</span></div>
-        <ul>
-          <li>Listado verificado por ciudad</li>
-          <li>Bandeja de leads y alertas por email</li>
-          <li>Insignia “Abogado Fundador” (12 meses)</li>
-        </ul>
-        <a class="cta" href="#" onclick="pay('basic','monthly')">Pagar</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="en">
-        <h3>Standard</h3>
-        <div class="price">$149<span style="font-size:0.7em">/mo</span></div>
-        <ul>
-          <li>All Basic features</li>
-          <li>Priority placement in city/category</li>
-          <li>Bilingual intake routing</li>
-        </ul>
-        <a class="cta" href="#" onclick="pay('standard','monthly')">Pay</a>
-      </div>
-      <div class="es">
-        <h3>Estándar</h3>
-        <div class="price">$149<span style="font-size:0.7em">/mes</span></div>
-        <ul>
-          <li>Todo lo del Básico</li>
-          <li>Posición prioritaria en ciudad/categoría</li>
-          <li>Enrutamiento bilingüe de intake</li>
-        </ul>
-        <a class="cta" href="#" onclick="pay('standard','monthly')">Pagar</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="en">
-        <h3>Premium</h3>
-        <div class="price">$199<span style="font-size:0.7em">/mo</span></div>
-        <ul>
-          <li>Top-of-city placement</li>
-          <li>Monthly analytics report</li>
-          <li>Community webinar spotlight</li>
-        </ul>
-        <a class="cta" href="#" onclick="pay('premium','monthly')">Pay</a>
-        <p class="note">Annual prepay: save 15% — ask support to enable.</p>
-      </div>
-      <div class="es">
-        <h3>Premium</h3>
-        <div class="price">$199<span style="font-size:0.7em">/mes</span></div>
-        <ul>
-          <li>Posición superior en la ciudad</li>
-          <li>Reporte mensual de analítica</li>
-          <li>Destacado en webinar comunitario</li>
-        </ul>
-        <a class="cta" href="#" onclick="pay('premium','monthly')">Pagar</a>
-        <p class="note">Prepago anual: ahorra 15% — solicítelo a soporte.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="en note" style="margin-top:1rem">
-    Questions? See <a href="attorney-faq.html">Attorney FAQ</a> and <a href="attorney-terms.html">Advertising & Listing Terms</a>.
-  </div>
-  <div class="es note" style="margin-top:1rem">
-    ¿Preguntas? Vea <a href="attorney-faq.html">Preguntas Frecuentes</a> y <a href="attorney-terms.html">Términos de Publicidad y Directorio</a>.
-  </div>
-</div>
-
-<footer>
-  <small>&copy; 2025 Ultima Defensa Legal</small>
-</footer>
+<footer class="udl-footer"><p class="small">© Ultima Defensa Legal.</p></footer>
+<script src="/shared-udl.js"></script>
 </body>
 </html>
