@@ -1,0 +1,54 @@
+{
+  "+12159536694": {
+    "city": "Philadelphia, PA",
+    "timezone": "America/New_York",
+    "targets": [
+      { "type": "phone", "value": "+12150000001", "priority": 1 },
+      { "type": "phone", "value": "+12150000002", "priority": 2 }
+    ]
+  },
+  "+16468469664": {
+    "city": "New York, NY",
+    "timezone": "America/New_York",
+    "targets": [
+      { "type": "phone", "value": "+12120000001", "priority": 1 },
+      { "type": "phone", "value": "+17180000002", "priority": 2 }
+    ]
+  },
+  "+17863212961": {
+    "city": "Miami, FL",
+    "timezone": "America/New_York",
+    "targets": [
+      { "type": "phone", "value": "+13050000001", "priority": 1 }
+    ]
+  },
+  "+13127785885": {
+    "city": "Chicago, IL",
+    "timezone": "America/Chicago",
+    "targets": [
+      { "type": "phone", "value": "+13120000001", "priority": 1 },
+      { "type": "phone", "value": "+17730000002", "priority": 2 }
+    ]
+  },
+  "+12029536694": {
+    "city": "Washington, DC",
+    "timezone": "America/New_York",
+    "targets": [
+      { "type": "phone", "value": "+12020000001", "priority": 1 }
+    ]
+  },
+  "+16177659946": {
+    "city": "Boston, MA",
+    "timezone": "America/New_York",
+    "targets": [
+      { "type": "phone", "value": "+16170000001", "priority": 1 }
+    ]
+  },
+  "+13214150668": {
+    "city": "Orlando, FL",
+    "timezone": "America/New_York",
+    "targets": [
+      { "type": "phone", "value": "+14070000001", "priority": 1 }
+    ]
+  }
+}
