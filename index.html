@@ -1,83 +1,42 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ultima Defensa Legal — Conexión legal bilingüe</title>
-  <link rel="stylesheet" href="/style.css">
-  <script src="/shared-udl.js" defer></script>
+  <title>Ultima Defensa Legal — Local Attorneys, Fast Connection</title>
+  <meta name="description" content="We connect members to independent local attorneys. English/Spanish. East Coast + Chicago." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link id="canonical-link" rel="canonical" href="" />
+  <link rel="stylesheet" href="/style.css" />
+  <script>
+    (function(){var u=location.origin+location.pathname;var c=document.getElementById('canonical-link');if(c)c.href=u;})();
+  </script>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <nav>
-      <a href="/index.html">Ultima Defensa Legal</a>
-      <div class="lang-switch">
-        <button type="button" data-setlang="en" onclick="setLang('en')">EN</button>
-        <button type="button" data-setlang="es" onclick="setLang('es')">ES</button>
-      </div>
-    </nav>
-  </div>
+<header class="udl-header">
+  <nav class="udl-topnav">
+    <a href="/" class="brand">Ultima Defensa Legal</a>
+    <div class="udl-lang-toggle" style="margin-left:auto;display:flex;gap:.5rem;">
+      <a class="toggle-en" data-lang="en" href="#" aria-label="Switch to English">EN</a>
+      <a class="toggle-es" data-lang="es" href="#" aria-label="Cambiar a español">ES</a>
+    </div>
+  </nav>
 </header>
-<section class="hero">
-  <div class="wrap">
-    <h1 data-lang="en">Bilingual legal connection — fast.</h1>
-    <h1 data-lang="es">Conexión legal bilingüe — rápido.</h1>
-    <p data-lang="en">We connect members with independent, licensed attorneys. We are not a law firm.</p>
-    <p data-lang="es">Conectamos a los miembros con abogados independientes con licencia. No somos un bufete.</p>
-    <p>
-      <a class="cta" href="#how" data-lang="en">How it works</a>
-      <a class="cta" href="#how" data-lang="es">Cómo funciona</a>
-    </p>
-  </div>
-</section>
-<main class="wrap">
-  <section id="how" class="cards">
-    <div class="card">
-      <h3 data-lang="en">For Clients</h3>
-      <h3 data-lang="es">Para Clientes</h3>
-      <p data-lang="en">Tell us the area of law and your location. We route you to an attorney who agreed to provide at least one free or discounted consultation to our members.</p>
-      <p data-lang="es">Indíquenos el área legal y su ubicación. Lo conectamos con un abogado que ofrece al menos una consulta gratuita o con descuento a nuestros miembros.</p>
-      <a class="pay" href="/clients.html" data-lang="en">View Plans</a>
-      <a class="pay" href="/clients.html" data-lang="es">Ver Planes</a>
-    </div>
-    <div class="card">
-      <h3 data-lang="en">For Attorneys</h3>
-      <h3 data-lang="es">Para Abogados</h3>
-      <p data-lang="en">Join our bilingual network. We deliver qualified prospects and panel updates in your dashboard.</p>
-      <p data-lang="es">Únase a nuestra red bilingüe. Entregamos prospectos calificados y actualizaciones en su panel.</p>
-      <a class="pay" href="/attorneys.html" data-lang="en">Plans & Details</a>
-      <a class="pay" href="/attorneys.html" data-lang="es">Planes y detalles</a>
-    </div>
-    <div class="card">
-      <h3 data-lang="en">Support</h3>
-      <h3 data-lang="es">Soporte</h3>
-      <p data-lang="en">Bilingual live support via phone and chat. Call center is being activated now.</p>
-      <p data-lang="es">Soporte bilingüe por teléfono y chat. Estamos activando el centro de llamadas.</p>
-      <a class="pay" href="/contact.html" data-lang="en">Contact us</a>
-      <a class="pay" href="/contact.html" data-lang="es">Contáctenos</a>
-    </div>
-  </section>
+
+<main class="container">
+  <h1>Bilingual legal connection — fast.</h1>
+  <p>Members get routed to independent local attorneys in minutes. No busy signals.</p>
+  <ul>
+    <li>English / Español</li>
+    <li>Local numbers per city</li>
+    <li>Criminal, Immigration, Family, Employment, Accidents</li>
+  </ul>
+  <p><a href="/attorneys.html" class="btn">Find Your City</a></p>
 </main>
-<section class="disclaimer">
-  <div class="wrap">
-    <p data-lang="es"><strong>Importante:</strong> Ultima Defensa Legal no es un bufete y no brinda asesoría legal. Conectamos a los miembros con abogados independientes con licencia. Las cuotas de membresía son por el acceso a nuestros servicios de admisión y conexión. Cualquier relación abogado–cliente es solo entre usted y el abogado.</p>
-    <p data-lang="en"><strong>Important:</strong> Ultima Defensa Legal is not a law firm and does not provide legal advice. We connect members with independent, licensed attorneys. Membership fees are for access to our intake and connection services. Any attorney–client relationship is solely between you and the attorney.</p>
-  </div>
-</section>
-<footer>
-  <div class="wrap" style="padding:18px 0;display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;align-items:center">
-    <small>© <span id="yr"></span> Ultima Defensa Legal</small>
-    <div style="display:flex;gap:14px">
-      <a href="/privacy.html" data-lang="en">Privacy</a>
-      <a href="/privacy.html" data-lang="es">Privacidad</a>
-      <a href="/terms.html" data-lang="en">Terms</a>
-      <a href="/terms.html" data-lang="es">Términos</a>
-      <a href="/contact.html" data-lang="en">Contact</a>
-      <a href="/contact.html" data-lang="es">Contacto</a>
-    </div>
-  </div>
+
+<footer class="udl-footer">
+  <p class="small">© Ultima Defensa Legal. Not a law firm. We connect clients with independent attorneys.</p>
 </footer>
-<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+
+<script src="/shared-udl.js"></script>
 </body>
 </html>
