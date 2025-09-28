@@ -1,147 +1,237 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Core site -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage -->
   <url>
     <loc>https://ultimadefensalegal.com/</loc>
-    <changefreq>daily</changefreq>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Call Center / How it works (EN/ES) -->
   <url>
-    <loc>https://ultimadefensalegal.com/index.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ultimadefensalegal.com/what-we-do</loc>
+    <loc>https://ultimadefensalegal.com/call-center.html</loc>
+    <lastmod>2025-09-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/call-center.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/centro-de-llamadas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ultimadefensalegal.com/call-center.html"/>
   </url>
   <url>
-    <loc>https://ultimadefensalegal.com/how.html</loc>
+    <loc>https://ultimadefensalegal.com/centro-de-llamadas.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/centro-de-llamadas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/call-center.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ultimadefensalegal.com/call-center.html"/>
+  </url>
+
+  <!-- Recording Notice (EN/ES) -->
+  <url>
+    <loc>https://ultimadefensalegal.com/call-recording-notice.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/call-recording-notice.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/aviso-grabacion-llamadas.html"/>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/aviso-grabacion-llamadas.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/aviso-grabacion-llamadas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/call-recording-notice.html"/>
+  </url>
+
+  <!-- Language Access (EN/ES) -->
+  <url>
+    <loc>https://ultimadefensalegal.com/language-access.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/language-access.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/acceso-de-idiomas.html"/>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/acceso-de-idiomas.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/acceso-de-idiomas.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/language-access.html"/>
+  </url>
+
+  <!-- Payments / Membership (EN) -->
+  <url>
+    <loc>https://ultimadefensalegal.com/client-pay.html</loc>
+    <lastmod>2025-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://ultimadefensalegal.com/pricing.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ultimadefensalegal.com/contact.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
 
-  <!-- Compliance & legal -->
-  <url>
-    <loc>https://ultimadefensalegal.com/terms.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.9</priority>
-  </url>
+  <!-- Legal / Privacy (EN) -->
   <url>
     <loc>https://ultimadefensalegal.com/privacy.html</loc>
+    <lastmod>2025-09-28</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ultimadefensalegal.com/cancellation.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://ultimadefensalegal.com/legal-notices.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ultimadefensalegal.com/compliance-notices.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ultimadefensalegal.com/accessibility.html</loc>
+    <lastmod>2025-09-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
+
+  <!-- City Pages (EN/ES) -->
+
+  <!-- New York -->
   <url>
-    <loc>https://ultimadefensalegal.com/pamphlet.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://ultimadefensalegal.com/newyork-attorneys.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/newyork-attorneys.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/newyork-abogados.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ultimadefensalegal.com/newyork-attorneys.html"/>
   </url>
   <url>
-    <loc>https://ultimadefensalegal.com/crimmigration-educational.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://ultimadefensalegal.com/newyork-abogados.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/newyork-abogados.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/newyork-attorneys.html"/>
   </url>
 
-  <!-- Attorney-facing -->
+  <!-- Miami -->
   <url>
-    <loc>https://ultimadefensalegal.com/attorneys.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://ultimadefensalegal.com/miami-attorneys.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/miami-attorneys.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/miami-abogados.html"/>
   </url>
   <url>
-    <loc>https://ultimadefensalegal.com/attorney/attorney-signup.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ultimadefensalegal.com/attorney-agreement.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ultimadefensalegal.com/attorney-pricing.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ultimadefensalegal.com/attorney-call-center.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://ultimadefensalegal.com/miami-abogados.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/miami-abogados.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/miami-attorneys.html"/>
   </url>
 
-  <!-- Subscriber flows (if public) -->
+  <!-- Philadelphia (EN filename is singular per your repo) -->
   <url>
-    <loc>https://ultimadefensalegal.com/signup.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://ultimadefensalegal.com/philadelphia-attorney.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/philadelphia-attorney.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/philadelphia-abogados.html"/>
   </url>
   <url>
-    <loc>https://ultimadefensalegal.com/subscribe.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ultimadefensalegal.com/subscribe_es.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ultimadefensalegal.com/subscription.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://ultimadefensalegal.com/thankyou.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://ultimadefensalegal.com/philadelphia-abogados.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/philadelphia-abogados.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/philadelphia-attorney.html"/>
   </url>
 
-  <!-- Utilities -->
+  <!-- Newark -->
   <url>
-    <loc>https://ultimadefensalegal.com/udl-404.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
+    <loc>https://ultimadefensalegal.com/newark-attorneys.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/newark-attorneys.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/newark-abogados.html"/>
   </url>
   <url>
-    <loc>https://ultimadefensalegal.com/robots.txt</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
+    <loc>https://ultimadefensalegal.com/newark-abogados.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/newark-abogados.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/newark-attorneys.html"/>
+  </url>
+
+  <!-- Chicago -->
+  <url>
+    <loc>https://ultimadefensalegal.com/chicago-attorneys.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/chicago-attorneys.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/chicago-abogados.html"/>
   </url>
   <url>
-    <loc>https://ultimadefensalegal.com/sitemap-legal.xml</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
+    <loc>https://ultimadefensalegal.com/chicago-abogados.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/chicago-abogados.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/chicago-attorneys.html"/>
   </url>
+
+  <!-- Boston -->
+  <url>
+    <loc>https://ultimadefensalegal.com/boston-attorneys.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/boston-attorneys.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/boston-abogados.html"/>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/boston-abogados.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/boston-abogados.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/boston-attorneys.html"/>
+  </url>
+
+  <!-- Washington, DC -->
+  <url>
+    <loc>https://ultimadefensalegal.com/washington-attorneys.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/washington-attorneys.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/washington-abogados.html"/>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/washington-abogados.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/washington-abogados.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/washington-attorneys.html"/>
+  </url>
+
+  <!-- Orlando -->
+  <url>
+    <loc>https://ultimadefensalegal.com/orlando-attorneys.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/orlando-attorneys.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/orlando-abogados.html"/>
+  </url>
+  <url>
+    <loc>https://ultimadefensalegal.com/orlando-abogados.html</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ultimadefensalegal.com/orlando-abogados.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ultimadefensalegal.com/orlando-attorneys.html"/>
+  </url>
+
 </urlset>
