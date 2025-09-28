@@ -1,50 +1,43 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>UDL — Para Abogados / For Attorneys</title>
-  <link rel="stylesheet" href="/style.css">
-  <script src="/shared-udl.js" defer></script>
+  <meta charset="utf-8" />
+  <title>Cities We Serve | Ultima Defensa Legal</title>
+  <meta name="description" content="Call your city's local number to connect to an independent attorney." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link id="canonical-link" rel="canonical" href="" />
+  <link rel="stylesheet" href="/style.css" />
+  <script>(function(){var u=location.origin+location.pathname;var c=document.getElementById('canonical-link');if(c)c.href=u;})();</script>
 </head>
 <body>
-<header><div class="wrap"><nav>
-  <a href="/index.html">Ultima Defensa Legal</a>
-  <div class="lang-switch">
-    <button type="button" data-setlang="en" onclick="setLang('en')">EN</button>
-    <button type="button" data-setlang="es" onclick="setLang('es')">ES</button>
-  </div>
-</nav></div></header>
-<main class="wrap">
-  <h1 data-lang="es">Para Abogados</h1>
-  <h1 data-lang="en">For Attorneys</h1>
-  <div class="card">
-    <p data-lang="es">Únase a nuestra red bilingüe. Entregamos prospectos calificados y actualizaciones en su panel.</p>
-    <p data-lang="en">Join our bilingual network. We deliver qualified prospects and panel updates to your dashboard.</p>
-    <div class="price" data-lang="es">$325 / mes (primeros 3 meses)</div>
-    <div class="price" data-lang="en">$325 / month (first 3 months)</div>
-    <p data-lang="es">Luego $499 / mes.</p>
-    <p data-lang="en">Then $499 / month.</p>
-    <ul>
-      <li data-lang="es">Panel bilingüe y enrutamiento de llamadas</li>
-      <li data-lang="en">Bilingual dashboard & call routing</li>
-      <li data-lang="es">Prospectos verificados y registro de llamadas</li>
-      <li data-lang="en">Verified prospects & call logs</li>
-      <li data-lang="es">Requisito: ofrecer al menos 1 consulta gratuita o con descuento para nuestros miembros</li>
-      <li data-lang="en">Requirement: offer at least one free or discounted consultation to our members</li>
-    </ul>
-    <a href="/attorney-agreement.html" class="btn" data-lang="en">Join & Sign</a>
-    <a href="/attorney-agreement.html" class="btn" data-lang="es">Unirse y Firmar</a>
-  </div>
-  <h2 data-lang="en">Important</h2><h2 data-lang="es">Importante</h2>
-  <p data-lang="es">Los abogados en la red son independientes y no empleados de UDL. La relación abogado–cliente es exclusivamente entre usted y el cliente. Usted establece sus honorarios y controla su práctica.</p>
-  <p data-lang="en">Network attorneys are independent and not employees of UDL. The attorney–client relationship exists solely between you and the client. You set your own fees and control your practice.</p>
+<header class="udl-header">
+  <nav class="udl-topnav">
+    <a href="/" class="brand">Ultima Defensa Legal</a>
+    <div class="udl-lang-toggle" style="margin-left:auto;display:flex;gap:.5rem;">
+      <a class="toggle-en" data-lang="en" href="#" aria-label="Switch to English">EN</a>
+      <a class="toggle-es" data-lang="es" href="#" aria-label="Cambiar a español">ES</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>Cities We Serve</h1>
+  <ul class="city-grid">
+    <li><a href="/newyork-attorneys.html">New York, NY</a></li>
+    <li><a href="/miami-attorneys.html">Miami, FL</a></li>
+    <li><a href="/philadelphia-attorney.html">Philadelphia, PA</a></li>
+    <li><a href="/chicago-attorneys.html">Chicago, IL</a></li>
+    <li><a href="/newark-attorneys.html">Newark, NJ</a></li>
+    <li><a href="/boston-attorneys.html">Boston, MA</a></li>
+    <li><a href="/washington-attorneys.html">Washington, DC</a></li>
+    <li><a href="/orlando-attorneys.html">Orlando, FL</a></li>
+  </ul>
 </main>
-<footer><div class="wrap" style="padding:16px 0;display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap">
-  <small>© <span id="yr"></span> UDL</small>
-  <div><a href="/privacy.html" data-lang="en">Privacy</a><a href="/privacy.html" data-lang="es" style="margin-left:14px">Privacidad</a>
-  <a href="/terms.html" data-lang="en" style="margin-left:14px">Terms</a><a href="/terms.html" data-lang="es" style="margin-left:14px">Términos</a></div>
-</div></footer>
-<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+
+<footer class="udl-footer">
+  <p class="small">© Ultima Defensa Legal.</p>
+</footer>
+
+<script src="/shared-udl.js"></script>
 </body>
 </html>
