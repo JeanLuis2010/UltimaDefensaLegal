@@ -1,48 +1,31 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
+  <title>Subscribe | Ultima Defensa Legal</title>
+  <meta name="description" content="Start your membership to connect to local independent attorneys." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Suscripción — Ultima Defensa Legal</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="udl-ui.js" defer></script>
-  <script src="udl-consent.js" defer></script>
-  <style>
-    :root{--max:900px}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
-    .container{max-width:var(--max);margin:0 auto;padding:1rem}
-    nav{border-bottom:1px solid #eee;background:#fff}
-    .row{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .btn{padding:.6rem 1rem;border:1px solid #111;border-radius:10px;background:#111;color:#fff;text-decoration:none}
-    .btn.secondary{background:#fff;color:#111}
-    .card{border:1px solid #e5e7eb;border-radius:16px;padding:1rem;background:#fff}
-    .i18n-en{display:none}html[lang="en"] .i18n-en{display:block}html[lang="en"] .i18n-es{display:none}
-  </style>
+  <link id="canonical-link" rel="canonical" href="" />
+  <link rel="stylesheet" href="/style.css" />
+  <script>(function(){var u=location.origin+location.pathname;var c=document.getElementById('canonical-link');if(c)c.href=u;})();</script>
 </head>
 <body>
-  <nav><div class="container row">
-    <a href="index.html" class="brand" style="text-decoration:none;color:#111;font-weight:800">Ultima Defensa Legal</a>
-    <div>
-      <a class="btn secondary" href="index.html">Inicio</a>
-      <button class="btn secondary" onclick="UDL_UI.setLang('en')">EN</button>
-      <button class="btn secondary" onclick="UDL_UI.setLang('es')">ES</button>
+<header class="udl-header">
+  <nav class="udl-topnav">
+    <a href="/" class="brand">Ultima Defensa Legal</a>
+    <div class="udl-lang-toggle" style="margin-left:auto;display:flex;gap:.5rem;">
+      <a class="toggle-en" data-lang="en" href="#">EN</a>
+      <a class="toggle-es" data-lang="es" href="#">ES</a>
     </div>
-  </div></nav>
+  </nav>
+</header>
 
-  <main class="container">
-    <section class="card">
-      <div class="i18n-es">
-        <h1>Suscripción</h1>
-        <p>Confirma tu plan y procede al pago seguro.</p>
-      </div>
-      <div class="i18n-en">
-        <h1>Subscribe</h1>
-        <p>Confirm your plan and proceed to secure payment.</p>
-      </div>
-      <!-- Integrate your payment flow here -->
-    </section>
-  </main>
+<main class="container">
+  <h1>Subscribe</h1>
+  <p>Place your checkout/embed here. After payment, you’ll receive a confirmation and can call your city number immediately.</p>
+</main>
 
-  <footer><div class="container"><p>© <span id="year"></span> Ultima Defensa Legal</p></div></footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+<footer class="udl-footer"><p class="small">© Ultima Defensa Legal.</p></footer>
+<script src="/shared-udl.js"></script>
 </body>
 </html>
