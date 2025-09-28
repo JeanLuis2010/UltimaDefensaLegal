@@ -1,0 +1,133 @@
+{
+  "description": "UDL Ingreso ES -> Verificación de suscriptor -> Abogado local o Aircall",
+  "initial_state": "trigger",
+  "flags": { "allow_concurrent_calls": true },
+  "states": [
+    {
+      "name": "trigger",
+      "type": "trigger",
+      "transitions": [{ "event": "incomingCall", "next": "greeting" }],
+      "properties": { "offset": { "x": 20, "y": 20 } }
+    },
+    {
+      "name": "greeting",
+      "type": "say-play",
+      "transitions": [{ "event": "audioComplete", "next": "gatherPractice" }],
+      "properties": {
+        "say": "Bienvenido a Última Defensa Legal. No somos un bufete de abogados; conectamos con abogados independientes. Para inmigración, familia, laboral, penal o accidentes, por favor diga su área legal después del tono.",
+        "language": "es-US",
+        "voice": "Polly.Lupe"
+      }
+    },
+    {
+      "name": "gatherPractice",
+      "type": "gather-input-on-call",
+      "transitions": [
+        { "event": "keypress", "next": "gatherZip" },
+        { "event": "speech", "next": "gatherZip" },
+        { "event": "timeout", "next": "gatherZip" }
+      ],
+      "properties": {
+        "stop_gather": "true",
+        "gather_language": "es-US",
+        "hints": "inmigración,familia,laboral,penal,accidentes",
+        "say": "Diga: inmigración, familia, laboral, penal o accidentes.",
+        "speech_timeout": "auto",
+        "input": "speech dtmf",
+        "num_digits": "1",
+        "timeout": "5"
+      }
+    },
+    {
+      "name": "gatherZip",
+      "type": "gather-input-on-call",
+      "transitions": [
+        { "event": "keypress", "next": "checkSubscriber" },
+        { "event": "speech", "next": "checkSubscriber" },
+        { "event": "timeout", "next": "checkSubscriber" }
+      ],
+      "properties": {
+        "stop_gather": "true",
+        "gather_language": "es-US",
+        "say": "Por favor, diga o marque su código postal de cinco dígitos.",
+        "speech_timeout": "auto",
+        "input": "speech dtmf",
+        "num_digits": "5",
+        "timeout": "5"
+      }
+    },
+    {
+      "name": "checkSubscriber",
+      "type": "http-request",
+      "transitions": [
+        { "event": "success", "next": "branchSubscriber" },
+        { "event": "failed", "next": "fallbackAircall" }
+      ],
+      "properties": {
+        "method": "POST",
+        "content_type": "application/json",
+        "url": "https://YOUR_DOMAIN/api/ivr/check-subscriber",
+        "body": "{\"phone\":\"{{contact.channel.address}}\"}"
+      }
+    },
+    {
+      "name": "branchSubscriber",
+      "type": "split-based-on",
+      "transitions": [
+        { "event": "noMatch", "next": "fallbackAircall" },
+        { "event": "match", "next": "routeLookup" }
+      ],
+      "properties": {
+        "input": "{{widgets.checkSubscriber.parsed.isSubscriber}}",
+        "cases": [{ "value": "true", "next": "routeLookup" }]
+      }
+    },
+    {
+      "name": "routeLookup",
+      "type": "http-request",
+      "transitions": [
+        { "event": "success", "next": "dialTargets" },
+        { "event": "failed", "next": "fallbackAircall" }
+      ],
+      "properties": {
+        "method": "POST",
+        "content_type": "application/json",
+        "url": "https://YOUR_DOMAIN/api/ivr/route",
+        "body": "{\"toNumberE164\":\"{{trigger.call.To}}\",\"zip\":\"{{widgets.gatherZip.SpeechResult}}\",\"practice\":\"{{widgets.gatherPractice.SpeechResult}}\"}"
+      }
+    },
+    {
+      "name": "dialTargets",
+      "type": "connect-call-to",
+      "transitions": [{ "event": "callCompleted", "next": "end" }],
+      "properties": {
+        "caller_id": "{{trigger.call.To}}",
+        "record": "record-from-answer",
+        "noun": "number",
+        "to": "{{widgets.routeLookup.parsed.targets}}"
+      }
+    },
+    {
+      "name": "fallbackAircall",
+      "type": "connect-call-to",
+      "transitions": [{ "event": "callCompleted", "next": "smsSignup" }],
+      "properties": {
+        "caller_id": "{{trigger.call.To}}",
+        "record": "record-from-answer",
+        "noun": "number",
+        "to": "+1XXXYYYZZZZ"
+      }
+    },
+    {
+      "name": "smsSignup",
+      "type": "send-message",
+      "transitions": [{ "event": "sent", "next": "end" }, { "event": "failed", "next": "end" }],
+      "properties": {
+        "from": "{{trigger.call.To}}",
+        "to": "{{contact.channel.address}}",
+        "body": "Para conectarte con un abogado local, completa tu membresía: https://ultimadefensalegal.com/client-pay.html"
+      }
+    },
+    { "name": "end", "type": "hang-up", "transitions": [], "properties": {} }
+  ]
+}
