@@ -1,239 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Attorney Application | Ultima Defensa Legal</title>
-<style>
-  :root { --bg:#ffffff; --ink:#111; --muted:#525252; --line:#e5e5e5; --primary:#0a5; --danger:#b00; }
-  * { box-sizing: border-box; }
-  body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--ink); background:var(--bg); }
-  header, main, footer { max-width: 960px; margin: 0 auto; padding: 24px; }
-  header { display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
-  .lang-toggle button { border:1px solid var(--line); background:#fff; padding:6px 10px; margin-left:8px; cursor:pointer; }
-  .card { border:1px solid var(--line); border-radius:12px; padding:20px; margin:24px 0; }
-  label { display:block; margin:10px 0 6px; font-weight:600; }
-  input, select, textarea { width:100%; padding:10px; border:1px solid var(--line); border-radius:8px; }
-  .row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-  .checkbox { display:flex; align-items:flex-start; gap:10px; margin:8px 0; }
-  .small { color:var(--muted); font-size:12px; line-height:1.4; }
-  .actions { display:flex; gap:12px; align-items:center; }
-  .btn { background:var(--primary); color:#fff; padding:12px 18px; border:none; border-radius:10px; cursor:pointer; font-weight:700; }
-  .btn:disabled { opacity:.6; cursor:not-allowed; }
-  .link { color:#06c; text-decoration:underline; }
-  .error { color:var(--danger); margin-top:8px; }
-  footer { border-top:1px solid var(--line); margin-top:24px; text-align:center; font-size:14px; }
-  footer a { color:#06c; text-decoration:underline; margin:0 6px; }
-</style>
+  <meta charset="utf-8" />
+  <title>Attorney Sign Up | Ultima Defensa Legal</title>
+  <meta name="description" content="Join the UDL network. Receive local calls from verified members." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link id="canonical-link" rel="canonical" href="" />
+  <link rel="stylesheet" href="/style.css" />
+  <script>(function(){var u=location.origin+location.pathname;var c=document.getElementById('canonical-link');if(c)c.href=u;})();</script>
 </head>
 <body>
-<header>
-  <h1 data-i="title">Ultima Defensa Legal — Attorney Application</h1>
-  <div class="lang-toggle">
-    <span class="small" data-i="lang-label">Language:</span>
-    <button type="button" onclick="setLang('en')">EN</button>
-    <button type="button" onclick="setLang('es')">ES</button>
-  </div>
+<header class="udl-header">
+  <nav class="udl-topnav">
+    <a href="/" class="brand">Ultima Defensa Legal</a>
+    <div class="udl-lang-toggle" style="margin-left:auto;display:flex;gap:.5rem;">
+      <a class="toggle-en" data-lang="en" href="#">EN</a>
+      <a class="toggle-es" data-lang="es" href="#">ES</a>
+    </div>
+  </nav>
 </header>
 
-<main>
-  <form id="attyForm" class="card">
-    <h2 data-i="info-title">Attorney Information</h2>
-    <div class="row">
-      <div>
-        <label for="name" data-i="name">Full Name</label>
-        <input id="name" required>
-      </div>
-      <div>
-        <label for="email" data-i="email">Email</label>
-        <input id="email" type="email" required>
-      </div>
-    </div>
-    <div class="row">
-      <div>
-        <label for="phone" data-i="phone">Phone</label>
-        <input id="phone">
-      </div>
-      <div>
-        <label for="bar" data-i="bar">Bar Number</label>
-        <input id="bar" required>
-      </div>
-    </div>
-    <div class="row">
-      <div>
-        <label for="states" data-i="states">Licensed State(s)</label>
-        <input id="states" placeholder="e.g., FL, CA">
-      </div>
-      <div>
-        <label for="langs" data-i="langs">Languages</label>
-        <input id="langs" placeholder="e.g., English, Spanish">
-      </div>
-    </div>
-    <div>
-      <label for="specialty" data-i="specialty">Primary Specialty</label>
-      <select id="specialty">
-        <option value="" data-i="specialty-select">— Select —</option>
-        <option>Immigration</option>
-        <option>Family</option>
-        <option>Employment</option>
-        <option>Criminal</option>
-        <option>Housing</option>
-        <option>Other</option>
-      </select>
-    </div>
-    <div>
-      <label for="notes" data-i="notes">Notes</label>
-      <textarea id="notes" rows="4"></textarea>
-    </div>
-
-    <div class="card" style="background:#fafafa;">
-      <h3 data-i="agreements-title">Agreements</h3>
-
-      <!-- OPT-OUT (checked by default): Attorney Agreement acceptance -->
-      <div class="checkbox">
-        <input id="agree-contract" type="checkbox" checked>
-        <label for="agree-contract">
-          <span data-i="agree-contract">
-            I accept the Attorney Independent Contractor Agreement (Delaware law; consumer claims against UDL in Palm Beach County, FL).
-          </span>
-          <br>
-          <span class="small">
-            <a class="link" href="/attorney-agreement.html" target="_blank">Attorney Agreement</a> ·
-            <a class="link" href="/legal-notices.html" target="_blank">Legal Notices</a>
-          </span>
-        </label>
-      </div>
-
-      <!-- OPT-OUT (checked by default): Communications -->
-      <div class="checkbox">
-        <input id="agree-comm" type="checkbox" checked>
-        <label for="agree-comm">
-          <span data-i="agree-comm">
-            I agree to receive onboarding emails/SMS from Ultima Defensa Legal. I can opt out anytime.
-          </span>
-        </label>
-      </div>
-    </div>
-
-    <div class="actions">
-      <button class="btn" id="submitBtn" type="submit" data-i="btn-submit">Apply</button>
-      <span id="formMsg" class="small"></span>
-    </div>
-    <div id="formError" class="error" aria-live="polite"></div>
-
-    <!-- versions -->
-    <input type="hidden" id="agreementVersion" value="atty-agreement-v1-2025-09-24">
-  </form>
+<main class="container">
+  <h1>Attorney Sign Up</h1>
+  <p>Complete the short form below to join. (Embed your form or link to CRM here.)</p>
 </main>
 
-<footer>
-  <p>
-    <a href="/terms.html">Terms of Service</a> |
-    <a href="/privacy.html">Privacy Policy</a> |
-    <a href="/cancellation.html">Cancellation Policy</a> |
-    <a href="/legal-notices.html">Legal Notices</a> |
-    <a href="/attorney-agreement.html">Attorney Agreement</a>
-  </p>
-  <p>
-    <a href="/terms.html">Términos de Servicio</a> |
-    <a href="/privacy.html">Política de Privacidad</a> |
-    <a href="/cancellation.html">Política de Cancelación</a> |
-    <a href="/legal-notices.html">Avisos Legales</a> |
-    <a href="/attorney-agreement.html">Acuerdo de Abogado</a>
-  </p>
-  <p>© 2025 Ultima Defensa Legal. All rights reserved. / Todos los derechos reservados.</p>
-</footer>
-
-<script>
-  // ---- CONFIG ----
-  const WEBHOOK_URL = "https://YOUR-MAKE-COM-WEBHOOK-URL"; // <-- Replace
-  let currentLang = "en";
-
-  const i18n = {
-    en: {
-      title:"Ultima Defensa Legal — Attorney Application",
-      "lang-label":"Language:",
-      "info-title":"Attorney Information",
-      "name":"Full Name","email":"Email","phone":"Phone","bar":"Bar Number",
-      "states":"Licensed State(s)","langs":"Languages","specialty":"Primary Specialty","specialty-select":"— Select —","notes":"Notes",
-      "agreements-title":"Agreements",
-      "agree-contract":"I accept the Attorney Independent Contractor Agreement (Delaware law; consumer claims against UDL in Palm Beach County, FL).",
-      "agree-comm":"I agree to receive onboarding emails/SMS from Ultima Defensa Legal. I can opt out anytime.",
-      "btn-submit":"Apply"
-    },
-    es: {
-      title:"Ultima Defensa Legal — Solicitud de Abogado",
-      "lang-label":"Idioma:",
-      "info-title":"Información del Abogado",
-      "name":"Nombre Completo","email":"Correo","phone":"Teléfono","bar":"Número de Licencia",
-      "states":"Estados con Licencia","langs":"Idiomas","specialty":"Especialidad Principal","specialty-select":"— Seleccione —","notes":"Notas",
-      "agreements-title":"Acuerdos",
-      "agree-contract":"Acepto el Acuerdo de Abogado Contratista Independiente (ley de Delaware; reclamos de consumidores contra UDL en el Condado de Palm Beach, FL).",
-      "agree-comm":"Acepto recibir correos/SMS de incorporación de Ultima Defensa Legal. Puedo anularlo en cualquier momento.",
-      "btn-submit":"Postular"
-    }
-  };
-
-  function setLang(lang) {
-    currentLang = lang;
-    document.querySelectorAll("[data-i]").forEach(el=>{
-      const key = el.getAttribute("data-i");
-      if(i18n[lang][key]) el.textContent = i18n[lang][key];
-    });
-    document.documentElement.lang = lang;
-  }
-
-  setLang("en"); // default
-
-  async function postJSON(url, data) {
-    const res = await fetch(url, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(data) });
-    return res.ok;
-  }
-
-  document.getElementById("attyForm").addEventListener("submit", async (e)=>{
-    e.preventDefault();
-    const err = document.getElementById("formError");
-    const msg = document.getElementById("formMsg");
-    err.textContent = ""; msg.textContent = "";
-    document.getElementById("submitBtn").disabled = true;
-
-    const payload = {
-      type: "attorney_application",
-      lang: currentLang,
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      bar: document.getElementById("bar").value,
-      states: document.getElementById("states").value,
-      langs: document.getElementById("langs").value,
-      specialty: document.getElementById("specialty").value,
-      notes: document.getElementById("notes").value,
-      consents: {
-        agreement_opted_out: !document.getElementById("agree-contract").checked ? true : false,
-        comms_opted_out: !document.getElementById("agree-comm").checked ? true : false
-      },
-      versions: {
-        attorney_agreement: document.getElementById("agreementVersion").value
-      },
-      submitted_at: new Date().toISOString(),
-      user_agent: navigator.userAgent
-    };
-
-    try { localStorage.setItem("udl_last_atty", JSON.stringify(payload)); } catch(_){}
-
-    try {
-      const ok = await postJSON(WEBHOOK_URL, payload);
-      if(ok){
-        msg.textContent = currentLang==="es" ? "¡Gracias! Recibimos su solicitud." : "Thank you! Your application has been received.";
-      } else {
-        throw new Error("Webhook error");
-      }
-    } catch(e2){
-      err.textContent = currentLang==="es" ? "No se pudo enviar. Inténtelo de nuevo o contacte a soporte." : "Submission failed. Please try again or contact support.";
-    } finally {
-      document.getElementById("submitBtn").disabled = false;
-    }
-  });
-</script>
+<footer class="udl-footer"><p class="small">© Ultima Defensa Legal.</p></footer>
+<script src="/shared-udl.js"></script>
 </body>
 </html>
