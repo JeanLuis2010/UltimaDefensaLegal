@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Say language="en-US" voice="Polly.Matthew">Connecting you now.</Say>
+  <Dial answerOnBridge="true" record="record-from-answer">
+    <Number>+1XXXYYYZZZZ</Number> <!-- Replace with your Aircall number -->
+  </Dial>
+</Response>
