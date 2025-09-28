@@ -1,30 +1,42 @@
-<!-- Canonical -->
-<link rel="canonical" href="https://ultimadefensalegal.com/">
+<!-- seo-head.html — full replacement -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0a2540" />
 
-<!-- Hreflang (EN/ES) -->
-<link rel="alternate" href="https://ultimadefensalegal.com/" hreflang="en">
-<link rel="alternate" href="https://ultimadefensalegal.com/es/" hreflang="es">
-<link rel="alternate" href="https://ultimadefensalegal.com/" hreflang="x-default">
+<!-- Page-specific title/description should stay in each page.
+     Do NOT add a <title> here, so you can set unique titles per page. -->
 
-<!-- Basic Meta -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Ultima Defensa Legal connects bilingual subscribers with licensed attorneys. Not a law firm. Easy membership, fast attorney match.">
-<meta name="theme-color" content="#0a5">
+<!-- Canonical (auto-filled to current URL) -->
+<link id="canonical-link" rel="canonical" href="" />
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ultima Defensa Legal — Bilingual Legal Help">
-<meta property="og:description" content="We connect subscribers with attorneys. Not a law firm.">
-<meta property="og:url" content="https://ultimadefensalegal.com/">
-<meta property="og:image" content="https://ultimadefensalegal.com/assets/og-cover.jpg">
+<!-- Favicon(s) -->
+<link rel="icon" href="/assets/favicon.ico" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ultima Defensa Legal — Bilingual Legal Help">
-<meta name="twitter:description" content="We connect subscribers with attorneys. Not a law firm.">
-<meta name="twitter:image" content="https://ultimadefensalegal.com/assets/og-cover.jpg">
+<!-- Open Graph (inherits page title/description when present) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ultima Defensa Legal" />
+<meta property="og:url" content="" id="og-url" />
+<meta property="og:image" content="/assets/og-image.jpg" />
 
-<!-- Favicons -->
-<link rel="icon" href="/assets/favicon.ico">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="manifest" href="/manifest.webmanifest">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UltimaDefensa" />
+
+<!-- Preconnects (safe to keep even if not used everywhere) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- Language toggle + phone binding -->
+<script src="/shared-udl.js" defer></script>
+
+<!-- Minimal runtime to set canonical/og:url correctly -->
+<script>
+  (function () {
+    var url = location.origin + location.pathname;
+    var c = document.getElementById('canonical-link');
+    if (c) c.href = url;
+    var og = document.getElementById('og-url');
+    if (og) og.setAttribute('content', url);
+  })();
+</script>
