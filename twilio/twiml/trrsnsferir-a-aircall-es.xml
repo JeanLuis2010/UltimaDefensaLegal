@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Say language="es-US" voice="Polly.Lupe">Conectando su llamada ahora.</Say>
+  <Dial answerOnBridge="true" record="record-from-answer">
+    <Number>+1XXXYYYZZZZ</Number>
+  </Dial>
+</Response>
