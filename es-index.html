@@ -1,40 +1,14 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ultima Defensa Legal – Conexión legal bilingüe — rápido.</title>
-<meta name="description" content="Conectamos a los miembros con abogados locales independientes en minutos. Inglés / Español. Números locales por ciudad.">
-<link rel="canonical" href="/es/index.html">
-<style>
-  body { margin:0; font-family: Georgia, "Times New Roman", serif; color:#111; }
-  header { background:#0b2a47; color:#fff; padding:14px 16px; position:relative; }
-  .brand { font-weight:700; font-size:20px; }
-  .lang-toggle { position:absolute; top:10px; right:12px; display:flex; gap:6px; z-index:1000; }
-  .lang-toggle a { text-decoration:none; padding:6px 8px; border:1px solid #ccc; border-radius:6px; background:#fff; color:#111; font-size:13px; }
-  .lang-toggle a.active { background:#0b2a47; color:#fff; border-color:#0b2a47; }
-  main { padding:22px 16px 40px; max-width:760px; }
-  h1 { font-size:44px; line-height:1.1; margin:0 0 14px; }
-  .btn { display:inline-block; padding:12px 16px; border-radius:10px; background:#e9f0fa; color:#111; text-decoration:none; border:1px solid #c8d7ea; }
-  footer { padding:16px; font-size:14px; color:#333; }
-  ul { line-height:1.6; }
-</style>
-<script>
-  function goLang(to) {
-    if (to === 'en') { location.href = '/index.html'; }
-    if (to === 'es') { location.href = '/es/index.html'; }
-  }
-</script>
+  <meta charset="utf-8">
+  <title>Ultima Defensa Legal — Conexión legal bilingüe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="shared-udl.js"></script>
 </head>
 <body>
-<header>
-  <div class="brand">Ultima Defensa Legal</div>
-  <nav class="lang-toggle" aria-label="Idioma">
-    <a href="javascript:void(0)" onclick="goLang('en')" lang="en">EN</a>
-    <a href="javascript:void(0)" class="active" onclick="goLang('es')" lang="es">ES</a>
-  </nav>
-</header>
-
+<header class="site-header"><div class="wrap"><div class="site-title">Ultima Defensa Legal</div></div></header>
 <main>
   <h1>Conexión legal bilingüe — rápido.</h1>
   <p>Conectamos a los miembros con abogados locales independientes en minutos. Sin señales ocupadas.</p>
@@ -43,10 +17,9 @@
     <li>Números locales por ciudad</li>
     <li>Penal, Inmigración, Familia, Laboral, Accidentes</li>
   </ul>
-
-  <p><a class="btn" href="/es/abogados.html">Busca tu ciudad</a></p>
+  <p><a class="button" href="ciudades.html">Buscar su ciudad</a></p>
+  <p style="font-size:.95rem;color:#555;">No somos bufete; conectamos clientes con abogados independientes.</p>
 </main>
-
-<footer>© Ultima Defensa Legal. No es un bufete. Conectamos clientes con abogados independientes.</footer>
+<footer class="site-footer"><div class="wrap">© Ultima Defensa Legal.</div></footer>
 </body>
 </html>
