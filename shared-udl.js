@@ -1,86 +1,65 @@
-/* shared-udl.js — unified language toggle + helpers
-   Drop-in: replace the whole file with this content.
-*/
-(function () {
-  // ---- CONFIG: exact file mappings in your repo ----
-  const MAP = {
-    // home
-    "index.html": "es-index.html",
-    "es-index.html": "index.html",
+<!-- Keep this file as pure JS; the tag here is just to mark the language -->
+   (function () {
+  // Utilities
+  function filename(path){ return path.split('/').pop() || 'index.html'; }
+  function swapName(name){
+    // English <-> Spanish pairs
+    if (name === 'index.html') return 'es-index.html';
+    if (name === 'es-index.html') return 'index.html';
+    if (name === 'cities.html') return 'ciudades.html';
+    if (name === 'ciudades.html') return 'cities.html';
 
-    // cities (east coast + Chicago)
-    "boston-attorneys.html": "boston-abogados.html",
-    "boston-abogados.html": "boston-attorneys.html",
+    // City patterns
+    if (/-attorneys\.html$/i.test(name)) return name.replace(/-attorneys\.html$/i, '-abogados.html');
+    if (/-abogados\.html$/i.test(name)) return name.replace(/-abogados\.html$/i, '-attorneys.html');
 
-    "newark-attorneys.html": "newark-abogados.html",
-    "newark-abogados.html": "newark-attorneys.html",
-
-    "newyork-attorneys.html": "newyork-abogados.html",
-    "newyork-abogados.html": "newyork-attorneys.html",
-    // legacy alias some files used earlier—keep both working:
-    "nuevayork-abogados.html": "newyork-attorneys.html",
-
-    "philadelphia-attorneys.html": "philadelphia-abogados.html",
-    "philadelphia-abogados.html": "philadelphia-attorneys.html",
-    // if a singular version appears, map it too:
-    "philadelphia-attorney.html": "philadelphia-abogados.html",
-
-    "washington-attorneys.html": "washington-abogados.html",
-    "washington-abogados.html": "washington-attorneys.html",
-
-    "miami-attorneys.html": "miami-abogados.html",
-    "miami-abogados.html": "miami-attorneys.html",
-
-    "chicago-attorneys.html": "chicago-abogados.html",
-    "chicago-abogados.html": "chicago-attorneys.html",
-
-    "orlando-attorneys.html": "orlando-abogados.html",
-    "orlando-abogados.html": "orlando-attorneys.html"
-  };
-
-  // Fallback rule: try swapping attorneys<->abogados in the filename
-  function smartSwap(file) {
-    if (file.includes("attorneys")) return file.replace("attorneys", "abogados");
-    if (file.includes("abogados")) return file.replace("abogados", "attorneys");
-    if (file === "index.html") return "es-index.html";
-    if (file === "es-index.html") return "index.html";
-    return file;
+    // Fallback to home
+    return (name.indexOf('es-') === 0 ? 'index.html' : 'es-index.html');
   }
 
-  function baseFile(pathname) {
-    const p = pathname.split("/").filter(Boolean);
-    let f = p.length ? p[p.length - 1] : "index.html";
-    // Normalize Netlify “/” to index.html
-    if (!/\./.test(f)) f = "index.html";
-    return f;
+  function go(to){
+    // Navigate safely; if a bad link ever slips in, land on home in same locale
+    var img = new Image();
+    img.onload = function(){ location.href = to; };
+    img.onerror = function(){
+      // Decide locale by target
+      if (/^es-/.test(to) || /abogados\.html$/.test(to)) location.href = '/es-index.html';
+      else location.href = '/index.html';
+    };
+    // ping a lightweight resource on that path
+    img.src = to + (to.indexOf('?')>-1 ? '&' : '?') + 'udl=1#';
   }
 
-  // Expose small API
-  window.UDL = window.UDL || {};
-  window.UDL.lang = {
-    go: function (to) {
-      const here = baseFile(location.pathname);
-      const mapped = MAP[here] || smartSwap(here);
-      // if user asked for the current language, just no-op
-      if ((to === "es" && (MAP[here] || here).includes("abogados")) ||
-          (to === "en" && (MAP[here] || here).includes("attorneys"))) return;
-      // Navigate (same folder structure—root level files)
-      const dest = mapped;
-      if (dest && dest !== here) location.href = "/" + dest;
-    },
-    // mark active pill when the page loads
-    markActive: function () {
-      const file = baseFile(location.pathname);
-      const es = document.querySelector('[data-lang-btn="es"]');
-      const en = document.querySelector('[data-lang-btn="en"]');
-      const isES = /(^|\/)(es-|.*abogados\.html)$/.test(file);
-      [es, en].forEach(b => b && b.classList.remove("active"));
-      (isES ? es : en)?.classList.add("active");
-    }
-  };
+  function makeLangToggle(){
+    var here = filename(location.pathname);
+    var counterpart = swapName(here);
 
-  // Auto-mark on DOM ready
-  document.addEventListener("DOMContentLoaded", function () {
-    window.UDL.lang.markActive();
-  });
+    // create container
+    var box = document.createElement('div');
+    box.className = 'udl-lang';
+
+    var en = document.createElement('a');
+    en.textContent = 'EN';
+    en.href = (/-abogados\.html$|^es-/.test(here)) ? counterpart : here;
+    en.addEventListener('click', function(e){ e.preventDefault(); go(en.href); });
+
+    var es = document.createElement('a');
+    es.textContent = 'ES';
+    es.href = (/-attorneys\.html$|^index\.html$|cities\.html$/i.test(here)) ? counterpart : here;
+    es.addEventListener('click', function(e){ e.preventDefault(); go(es.href); });
+
+    // active state by dimming the current locale
+    if (/^es-|abogados\.html$/i.test(here)) { es.style.opacity='0.6'; }
+    else { en.style.opacity='0.6'; }
+
+    box.appendChild(en); box.appendChild(es);
+    document.body.appendChild(box);
+  }
+
+  // Run
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', makeLangToggle);
+  } else {
+    makeLangToggle();
+  }
 })();
