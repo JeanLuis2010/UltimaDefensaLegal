@@ -1,52 +1,40 @@
-/* --- Base layout --- */
+/* UDL – global, readable, consistent */
 :root{
-  --ink:#111;
-  --ink-soft:#333;
-  --paper:#ffffff;
-  --brand:#0e2a3c;        /* deep navy banner */
-  --brand-ink:#ffffff;    /* banner text */
-  --btn:#e9f0fb;          /* light button */
-  --btn-ink:#0a1c2a;
-  --ring:rgba(0,0,0,.12);
+  --ink:#111; --ink2:#333; --paper:#fff;
+  --brand:#0e2a3c; --brandText:#fff;
+  --btn:#e9f0fb; --btnBorder:#c6d7ff; --ring:rgba(0,0,0,.12);
 }
-
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";line-height:1.5}
-main{max-width:960px;margin:0 auto;padding:1.25rem}
+html,body{margin:0;background:var(--paper);color:var(--ink);
+  font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+a,a:visited{color:var(--ink);text-decoration:underline}
 
-h1{font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.2;margin:1rem 0}
-h2{font-size:1.4rem;margin:.75rem 0}
-p,li{font-size:1.05rem}
+header.site-header{background:var(--brand);color:var(--brandText)}
+header.site-header .wrap{max-width:960px;margin:0 auto;padding:14px 16px}
+header .brand{font-weight:800;letter-spacing:.2px}
 
-/* --- Top banner --- */
-.site-header{background:var(--brand);color:var(--brand-ink)}
-.site-header .wrap{max-width:960px;margin:0 auto;padding:.9rem 1.25rem}
-.site-title{font-weight:700}
+main{max-width:960px;margin:0 auto;padding:26px 16px}
+h1{font-size:clamp(1.9rem,3.8vw,2.7rem);line-height:1.15;margin:0 0 14px}
+p,li{font-size:1.03rem;color:var(--ink2)}
+ul{padding-left:1.2rem}
 
-/* --- Language toggle (container created by shared-udl.js) --- */
+.btn{
+  display:inline-block;background:var(--btn);border:1px solid var(--btnBorder);
+  padding:12px 16px;border-radius:12px;text-decoration:none;color:var(--ink);
+  font-weight:800
+}
+.btn:active{transform:translateY(1px)}
+.btn-call{font-size:18px;letter-spacing:.3px}
+
+/* Language toggle: always visible, never off-screen */
 .udl-lang{
-  position:fixed;top:.55rem;left:.55rem;z-index:9999;
-  display:flex;gap:.5rem;align-items:center;
+  position:fixed;top:10px;left:10px;z-index:9999;display:flex;gap:8px
 }
 .udl-lang a{
   background:#fff;border:1px solid var(--ring);border-radius:999px;
-  padding:.35rem .55rem;font-size:.85rem;text-decoration:none;color:var(--ink)
-}
-@media (min-width:768px){
-  .udl-lang{left:1rem;top:.75rem}
+  padding:6px 10px;text-decoration:none;color:var(--ink);font-weight:700
 }
 
-/* --- Buttons & links --- */
-a{color:var(--ink);text-decoration:underline}
-a:visited{color:var(--ink-soft)}
-.button{
-  display:inline-block;background:var(--btn);color:var(--btn-ink);
-  padding:.7rem 1rem;border-radius:.75rem;border:1px solid var(--ring);
-  text-decoration:none;font-weight:600
-}
-.button:active{transform:translateY(1px)}
-ul{padding-left:1.25rem}
-
-/* --- Footer --- */
-.site-footer{border-top:1px solid var(--ring);margin-top:2rem}
-.site-footer .wrap{max-width:960px;margin:0 auto;padding:1rem 1.25rem;font-size:.95rem;color:var(--ink-soft)}
+/* Footer */
+footer.site-footer{border-top:1px solid var(--ring);margin-top:28px}
+footer.site-footer .wrap{max-width:960px;margin:0 auto;padding:14px 16px;color:var(--ink2);font-size:.95rem}
