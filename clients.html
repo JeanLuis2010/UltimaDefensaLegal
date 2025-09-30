@@ -1,85 +1,63 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>For Clients | Ultima Defensa Legal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clients — Find Your City | Ultima Defensa Legal</title>
+  <meta name="description" content="Pick your city and call your local number to connect to an independent attorney." />
+  <link rel="stylesheet" href="style.css" />
+  <script src="/shared-udl.js" defer></script>
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;color:#111}
-    header,main,footer{padding:16px}
-    h1{font-size:34px;line-height:1.2;margin:12px 0}
-    .lead{color:#333;margin:8px 0 16px}
-    .grid{display:grid;gap:10px}
-    @media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
-    .card{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff}
-    .btn{display:inline-block;margin:6px 8px 6px 0;padding:12px 16px;border-radius:12px;background:#0f1a2b;color:#fff;text-decoration:none;font-weight:700}
-    .link{color:#0b3ea8;text-decoration:none}
-    .small{color:#555}
-    footer nav a{margin-right:12px}
+    .wrap{max-width:980px;margin:0 auto;padding:24px}
+    .city{padding:12px 0;border-bottom:1px solid #eee}
+    .city a.btn{margin-left:8px}
+    .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:#e8effa;border:1px solid #b7c7e6;font-weight:700}
   </style>
 </head>
 <body>
-  <header>
-    <h1>For Clients</h1>
-    <p class="lead">Bilingual legal connection — fast. Choose your city, view pricing, and join.</p>
-    <p><a class="link" href="attorneys.html">Are you an attorney? Go here »</a></p>
-  </header>
+<header style="background:#0f1a2b;color:#fff;padding:12px 16px"><strong>Ultima Defensa Legal</strong></header>
+<main class="wrap">
+  <h1>Clients — Find Your City</h1>
+  <p>Tap your city and call the local number. We’ll connect you to an independent attorney fast.</p>
 
-  <main>
-    <section class="card">
-      <h2>Plans & Pricing</h2>
-      <p class="lead">Founders launch rate for Q1 cities. Join in minutes with PayPal.</p>
-      <p>
-        <a class="btn" href="subscribe.html">Join with PayPal</a>
-        <a class="link" href="pricing.html">View full pricing</a>
-      </p>
-    </section>
+  <section id="ciudades">
+    <div class="city"><strong>New York, NY</strong>
+      <a class="btn" href="tel:+16468469664">Call +1 646 846 9664</a>
+      <a class="btn" href="newyork-attorneys.html">City page</a>
+    </div>
+    <div class="city"><strong>Miami, FL</strong>
+      <a class="btn" href="tel:+17863212961">Call +1 786 321 2961</a>
+      <a class="btn" href="miami-attorneys.html">City page</a>
+    </div>
+    <div class="city"><strong>Philadelphia, PA</strong>
+      <a class="btn" href="tel:+12153984866">Call +1 215 398 4866</a>
+      <a class="btn" href="philadelphia-attorneys.html">City page</a>
+    </div>
+    <div class="city"><strong>Chicago, IL</strong>
+      <a class="btn" href="tel:+13127785885">Call +1 312 778 5885</a>
+      <a class="btn" href="chicago-attorneys.html">City page</a>
+    </div>
+    <div class="city"><strong>Newark, NJ</strong>
+      <a class="btn" href="tel:+19737918619">Call +1 973 791 8619</a>
+      <a class="btn" href="newark-attorneys.html">City page</a>
+    </div>
+    <div class="city"><strong>Boston, MA</strong>
+      <a class="btn" href="tel:+16177659946">Call +1 617 765 9946</a>
+      <a class="btn" href="boston-attorneys.html">City page</a>
+    </div>
+    <div class="city"><strong>Washington, DC</strong>
+      <a class="btn" href="tel:+12029536694">Call +1 202 953 6694</a>
+      <a class="btn" href="washington-attorneys.html">City page</a>
+    </div>
+    <div class="city"><strong>Orlando, FL</strong>
+      <a class="btn" href="tel:+13214150668">Call +1 321 415 0668</a>
+      <a class="btn" href="orlando-attorneys.html">City page</a>
+    </div>
+  </section>
 
-    <section class="card" aria-labelledby="cities">
-      <h2 id="cities">Choose Your City</h2>
-      <div class="grid">
-        <div>
-          <ul>
-            <li><a class="link" href="newyork-attorneys.html">New York, NY</a></li>
-            <li><a class="link" href="miami-attorneys.html">Miami, FL</a></li>
-            <li><a class="link" href="philadelphia-attorneys.html">Philadelphia, PA</a></li>
-            <li><a class="link" href="chicago-attorneys.html">Chicago, IL</a></li>
-          </ul>
-        </div>
-        <div>
-          <ul>
-            <li><a class="link" href="newark-attorneys.html">Newark, NJ</a></li>
-            <li><a class="link" href="boston-attorneys.html">Boston, MA</a></li>
-            <li><a class="link" href="washington-attorneys.html">Washington, DC</a></li>
-            <li><a class="link" href="orlando-attorneys.html">Orlando, FL</a></li>
-          </ul>
-        </div>
-      </div>
-      <p class="small">Don’t see your city? <a class="link" href="contact.html">Contact us</a> — more locations are coming.</p>
-    </section>
-
-    <section class="card">
-      <h2>How It Works</h2>
-      <ol>
-        <li>Pick your city above.</li>
-        <li>Tap <strong>Call</strong> to connect to a local, independent attorney.</li>
-        <li>Or tap <strong>Join</strong> to subscribe for member benefits.</li>
-      </ol>
-      <p class="small">We are not a law firm. We connect clients to independent, licensed attorneys. Calls may be recorded.</p>
-    </section>
-  </main>
-
-  <footer>
-    <nav>
-      <a class="link" href="legal-notices.html">Notices</a>
-      <a class="link" href="terms.html">Terms</a>
-      <a class="link" href="privacy.html">Privacy</a>
-      <a class="link" href="refunds.html">Refunds</a>
-      <a class="link" href="compliance-notices.html">Jurisdiction & Compliance</a>
-    </nav>
-    <p class="small">© Ultima Defensa Legal.</p>
-  </footer>
-
-  <script src="shared-udl.js"></script>
+  <p style="margin-top:16px"><a class="btn" href="es-clients.html#ciudades">Ver ciudades en Español</a></p>
+  <p style="margin-top:12px;font-size:.95rem;color:#333">Not a law firm; we connect clients with independent attorneys. Calls may be recorded.</p>
+</main>
+<footer style="padding:24px;color:#333">© Ultima Defensa Legal.</footer>
 </body>
 </html>
