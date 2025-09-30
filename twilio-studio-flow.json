@@ -1,0 +1,395 @@
+{
+  "description": "UDL Auto-Member Gate + City Routing (No Human Callback)",
+  "states": [
+    {
+      "name": "Trigger",
+      "type": "trigger",
+      "transitions": [
+        {
+          "event": "incomingCall",
+          "next": "PickCityByCalledNumber"
+        }
+      ],
+      "properties": {}
+    },
+    {
+      "name": "PickCityByCalledNumber",
+      "type": "split-based-on",
+      "transitions": [
+        { "event": "noMatch", "next": "SetVars_Default" },
+        { "event": "match", "conditions": ["{{trigger.call.To}} == \"+16468469664\""], "next": "SetVars_NYC" },
+        { "event": "match", "conditions": ["{{trigger.call.To}} == \"+17863212961\""], "next": "SetVars_Miami" },
+        { "event": "match", "conditions": ["{{trigger.call.To}} == \"+12153984866\""], "next": "SetVars_Philadelphia" },
+        { "event": "match", "conditions": ["{{trigger.call.To}} == \"+13127785885\""], "next": "SetVars_Chicago" },
+        { "event": "match", "conditions": ["{{trigger.call.To}} == \"+19737918619\""], "next": "SetVars_Newark" },
+        { "event": "match", "conditions": ["{{trigger.call.To}} == \"+16177659946\""], "next": "SetVars_Boston" },
+        { "event": "match", "conditions": ["{{trigger.call.To}} == \"+12029536694\""], "next": "SetVars_Washington" },
+        { "event": "match", "conditions": ["{{trigger.call.To}} == \"+13214150668\""], "next": "SetVars_Orlando" }
+      ],
+      "properties": {
+        "input": "{{trigger.call.To}}"
+      }
+    },
+
+    /* ---------- Per-City variable setters ---------- */
+    {
+      "name": "SetVars_NYC",
+      "type": "set-variables",
+      "transitions": [{ "event": "next", "next": "Welcome" }],
+      "properties": {
+        "variables": [
+          { "key": "CITY", "value": "New York" },
+          { "key": "SUBSCRIBE_URL_EN", "value": "https://ultimadefensalegal.com/subscribe.html" },
+          { "key": "SUBSCRIBE_URL_ES", "value": "https://ultimadefensalegal.com/es-subscribe.html" },
+          { "key": "SIP_TARGET", "value": "sip:nyc@attorneys.udl.sip.twilio.com" }
+        ]
+      }
+    },
+    {
+      "name": "SetVars_Miami",
+      "type": "set-variables",
+      "transitions": [{ "event": "next", "next": "Welcome" }],
+      "properties": {
+        "variables": [
+          { "key": "CITY", "value": "Miami" },
+          { "key": "SUBSCRIBE_URL_EN", "value": "https://ultimadefensalegal.com/subscribe.html" },
+          { "key": "SUBSCRIBE_URL_ES", "value": "https://ultimadefensalegal.com/es-subscribe.html" },
+          { "key": "SIP_TARGET", "value": "sip:miami@attorneys.udl.sip.twilio.com" }
+        ]
+      }
+    },
+    {
+      "name": "SetVars_Philadelphia",
+      "type": "set-variables",
+      "transitions": [{ "event": "next", "next": "Welcome" }],
+      "properties": {
+        "variables": [
+          { "key": "CITY", "value": "Philadelphia" },
+          { "key": "SUBSCRIBE_URL_EN", "value": "https://ultimadefensalegal.com/subscribe.html" },
+          { "key": "SUBSCRIBE_URL_ES", "value": "https://ultimadefensalegal.com/es-subscribe.html" },
+          { "key": "SIP_TARGET", "value": "sip:phl@attorneys.udl.sip.twilio.com" }
+        ]
+      }
+    },
+    {
+      "name": "SetVars_Chicago",
+      "type": "set-variables",
+      "transitions": [{ "event": "next", "next": "Welcome" }],
+      "properties": {
+        "variables": [
+          { "key": "CITY", "value": "Chicago" },
+          { "key": "SUBSCRIBE_URL_EN", "value": "https://ultimadefensalegal.com/subscribe.html" },
+          { "key": "SUBSCRIBE_URL_ES", "value": "https://ultimadefensalegal.com/es-subscribe.html" },
+          { "key": "SIP_TARGET", "value": "sip:chi@attorneys.udl.sip.twilio.com" }
+        ]
+      }
+    },
+    {
+      "name": "SetVars_Newark",
+      "type": "set-variables",
+      "transitions": [{ "event": "next", "next": "Welcome" }],
+      "properties": {
+        "variables": [
+          { "key": "CITY", "value": "Newark" },
+          { "key": "SUBSCRIBE_URL_EN", "value": "https://ultimadefensalegal.com/subscribe.html" },
+          { "key": "SUBSCRIBE_URL_ES", "value": "https://ultimadefensalegal.com/es-subscribe.html" },
+          { "key": "SIP_TARGET", "value": "sip:newark@attorneys.udl.sip.twilio.com" }
+        ]
+      }
+    },
+    {
+      "name": "SetVars_Boston",
+      "type": "set-variables",
+      "transitions": [{ "event": "next", "next": "Welcome" }],
+      "properties": {
+        "variables": [
+          { "key": "CITY", "value": "Boston" },
+          { "key": "SUBSCRIBE_URL_EN", "value": "https://ultimadefensalegal.com/subscribe.html" },
+          { "key": "SUBSCRIBE_URL_ES", "value": "https://ultimadefensalegal.com/es-subscribe.html" },
+          { "key": "SIP_TARGET", "value": "sip:bos@attorneys.udl.sip.twilio.com" }
+        ]
+      }
+    },
+    {
+      "name": "SetVars_Washington",
+      "type": "set-variables",
+      "transitions": [{ "event": "next", "next": "Welcome" }],
+      "properties": {
+        "variables": [
+          { "key": "CITY", "value": "Washington, DC" },
+          { "key": "SUBSCRIBE_URL_EN", "value": "https://ultimadefensalegal.com/subscribe.html" },
+          { "key": "SUBSCRIBE_URL_ES", "value": "https://ultimadefensalegal.com/es-subscribe.html" },
+          { "key": "SIP_TARGET", "value": "sip:dc@attorneys.udl.sip.twilio.com" }
+        ]
+      }
+    },
+    {
+      "name": "SetVars_Orlando",
+      "type": "set-variables",
+      "transitions": [{ "event": "next", "next": "Welcome" }],
+      "properties": {
+        "variables": [
+          { "key": "CITY", "value": "Orlando" },
+          { "key": "SUBSCRIBE_URL_EN", "value": "https://ultimadefensalegal.com/subscribe.html" },
+          { "key": "SUBSCRIBE_URL_ES", "value": "https://ultimadefensalegal.com/es-subscribe.html" },
+          { "key": "SIP_TARGET", "value": "sip:orl@attorneys.udl.sip.twilio.com" }
+        ]
+      }
+    },
+    {
+      "name": "SetVars_Default",
+      "type": "set-variables",
+      "transitions": [{ "event": "next", "next": "Welcome" }],
+      "properties": {
+        "variables": [
+          { "key": "CITY", "value": "Your City" },
+          { "key": "SUBSCRIBE_URL_EN", "value": "https://ultimadefensalegal.com/subscribe.html" },
+          { "key": "SUBSCRIBE_URL_ES", "value": "https://ultimadefensalegal.com/es-subscribe.html" },
+          { "key": "SIP_TARGET", "value": "sip:main@attorneys.udl.sip.twilio.com" }
+        ]
+      }
+    },
+
+    /* ---------- Welcome & choose membership ---------- */
+    {
+      "name": "Welcome",
+      "type": "say-play",
+      "transitions": [{ "event": "audioComplete", "next": "AskMember" }],
+      "properties": {
+        "voice": "Polly.Matthew-Neural",
+        "language": "en-US",
+        "loop": 1,
+        "say": "Welcome to Ultima Defensa Legal for {{flow.variables.CITY}}. If you are a current member, press 1. Para español, oprima 9. If you are not a member, press 2 and we will text you a subscribe link."
+      }
+    },
+    {
+      "name": "AskMember",
+      "type": "gather-input-on-call",
+      "transitions": [
+        { "event": "keypress", "conditions": ["1"], "next": "AskEmailSpeech" },
+        { "event": "keypress", "conditions": ["2"], "next": "SMS_Subscribe_EN" },
+        { "event": "keypress", "conditions": ["9"], "next": "Welcome_ES" },
+        { "event": "noInput", "next": "AskMember_Repeat" }
+      ],
+      "properties": {
+        "stop_gather": true,
+        "gather_language": "en-US",
+        "say": "Press 1 if you are a member. Press 2 if you are not a member. Para español, presione 9.",
+        "num_digits": 1,
+        "timeout": 5
+      }
+    },
+    {
+      "name": "AskMember_Repeat",
+      "type": "gather-input-on-call",
+      "transitions": [
+        { "event": "keypress", "conditions": ["1"], "next": "AskEmailSpeech" },
+        { "event": "keypress", "conditions": ["2"], "next": "SMS_Subscribe_EN" },
+        { "event": "keypress", "conditions": ["9"], "next": "Welcome_ES" },
+        { "event": "noInput", "next": "SMS_Subscribe_EN" }
+      ],
+      "properties": {
+        "stop_gather": true,
+        "gather_language": "en-US",
+        "say": "We didn't get that. Press 1 if you are a member. Press 2 if you are not a member. Para español, presione 9.",
+        "num_digits": 1,
+        "timeout": 5
+      }
+    },
+
+    /* ---------- Spanish branch welcome ---------- */
+    {
+      "name": "Welcome_ES",
+      "type": "say-play",
+      "transitions": [{ "event": "audioComplete", "next": "AskMember_ES" }],
+      "properties": {
+        "voice": "Polly.Lupe-Neural",
+        "language": "es-MX",
+        "loop": 1,
+        "say": "Bienvenido a Ultima Defensa Legal de {{flow.variables.CITY}}. Si ya es miembro, oprima 1. Si no es miembro, oprima 2 y le enviaremos un enlace para suscribirse."
+      }
+    },
+    {
+      "name": "AskMember_ES",
+      "type": "gather-input-on-call",
+      "transitions": [
+        { "event": "keypress", "conditions": ["1"], "next": "AskEmailSpeech_ES" },
+        { "event": "keypress", "conditions": ["2"], "next": "SMS_Subscribe_ES" },
+        { "event": "noInput", "next": "SMS_Subscribe_ES" }
+      ],
+      "properties": {
+        "stop_gather": true,
+        "gather_language": "es-MX",
+        "say": "Si ya es miembro, oprima 1. Si no es miembro, oprima 2.",
+        "num_digits": 1,
+        "timeout": 5
+      }
+    },
+
+    /* ---------- Capture email by speech ---------- */
+    {
+      "name": "AskEmailSpeech",
+      "type": "gather-input-on-call",
+      "transitions": [
+        { "event": "speech", "next": "NormalizeEmail" },
+        { "event": "noInput", "next": "SMS_Subscribe_EN" }
+      ],
+      "properties": {
+        "stop_gather": true,
+        "gather_language": "en-US",
+        "hints": "gmail, yahoo, outlook, dot, at, com, net, org",
+        "speech_timeout": "auto",
+        "say": "Please say your email address now, like john at gmail dot com."
+      }
+    },
+    {
+      "name": "AskEmailSpeech_ES",
+      "type": "gather-input-on-call",
+      "transitions": [
+        { "event": "speech", "next": "NormalizeEmail" },
+        { "event": "noInput", "next": "SMS_Subscribe_ES" }
+      ],
+      "properties": {
+        "stop_gather": true,
+        "gather_language": "es-MX",
+        "hints": "arroba, punto, gmail, hotmail, outlook, com, net, org",
+        "speech_timeout": "auto",
+        "say": "Diga su correo electrónico, por ejemplo: juan arroba gmail punto com."
+      }
+    },
+
+    /* ---------- Normalize email (function-less) ---------- */
+    {
+      "name": "NormalizeEmail",
+      "type": "set-variables",
+      "transitions": [{ "event": "next", "next": "AuthorizeHTTP" }],
+      "properties": {
+        "variables": [
+          {
+            "key": "EMAIL_RAW",
+            "value": "{{widgets.AskEmailSpeech.SpeechResult | default: widgets.AskEmailSpeech_ES.SpeechResult}}"
+          },
+          {
+            "key": "EMAIL",
+            "value": "{{widgets.AskEmailSpeech.SpeechResult | default: widgets.AskEmailSpeech_ES.SpeechResult | replace: ' at ', '@' | replace: ' arroba ', '@' | replace: ' dot ', '.' | replace: ' punto ', '.' | replace: ' ', '' | downcase }}"
+          }
+        ]
+      }
+    },
+
+    /* ---------- Authorize via your Netlify function ---------- */
+    {
+      "name": "AuthorizeHTTP",
+      "type": "http-request",
+      "transitions": [
+        { "event": "success", "next": "RouteOnAuth" },
+        { "event": "failed", "next": "SMS_Subscribe_EN" }
+      ],
+      "properties": {
+        "method": "POST",
+        "content_type": "application/json",
+        "url": "https://ultimadefensalegal.com/api/authorize",
+        "body": "{\"email\":\"{{flow.variables.EMAIL}}\"}",
+        "timeout": 10
+      }
+    },
+    {
+      "name": "RouteOnAuth",
+      "type": "split-based-on",
+      "transitions": [
+        { "event": "match", "conditions": ["{{widgets.AuthorizeHTTP.status_code}} == 200"], "next": "AskZip" },
+        { "event": "noMatch", "next": "SMS_Subscribe_EN" }
+      ],
+      "properties": {
+        "input": "{{widgets.AuthorizeHTTP.status_code}}"
+      }
+    },
+
+    /* ---------- Optional ZIP capture (DTMF) ---------- */
+    {
+      "name": "AskZip",
+      "type": "gather-input-on-call",
+      "transitions": [
+        { "event": "keypress", "next": "ConnectToAttorney" },
+        { "event": "noInput", "next": "ConnectToAttorney" }
+      ],
+      "properties": {
+        "stop_gather": true,
+        "say": "Please enter your 5 digit ZIP code now. If you don't know it, just wait.",
+        "num_digits": 5,
+        "timeout": 5
+      }
+    },
+
+    /* ---------- Connect to city SIP target (bot/queue) ---------- */
+    {
+      "name": "ConnectToAttorney",
+      "type": "connect-call-to",
+      "transitions": [
+        { "event": "callCompleted", "next": "Goodbye" },
+        { "event": "failedToConnect", "next": "Failover_SMS" }
+      ],
+      "properties": {
+        "caller_id": "{{trigger.call.To}}",
+        "noun": "sip",
+        "to": "{{flow.variables.SIP_TARGET}}",
+        "timeout": 25
+      }
+    },
+
+    /* ---------- SMS helpers ---------- */
+    {
+      "name": "SMS_Subscribe_EN",
+      "type": "send-and-wait-for-reply",
+      "transitions": [{ "event": "sent", "next": "Goodbye" }],
+      "properties": {
+        "service": "default",
+        "channel": "sms",
+        "from": "{{trigger.call.To}}",
+        "to": "{{trigger.call.From}}",
+        "body": "Join Ultima Defensa Legal to get immediate access: {{flow.variables.SUBSCRIBE_URL_EN}}"
+      }
+    },
+    {
+      "name": "SMS_Subscribe_ES",
+      "type": "send-and-wait-for-reply",
+      "transitions": [{ "event": "sent", "next": "Goodbye" }],
+      "properties": {
+        "service": "default",
+        "channel": "sms",
+        "from": "{{trigger.call.To}}",
+        "to": "{{trigger.call.From}}",
+        "body": "Únase a Ultima Defensa Legal para obtener acceso inmediato: {{flow.variables.SUBSCRIBE_URL_ES}}"
+      }
+    },
+    {
+      "name": "Failover_SMS",
+      "type": "send-and-wait-for-reply",
+      "transitions": [{ "event": "sent", "next": "Goodbye" }],
+      "properties": {
+        "service": "default",
+        "channel": "sms",
+        "from": "{{trigger.call.To}}",
+        "to": "{{trigger.call.From}}",
+        "body": "We could not complete your connection. Please try again shortly or use our directory: https://ultimadefensalegal.com/cities.html"
+      }
+    },
+
+    /* ---------- End ---------- */
+    {
+      "name": "Goodbye",
+      "type": "say-play",
+      "transitions": [{ "event": "audioComplete", "next": null }],
+      "properties": {
+        "voice": "Polly.Matthew-Neural",
+        "language": "en-US",
+        "say": "Thank you for calling Ultima Defensa Legal. Goodbye."
+      }
+    }
+  ],
+  "initial_state": "Trigger",
+  "flags": {
+    "allow_concurrent_calls": true
+  },
+  "version": 1
+}
