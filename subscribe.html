@@ -1,31 +1,69 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Subscribe | Ultima Defensa Legal</title>
-  <meta name="description" content="Start your membership to connect to local independent attorneys." />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link id="canonical-link" rel="canonical" href="" />
-  <link rel="stylesheet" href="/style.css" />
-  <script>(function(){var u=location.origin+location.pathname;var c=document.getElementById('canonical-link');if(c)c.href=u;})();</script>
+  <meta charset="utf-8">
+  <title>Join with PayPal | Ultima Defensa Legal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;color:#111}
+    header,main,footer{padding:16px}
+    h1{font-size:32px;margin:12px 0}
+    .panel{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff}
+    .small{color:#555}
+    footer nav a{margin-right:12px}
+  </style>
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&vault=true&intent=subscription&components=buttons"></script>
 </head>
 <body>
-<header class="udl-header">
-  <nav class="udl-topnav">
-    <a href="/" class="brand">Ultima Defensa Legal</a>
-    <div class="udl-lang-toggle" style="margin-left:auto;display:flex;gap:.5rem;">
-      <a class="toggle-en" data-lang="en" href="#">EN</a>
-      <a class="toggle-es" data-lang="es" href="#">ES</a>
-    </div>
-  </nav>
-</header>
+  <header>
+    <h1>Join with PayPal</h1>
+    <p class="small">Membership auto-renews until canceled. You can cancel anytime in PayPal or through our portal.</p>
+  </header>
 
-<main class="container">
-  <h1>Subscribe</h1>
-  <p>Place your checkout/embed here. After payment, you’ll receive a confirmation and can call your city number immediately.</p>
-</main>
+  <main class="panel">
+    <h2>Monthly Membership</h2>
+    <div id="paypal-monthly"></div>
+    <hr>
+    <h2>Annual Membership (Optional)</h2>
+    <div id="paypal-annual"></div>
+    <p class="small">After a successful payment, you’ll be redirected to a confirmation screen.</p>
+  </main>
 
-<footer class="udl-footer"><p class="small">© Ultima Defensa Legal.</p></footer>
-<script src="/shared-udl.js"></script>
+  <footer>
+    <nav>
+      <a href="legal-notices.html">Notices</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="refunds.html">Refunds</a>
+      <a href="compliance-notices.html">Jurisdiction & Compliance</a>
+    </nav>
+    <p class="small">© Ultima Defensa Legal.</p>
+  </footer>
+
+  <script>
+    // Monthly
+    paypal.Buttons({
+      style:{shape:'pill',label:'subscribe'},
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({ plan_id: 'YOUR_MONTHLY_PLAN_ID' });
+      },
+      onApprove: function(data, actions) {
+        window.location.href = 'thank-you.html?sub_id=' + encodeURIComponent(data.subscriptionID);
+      }
+    }).render('#paypal-monthly');
+
+    // Annual (optional)
+    paypal.Buttons({
+      style:{shape:'pill',label:'subscribe'},
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({ plan_id: 'YOUR_ANNUAL_PLAN_ID' });
+      },
+      onApprove: function(data, actions) {
+        window.location.href = 'thank-you.html?sub_id=' + encodeURIComponent(data.subscriptionID);
+      }
+    }).render('#paypal-annual');
+  </script>
+
+  <script src="shared-udl.js"></script>
 </body>
 </html>
