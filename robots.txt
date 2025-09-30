@@ -1,9 +1,4 @@
 User-agent: *
-Allow: /
-
-# Block admin/internal
-Disallow: /admin/
-Disallow: /api/
-Disallow: /private/
+Disallow:
 
 Sitemap: https://ultimadefensalegal.com/sitemap.xml
