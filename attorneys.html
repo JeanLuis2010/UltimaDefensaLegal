@@ -1,43 +1,71 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Cities We Serve | Ultima Defensa Legal</title>
-  <meta name="description" content="Call your city's local number to connect to an independent attorney." />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link id="canonical-link" rel="canonical" href="" />
-  <link rel="stylesheet" href="/style.css" />
-  <script>(function(){var u=location.origin+location.pathname;var c=document.getElementById('canonical-link');if(c)c.href=u;})();</script>
+  <meta charset="utf-8">
+  <title>For Attorneys | Ultima Defensa Legal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;color:#111}
+    header,main,footer{padding:16px}
+    h1{font-size:34px;line-height:1.2;margin:12px 0}
+    .lead{color:#333;margin:8px 0 16px}
+    .grid{display:grid;gap:10px}
+    @media(min-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+    .card{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff}
+    .btn{display:inline-block;margin:6px 8px 6px 0;padding:12px 16px;border-radius:12px;background:#0f1a2b;color:#fff;text-decoration:none;font-weight:700}
+    .link{color:#0b3ea8;text-decoration:none}
+    .small{color:#555}
+    footer nav a{margin-right:12px}
+  </style>
 </head>
 <body>
-<header class="udl-header">
-  <nav class="udl-topnav">
-    <a href="/" class="brand">Ultima Defensa Legal</a>
-    <div class="udl-lang-toggle" style="margin-left:auto;display:flex;gap:.5rem;">
-      <a class="toggle-en" data-lang="en" href="#" aria-label="Switch to English">EN</a>
-      <a class="toggle-es" data-lang="es" href="#" aria-label="Cambiar a español">ES</a>
-    </div>
-  </nav>
-</header>
+  <header>
+    <h1>For Attorneys</h1>
+    <p class="lead">Join our local network, receive routed calls, and serve bilingual clients.</p>
+    <p><a class="link" href="clients.html">Looking for legal help? Clients go here »</a></p>
+  </header>
 
-<main class="container">
-  <h1>Cities We Serve</h1>
-  <ul class="city-grid">
-    <li><a href="/newyork-attorneys.html">New York, NY</a></li>
-    <li><a href="/miami-attorneys.html">Miami, FL</a></li>
-    <li><a href="/philadelphia-attorney.html">Philadelphia, PA</a></li>
-    <li><a href="/chicago-attorneys.html">Chicago, IL</a></li>
-    <li><a href="/newark-attorneys.html">Newark, NJ</a></li>
-    <li><a href="/boston-attorneys.html">Boston, MA</a></li>
-    <li><a href="/washington-attorneys.html">Washington, DC</a></li>
-    <li><a href="/orlando-attorneys.html">Orlando, FL</a></li>
-  </ul>
-</main>
+  <main class="grid">
+    <section class="card">
+      <h2>Join & Setup</h2>
+      <p><a class="btn" href="attorney-signup.html">Apply Now</a>
+         <a class="link" href="attorney-onboarding-checklist.html">Onboarding Checklist</a></p>
+      <p class="small">We verify license status and practice areas before activation.</p>
+    </section>
 
-<footer class="udl-footer">
-  <p class="small">© Ultima Defensa Legal.</p>
-</footer>
+    <section class="card">
+      <h2>Rates & Discounts</h2>
+      <p><a class="link" href="attorney-pricing.html">Attorney Pricing</a> •
+         <a class="link" href="discounts/index.html">Discount Programs</a></p>
+    </section>
 
-<script src="/shared-udl.js"></script>
+    <section class="card">
+      <h2>Agreements & Notices</h2>
+      <ul>
+        <li><a class="link" href="attorney-agreement.html">Attorney Participation Agreement</a></li>
+        <li><a class="link" href="attorney-terms.html">Attorney Terms</a></li>
+        <li><a class="link" href="call-recording-notice.html">Call Recording Notice</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Call Center & Routing</h2>
+      <p><a class="link" href="attorney-call-center.html">How calls are routed</a></p>
+      <p class="small">Your local Twilio number maps to your metro; overflow is handled in Studio with queueing, voicemail-to-text, and SMS fallback.</p>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <a class="link" href="legal-notices.html">Notices</a>
+      <a class="link" href="terms.html">Terms</a>
+      <a class="link" href="privacy.html">Privacy</a>
+      <a class="link" href="refunds.html">Refunds</a>
+      <a class="link" href="compliance-notices.html">Jurisdiction & Compliance</a>
+    </nav>
+    <p class="small">© Ultima Defensa Legal.</p>
+  </footer>
+
+  <script src="shared-udl.js"></script>
 </body>
 </html>
