@@ -5,65 +5,67 @@
   <title>Join with PayPal | Ultima Defensa Legal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;color:#111}
-    header,main,footer{padding:16px}
-    h1{font-size:32px;margin:12px 0}
-    .panel{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff}
-    .small{color:#555}
-    footer nav a{margin-right:12px}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;margin:0;color:#111}
+    header,main,footer{padding:16px} h1{font-size:32px;margin:12px 0}
+    .panel{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff;max-width:720px}
+    .small{color:#555} .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:#e8effa;border:1px solid #b7c7e6;font-weight:700}
   </style>
+  <script src="/shared-auth.js"></script>
+  <script src="/shared-udl.js" defer></script>
   <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&vault=true&intent=subscription&components=buttons"></script>
 </head>
 <body>
-  <header>
-    <h1>Join with PayPal</h1>
-    <p class="small">Membership auto-renews until canceled. You can cancel anytime in PayPal or through our portal.</p>
-  </header>
+<header><h1>Become a Member</h1></header>
+<main>
+  <div class="panel">
+    <p><strong>Membership is required</strong> to access local city phone numbers and get routed to an attorney.</p>
+    <ul>
+      <li>Fast connection to independent local attorneys</li>
+      <li>Bilingual support (EN/ES)</li>
+      <li>Cancel anytime in PayPal</li>
+    </ul>
 
-  <main class="panel">
     <h2>Monthly Membership</h2>
     <div id="paypal-monthly"></div>
     <hr>
     <h2>Annual Membership (Optional)</h2>
     <div id="paypal-annual"></div>
-    <p class="small">After a successful payment, you’ll be redirected to a confirmation screen.</p>
-  </main>
 
-  <footer>
-    <nav>
-      <a href="legal-notices.html">Notices</a>
-      <a href="terms.html">Terms</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="refunds.html">Refunds</a>
-      <a href="compliance-notices.html">Jurisdiction & Compliance</a>
-    </nav>
-    <p class="small">© Ultima Defensa Legal.</p>
-  </footer>
+    <p class="small" style="margin-top:12px">After approval you’ll be redirected and the site will unlock the city numbers automatically.</p>
+    <p class="small"><a class="btn" href="clients.html#ciudades" onclick="UDLAUTH.requireMember('subscribe.html');return UDLAUTH.isMember();">Already a member? View city numbers</a></p>
+  </div>
+</main>
+<footer>
+  <p class="small">
+    <a href="legal-notices.html">Notices</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> ·
+    <a href="refunds.html">Refunds</a> · <a href="compliance-notices.html">Jurisdiction</a>
+  </p>
+</footer>
 
-  <script>
-    // Monthly
-    paypal.Buttons({
-      style:{shape:'pill',label:'subscribe'},
-      createSubscription: function(data, actions) {
-        return actions.subscription.create({ plan_id: 'YOUR_MONTHLY_PLAN_ID' });
-      },
-      onApprove: function(data, actions) {
-        window.location.href = 'thank-you.html?sub_id=' + encodeURIComponent(data.subscriptionID);
-      }
-    }).render('#paypal-monthly');
+<script>
+  // Fill with your PayPal plan IDs
+  const MONTHLY_PLAN_ID = 'YOUR_MONTHLY_PLAN_ID';
+  const ANNUAL_PLAN_ID  = 'YOUR_ANNUAL_PLAN_ID';
 
-    // Annual (optional)
-    paypal.Buttons({
-      style:{shape:'pill',label:'subscribe'},
-      createSubscription: function(data, actions) {
-        return actions.subscription.create({ plan_id: 'YOUR_ANNUAL_PLAN_ID' });
-      },
-      onApprove: function(data, actions) {
-        window.location.href = 'thank-you.html?sub_id=' + encodeURIComponent(data.subscriptionID);
-      }
-    }).render('#paypal-annual');
-  </script>
+  function onApproved(subscriptionID) {
+    try { UDLAUTH.setMember(true); } catch(_) {}
+    // If they arrived here from a protected page, send them back; else send to city list
+    const params = new URLSearchParams(location.search);
+    const back = params.get('back');
+    location.href = back ? decodeURIComponent(back) : 'clients.html#ciudades';
+  }
 
-  <script src="shared-udl.js"></script>
+  paypal.Buttons({
+    style:{shape:'pill',label:'subscribe'},
+    createSubscription:(d,a)=>a.subscription.create({ plan_id: MONTHLY_PLAN_ID }),
+    onApprove:(d,a)=>onApproved(d.subscriptionID)
+  }).render('#paypal-monthly');
+
+  paypal.Buttons({
+    style:{shape:'pill',label:'subscribe'},
+    createSubscription:(d,a)=>a.subscription.create({ plan_id: ANNUAL_PLAN_ID }),
+    onApprove:(d,a)=>onApproved(d.subscriptionID)
+  }).render('#paypal-annual');
+</script>
 </body>
 </html>
