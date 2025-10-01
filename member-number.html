@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Your Local Number | Ultima Defensa Legal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;color:#111}
+    header,main,footer{padding:16px}
+    .wrap{max-width:720px;margin:0 auto}
+    .card{border:1px solid #e5e7eb;border-radius:12px;padding:16px;background:#fff}
+    .big{font-size:24px;font-weight:800}
+    .muted{color:#555}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:#0f1a2b;color:#fff;border:0;font-weight:700;text-decoration:none}
+  </style>
+  <script src="/shared-auth.js"></script>
+  <script src="/shared-udl.js" defer></script>
+</head>
+<body>
+<header class="wrap"><h1>Your Member Number & Local Line</h1></header>
+<main class="wrap">
+  <div id="panel" class="card">Loading…</div>
+</main>
+<footer class="wrap muted">© Ultima Defensa Legal</footer>
+
+<script>
+UDLAUTH.requireToken('subscribe.html');
+
+(async function(){
+  const res = await fetch('/.netlify/functions/members-me', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ token: UDLAUTH.token(), member_id: UDLAUTH.memberId() })
+  });
+  if(!res.ok){ document.getElementById('panel').textContent='Please sign in again.'; UDLAUTH.clear(); return; }
+  const m = await res.json();
+  document.getElementById('panel').innerHTML = `
+    <p class="muted">Member ID</p>
+    <p class="big">${m.member_id}</p>
+    <p class="muted">Assigned Metro</p>
+    <p><strong>${m.metro_name}</strong> (${m.city}, ${m.state})</p>
+    <hr>
+    <p>Your local line:</p>
+    <p class="big"><a class="btn" href="tel:${m.metro_number}">${m.display_number}</a></p>
+    <p class="muted">Calls from your registered mobile (${m.phone_mobile_masked}) connect fastest. New phones may require an SMS code.</p>
+  `;
+})();
+</script>
+</body>
+</html>
