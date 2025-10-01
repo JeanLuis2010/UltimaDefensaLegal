@@ -2,70 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Join with PayPal | Ultima Defensa Legal</title>
+  <title>Become a Member | Ultima Defensa Legal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;margin:0;color:#111}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;color:#111}
     header,main,footer{padding:16px} h1{font-size:32px;margin:12px 0}
-    .panel{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff;max-width:720px}
-    .small{color:#555} .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:#e8effa;border:1px solid #b7c7e6;font-weight:700}
+    .wrap{max-width:820px;margin:0 auto}
+    .card{border:1px solid #e5e7eb;border-radius:12px;padding:16px;background:#fff;margin-bottom:16px}
+    label{display:block;font-weight:700;margin-top:10px}
+    input,select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:10px;margin-top:6px}
+    .row{display:grid;gap:10px}@media(min-width:720px){.row{grid-template-columns:1fr 1fr}}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:#0f1a2b;color:#fff;border:0;font-weight:700;cursor:pointer}
+    .muted{color:#555}
   </style>
   <script src="/shared-auth.js"></script>
   <script src="/shared-udl.js" defer></script>
   <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&vault=true&intent=subscription&components=buttons"></script>
 </head>
 <body>
-<header><h1>Become a Member</h1></header>
-<main>
-  <div class="panel">
-    <p><strong>Membership is required</strong> to access local city phone numbers and get routed to an attorney.</p>
-    <ul>
-      <li>Fast connection to independent local attorneys</li>
-      <li>Bilingual support (EN/ES)</li>
+<header class="wrap"><h1>Become a Member</h1></header>
+<main class="wrap">
+  <div class="card">
+    <p><strong>Membership is required</strong> to be routed to a local, independent attorney. Calls may be recorded.</p>
+    <ul class="muted">
+      <li>Fast bilingual routing (EN/ES)</li>
+      <li>Local attorney in your metro</li>
       <li>Cancel anytime in PayPal</li>
     </ul>
+  </div>
 
-    <h2>Monthly Membership</h2>
+  <!-- Intake form (creates pending member + member_id) -->
+  <form id="udl-form" class="card">
+    <h2>Your Details</h2>
+    <div class="row">
+      <div><label>First name<input name="first_name" required></label></div>
+      <div><label>Last name<input name="last_name" required></label></div>
+    </div>
+    <div class="row">
+      <div><label>Mobile (for verification & routing)<input name="phone_mobile" placeholder="+1XXXXXXXXXX" required></label></div>
+      <div><label>Email<input type="email" name="email" required></label></div>
+    </div>
+    <div class="row">
+      <div><label>ZIP code<input name="zip" pattern="\\d{5}" required></label></div>
+      <div><label>Preferred language<select name="lang"><option value="en">English</option><option value="es">Español</option></select></label></div>
+    </div>
+    <div class="row">
+      <div><label>Primary legal need<select name="need">
+        <option>Immigration</option><option>Criminal</option><option>Family</option>
+        <option>Employment</option><option>Accidents</option><option>Landlord-Tenant</option><option>Other</option>
+      </select></label></div>
+      <div><label>Referral source<select name="ref">
+        <option>Friend/Family</option><option>Community Org</option><option>Social Media</option><option>Attorney</option><option>Other</option>
+      </select></label></div>
+    </div>
+    <label><input type="checkbox" required> I agree to the <a href="terms.html">Terms</a>, <a href="privacy.html">Privacy</a>, and <a href="call-recording-notice.html">Call Recording</a>.</label>
+    <button class="btn" type="submit">Continue</button>
+    <p id="udl-msg" class="muted"></p>
+  </form>
+
+  <div id="paypal-wrap" class="card" style="display:none">
+    <h2>Pay with PayPal</h2>
     <div id="paypal-monthly"></div>
     <hr>
-    <h2>Annual Membership (Optional)</h2>
     <div id="paypal-annual"></div>
-
-    <p class="small" style="margin-top:12px">After approval you’ll be redirected and the site will unlock the city numbers automatically.</p>
-    <p class="small"><a class="btn" href="clients.html#ciudades" onclick="UDLAUTH.requireMember('subscribe.html');return UDLAUTH.isMember();">Already a member? View city numbers</a></p>
+    <p class="muted">After approval you’ll be taken to your member number page (with your single local number).</p>
   </div>
 </main>
-<footer>
-  <p class="small">
-    <a href="legal-notices.html">Notices</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> ·
-    <a href="refunds.html">Refunds</a> · <a href="compliance-notices.html">Jurisdiction</a>
-  </p>
+<footer class="wrap muted">
+  <a href="legal-notices.html">Notices</a> · <a href="refunds.html">Refunds</a> · <a href="compliance-notices.html">Jurisdiction</a>
 </footer>
 
 <script>
-  // Fill with your PayPal plan IDs
-  const MONTHLY_PLAN_ID = 'YOUR_MONTHLY_PLAN_ID';
-  const ANNUAL_PLAN_ID  = 'YOUR_ANNUAL_PLAN_ID';
+const MONTHLY_PLAN_ID='YOUR_MONTHLY_PLAN_ID';
+const ANNUAL_PLAN_ID='YOUR_ANNUAL_PLAN_ID';
+let serverToken=null, memberId=null;
 
-  function onApproved(subscriptionID) {
-    try { UDLAUTH.setMember(true); } catch(_) {}
-    // If they arrived here from a protected page, send them back; else send to city list
-    const params = new URLSearchParams(location.search);
-    const back = params.get('back');
-    location.href = back ? decodeURIComponent(back) : 'clients.html#ciudades';
-  }
-
+document.getElementById('udl-form').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const payload = Object.fromEntries(f.entries());
+  document.getElementById('udl-msg').textContent = 'Saving…';
+  const res = await fetch('/.netlify/functions/members-create', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(payload)
+  });
+  if(!res.ok){ document.getElementById('udl-msg').textContent='Could not save. Please try again.'; return; }
+  const data = await res.json();
+  serverToken = data.token; memberId = data.member_id;
+  UDLAUTH.save(serverToken, memberId);
+  document.getElementById('udl-msg').textContent = 'Saved. Continue with payment below.';
+  document.getElementById('paypal-wrap').style.display='block';
+  // Render PayPal
   paypal.Buttons({
     style:{shape:'pill',label:'subscribe'},
     createSubscription:(d,a)=>a.subscription.create({ plan_id: MONTHLY_PLAN_ID }),
     onApprove:(d,a)=>onApproved(d.subscriptionID)
   }).render('#paypal-monthly');
-
   paypal.Buttons({
     style:{shape:'pill',label:'subscribe'},
     createSubscription:(d,a)=>a.subscription.create({ plan_id: ANNUAL_PLAN_ID }),
     onApprove:(d,a)=>onApproved(d.subscriptionID)
   }).render('#paypal-annual');
+});
+
+async function onApproved(subId){
+  try{
+    await fetch('/.netlify/functions/paypal-webhook?manual=1', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ token: UDLAUTH.token(), member_id: UDLAUTH.memberId(), paypal_sub_id: subId })
+    });
+  }catch(_){}
+  const back = new URLSearchParams(location.search).get('back');
+  location.href = back ? decodeURIComponent(back) : 'member-number.html';
+}
 </script>
 </body>
 </html>
