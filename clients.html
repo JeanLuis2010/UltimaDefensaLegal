@@ -3,22 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Clients — Find Your City | Ultima Defensa Legal</title>
-  <meta name="description" content="Pick your city and call your local number to connect to an independent attorney." />
-  <link rel="stylesheet" href="style.css" />
-  <script src="/shared-udl.js" defer></script>
+  <title>Members — City Numbers | Ultima Defensa Legal</title>
+  <meta name="description" content="Members-only city list with local numbers to connect to an independent attorney." />
   <style>
     .wrap{max-width:980px;margin:0 auto;padding:24px}
     .city{padding:12px 0;border-bottom:1px solid #eee}
     .city a.btn{margin-left:8px}
     .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:#e8effa;border:1px solid #b7c7e6;font-weight:700}
+    .meta{font-size:.92rem;color:#444}
   </style>
+  <script src="/shared-auth.js"></script>
+  <script>
+    // Guard this page
+    document.addEventListener('DOMContentLoaded',function(){
+      UDLAUTH.requireMember('subscribe.html');
+    });
+  </script>
+  <script src="/shared-udl.js" defer></script>
 </head>
 <body>
 <header style="background:#0f1a2b;color:#fff;padding:12px 16px"><strong>Ultima Defensa Legal</strong></header>
 <main class="wrap">
-  <h1>Clients — Find Your City</h1>
-  <p>Tap your city and call the local number. We’ll connect you to an independent attorney fast.</p>
+  <h1>Member Access — City Numbers</h1>
+  <p class="meta">Call from your city to be routed to an independent attorney. Bilingual support.</p>
 
   <section id="ciudades">
     <div class="city"><strong>New York, NY</strong>
@@ -55,8 +62,7 @@
     </div>
   </section>
 
-  <p style="margin-top:16px"><a class="btn" href="es-clients.html#ciudades">Ver ciudades en Español</a></p>
-  <p style="margin-top:12px;font-size:.95rem;color:#333">Not a law firm; we connect clients with independent attorneys. Calls may be recorded.</p>
+  <p style="margin-top:16px"><a class="btn" href="javascript:UDLAUTH.clear();location.href='subscribe.html'">Not a member? Join first</a></p>
 </main>
 <footer style="padding:24px;color:#333">© Ultima Defensa Legal.</footer>
 </body>
