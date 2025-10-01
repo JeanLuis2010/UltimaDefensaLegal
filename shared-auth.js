@@ -1,40 +1,23 @@
-// shared-auth.js — keep this in the site root and include on pages below.
+// shared-auth.js — simple membership/session helper
 (function () {
-  const KEY = 'udl_member_v1';
-  const DAYS = 400; // long-lived, you can shorten later
+  const CK = 'udl_member_token';
+  const ID = 'udl_member_id';
+  const DAYS = 400;
 
-  function setCookie(name, value, days) {
-    const d = new Date();
-    d.setTime(d.getTime() + (days*24*60*60*1000));
-    document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + d.toUTCString() + ";path=/;SameSite=Lax";
-  }
-  function getCookie(name) {
-    const m = document.cookie.match(new RegExp('(^| )'+name+'=([^;]+)'));
-    return m ? decodeURIComponent(m[2]) : null;
-  }
+  function setCookie(n,v,days){const d=new Date();d.setTime(d.getTime()+days*864e5);document.cookie=`${n}=${encodeURIComponent(v)};expires=${d.toUTCString()};path=/;SameSite=Lax`}
+  function getCookie(n){const m=document.cookie.match(new RegExp('(^| )'+n+'=([^;]+)'));return m?decodeURIComponent(m[2]):null;}
 
-  // Expose a tiny API
   window.UDLAUTH = {
-    isMember() {
-      try {
-        const ls = localStorage.getItem(KEY);
-        if (ls === 'true') return true;
-      } catch (_) {}
-      const ck = getCookie(KEY);
-      return ck === 'true';
-    },
-    setMember(active) {
-      const v = active ? 'true' : 'false';
-      try { localStorage.setItem(KEY, v); } catch(_) {}
-      setCookie(KEY, v, DAYS);
-    },
-    requireMember(redirectTo='subscribe.html') {
-      if (!this.isMember()) {
-        // Preserve where they tried to go
-        const back = encodeURIComponent(location.pathname + location.search + location.hash);
-        location.href = redirectTo + '?back=' + back;
-      }
-    },
-    clear() { this.setMember(false); }
+    save(token, memberId){ try{localStorage.setItem(CK,token);localStorage.setItem(ID,memberId);}catch(_){}
+      setCookie(CK,token,DAYS); setCookie(ID,memberId,DAYS); },
+    token(){ try{const v=localStorage.getItem(CK); if(v) return v;}catch(_){}
+      return getCookie(CK); },
+    memberId(){ try{const v=localStorage.getItem(ID); if(v) return v;}catch(_){}
+      return getCookie(ID); },
+    clear(){ this.save('', ''); },
+    requireToken(redirect='subscribe.html'){
+      if(!this.token()){ const back=encodeURIComponent(location.pathname+location.search+location.hash);
+        location.href = `${redirect}?back=${back}`; }
+    }
   };
 })();
