@@ -5,59 +5,65 @@
   <title>ES | Unirme con PayPal | Ultima Defensa Legal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;color:#111;background:#fff}
-    header,main,footer{padding:16px}
-    h1{font-size:32px;margin:12px 0}
-    .panel{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff}
-    .small{color:#555}
-    footer nav a{margin-right:12px}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;margin:0;color:#111}
+    header,main,footer{padding:16px} h1{font-size:32px;margin:12px 0}
+    .panel{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff;max-width:720px}
+    .small{color:#555} .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:#e8effa;border:1px solid #b7c7e6;font-weight:700}
   </style>
+  <script src="/shared-auth.js"></script>
+  <script src="/shared-udl.js" defer></script>
   <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&vault=true&intent=subscription&components=buttons"></script>
 </head>
 <body>
-  <header>
-    <h1>Unirme con PayPal</h1>
-    <p class="small">La membresía se renueva automáticamente hasta cancelarse. Puede cancelar en PayPal o mediante nuestro portal.</p>
-  </header>
+<header><h1>Hágase Miembro</h1></header>
+<main>
+  <div class="panel">
+    <p><strong>La membresía es obligatoria</strong> para acceder a los números locales por ciudad y ser conectado con un abogado.</p>
+    <ul>
+      <li>Conexión rápida con abogados locales independientes</li>
+      <li>Soporte bilingüe (ES/EN)</li>
+      <li>Cancele en cualquier momento en PayPal</li>
+    </ul>
 
-  <main class="panel">
     <h2>Membresía Mensual</h2>
     <div id="paypal-mensual"></div>
     <hr>
     <h2>Membresía Anual (Opcional)</h2>
     <div id="paypal-anual"></div>
-    <p class="small">Tras el pago exitoso, será dirigido a una pantalla de confirmación.</p>
-  </main>
 
-  <footer>
-    <nav>
-      <a href="es-legal-notices.html">Avisos</a>
-      <a href="es-terms.html">Términos</a>
-      <a href="es-privacy.html">Privacidad</a>
-      <a href="es-refunds.html">Reembolsos</a>
-      <a href="es-compliance-notices.html">Jurisdicción y Cumplimiento</a>
-    </nav>
-    <p class="small">© Ultima Defensa Legal.</p>
-  </footer>
+    <p class="small" style="margin-top:12px">Tras la aprobación, será dirigido y el sitio desbloqueará los números de ciudad automáticamente.</p>
+    <p class="small"><a class="btn" href="es-clients.html#ciudades" onclick="UDLAUTH.requireMember('es-subscribe.html');return UDLAUTH.isMember();">¿Ya es miembro? Ver ciudades</a></p>
+  </div>
+</main>
+<footer>
+  <p class="small">
+    <a href="es-legal-notices.html">Avisos</a> · <a href="es-terms.html">Términos</a> · <a href="es-privacy.html">Privacidad</a> ·
+    <a href="es-refunds.html">Reembolsos</a> · <a href="es-compliance-notices.html">Jurisdicción</a>
+  </p>
+</footer>
 
-  <script>
-    // Sustituya con sus IDs reales
-    const MONTHLY_PLAN_ID = 'YOUR_MONTHLY_PLAN_ID';
-    const ANNUAL_PLAN_ID  = 'YOUR_ANNUAL_PLAN_ID';
+<script>
+  const MONTHLY_PLAN_ID = 'YOUR_MONTHLY_PLAN_ID';
+  const ANNUAL_PLAN_ID  = 'YOUR_ANNUAL_PLAN_ID';
 
-    paypal.Buttons({
-      style:{shape:'pill',label:'subscribe'},
-      createSubscription:(d,a)=>a.subscription.create({ plan_id: MONTHLY_PLAN_ID }),
-      onApprove:(d,a)=>{ location.href='thank-you.html?sub_id='+encodeURIComponent(d.subscriptionID); }
-    }).render('#paypal-mensual');
+  function onApproved(id){
+    try { UDLAUTH.setMember(true); } catch(_) {}
+    const params = new URLSearchParams(location.search);
+    const back = params.get('back');
+    location.href = back ? decodeURIComponent(back) : 'es-clients.html#ciudades';
+  }
 
-    paypal.Buttons({
-      style:{shape:'pill',label:'subscribe'},
-      createSubscription:(d,a)=>a.subscription.create({ plan_id: ANNUAL_PLAN_ID }),
-      onApprove:(d,a)=>{ location.href='thank-you.html?sub_id='+encodeURIComponent(d.subscriptionID); }
-    }).render('#paypal-anual');
-  </script>
+  paypal.Buttons({
+    style:{shape:'pill',label:'subscribe'},
+    createSubscription:(d,a)=>a.subscription.create({ plan_id: MONTHLY_PLAN_ID }),
+    onApprove:(d,a)=>onApproved(d.subscriptionID)
+  }).render('#paypal-mensual');
 
-  <script src="shared-udl.js"></script>
+  paypal.Buttons({
+    style:{shape:'pill',label:'subscribe'},
+    createSubscription:(d,a)=>a.subscription.create({ plan_id: ANNUAL_PLAN_ID }),
+    onApprove:(d,a)=>onApproved(d.subscriptionID)
+  }).render('#paypal-anual');
+</script>
 </body>
 </html>
