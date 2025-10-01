@@ -1,0 +1,84 @@
+<form id="memberForm" action="/thank-you.html" method="post" novalidate>
+  <!-- Same fields as Option A -->
+  <label>Full name
+    <input name="fullName" required placeholder="Jane Test">
+  </label>
+
+  <label>Email
+    <input name="email" type="email" required placeholder="you@example.com">
+  </label>
+
+  <label>ZIP
+    <input name="zip" inputmode="numeric" pattern="^\d{5}(-\d{4})?$" required placeholder="e.g., 10001">
+  </label>
+
+  <label><input type="checkbox" name="agree" required> I agree to the terms</label>
+
+  <button type="submit" id="continueBtn">Continue</button>
+  <div id="paypal-container" style="margin-top:1rem; display:none;"></div>
+
+  <p id="formError" style="display:none;color:#b00020;margin-top:.5rem" aria-live="polite"></p>
+</form>
+
+<script>
+(function(){
+  const form = document.getElementById('memberForm');
+  const err  = document.getElementById('formError');
+  const btn  = document.getElementById('continueBtn');
+  const paypalBox = document.getElementById('paypal-container');
+
+  form.addEventListener('submit', async function(e){
+    err.style.display = 'none';
+    err.textContent = '';
+
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      err.textContent = 'Please complete all required fields (ZIP like 10001).';
+      err.style.display = 'block';
+      return;
+    }
+
+    // TODAY: let the native submit go through
+    // (no e.preventDefault() so it posts to /thank-you.html)
+    btn.disabled = true;
+    btn.textContent = 'Please wait…';
+
+    /*
+    // WHEN READY FOR PAYPAL:
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Loading PayPal…';
+
+    // 1) Ensure the PayPal SDK script is present in <head> with your client-id:
+    // <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+
+    // 2) Create an order on your server and return an orderID (recommended best practice)
+    const resp = await fetch('/api/create-order', {
+      method: 'POST',
+      body: new FormData(form)
+    });
+    const { orderID } = await resp.json();
+
+    // 3) Render PayPal buttons (same tab)
+    paypalBox.style.display = 'block';
+    paypal.Buttons({
+      createOrder: () => orderID,
+      onApprove: async (data, actions) => {
+        await fetch('/api/capture-order', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ orderID: data.orderID })
+        });
+        window.location.href = '/thank-you.html';
+      },
+      onError: (errMsg) => {
+        err.textContent = 'Payment error. Please try again.';
+        err.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Continue';
+      }
+    }).render('#paypal-container');
+    */
+  });
+})();
+</script>
