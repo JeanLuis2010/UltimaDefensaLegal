@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>¡Gracias! | Ultima Defensa Legal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/shared-auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      UDLAUTH.setMember(true);
+      const params = new URLSearchParams(location.search);
+      const back = params.get('back');
+      setTimeout(()=>{ location.href = back ? decodeURIComponent(back) : 'es-clients.html#ciudades'; }, 300);
+    });
+  </script>
+</head>
+<body>
+  <p>¡Gracias! Activando su membresía y redirigiendo…</p>
+</body>
+</html>
